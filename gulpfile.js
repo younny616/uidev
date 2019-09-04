@@ -1,15 +1,8 @@
 'use strict';
 
-const beautifyOptions = {
-  indent_size: 2,
-  extra_liners: ' ',
-  indent_inner_html: false,
-}
-
-const { dirs, paths } = require('./gulppath.js');
-const del = require('del');
-const glob = require('glob');
-const gulp = require('gulp');
+const { paths } = require('./gulppath.js');
+const { prettifyOptions } = require('./prettify.js');
+const { src, dest, watch, series, parallel, lastRun } = require('gulp');
 const pug = require('gulp-pug');
 const fileinclude = require('gulp-file-include');
 const prettify = require('gulp-prettify');
@@ -17,23 +10,21 @@ const mode = require('gulp-mode')();
 const sass = require('gulp-sass');
 const cssnano = require('gulp-cssnano');
 const rename = require('gulp-rename');
-const concat = require('gulp-concat');
 const autoprefixer = require('gulp-autoprefixer');
 const sourcemaps = require('gulp-sourcemaps');
-const babel = require('gulp-babel');
 const imagemin = require('gulp-imagemin');
 const minify = require('gulp-minify');
-const uglify= require('gulp-uglify');
-const runSequence = require('run-sequence');
 const browserSync = require('browser-sync').create();
 const browserify = require('browserify');
 const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
+const del = require('del');
+const glob = require('glob');
 
 /**
  * Handle browser Sync
  */
-const live = () => {
+const live = (done) => {
   browserSync.init({
     server: {
       baseDir: './dist',
@@ -47,13 +38,15 @@ const live = () => {
     cors: true,
     notify: false
   });
+
+  done();
 };
 
 /**
  * html handler
  */
 const html = () => {
-  return gulp.src(paths.html.src)
+  return src(paths.html.src)
     .pipe(fileinclude({
       prefix: '<@',
       suffix: '@>',
@@ -63,15 +56,15 @@ const html = () => {
         console.log(err.toString());
         this.emit('end');
     })
-    .pipe(prettify())
-    .pipe(gulp.dest(paths.html.dest));
+    .pipe(prettify(prettifyOptions))
+    .pipe(dest(paths.html.dest));
 };
 
 /**
  * Pug handler
  */
 const pugs = () => {
-  return gulp.src(paths.pugs.src)
+  return src(paths.pugs.src)
     .pipe(pug({
       basedir: paths.pugs.dir
     }))
@@ -79,15 +72,15 @@ const pugs = () => {
         console.log(err.toString());
         this.emit('end');
     })
-    .pipe(prettify())
-    .pipe(gulp.dest(paths.pugs.dest));
+    .pipe(prettify(prettifyOptions))
+    .pipe(dest(paths.pugs.dest));
 };
 
 /**
  * Styles handler
  */
 const styles = () => {
-  return gulp.src(paths.styles.src)
+  return src(paths.styles.src)
     .pipe(mode.development(sourcemaps.init()))
     .pipe(sass.sync())
     .on('error', function (err) {
@@ -100,7 +93,7 @@ const styles = () => {
         suffix: '.min'
     }))
     .pipe(mode.development(sourcemaps.write('.')))
-    .pipe(gulp.dest(paths.styles.dest));
+    .pipe(dest(paths.styles.dest));
 };
 
 /**
@@ -135,30 +128,32 @@ const scripts = () => {
         noSource: true
     }))
     .pipe(mode.development(sourcemaps.write('./')))
-    .pipe(gulp.dest(paths.scripts.dest));
+    .pipe(dest(paths.scripts.dest));
 };
 
 /**
  * Plugins & Vue handler
  */
-const ignore = () => {
+const ignore = (done) => {
     const files = paths.scripts.ignore;
 
-    return files.map((path, i) => {
-      return gulp.src(path)
+    files.map((path, i) => {
+      return src(path)
         .on('error', function (err) {
           console.log(err.toString());
           this.emit('end');
         })
-        .pipe(gulp.dest(paths.scripts.ignorePath[i]));
+        .pipe(dest(paths.scripts.ignorePath[i]));
     });
+
+    done();
 }
 
 /**
  * Images handler
  */
 const images = () => {
-  return gulp.src(paths.images.src)
+  return src(paths.images.src)
     .pipe(
       imagemin([
         imagemin.gifsicle({ interlaced: true }),
@@ -173,57 +168,56 @@ const images = () => {
         ]
       })
     ]))
-    .pipe(gulp.dest(paths.images.dest));
+    .pipe(dest(paths.images.dest));
 }
 
 /**
  * Fonts handler
  */
-const fonts = () => gulp.src(paths.fonts.src).pipe(gulp.dest(paths.fonts.dest));
+const fonts = () => src(paths.fonts.src).pipe(dest(paths.fonts.dest));
 
 /**
  * Clean Build
  */
-const clean = () => del(['dist/**', '!dist']);
+const clean = (done) => {
+  del.sync(['dist/**', '!dist']);
+
+  done();
+};
 
 /**
- * Gulp task watch usefull in development time
+ * Gulp task watch
  */
-const watch = () => {
-  gulp.watch(paths.styles.wildcard, ['styles']).on('change', browserSync.reload);
-  gulp.watch(paths.scripts.wildcard, ['scripts', 'ignore']).on('change', browserSync.reload);
-  gulp.watch(paths.html.src, ['html']).on('change', browserSync.reload);
-  gulp.watch(paths.pugs.src, ['pugs']).on('change', browserSync.reload);
-  gulp.watch(paths.images.wildcard, ['images']).on('change', browserSync.reload);
+const watcher = (done) => {
+  watch(paths.styles.wildcard, parallel(styles)).on('change', browserSync.reload);
+  watch(paths.scripts.wildcard, parallel(scripts, ignore)).on('change', browserSync.reload);
+  watch(paths.html.src, parallel(html)).on('change', browserSync.reload);
+  watch(paths.pugs.src, parallel(pugs)).on('change', browserSync.reload);
+  watch(paths.images.wildcard, parallel(images)).on('change', browserSync.reload);
+
+  done();
 };
 
 /**
  * build Function
  */
-const build = (callback) => {
-  runSequence('styles', 'scripts', 'ignore', 'html', 'pugs', 'images', 'fonts', callback);
-};
+const build = series(clean, parallel(styles, scripts, ignore, html, pugs, images, fonts));
 
 /**
  * development Function
  */
-const dev = (callback) => {
-  runSequence('build', 'live', 'watch', callback);
-};
+const dev = series(build, live, watcher);
 
-/**
- * Gulp Tasks
- */
-gulp.task('live', live);
-gulp.task('styles', styles);
-gulp.task('scripts', scripts);
-gulp.task('ignore', ignore);
-gulp.task('html', html);
-gulp.task('pugs', pugs);
-gulp.task('images', images);
-gulp.task('fonts', fonts);
-gulp.task('build', build);
-gulp.task('watch', watch);
-gulp.task('dev', dev);
-gulp.task('clean', clean);
-gulp.task('default', build);
+exports.live = live;
+exports.styles = styles;
+exports.scripts = scripts;
+exports.ignore = ignore;
+exports.html = html;
+exports.pugs = pugs;
+exports.images = images;
+exports.fonts = fonts;
+exports.watcher = watcher;
+exports.clean = clean;
+exports.dev = dev;
+exports.build = build;
+exports.default = build;
