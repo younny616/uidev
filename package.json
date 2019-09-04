@@ -16,6 +16,10 @@
     "Pug"
   ],
   "author": "jwhyun <jwhyun@cafe24corp.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GreatMonkeyJ/gulp-boilerplate"
+  },
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
@@ -31,7 +35,7 @@
     "del": "^5.1.0",
     "glob": "^7.1.4",
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^7.0.0",
+    "gulp-autoprefixer": "^6.0.0",
     "gulp-babel": "^8.0.0",
     "gulp-beautify": "^3.0.0",
     "gulp-concat": "^2.6.1",
