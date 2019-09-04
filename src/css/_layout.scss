@@ -1,0 +1,10 @@
+#wrap {
+  min-height:100vh;
+  background:$background-color;
+  font-size:$font-size;
+  box-sizing:border-box;
+}
+
+#header { min-height:20vh; @include flex(); }
+#contents { min-height:70vh; @include flex(); }
+#footer {min-height:10vh; @include flex(); }

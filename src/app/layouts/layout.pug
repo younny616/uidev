@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+html(lang="ko")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible" content="ie=edge")
+    title Document
+    link(rel="stylesheet" href="/css/index.min.css")
+  body
+    include /components/layouts/header
+
+    #contents
+      block contents
+
+    include /components/layouts/footer
+    script(src="/js/plugins/jquery-1.12.4.min.js")
+    script(src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js")
+    script(src="/js/vue/vue.js")
+    script(src='/js/bundle.min.js')

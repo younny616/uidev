@@ -1,0 +1,12 @@
+/**
+ * Sass file name (https://sass-lang.com/guide) - Partials
+ */
+
+@import 'common/reset';
+@import 'common/variables';
+@import 'common/mixins';
+
+@import 'fonts/myriadpro';
+
+@import 'layout';
+@import 'component';

@@ -1,0 +1,16 @@
+@mixin square($size : auto, $radius: 0) {
+  width: $size;
+  height: $size;
+  border: 1px solid pink;
+  text-align: center;
+
+  @if $radius != 0 {
+    border-radius: $radius;
+  }
+}
+
+@mixin flex() {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
