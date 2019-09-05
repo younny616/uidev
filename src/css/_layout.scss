@@ -1,8 +1,8 @@
 #wrap {
   min-height:100vh;
-  background:$background-color;
   font-size:$font-size;
-  box-sizing:border-box;
+  background:$background-color url('/images/dog.jpg') no-repeat center center;
+  background-size:100% 100%;
 }
 
 #header { min-height:20vh; @include flex(); }
