@@ -1,5 +1,9 @@
+/**
+ * NOTE = Vue
+ */
+
 new Vue({
-    el : '#contents',
+    el : '.vue',
     data: function() {
         return {
             message: 'Vue Message'

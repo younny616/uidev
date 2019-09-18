@@ -1,5 +1,9 @@
-$imgSrc: '../images';
+/* Reset default variables */
+$global-background-color: #fff;
+$global-font-color: #333;
+$global-font-size: 14px;
 
-$background-color: #f5f5f5;
-$font-size: 30px;
-$fw-list: (100, 200, 300, 400, 500, 600);
+$project-path: 'project';
+
+/* Common variables */
+$src: '../images';

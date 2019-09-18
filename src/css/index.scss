@@ -1,9 +1,11 @@
 /**
- * Sass file name (https://sass-lang.com/guide) - Partials
+ * NOTE = Sass file name (https://sass-lang.com/guide) - Partials
  */
 
-@import 'common/reset';
+@charset 'utf-8';
+
 @import 'common/variables';
+@import 'common/reset';
 @import 'common/mixins';
 
 @import 'fonts/myriadpro';

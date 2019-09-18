@@ -1,3 +1,3 @@
-.box {
-  @include square($radius: 4px);
+.imageBox {
+  width:500px; height:500px; background:url('#{$src}/dog.jpg') no-repeat center;  background-size:cover;
 }

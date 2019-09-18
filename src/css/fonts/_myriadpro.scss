@@ -9,6 +9,7 @@
   url('/fonts/MyriadPro-Light.otf') format('opentype');
   src:local(※), url('/fonts/MyriadPro-Light.woff') format('woff');
 }
+
 @font-face {
   font-family:'MyriadPro';
   font-style:normal;
@@ -18,6 +19,7 @@
     url('/fonts/MyriadPro-Regular.otf') format('opentype');
     src:local(※), url('/fonts/MyriadPro-Regular.woff') format('woff');
 }
+
 @font-face {
   font-family:'MyriadPro';
   font-style:normal;
@@ -27,6 +29,7 @@
     url('/fonts/MyriadPro-Semibold.otf') format('opentype');
     src:local(※), url('/fonts/MyriadPro-Semibold.woff') format('woff');
 }
+
 @font-face {
   font-family:'MyriadPro';
   font-style:normal;
@@ -35,15 +38,4 @@
     url('/fonts/MyriadPro-Bold.woff') format('woff'),
     url('/fonts/MyriadPro-Bold.otf') format('opentype');
     src:local(※), url('/fonts/MyriadPro-Bold.woff') format('woff');
-}
-
-.myriad {
-  font-family: MyriadPro, sans-serif;
-  font-size:20px;
-
-  @each $weight in $fw-list {
-    &.fw-#{$weight} {
-      font-weight: $weight;
-    }
-  }
 }

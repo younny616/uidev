@@ -1,15 +1,18 @@
 'use strict';
 
-const { paths } = require('./gulppath.js');
-const { prettifyOptions } = require('./prettify.js');
+const { project, paths } = require('./config');
 const { src, dest, watch, series, parallel, lastRun } = require('gulp');
 const pug = require('gulp-pug');
 const fileinclude = require('gulp-file-include');
 const prettify = require('gulp-prettify');
-const mode = require('gulp-mode')();
+const prettifyOptions = require('./prettify');
+const mode = require('gulp-mode')({
+  modes: ['production', 'development', 'deploy'],
+});
 const sass = require('gulp-sass');
 const cssnano = require('gulp-cssnano');
 const rename = require('gulp-rename');
+const replace = require('gulp-replace');
 const autoprefixer = require('gulp-autoprefixer');
 const sourcemaps = require('gulp-sourcemaps');
 const imagemin = require('gulp-imagemin');
@@ -20,14 +23,41 @@ const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
 const del = require('del');
 const glob = require('glob');
+const stringify = require('js-stringify');
 
 /**
- * Handle browser Sync
+ * Mode Variables
+ */
+const isDeploy = mode.deploy();
+const isProduction = mode.production();
+const buildPath = `${project.build.svn}/${project.build.baseDir}`;
+
+const buildReplace = (onDeploy) => {
+  return replace(/(src|href)="([^"]*)"/g, (match, param, string, offset) => {
+    let protocol = /(?:((http(s?))\:)?\/\/)/g;
+    let baseDir = `${project.build.baseDir}${string}`;
+
+    if (!protocol.test(string) && string.length > 1 && string.charAt(0) !== '#' && string.charAt(0) !== '{' && string.charAt(0) !== '!') {
+      if (onDeploy) {
+        let image = /\.(?:jpg|gif|png|svg)/g;
+
+        if (image.test(string)) return `${param}="${project.deploy.echosting}/${baseDir}"`;
+      }
+      return `${param}="/${baseDir}"`;
+    } else {
+      return `${param}="${string}"`;
+    }
+  });
+};
+
+
+/**
+ * BrowserSync handler
  */
 const live = (done) => {
   browserSync.init({
     server: {
-      baseDir: './dist',
+      baseDir: `./${project.dest}`,
       index: 'index.html',
       directory: false,
       https: false,
@@ -42,8 +72,9 @@ const live = (done) => {
   done();
 };
 
+
 /**
- * html handler
+ * Html handler
  */
 const html = () => {
   return src(paths.html.src)
@@ -56,9 +87,11 @@ const html = () => {
         console.log(err.toString());
         this.emit('end');
     })
+    .pipe(mode.production(buildReplace(isDeploy)))
     .pipe(prettify(prettifyOptions))
-    .pipe(dest(paths.html.dest));
+    .pipe(!isProduction ? dest(paths.html.dest) : dest(buildPath))
 };
+
 
 /**
  * Pug handler
@@ -66,23 +99,31 @@ const html = () => {
 const pugs = () => {
   return src(paths.pugs.src)
     .pipe(pug({
-      basedir: paths.pugs.dir
+      basedir: paths.pugs.dir,
+      locals: {
+        require,
+        stringify,
+      }
     }))
     .on('error', function (err) {
         console.log(err.toString());
         this.emit('end');
     })
+    .pipe(mode.production(buildReplace(isDeploy)))
     .pipe(prettify(prettifyOptions))
-    .pipe(dest(paths.pugs.dest));
+    .pipe(!isProduction ? dest(paths.pugs.dest) : dest(buildPath));
 };
+
 
 /**
  * Styles handler
  */
 const styles = () => {
   return src(paths.styles.src)
-    .pipe(mode.development(sourcemaps.init()))
-    .pipe(sass.sync())
+    .pipe(sourcemaps.init())
+    .pipe(sass.sync({
+      // imagePath: '../',
+    }))
     .on('error', function (err) {
       console.log(err.toString());
       this.emit('end');
@@ -90,11 +131,13 @@ const styles = () => {
     .pipe(autoprefixer())
     .pipe(cssnano())
     .pipe(rename({
+        basename: project.title,
         suffix: '.min'
     }))
-    .pipe(mode.development(sourcemaps.write('.')))
-    .pipe(dest(paths.styles.dest));
+    .pipe(sourcemaps.write('.'))
+    .pipe(!isProduction ? dest(paths.styles.dest) : dest(`${buildPath}/${project.build.styles}`));
 };
+
 
 /**
  * Script handler
@@ -113,11 +156,11 @@ const scripts = () => {
         console.log(err.toString());
         this.emit('end');
     })
-    .pipe(source('bundle.js'))
+    .pipe(source(`${project.title}.bundle.js`))
     .pipe(buffer())
-    .pipe(mode.development(sourcemaps.init({
+    .pipe(sourcemaps.init({
         loadMaps: true
-    })))
+    }))
     .pipe(minify({
         ext: {
               min: '.min.js'
@@ -127,12 +170,13 @@ const scripts = () => {
         ignoreFiles: ['-min.js'],
         noSource: true
     }))
-    .pipe(mode.development(sourcemaps.write('./')))
-    .pipe(dest(paths.scripts.dest));
+    .pipe(sourcemaps.write('./'))
+    .pipe(!isProduction ? dest(paths.scripts.dest) : dest(`${buildPath}/${project.build.scripts}`));
 };
 
+
 /**
- * Plugins & Vue handler
+ * Ignores handler
  */
 const ignore = (done) => {
     const files = paths.scripts.ignore;
@@ -143,11 +187,12 @@ const ignore = (done) => {
           console.log(err.toString());
           this.emit('end');
         })
-        .pipe(dest(paths.scripts.ignorePath[i]));
+        .pipe(!isProduction ? dest(paths.scripts.ignorePath[i]) : dest(`${buildPath}/js/${paths.scripts.ignorePath[i].slice(paths.scripts.ignorePath[i].lastIndexOf('/') + 1)}`));
     });
 
     done();
 }
+
 
 /**
  * Images handler
@@ -168,22 +213,31 @@ const images = () => {
         ]
       })
     ]))
-    .pipe(dest(paths.images.dest));
+    .pipe(!isProduction ? dest(paths.images.dest) : dest(`${buildPath}/${project.build.images}`))
 }
+
 
 /**
  * Fonts handler
  */
-const fonts = () => src(paths.fonts.src).pipe(dest(paths.fonts.dest));
+const fonts = () => src(paths.fonts.src).pipe(!isProduction ? dest(paths.fonts.dest) : dest(`${buildPath}/${project.build.fonts}`));
+
 
 /**
- * Clean Build
+ * Clean handler
  */
 const clean = (done) => {
-  del.sync(['dist/**', '!dist']);
+  // const inquirer = require('inquirer'); 검증절차 추가 필수
+
+  if (mode.production()) {
+    del.sync([`${buildPath}/**`, `!${project.title}`], { force: true });
+  } else {
+    del.sync(['dist/**', '!dist']);
+  }
 
   done();
 };
+
 
 /**
  * Gulp task watch
@@ -198,10 +252,12 @@ const watcher = (done) => {
   done();
 };
 
+
 /**
  * build Function
  */
 const build = series(clean, parallel(styles, scripts, ignore, html, pugs, images, fonts));
+
 
 /**
  * development Function

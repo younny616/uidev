@@ -4,9 +4,11 @@
   "description": "Front build up with gulp (prototype)",
   "main": "index.js",
   "scripts": {
-    "serve": "gulp dev",
+    "serve": "gulp dev --development",
     "build": "gulp build --production",
-    "clean": "gulp clean",
+    "deploy": "gulp build --production --deploy",
+    "clean:serve": "gulp clean --development",
+    "clean:build": "gulp clean --production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -47,10 +49,11 @@
     "gulp-prettify": "^0.5.0",
     "gulp-pug": "^4.0.1",
     "gulp-rename": "^1.4.0",
+    "gulp-replace": "^1.0.0",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify": "^3.0.2",
-    "run-sequence": "^2.2.1",
+    "js-stringify": "^1.0.2",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
   },
