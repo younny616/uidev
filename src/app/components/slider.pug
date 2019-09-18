@@ -1,0 +1,10 @@
+mixin slider(sliderClass, images)
+  div.sliderWrap
+    div.sliderContainer(class=sliderClass)
+      div.sliderWrapper
+        each image, i in images
+          div.slide.item= 'item '+ images[i]
+      div.sliderPagination
+      div.sliderCtrl
+        button.slidePrev Previous
+        button.slideNext Next

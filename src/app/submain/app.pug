@@ -1,0 +1,11 @@
+extends /layouts/layout
+include /components/slider
+
+block append contents
+  - var sliderClass = 'mainSlider';
+  - var images = [1, 2, 3, 4, 5];
+  +slider(sliderClass, images)
+
+block append body
+  script(src="//cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js")
+  script(src="/js/ui/app.js")

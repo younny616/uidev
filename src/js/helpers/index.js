@@ -1,5 +1,7 @@
-const helpers = (v) => {
-    return console.log(v);
-}
+import UI from './ui';
+import SwiperSlider from './swiperSlider';
 
-export default helpers;
+export {
+  UI,
+  SwiperSlider
+}
