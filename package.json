@@ -1,5 +1,5 @@
 {
-  "name": "front-gulp",
+  "name": "store",
   "version": "1.0.0",
   "description": "Front build up with gulp (prototype)",
   "main": "index.js",
@@ -17,10 +17,10 @@
     "^ES6",
     "Pug"
   ],
-  "author": "jwhyun <jwhyun@cafe24corp.com>",
+  "author": "nyyoon01 <nyyoon01@cafe24corp.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/GreatMonkeyJ/gulp-boilerplate"
+    "url": "https://github.com/younny616/gulp-boilerplate"
   },
   "license": "ISC",
   "dependencies": {},

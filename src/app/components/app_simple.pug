@@ -1,0 +1,14 @@
+div.appArea.simple
+    mixin appSimple(title, price, img)
+        div.mApp.typeSimple&attributes(attributes)
+            div.thumbnail
+                img(src=img, alt='')
+            div.infomation
+                strong.title= title
+                strong.price= price
+                div.grade
+                    span.star 1
+                    span.star 2
+                    span.star.selected 3
+                    span.star 4
+                    span.star 5

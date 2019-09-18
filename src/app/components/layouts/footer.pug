@@ -1,3 +1,28 @@
-block footer
-  footer#footer.footer
-    h3 Footer
+footer#footer
+  div.top
+    div.corp
+      h2.logo
+        img(src='' alt='cafe24 store')
+      div.familysite
+        button.button(type='button')
+        ul.site
+    div.nav
+      mixin menu(title, ...items)
+        div.menu
+          strong.title= title
+          each item in items
+            a.link(href='#none')= item
+      +menu('about', '스토어', '이용약관', '개인정보 처리방침')
+      +menu('products', 'Apps', 'Themes')
+      +menu('story', '앱 직접 제작', 'B2B 서비스')
+      +menu('support', 'FAQ', '헬프센터')
+      +menu('partners', '파트너센터')
+      +menu('store', 'Korea')
+  div.bottom
+    div.policy
+      a(href='#none') 회사소개
+      a(href='#none') 이용약관
+      a(href='#none')
+        strong 개인정보처리방침
+    p.copyright 2019 Cafe24 Corpration. All rights reserved.
+  a.btnTop(href='#wrap') Top

@@ -1,3 +1,46 @@
-block header
-  header#header.header
-    h1 Header
+header#header
+  h1.logo
+    img(src='logo.png' alt='cafe24 store')
+  nav.navigation
+    ul.menu
+      li
+        a(href='') 앱
+        div.menuContent
+          a.shotcut(href='') 앱 바로가기
+          div.submenu
+            strong.menuTitle 카테고리
+            ul.list
+              li 전체
+              li 패션
+      li
+        a(href='') 테마
+      li
+        a(href='') 기획전
+  div.util
+    a.story(href='') 스토리
+    div.user
+      button.btnUser(type='button') 사용자 정보 보기
+      div.layer
+        div.info
+          strong.id
+          button.btnLogout 로그아웃
+        div.my
+          div.inquery
+            strong.count 6
+            span.label 문의내역
+          div.wish
+            strong.count 999
+            span.label 관심상품
+    div.search
+      button.btnSearch(type='button') 검색
+      div.searchField
+        select
+          option 전체
+        div.searchForm
+          input(type='search' placeholder='검색어를 입력하세요')
+          div.result
+            strong.title
+            div.items
+              each value in ['마케팅 앱', '카카오톡 상담하기 앱', '무료테마', '의류 패션 테마']
+                button.value(type='button')= value
+      button.btnClose(type='button') 닫기
