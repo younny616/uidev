@@ -42,12 +42,17 @@
     display:flex; margin:0 0 0 auto; font-size:14px;
     .story { font-size:15px; color:#5b5b5b; }
   }
+  #header .user { width:24px; height:24px;
+    .btnUser { @include blind(); position:relative; width:16px; height:16px; }
+    .btnUser:before { content:""; position:absolute; top:0; left:3px; display:inline-block; width:11px; height:11px; border:2px solid #5b5b5b; border-radius:50%; box-sizing:border-box; }
+    .btnUser:after { @extend .btnUser:before; top:9px; left:1px; width:15px; height:16px; }
+  }
   #header .layer { display:none; }
   #header .search { display:none; }
 
   #contents { min-height:700px; }
 
-  #footer { padding:0; border-top:1px solid #e8e8e8; height:auto; line-height:1; background:#fff; }
+  #footer { position:relative; padding:0; border-top:1px solid #e8e8e8; height:auto; line-height:1; background:#fff; }
   #footer .top { @include flex(); width:1240px; min-height:400px; margin:0 auto; padding:40px 0 60px; font-size:0; }
   #footer .menu { display:inline-block; margin:0 0 0 20px; padding:0 65px 0 0; vertical-align:top; box-sizing:border-box; }
   #footer .menu:first-child { margin:0; }
