@@ -248,6 +248,7 @@ const watcher = (done) => {
   watch(paths.html.src, parallel(html)).on('change', browserSync.reload);
   watch(paths.pugs.src, parallel(pugs)).on('change', browserSync.reload);
   watch(paths.images.wildcard, parallel(images)).on('change', browserSync.reload);
+  watch(paths.fonts.wildcard, parallel(fonts)).on('change', browserSync.reload);
 
   done();
 };

@@ -1,3 +1,19 @@
+
+@mixin languages() {
+  @each $type, $font-family in $global-font-family {
+    [lang="#{$type}"] {
+      font-family: $font-family;
+    }
+
+    html:lang(#{$type}) {
+      input,
+      select,
+      textarea,
+      button { font-family:$font-family; }
+    }
+  }
+}
+
 @mixin respond($breakpoint) {
   @if $breakpoint == "mobile" {
     @media (max-width: 767px) {

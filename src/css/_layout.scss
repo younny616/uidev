@@ -40,7 +40,7 @@
   }
   #header .util {
     display:flex; margin:0 0 0 auto; font-size:14px;
-    .story { font-size:15px; color:#5b5b5b; }
+    .story { font-size:15px; color:#5b5b5b; font-weight:500; }
   }
   #header .user { width:24px; height:24px;
     .btnUser { @include blind(); position:relative; width:16px; height:16px; }
