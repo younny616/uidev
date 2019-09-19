@@ -43,11 +43,13 @@ const paths = {
       `${project.src}/js/plugins/**/*.js`,
       `${project.src}/js/vue/**/*.js`,
       `${project.src}/js/ui/**/*.js`,
+      `${project.src}/js/data/**/*.js`,
     ],
     ignorePath: [
       `${project.dest}/js/plugins`,
       `${project.dest}/js/vue`,
       `${project.dest}/js/ui`,
+      `${project.dest}/js/data`,
     ]
   },
   images: {

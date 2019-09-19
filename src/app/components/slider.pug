@@ -1,10 +1,17 @@
-mixin slider(sliderClass, images)
-  div.sliderWrap
-    div.sliderContainer(class=sliderClass)
+include /components/sliderItem
+
+mixin slider(sliderClass, images, page, ctrl)
+  div.sliderWrap(class=sliderClass)
+    div.sliderContainer
       div.sliderWrapper
-        each image, i in images
-          div.slide.item= 'item '+ images[i]
+        if block
+          block
+        else
+          each image, i in images
+            div.slide.item= 'item '+ images[i]
+    if page
       div.sliderPagination
-      div.sliderCtrl
-        button.slidePrev Previous
-        button.slideNext Next
+    if ctrl
+    div.sliderCtrl
+      button.slidePrev Previous
+      button.slideNext Next
