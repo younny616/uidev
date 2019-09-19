@@ -1,3 +1,16 @@
+@mixin lang($type) {
+  [lang="#{$type}"] {
+    font-family:map-get($global-font-family, $type);
+  }
+
+  html:lang(#{$type}) {
+    input,
+    select,
+    textarea,
+    button { font-family:map-get($global-font-family, $type); }
+  }
+}
+
 @mixin respond($breakpoint) {
   @if $breakpoint == "mobile" {
     @media (max-width: 767px) {

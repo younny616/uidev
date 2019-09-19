@@ -22,27 +22,8 @@ a:hover { text-decoration:underline; }
 object, del, sub, var { margin:0; padding:0; }
 article, aside, details, figcaption, figure, footer, header, main, hgroup, menu, nav, section { display:block; }
 
-/* Language check */
-[lang="ko"] { font-family:'Noto Sans KR', 'Dotum', '돋움', 'arial', 'verdana', sans-serif; }
-  html:lang(ko) input,
-  html:lang(ko) select,
-  html:lang(ko) textarea,
-  html:lang(ko) button { font-family:'Noto Sans KR', 'Dotum', '돋움', 'arial', 'verdana', sans-serif; }
-[lang="en"] { font-family:'Helvetica', 'Arial', sans-serif; }
-  html:lang(en) input,
-  html:lang(en) select,
-  html:lang(en) textarea,
-  html:lang(en) button { font-family:'Helvetica', 'Arial', sans-serif; }
-[lang="ja"] { font-family:'Meiryo', 'メイリオ', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', sans-serif; }
-  html:lang(ja) input,
-  html:lang(ja) select,
-  html:lang(ja) textarea,
-  html:lang(ja) button { font-family:'Meiryo', 'メイリオ','ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', sans-serif; }
-[lang="vi"] { font-family:"Helvetica Neue",Helvetica,Arial,sans-serif }
-  html:lang(vi) input,
-  html:lang(vi) select,
-  html:lang(vi) textarea,
-  html:lang(vi) button { font-family:"Helvetica Neue",Helvetica,Arial,sans-serif }
+/* Languages */
+@include lang($global-lang);
 
 /* skipNavigation */
 #skipNavigation { position:absolute; top:0; left:0; z-index:100; width:100%; height:0; }
