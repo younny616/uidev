@@ -1,4 +1,3 @@
-
 @mixin languages() {
   @each $type, $font-family in $global-font-family {
     [lang="#{$type}"] {
@@ -67,4 +66,26 @@
   content:"";
   display:block;
   clear:both;
+}
+
+@mixin text-ellipsis($lineHeight, $line) {
+  overflow: hidden;
+  width:100%;
+  text-overflow:ellipsis;
+  text-align: left;
+
+  @if $line >= 2 {
+    display:-webkit-box;
+    height:#{$lineHeight * $line + 'px'};
+    max-height:#{$lineHeight * $line + 'px'};
+    line-height:#{$lineHeight + 'px'};
+
+    -webkit-line-clamp:$line;
+    -webkit-box-orient: vertical;
+
+  } @else {
+    display:block;
+    white-space:nowrap;
+    word-break:break-word;
+  }
 }

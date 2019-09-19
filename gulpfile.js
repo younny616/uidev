@@ -10,7 +10,7 @@ const mode = require('gulp-mode')({
   modes: ['production', 'development', 'deploy'],
 });
 const sass = require('gulp-sass');
-const cssnano = require('gulp-cssnano');
+const cleanCSS = require('gulp-clean-css');
 const rename = require('gulp-rename');
 const replace = require('gulp-replace');
 const autoprefixer = require('gulp-autoprefixer');
@@ -121,15 +121,13 @@ const pugs = () => {
 const styles = () => {
   return src(paths.styles.src)
     .pipe(sourcemaps.init())
-    .pipe(sass.sync({
-      // imagePath: '../',
-    }))
+    .pipe(sass.sync())
     .on('error', function (err) {
       console.log(err.toString());
       this.emit('end');
     })
     .pipe(autoprefixer())
-    .pipe(cssnano())
+    .pipe(cleanCSS({compatibility: 'ie8'}))
     .pipe(rename({
         basename: project.title,
         suffix: '.min'

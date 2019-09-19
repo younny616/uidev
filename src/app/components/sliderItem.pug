@@ -1,0 +1,9 @@
+mixin sliderItem(items)
+  each item, i in items
+    div.slide.item
+      img(src=items[i].src)
+      div.inner
+        strong.title #{items[i].title}
+        span.subTitle #{items[i].subTitle}
+        span.price #{items[i].price}
+        p.description #{items[i].description}

@@ -15,28 +15,6 @@ class UI {
 
         return $(document).on('click', target, callback);
     }
-
-    onHide(target, callBack) {
-        return $(document).on('click', target, () => {
-            $(target).parent().hide();
-        });
-
-        if (typeof callBack === 'function') {
-            callBack.call(this);
-        }
-
-        return this;
-    }
-
-    onShow(target) {
-        $(document).on('click', target, () => {
-            setTimeout(() => {
-                $(target).parent().show();
-            }, 900)
-        });
-
-        return this;
-    }
 }
 
 export default new UI();
