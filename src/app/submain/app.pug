@@ -1,15 +1,14 @@
 extends /layouts/layout
 include /components/slider
-include /components/sliderItem
 
 block append contents
-  - var mainSlider = require('./src/js/data/mainSlider');
-  - var mainSliderItem = JSON.parse(stringify(mainSlider));
-  - var sliderClass = 'mainSlider';
-
+  - var appSlider1 = 'appSlider1';
+  - var appSlider1Data = require('./src/js/data/appSlider1.js');
+  - var appSlider2 = 'appSlider2';
+  - var appSlider2Data = require('./src/js/data/appSlider2.js');
   div
-    +slider(sliderClass)
-      +sliderItem(mainSliderItem)
+    +slider(appSlider1, 'typeSimple', appSlider1Data, 'component', fasle, true)
+    +slider(appSlider2, 'typeSimple', appSlider2Data, 'component', fasle, true)
 
 block append body
   script(src="//cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js")

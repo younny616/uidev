@@ -7,7 +7,7 @@
         pagination: false,
     }
 
-    var mainSlider = new Cafe24.SwiperSlider('.mainSlider', options).init();
-    // var mainSlider1 = new Cafe24.SwiperSlider('.mainSlider1', {}, 'coverflow').init();
+    var simpleSlider1 = new Cafe24.SwiperSlider('#appSlider1', options).init();
+    var simpleSlider2 = new Cafe24.SwiperSlider('#appSlider2', options).init();
 
 })(Cafe24.UI);

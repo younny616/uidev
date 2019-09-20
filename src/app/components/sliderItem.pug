@@ -1,9 +1,10 @@
-mixin sliderItem(items)
+mixin sliderItem(items, types)
   each item, i in items
     div.slide.item
       img(src=items[i].src)
-      div.inner
-        strong.title #{items[i].title}
-        span.subTitle #{items[i].subTitle}
-        span.price #{items[i].price}
-        p.description #{items[i].description}
+      if types === 'component'
+        div.inner
+          strong.title= items[i].title
+          span.subTitle= items[i].subTitle
+          span.price= items[i].price
+          p.description= items[i].description

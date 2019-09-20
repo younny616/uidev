@@ -45,12 +45,13 @@ class SwiperSlider {
       breakpoints: {
         // when window width is >= 320px
         320: {
-            slidesPerView: 2,
+          slidesPerView: 2,
         },
       },
       on: {
         init: function() {
-            $(this.el).removeClass('loading');
+          console.log(this.target);
+          $(this.el).removeClass('loading');
         },
       }
     }

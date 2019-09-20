@@ -1,17 +1,14 @@
 include /components/sliderItem
 
-mixin slider(sliderClass, images, page, ctrl)
-  div.sliderWrap(class=sliderClass)
+mixin slider(id, className, items, types, pages, ctrls, etc)
+  p !{etc}
+  div(id=id class=`sliderWrap ${className}`)
     div.sliderContainer
       div.sliderWrapper
-        if block
-          block
-        else
-          each image, i in images
-            div.slide.item= 'item '+ images[i]
-    if page
+        +sliderItem(items, types)
+    if pages
       div.sliderPagination
-    if ctrl
+    if ctrls
     div.sliderCtrl
       button.slidePrev Previous
       button.slideNext Next
