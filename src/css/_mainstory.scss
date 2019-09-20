@@ -20,6 +20,14 @@
       h3.title { font-size:36px; color:#000; font-weight:400; }
       .desc { font-size:16px; color:#959595; font-weight:400; }
     }
+    .story {
+      .item { display:inline-block; width:455px; height:464px; padding:300px 20px 20px; vertical-align:top; box-sizing:border-box; border-radius:3px;
+        .info { min-height:150px; padding:20px 23px; box-sizing:border-box; background:#fff;
+          .title { font-size:22px; color:#000; font-weight:400; }
+          .desc { margin:16px 0 0; font-size:14px; line-height:20px; color:#959595; }
+        }
+       }
+    }
   }
 }
 
