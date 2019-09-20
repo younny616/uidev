@@ -1,0 +1,26 @@
+@include respond(mobile) {
+
+}
+
+@include respond(mobile-tablet) {
+
+}
+
+@include respond(tablet) {
+
+}
+
+@include respond(pc) {
+  .mainVisual {
+    height:420px; padding:134px 0 0; box-sizing:border-box; text-align:center; background:url('../images/bg_main_visual.png'); background-size:100% 100%;
+    h2.title { font-size:44px; line-height:60px; color:#000; font-weight:400; }
+    .button {
+      margin:30px 0 0;
+      [class*="btn"] { display:inline-block; width:180px; height:56px; padding:16px 0; font-size:16px; color:#fff; font-weight:800; text-align:center; text-decoration:none; box-sizing:border-box; border-radius:3px; }
+      .btnAppDirect { background:#1eb6c0; }
+      .btnThemeDirect { margin:0 0 0 12px; background:#8c63dc; }
+    }
+
+   }
+}
+

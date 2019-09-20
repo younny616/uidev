@@ -1,0 +1,24 @@
+@include respond(mobile) {
+
+}
+
+@include respond(mobile-tablet) {
+
+}
+
+@include respond(tablet) {
+
+}
+
+@include respond(pc) {
+  .shopProduct {
+    padding:175px 0; text-align:center; background:url('../images/bg_shop_product.png'); background-size:100% 100%;
+    .heading {
+      h3.title { font-size:44px; color:#000; font-weight:800; }
+      .subTitle { font-size:28px; color:#000; }
+      .desc { font-size:15px; color:#959595; font-weight:400; }
+    }
+    .btnProduct { display:inline-block; color:#fff; }
+  }
+}
+

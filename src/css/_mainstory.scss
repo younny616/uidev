@@ -1,0 +1,25 @@
+@include respond(mobile) {
+
+}
+
+@include respond(mobile-tablet) {
+
+}
+
+@include respond(tablet) {
+
+}
+
+@include respond(pc) {
+  .mainStory {
+    padding:100px 0; background:#f5f5f5;
+    .inner { width:1404px; margin:0 auto; }
+
+    .heading {
+    text-align:center;
+      h3.title { font-size:36px; color:#000; font-weight:400; }
+      .desc { font-size:16px; color:#959595; font-weight:400; }
+    }
+  }
+}
+
