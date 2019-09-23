@@ -1,0 +1,22 @@
+@include respond(mobile) {
+
+}
+
+@include respond(mobile-tablet) {
+
+}
+
+@include respond(tablet) {
+
+}
+
+@include respond(tablet-pc) {
+  .mTitle { margin:60px 0 40px;
+    .title { font-size:28px; color:#000; }
+  }
+}
+
+@include respond(pc) {
+
+}
+
