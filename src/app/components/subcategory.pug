@@ -1,0 +1,8 @@
+div.subCategory
+    mixin categoryTitle(title)
+        div.heading
+            h3.title #{title}
+    div.category
+        mixin categoryItem(label)
+            div.item&attributes(attributes)
+                strong.label #{label}
