@@ -7,7 +7,6 @@ class SwiperSlider {
      * @effect : ['slide', 'fade', 'coverflow']
      */
     this.effect = effect || '';
-
     this.default = {
       containerModifierClass: `${this.prefix}Container-`,
       wrapperClass: `${this.prefix}Wrapper`,
@@ -25,11 +24,12 @@ class SwiperSlider {
       speed: 800,
       effect: 'slide',
       allowTouchMove: false,
+      slidesPerView: 1,
+      slideToClickedSlide: true,
       autoplay: {
         delay: 4000,
         disableOnInteraction: false,
       },
-      slidesPerView: 1,
       pagination: {
         el: `${this.target} .${this.prefix}Pagination`,
         clickable : true,
@@ -42,18 +42,6 @@ class SwiperSlider {
         prevEl: `${this.target} .sliderCtrl .slidePrev`,
         nextEl: `${this.target} .sliderCtrl .slideNext`,
       },
-      breakpoints: {
-        // when window width is >= 320px
-        320: {
-          slidesPerView: 2,
-        },
-      },
-      on: {
-        init: function() {
-          console.log(this.target);
-          $(this.el).removeClass('loading');
-        },
-      }
     }
 
     this.setOptions = Object.assign({}, this.default, this.options);
@@ -87,7 +75,10 @@ class SwiperSlider {
       }
     }
 
-    return new Swiper(`${this.target} .sliderContainer`, this.setOptions).init();
+    const slider = new Swiper(`${this.target} .sliderContainer`, this.setOptions);
+    slider.init();
+
+    return slider;
   }
 };
 

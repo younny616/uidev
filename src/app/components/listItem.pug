@@ -1,6 +1,6 @@
 include /components/item
 
-mixin sliderItem(items, types)
+mixin listItem(items, types)
   each item, i in items
-    div.slide.item
+    li.item
       +item(items, i, types)
