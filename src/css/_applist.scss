@@ -1,0 +1,31 @@
+@include respond(mobile) {
+
+}
+
+@include respond(mobile-tablet) {
+
+}
+
+@include respond(tablet) {
+
+}
+
+@include respond(pc) {
+  .mAppList {
+    display:flex; align-items:center; width:308px; margin:0 0 40px;
+
+    .thumbnail {
+      width:80px; height:80px;
+
+      img { max-width:100%; }
+     }
+     .infomation {
+         padding:0 0 0 16px;
+
+        .title { font-size:16px; color:#000; font-weight:500; }
+        .category { display:block; font-size:13px; color:#758ea6; }
+        .price { display:block; margin:3px 0 0; font-size:14px; color:#797980; font-weight:400; }
+     }
+  }
+}
+

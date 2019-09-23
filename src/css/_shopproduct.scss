@@ -1,0 +1,27 @@
+@include respond(mobile) {
+
+}
+
+@include respond(mobile-tablet) {
+
+}
+
+@include respond(tablet) {
+
+}
+
+@include respond(pc) {
+  .shopProduct {
+    padding:175px 0; text-align:center; background:url('../images/bg_shop_product.png'); background-size:100% 100%;
+    .heading {
+      h3.title { font-size:44px; color:#000; font-weight:800; }
+      .subTitle { font-size:28px; color:#000; }
+      .desc { display:inline-block; margin:40px 0 0; font-size:15px; color:#959595; font-weight:400; }
+    }
+    .button {
+    margin:46px 0 0;
+    .btnProduct { display:inline-block; height:56px; padding:0 56px; line-height:56px; font-size:16px; font-weight:800; border-radius:3px; color:#fff; background:#0055fb; }
+    }
+  }
+}
+

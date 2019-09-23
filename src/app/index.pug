@@ -1,9 +1,22 @@
 extends layouts/layout
+include /components/app_simple
+
 
 block append contents
-  include /components/app_simple
-  +appSimple('앱 제목1', '1,000', '/img/')(class="add-class")
-  +appSimple('앱 제목2', '10,000', '/img/')
+    include /components/mainvisual
+
+
+    +appSimple('앱 제목1', '마케팅', '1,000円', '/images/@img_app_icon.png')
+    +appSimple('앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '10,000円', '/images/@img_app_icon.png')
+    +appSimple('앱 제목2', '마케팅', '10,000円', '/images/@img_app_icon.png')
+    +appSimple('앱 제목2', '마케팅', '10,000円', '/images/@img_app_icon.png')
+    +appSimple('앱 제목2', '마케팅', '10,000円', '/images/@img_app_icon.png')
+    +appSimple('앱 제목2', '마케팅', '10,000円', '/images/@img_app_icon.png')
+    +appSimple('앱 제목2', '마케팅', '10,000円', '/images/@img_app_icon.png')
+
+    include /components/mainstory
+    include /components/shopmaking
+
 
 block append body
   script(src="/js/ui/index.js")

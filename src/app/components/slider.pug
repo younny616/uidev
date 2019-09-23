@@ -1,8 +1,5 @@
-include /components/sliderItem
-
-mixin slider(id, className, items, types, pages, ctrls, etc)
-  p !{etc}
-  div(id=id class=`sliderWrap ${className}`)
+mixin slider(sliderClass, images, page, ctrl)
+  div.sliderWrap(class=sliderClass)
     div.sliderContainer
       div.sliderWrapper
         +sliderItem(items, types)

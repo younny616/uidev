@@ -56,6 +56,12 @@
   }
 }
 
+
+@mixin blind { overflow: hidden; text-indent:150%; white-space:nowrap; font-size:1px; line-height:0; color:transparent; }
+@mixin ellipsis($width: 100%,  $display: inline-block) {
+  display: $display; max-width: $width; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; word-wrap: normal;
+}
+
 @mixin flex() {
   display:flex;
   align-items:center;
@@ -89,3 +95,4 @@
     word-break:break-word;
   }
 }
+

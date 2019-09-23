@@ -1,3 +1,15 @@
-.imageBox {
-  width:500px; height:500px; background:url('#{$src}/dog.jpg') no-repeat center;  background-size:cover;
+@include respond(mobile) {
+
+}
+
+@include respond(mobile-tablet) {
+
+}
+
+@include respond(tablet) {
+
+}
+
+@include respond(pc) {
+
 }
