@@ -15,15 +15,28 @@
     .heading { margin:0 0 80px; text-align:center;
       .title { font-size:28px; color:#000; font-weight:bold; }
      }
-    .category { display:flex; flex-wrap:wrap; margin:0 270px;
+    .category { display:flex; flex-wrap:wrap; max-width:860px; margin:0 auto;
       .item { width:20%; margin:0 0 90px; text-align:center;
-        &:before { content:""; display:block; margin:0 auto 10px; width:60px; height:60px; background:#ddd; }
+        &:before { content:""; display:block; margin:0 auto 10px; width:60px; height:60px; background-image:url('../images/sfix_subcategory.png'); }
       }
+      .item.notify:before { background-position:-60px 0; }
+      .item.edit:before { background-position:-120px 0; }
+      .item.display:before { background-position:-180px 0; }
+      .item.marketing:before { background-position:-240px 0; }
+      .item.customer:before { background-position:-300px 0; }
+      .item.sales:before { background-position:-360px 0; }
+      .item.stats:before { background-position:0 -60px; }
+      .item.fashion:before { background-position:-60px -60px; }
+      .item.kids:before { background-position:-120px -60px; }
+      .item.cosmetic:before { background-position:-180px -60px; }
+      .item.living:before { background-position:-240px -60px; }
+      .item.food:before { background-position:-300px -60px; }
+      .item.appliance:before { background-position:-360px -60px; }
+      .item.etc:before { background-position:0 -120px; }
+      .item.all:before { background-position:-60px -120px; }
       .item .label { display:block; font-size:15px; color:#5b5b5b; font-weight:400; }
-
      }
   }
-
 }
 
 @include respond(pc) {

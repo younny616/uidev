@@ -7,7 +7,7 @@ mixin category(title)
             h3.title #{title}
         div.category
             - var itemClassApp = ['banner', 'notify', 'edit', 'display', 'marketing', 'customer', 'sales', 'stats', 'etc', 'all']
-            - var itemClassTheme = ['fashion', 'kid', 'cosmetic', 'living', 'food', 'appliance', 'etc']
+            - var itemClassTheme = ['fashion', 'kids', 'cosmetic', 'living', 'food', 'appliance', 'etc']
             if titleApp
                 each itemApp, i in ['배너', '팝업/알림', '상품상세 편집', '상품 디스플레이', '마케팅', '고객지원', '판매/전환', '분석/통계', '기타', '전체']
                     div.item(class= itemClassApp[i])
