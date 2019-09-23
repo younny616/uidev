@@ -1,0 +1,31 @@
+@include respond(mobile) {
+
+}
+
+@include respond(mobile-tablet) {
+
+}
+
+@include respond(tablet) {
+
+}
+
+@include respond(tablet-pc) {
+  .subCategory { padding:160px 0 70px; border-top:1px solid #e8e8e8;
+    .heading { margin:0 0 80px; text-align:center;
+      .title { font-size:28px; color:#000; font-weight:bold; }
+     }
+    .category { display:flex; flex-wrap:wrap; margin:0 270px;
+      .item { width:20%; margin:0 0 90px; text-align:center;
+        &:before { content:""; display:block; margin:0 auto 10px; width:60px; height:60px; background:#ddd; }
+      }
+      .item .label { display:block; font-size:15px; color:#5b5b5b; font-weight:400; }
+
+     }
+  }
+
+}
+
+@include respond(pc) {
+
+}

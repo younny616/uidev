@@ -18,18 +18,11 @@ block append contents
 
     include /components/mainstory
     include /components/shopmaking
+
     include /components/subcategory
-    +categoryTitle('앱 카테고리')
-    +categoryItem('배너')(class='banner')
-    +categoryItem('팝업/알림')(class='notify')
-    +categoryItem('상품상세 편집')(class='product')
-    +categoryItem('상품 디스플레이')(class='display')
-    +categoryItem('마케팅')(class='marketing')
-    +categoryItem('고객지원')(class='customer')
-    +categoryItem('판매/전환')(class='sales')
-    +categoryItem('분석/통계')(class='stats')
-    +categoryItem('기타')(class='etc')
-    +categoryItem('전체')(class='all')
+    +category(titleTheme)
+
+    include /components/development
 
 
 block append body
