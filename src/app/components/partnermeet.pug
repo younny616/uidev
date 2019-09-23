@@ -1,9 +1,8 @@
-div.developerment
-    div.heading
-        span.label Who it Makes
-        h3.title
-            |뛰어난 품질과 서비스를 제공하는
-            br
-            |카페24가 검증한 개발사와 만나보세요
-    div.button
-        a.btnDevelop(href="") 개발사 보러가기
+mixin partnermeet(title, button)
+    div.partnerMeet&attributes(attributes)
+        div.heading
+            span.label Who it Makes
+            h3.title !{title}
+        div.button
+            a.btnDevelop(href="") #{button}
+

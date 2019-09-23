@@ -1,5 +1,7 @@
 @include respond(mobile) {
-
+  .mTitle { margin:10px 0 0; padding:36px 20px 28px; background:#fff;
+    .title { font-size:20px; color:#000; }
+  }
 }
 
 @include respond(mobile-tablet) {

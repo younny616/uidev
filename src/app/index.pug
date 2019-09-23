@@ -20,9 +20,12 @@ block append contents
     include /components/shopmaking
 
     include /components/subcategory
-    +category(titleTheme)
+    +category('앱 카테고리', 'app')(class="app")
+    +category('테마 카테고리', 'theme')(class="theme")
 
     include /components/partnermeet
+    +partnermeet('뛰어난 품질과 서비스를 제공하는 <br>카페24가 검증한 파트너와 만나보세요', '파트너 보러가기')(class="partner")
+    +partnermeet('뛰어난 품질과 서비스를 제공하는 <br>카페24가 검증한 개발사와 만나보세요', '개발사 보러가기')(class="develop")
 
 
 block append body

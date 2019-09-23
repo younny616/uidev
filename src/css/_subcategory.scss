@@ -1,5 +1,30 @@
 @include respond(mobile) {
-
+  .subCategory { padding:33px 20px 70px; border-top:1px solid #e8e8e8; background:#fff;
+    .heading {
+      .title { margin:0 0 30px; font-size:18px; color:#000; font-weight:bold; }
+    }
+    .category { display:flex; flex-wrap:wrap; margin:0 auto;
+      .item { width:25%; max-width:60px; margin:0 0 31px; text-align:center;
+        &:before { content:""; display:block; margin:0 auto 10px; width:40px; height:40px; background-image:url('../images/sfix_subcategory.png'); }
+        &.notify:before { background-position:-60px 0; }
+        &.edit:before { background-position:-120px 0; }
+        &.display:before { background-position:-180px 0; }
+        &.marketing:before { background-position:-240px 0; }
+        &.customer:before { background-position:-300px 0; }
+        &.sales:before { background-position:-360px 0; }
+        &.stats:before { background-position:0 -60px; }
+        &.fashion:before { background-position:-60px -60px; }
+        &.kids:before { background-position:-120px -60px; }
+        &.cosmetic:before { background-position:-180px -60px; }
+        &.living:before { background-position:-240px -60px; }
+        &.food:before { background-position:-300px -60px; }
+        &.appliance:before { background-position:-360px -60px; }
+        &.etc:before { background-position:0 -120px; }
+        &.all:before { background-position:-60px -120px; }
+      }
+      .item .label { display:block; font-size:11px; color:#5b5b5b; font-weight:400; }
+    }
+  }
 }
 
 @include respond(mobile-tablet) {
@@ -18,25 +43,28 @@
     .category { display:flex; flex-wrap:wrap; max-width:860px; margin:0 auto;
       .item { width:20%; margin:0 0 90px; text-align:center;
         &:before { content:""; display:block; margin:0 auto 10px; width:60px; height:60px; background-image:url('../images/sfix_subcategory.png'); }
+        &.notify:before { background-position:-60px 0; }
+        &.edit:before { background-position:-120px 0; }
+        &.display:before { background-position:-180px 0; }
+        &.marketing:before { background-position:-240px 0; }
+        &.customer:before { background-position:-300px 0; }
+        &.sales:before { background-position:-360px 0; }
+        &.stats:before { background-position:0 -60px; }
+        &.fashion:before { background-position:-60px -60px; }
+        &.kids:before { background-position:-120px -60px; }
+        &.cosmetic:before { background-position:-180px -60px; }
+        &.living:before { background-position:-240px -60px; }
+        &.food:before { background-position:-300px -60px; }
+        &.appliance:before { background-position:-360px -60px; }
+        &.etc:before { background-position:0 -120px; }
+        &.all:before { background-position:-60px -120px; }
       }
-      .item.notify:before { background-position:-60px 0; }
-      .item.edit:before { background-position:-120px 0; }
-      .item.display:before { background-position:-180px 0; }
-      .item.marketing:before { background-position:-240px 0; }
-      .item.customer:before { background-position:-300px 0; }
-      .item.sales:before { background-position:-360px 0; }
-      .item.stats:before { background-position:0 -60px; }
-      .item.fashion:before { background-position:-60px -60px; }
-      .item.kids:before { background-position:-120px -60px; }
-      .item.cosmetic:before { background-position:-180px -60px; }
-      .item.living:before { background-position:-240px -60px; }
-      .item.food:before { background-position:-300px -60px; }
-      .item.appliance:before { background-position:-360px -60px; }
-      .item.etc:before { background-position:0 -120px; }
-      .item.all:before { background-position:-60px -120px; }
       .item .label { display:block; font-size:15px; color:#5b5b5b; font-weight:400; }
      }
+    &.theme .category { max-width:1260px; }
+    &.theme .item { width:(100%/7); }
   }
+
 }
 
 @include respond(pc) {
