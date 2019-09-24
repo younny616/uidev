@@ -1,19 +1,8 @@
-.listWrap {
-  width:1640px; margin:0 auto;
-
-  [class*=type] {
-    overflow:hidden; width:1440px; margin:0 auto;
-
-    .item {
-      position:relative; float:left; box-sizing:border-box;
-    }
+.listWrap { width:1640px; margin:0 auto;
+  [class*=type] { overflow:hidden; width:1440px; margin:0 auto;
+    .item {position:relative; float:left; box-sizing:border-box; }
   }
-
-  .typeApp {
-    @include item('app');
-  }
-
-  .typeTheme{
-    @include item('theme');
-  }
+  > [class^=type] { padding:0 0 92px; }
+  .typeApp { @include item('app'); }
+  .typeTheme { @include item('theme'); }
 }

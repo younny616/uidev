@@ -161,3 +161,47 @@
      }
   }
 }
+
+@mixin icoArrow($direction: 'top', $width: 20px, $height: 10px, $thick: 1px, $color: #000, $display: inline-block, $position: relative) {
+  $sqrt: 1.41421356237;
+
+  display:$display; position:$position; width:$width; height:$height;
+
+  @if ($direction == 'top' or $direction == 'bottom') {
+    $size:floor(($width / $sqrt) - (2 * $thick));
+    $rate:2 * $height / $width;
+    $margin-top:round($rate * $size / (2 * $sqrt));
+
+    &:before { content:''; position:absolute; top:50%; left:50%; width:$size; height:$size;
+      @if ($rate == 1) {
+        transform:translate(-50%, -50%) rotate(45deg);
+      } @else {
+        transform:translate(-50%, -50%) scale(1, $rate) rotate(45deg);
+      }
+
+      @if ($direction == 'top') {
+        margin-top:$margin-top; border-top:$thick solid $color; border-left:$thick solid $color;
+      } @else if ($direction == 'bottom') {
+        margin-top:- $margin-top; border-right:$thick solid $color; border-bottom:$thick solid $color;
+      }
+    }
+  } @else if ($direction == 'left' or $direction == 'right') {
+    $size:floor(($height / $sqrt) - (2 * $thick));
+    $rate:2 * $width / $height;
+    $margin-left:round($rate * $size / (2 * $sqrt));
+
+    &:before { content:''; position:absolute; top:50%; left:50%; width:$size; height:$size;
+      @if ($rate == 1) {
+        transform:translate(-50%, -50%) rotate(45deg);
+      } @else {
+        transform:translate(-50%, -50%) scale($rate, 1) rotate(45deg);
+      }
+
+      @if ($direction == 'left') {
+        margin-left:$margin-left; border-left:$thick solid $color; border-bottom:$thick solid $color;
+      } @else if ($direction == 'right') {
+        margin-left:- $margin-left; border-top:$thick solid $color; border-right:$thick solid $color;
+      }
+    }
+  }
+}
