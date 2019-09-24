@@ -2,10 +2,30 @@ extends /layouts/layout
 include /components/common/mTitle
 include /components/slider
 include /components/list
+include /components/subvisual
 include /components/subcategory
 include /components/partnermeet
+include /components/randomList
 
 block append contents
+  section.themeVisual
+    +subVisual('theme', 'Theme', '딱 맞는 테마로 쇼핑몰을 꾸며보세요','이미지 중심의 콘텐츠 테마','미니멀리스트 스타일 테마 모음', '인싸들의 모바일 전용 테마', '금주 신상 테마 모음전', '테마 큐레이션 최대 5개 노출')
+
+  - function makeRandom(datas) { return datas.sort((v1, v2) => Math.random() - Math.random()); }
+  - var randomListData = require('./src/js/data/randomApp.js');
+  - var randomBackData = makeRandom(randomListData);
+  - var randomThemeData = require('./src/js/data/randomTheme.js');
+
+  section.combineRandom
+    div.randomWrap
+      div.randomApp
+        +mTitle('typeRandom', '<strong>APP</strong> <span>똑똑한 쇼핑몰 분석 앱 모음</span>', '잠재고객과 구매고객의 선호도를 분석하고 싶다면<br>분석 앱 어떤가요?', '자세히보기')
+        +randomList(randomListData, 'app')
+        +randomList(randomBackData, 'random')
+      div.randomTheme
+        +mTitle('typeRandom', '<strong>THEME</strong> <span>똑똑한 쇼핑몰 분석 앱 모음</span>', '나의 쇼핑몰 고객에게 인싸가 될 수 있도록 핫한<br>디자인을 모았습니다', '자세히보기')
+        +randomList(randomThemeData, 'theme')
+
   - var bestTheme = 'bestTheme';
   - var bestThemeData = require('./src/js/data/bestTheme.js');
   section.bestTheme

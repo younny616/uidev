@@ -15,6 +15,10 @@ class UI {
 
         return $(document).on('click', target, callback);
     }
+
+    _makeRandom(values) { // insted pug function
+        return values.sort((v1, v2) => Math.random() - Math.random());
+    }
 }
 
 export default new UI();

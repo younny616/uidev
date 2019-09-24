@@ -1,8 +1,8 @@
 mixin mTitle(typeClass, title, desc, btnTxt)
   div(class=`mTitle${!typeClass ? '' : ' '+typeClass}`)
-    h3.title #{title}
+    h3.title !{title}
     if desc
-      p.desc #{desc}
+      p.desc !{desc}
     if btnTxt
-      button.btnAll #{btnTxt}
+      button.btnAll !{btnTxt}
         i.icoArrow

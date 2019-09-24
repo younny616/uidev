@@ -10,6 +10,8 @@ html(lang="ko")
     meta(http-equiv="X-UA-Compatible" content="ie=edge")
     title !{title}
     link(rel="stylesheet" href=`/css/${project.title}.min.css`)
+    script(src="/js/plugins/jquery-1.12.4.min.js")
+    script(src=`/js/${project.title}.bundle.min.js`)
   body
     block body
       #wrap
@@ -20,6 +22,3 @@ html(lang="ko")
             block contents
 
         include /components/layouts/footer
-
-      script(src="/js/plugins/jquery-1.12.4.min.js")
-      script(src=`/js/${project.title}.bundle.min.js`)

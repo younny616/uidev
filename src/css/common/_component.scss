@@ -23,11 +23,21 @@
       .desc { font-size:18px; color:#000; }
       .btnAll { position:absolute; right:0; bottom:8px; }
     }
+
     &.typeCenter { text-align:center;
       .title { margin:0 0 4px; font-size:36px; font-weight:400; }
       .desc { margin:0 0 31px; font-size:16px; color:#959595; }
       .btnAll { margin: 0 0 40px; }
     }
+
+    &.typeRandom { width:auto; z-index:3; margin:56px 0 0 33px; text-align:left;
+      .title { margin:0 0 9px; font-size:13px; font-weight:800;
+        strong { font-size:inherit; font-weight:inherit; color:#fff; }
+        span { margin:0 0 0 10px; font-size:inherit; font-weight:inherit; color:#959595;}
+      }
+      .desc { margin:0 0 30px; font-size:28px; color:#fff; line-height:35px; }
+    }
+
     &.subMainTheme { margin:40px auto 20px; }
 
     .title { color:#000; }
@@ -42,4 +52,29 @@
        &.subMainTheme { margin:0 auto 20px; }
     }
   }
+
+  .random {
+    &App {
+      .mTitle {
+        &.typeRandom {
+          .title {
+            strong { color:#fff; }
+          }
+          .desc { color:#fff; }
+        }
+      }
+    }
+
+    &Theme {
+      .mTitle {
+        &.typeRandom {
+          .title {
+            strong { color:#000; }
+          }
+          .desc { color:#000; }
+        }
+      }
+    }
+  }
+
 }

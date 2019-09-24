@@ -45,54 +45,21 @@
   }
 }
 
-@mixin square($size : auto, $radius: 0) {
-  width: $size;
-  height: $size;
-  border: 1px solid pink;
-  text-align: center;
-
-  @if $radius != 0 {
-    border-radius: $radius;
-  }
-}
-
-
 @mixin blind { overflow: hidden; text-indent:150%; white-space:nowrap; font-size:1px; line-height:0; color:transparent; }
-@mixin ellipsis($width: 100%,  $display: inline-block) {
-  display: $display; max-width: $width; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; word-wrap: normal;
-}
 
-@mixin flex() {
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
+@mixin ellipsis($width: 100%,  $display: inline-block) { display: $display; max-width: $width; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; word-wrap: normal; }
 
-@mixin clearfix() {
-  content:"";
-  display:block;
-  clear:both;
-}
+@mixin flex($justify: center, $align: center, $wrap: wrap, $dir: row, ) { display:flex; justify-content:$justify; align-items:$align; flex-wrap:$wrap; flex-direction:$dir; }
+
+@mixin clearfix() { content:''; display:block; clear:both; }
 
 @mixin text-ellipsis($lineHeight, $line) {
-  overflow: hidden;
-  width:100%;
-  text-overflow:ellipsis;
-  text-align: left;
+  overflow:hidden; width:100%; text-overflow:ellipsis; text-align:left;
 
   @if $line >= 2 {
-    display:-webkit-box;
-    height:#{$lineHeight * $line + 'px'};
-    max-height:#{$lineHeight * $line + 'px'};
-    line-height:#{$lineHeight + 'px'};
-
-    -webkit-line-clamp:$line;
-    -webkit-box-orient: vertical;
-
+    display:-webkit-box; height:#{$lineHeight * $line + 'px'}; max-height:#{$lineHeight * $line + 'px'}; line-height:#{$lineHeight + 'px'}; -webkit-line-clamp:$line; -webkit-box-orient: vertical;
   } @else {
-    display:block;
-    white-space:nowrap;
-    word-break:break-word;
+    display:block; white-space:nowrap; word-break:break-word;
   }
 }
 
