@@ -1,0 +1,15 @@
+mixin category(title, types)
+    div.subCategory&attributes(attributes)
+        div.heading
+            h3.title #{title}
+        div.category
+            - var itemClassApp = ['banner', 'notify', 'edit', 'display', 'marketing', 'customer', 'sales', 'stats', 'etc', 'all']
+            - var itemClassTheme = ['fashion', 'kids', 'cosmetic', 'living', 'food', 'appliance', 'etc']
+            if types === 'app'
+                each itemApp, i in ['배너', '팝업/알림', '상품상세 편집', '상품 디스플레이', '마케팅', '고객지원', '판매/전환', '분석/통계', '기타', '전체']
+                    div.item(class= itemClassApp[i])
+                        strong.label= itemApp
+            else if types === 'theme'
+                each itemTheme, i in ['패션', '유아동/키즈', '잡화/화장품', '리빙/라이프', '음료/음식', '가전', '기타']
+                    div.item(class= itemClassTheme[i])
+                        strong.label= itemTheme

@@ -5,10 +5,13 @@
 }
 
 @include respond(mobile) {
+
+  #contents { background:#f5f5f5; }
   #footer .menu .title { font-size:11px; }
 }
 
 @include respond(mobile-tablet) {
+  #header { position:absolute; top:0; left:0; height:60px; }
   #footer { position:relative; margin:10px 0 0; }
   #footer .logo { position:absolute; left:20px; bottom:139px; }
   #footer .menu {
@@ -25,6 +28,10 @@
 
 @include respond(tablet) {
 
+}
+
+@include respond(tablet-pc) {
+  .RMB { display:none; }
 }
 
 @include respond(pc) {
