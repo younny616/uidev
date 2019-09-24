@@ -1,12 +1,12 @@
 extends layouts/layout
 include /components/app_simple
-include /components/heading
+include /components/common/mTitle
 
 
 block append contents
     include /components/mainvisual
 
-    +heading('이번주를 뜨겁게 달군 핫한 앱')
+    +mTitle(false, '이번주를 뜨겁게 달군 핫한 앱')
 
 
     +appSimple('앱 제목1', '마케팅', '1,000円', '/images/@img_app_icon.png')
@@ -14,7 +14,7 @@ block append contents
     +appSimple('앱 제목2', '마케팅', '10,000円', '/images/@img_app_icon.png')
     +appSimple('앱 제목2', '마케팅', '10,000円', '/images/@img_app_icon.png')
 
-    +heading('이번주 BEST 인기 테마')
+    +mTitle(false, '이번주 BEST 인기 테마')
 
     include /components/mainstory
     include /components/shopmaking

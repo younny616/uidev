@@ -1,10 +1,12 @@
 (function(UI) {
     var options = {
         loop: true,
+        loopedSlides: 4,
+        loopAdditionalSlides: 4,
+        slidesPerGroup: 4,
         speed: 1200,
         autoplay: false,
         slidesPerView: 'auto',
-        slidesPerGroup: 4,
         pagination: false,
     }
 
@@ -12,6 +14,7 @@
     var bestThemeSlider = new Cafe24.SwiperSlider('#bestTheme', options).init();
     var newThemeSlider = new Cafe24.SwiperSlider('#newTheme', options).init();
     var mobileTheme = new Cafe24.SwiperSlider('#mobileTheme', options).init();
+
 
     var combineMobileOptions = {
         loop: true,
@@ -21,7 +24,6 @@
         //     delay: 4000,
         //     disableOnInteraction: false,
         // },
-        spaceBetween: 10,
         slidesPerView: 'auto',
         navigation: false,
         pagination: false,
@@ -37,7 +39,6 @@
         //     delay: 4000,
         //     disableOnInteraction: false,
         // },
-        spaceBetween: 10,
         slidesPerView: 'auto',
         slideToClickedSlide: true,
         pagination: false,
@@ -46,5 +47,18 @@
         }
     };
     var combinePcSlider = new Cafe24.SwiperSlider('#combinePC', combinePcOptions).init();
+
+    var options2 = {
+        loop: true,
+        loopedSlides: 4,
+        loopAdditionalSlides: 4,
+        slidesPerGroup: 4,
+        speed: 1200,
+        autoplay: false,
+        slidesPerView: 'auto',
+        // pagination: false,
+    }
+
+
 
 })(Cafe24.UI);
