@@ -1,0 +1,70 @@
+extends /layouts/layout
+include /components/common/mTitle
+include /components/slider
+include /components/list
+include /components/subcategory
+include /components/partnermeet
+
+block append contents
+  - var bestTheme = 'bestTheme';
+  - var bestThemeData = require('./src/js/data/bestTheme.js');
+  section.bestTheme
+    +mTitle('typeLeft subMainTheme', '이번주 BEST 인기 테마')
+    +slider(bestTheme, bestThemeData, 'typeTheme', 'theme', false, true)
+
+  - var newTheme = 'newTheme';
+  - var newThemeData = require('./src/js/data/newTheme.js');
+  section.newTheme
+    +mTitle('typeLeft subMainTheme', '따끈따끈 신규 테마')
+    +slider(newTheme, newThemeData, 'typeTheme', 'theme', false, true)
+
+  - var combinePC = 'combinePC';
+  - var combinePCData = require('./src/js/data/combinePC.js');
+  - var combineMobile = 'combineMobile';
+  - var combineMobileData = require('./src/js/data/combineMobile.js');
+  section.combineTheme
+    +mTitle('typeCenter', 'PC와 Mobile 세트 상품으로 완벽한 쇼핑몰 만들기', '디바이스 사이즈별 최적화된 디자인을 제공합니다.', '세트상품 전체보기')
+    div.combineWrap
+      +slider(combinePC, combinePCData, 'typeCombinePC', 'image', false, true)
+      div.combinePCFrame
+      +slider(combineMobile, combineMobileData, 'typeCombineMobile', 'image', false, false)
+      div.combineMobileFrame
+    div.combineDetail
+      button.btnDetail 상세보기
+
+  - var freeTheme = 'freeTheme';
+  - var freeThemeData = require('./src/js/data/freeTheme.js');
+  section.freeTheme
+    +mTitle('typeLeft subMainTheme', '무료테마', false, '전체보기')
+    +list(freeTheme, freeThemeData, 'typeTheme')
+
+  - var mobileTheme = 'mobileTheme';
+  - var mobileThemeData = require('./src/js/data/mobileTheme.js');
+  section.mobileTheme
+    +mTitle('typeCenter', '혹시 모바일 테마를 찾고 계신가요?', '모바일에 최적화된 테마를 만나보세요.', '전체보기')
+    +slider(mobileTheme, mobileThemeData, 'typeZigzag', 'image', false, true)
+
+  - var choseTheme = 'choseTheme';
+  - var choseThemeData = require('./src/js/data/choseTheme.js');
+  section.choseTheme
+    +mTitle('typeLeft subMainTheme', '인싸들이 선택한 테마', '나의 쇼핑몰 고객에게 인싸가 되는 핫한 디자인을 모았습니다.', '전체보기')
+    +list(choseTheme, choseThemeData, 'typeTheme')
+
+  - var minimalTheme = 'minimalTheme';
+  - var minimalThemeData = require('./src/js/data/minimalTheme.js');
+  section.minimalTheme
+    +mTitle('typeLeft subMainTheme', '미니멀리스트 테마모음 ', '', '전체보기')
+    +list(minimalTheme, minimalThemeData, 'typeTheme')
+
+  section.themeCate
+    +category('테마 카테고리', 'theme')(class="theme")
+
+  section.themePartner
+    +partnermeet('뛰어난 품질과 서비스를 제공하는 <br>카페24가 검증한 파트너와 만나보세요', '파트너 보러가기')(class="partner")
+
+  section.makeTheme
+    include /components/shopmaking
+
+block append body
+  script(src="//cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js")
+  script(src="/js/ui/theme.js")

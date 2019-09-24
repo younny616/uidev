@@ -70,7 +70,7 @@
  */
 
 .sliderWrap.typeApp {
-  width:1640px; padding:20px 0 100px;
+  width:1640px; padding:0 0 92px;
 
   .sliderContainer {
     overflow:visible; width:1440px;
@@ -88,7 +88,7 @@
 }
 
 .sliderWrap.typeTheme {
-  width:1640px; padding:20px 0 100px;
+  width:1640px; padding:0 0 92px;
 
   .sliderContainer {
     overflow:visible; width:1440px;
@@ -105,18 +105,7 @@
   }
 }
 
-.combineWrap {
-  position:relative; width:1404px; margin:0 auto;
 
-  .combinePCFrame {
-    overflow:hidden; position:absolute; left:0; top:-1px; right:0; z-index:10; width:1080px; height:24px; margin:0 auto; border:1px solid #e6e6e6; border-radius:6px 6px 0 0; background:url('#{$src}/combine_pc_frame.jpg') no-repeat top center; background-size:100% auto;
-  }
-
-  .combineMobileFrame {
-    overflow:hidden; position:absolute; right:102px; bottom:-18px; z-index:10; width:284px; height:494px; border-radius:27px; background:#f6f7fb url('#{$src}/combine_mobile_frame.png') no-repeat center center; background-size:100%;
-    box-shadow:0 40px 80px 0 rgba(0, 0, 0, 0.2);
-  }
-}
 
 .sliderWrap.typeCombine {
   &PC {
@@ -174,7 +163,7 @@
 }
 
 .sliderWrap.typeZigzag {
-  width:1654px; padding:60px 0 150px;
+  width:1654px; padding:0 0 92px;
 
   .sliderContainer {
     overflow:visible; width:1440px;
@@ -227,24 +216,4 @@
     .slidePrev { left:0; }
     .slideNext { right:0; }
   }
-}
-
-@include respond(mobile) {
-
-}
-
-@include respond(mobile-tablet) {
-
-}
-
-@include respond(tablet) {
-
-}
-
-@include respond(tablet-pc) {
-
-}
-
-@include respond(pc) {
-
 }
