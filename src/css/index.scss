@@ -7,14 +7,12 @@
 @import 'common/variables';
 @import 'common/mixins';
 @import 'common/reset';
+@import 'common/layout';
+@import 'common/component';
 
 @import 'fonts/notosans';
 
-@import 'layout';
-@import 'component';
-
 //nyyoon
-@import 'heading';
 @import 'applist';
 @import 'mainvisual';
 @import 'mainstory';
