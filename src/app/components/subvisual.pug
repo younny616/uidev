@@ -4,4 +4,4 @@ mixin subVisual(typeClass, label, title, ...items)
         h2.title !{title}
         div.keyword
             each keyword in items
-                button.value #{keyword}
+                a.value(href="#none") #{keyword}
