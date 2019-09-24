@@ -19,10 +19,30 @@
 }
 
 @include respond(tablet) {
+  .appList { width:(100%/3); }
+}
 
+@include respond(tablet-pc) {
+.sectionAppList { max-width:1404px; margin:0 auto; }
+  .appGroup { display:flex; }
+  .appList { margin:0 0 40px; padding:0 40px 0 0;
+    .thumbnail { float:left; width:80px; height:80px;
+      img { max-width:100%; }
+    }
+    .infomation { padding:0 0 0 96px;
+      .title { font-size:16px; line-height:21px; color:#000; font-weight:500; }
+      .category { display:block; font-size:13px; color:#758ea6; }
+      .price { display:block; margin:3px 0 0; font-size:14px; color:#797980; font-weight:400; }
+    }
+    .infoDesc { margin:28px 0 0; font-size:14px; color:#797980; }
+  }
 }
 
 @include respond(pc) {
+
+  .appList { width:(100%/4); }
+
+
   .mAppList {
     display:flex; align-items:center; width:308px; margin:0 0 40px;
 
