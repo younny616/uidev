@@ -1,5 +1,7 @@
 mixin mTitle(typeClass, title, desc, btnTxt)
   div(class=`mTitle${!typeClass ? '' : ' '+typeClass}`)
     h3.title #{title}
-    p.desc #{desc}
-    button.btnAll #{btnTxt}
+    if desc
+      p.desc #{desc}
+    if btnTxt
+      button.btnAll #{btnTxt}

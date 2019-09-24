@@ -1,8 +1,7 @@
-div.subVisual
-    h2.title
-        | 쇼핑몰을 완성하는 모든 과정을
-        br
-        | 스토어와 함께하세요
-    div.button
-        a.btnAppDirect 앱 바로가기
-        a.btnThemeDirect 테마 바로가기
+mixin subVisual(typeClass, label, title, ...items)
+    div(class=`subVisual${!typeClass ? '' : ' '+typeClass}`)
+        strong.label !{label}
+        h2.title !{title}
+        div.keyword
+            each keyword in items
+                button.value #{keyword}

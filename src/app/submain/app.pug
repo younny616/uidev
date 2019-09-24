@@ -1,9 +1,16 @@
 extends /layouts/layout
 include /components/common/mTitle
 include /components/slider
+include /components/subvisual
 include /components/list
+include /components/app_simple
+include /components/subcategory
+include /components/partnermeet
 
 block append contents
+
+  +subVisual('app', 'App', '쇼핑몰 확장을 위한 앱을 설치하세요','상반기 TOP 12','주목할만한 신상 앱', '나도 인플루언서', '핫 썸머! 쿨~한 앱', '재능마켓')
+
   - var newApp = 'newApp';
   - var newAppData = require('./src/js/data/newApp.js');
 
@@ -11,43 +18,18 @@ block append contents
 
     +slider(newApp, newAppData, 'typeApp', 'app', false, true)
 
-  - var bestTheme = 'bestTheme';
-  - var bestThemeData = require('./src/js/data/bestTheme.js');
+  section.sectionAppList
+    +mTitle(false, '이번주를 뜨겁게 달군 핫한 앱')
+    +appSimple('앱 제목1', '마케팅', '1,000円', '/images/@img_app_icon.png')
+    +appSimple('앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '10,000円', '/images/@img_app_icon.png')
+    +appSimple('앱 제목2', '마케팅', '10,000円', '/images/@img_app_icon.png')
+    +appSimple('앱 제목2', '마케팅', '10,000円', '/images/@img_app_icon.png')
 
-  section.sectionBestTheme
-    +slider(bestTheme, bestThemeData, 'typeTheme', 'theme', false, true)
 
-  - var newTheme = 'newTheme';
-  - var newThemeData = require('./src/js/data/newTheme.js');
+  +category('앱 카테고리', 'app')(class="app")
 
-  section.sectionNewTheme
-    +slider(newTheme, newThemeData, 'typeTheme', 'theme', false, true)
-
-  - var combinePC = 'combinePC';
-  - var combinePCData = require('./src/js/data/combinePC.js');
-  - var combineMobile = 'combineMobile';
-  - var combineMobileData = require('./src/js/data/combineMobile.js');
-
-  section.sectionCombine
-    +mTitle(false, 'PC와 Mobile 세트 상품으로 완벽한 쇼핑몰 만들기', '디바이스 사이즈별 최적화된 디자인을 제공합니다.', '세트상품 전체보기')
-    div.combineWrap
-      +slider(combinePC, combinePCData, 'typeCombinePC', 'image', false, true)
-      div.combinePCFrame
-      +slider(combineMobile, combineMobileData, 'typeCombineMobile', 'image', false, false)
-      div.combineMobileFrame
-
-  - var mobileTheme = 'mobileTheme';
-  - var mobileThemeData = require('./src/js/data/mobileTheme.js');
-
-  section.sectionMobileTheme
-    +slider(mobileTheme, mobileThemeData, 'typeZigzag', 'image', false, true)
-
-  - var freeTheme = 'freeTheme';
-  - var freeThemeData = require('./src/js/data/freeTheme.js');
-
-  section.sectionFreeTheme
-    +list(freeTheme, freeThemeData, 'typeTheme')
-
+  +partnermeet('뛰어난 품질과 서비스를 제공하는 <br>카페24가 검증한 개발사와 만나보세요', '개발사 보러가기')(class="develop")
+  include /components/shopmaking
 
 block append body
   script(src="//cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js")
