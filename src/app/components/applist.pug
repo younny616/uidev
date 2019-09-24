@@ -1,0 +1,12 @@
+mixin applist(typeClass, title, category, price, desc, img)
+    div(class=`appList${!typeClass ? '' : ' '+typeClass}`)
+        div.thumbnail
+            img(src=img, alt='')
+        div.infomation
+            strong.title #{title}
+            if category
+                span.category #{category}
+            if price
+                strong.price #{price}
+            if desc
+                p.desc #{desc}

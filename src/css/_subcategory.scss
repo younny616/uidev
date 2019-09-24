@@ -5,22 +5,22 @@
     }
     .category { display:flex; flex-wrap:wrap; margin:0 auto;
       .item { width:25%; max-width:60px; margin:0 0 31px; text-align:center;
-        &:before { content:""; display:block; margin:0 auto 10px; width:40px; height:40px; background-image:url('../images/sfix_subcategory.png'); }
-        &.notify:before { background-position:-60px 0; }
-        &.edit:before { background-position:-120px 0; }
-        &.display:before { background-position:-180px 0; }
-        &.marketing:before { background-position:-240px 0; }
-        &.customer:before { background-position:-300px 0; }
-        &.sales:before { background-position:-360px 0; }
-        &.stats:before { background-position:0 -60px; }
-        &.fashion:before { background-position:-60px -60px; }
-        &.kids:before { background-position:-120px -60px; }
-        &.cosmetic:before { background-position:-180px -60px; }
-        &.living:before { background-position:-240px -60px; }
-        &.food:before { background-position:-300px -60px; }
-        &.appliance:before { background-position:-360px -60px; }
-        &.etc:before { background-position:0 -120px; }
-        &.all:before { background-position:-60px -120px; }
+        &:before { content:""; display:block; margin:0 auto 10px; width:40px; height:40px; background-image:url('../images/sfix_subcategory.png'); background-size:240px auto; }
+        &.notify:before { background-position:-40px 0; }
+        &.edit:before { background-position:-80px 0; }
+        &.display:before { background-position:-120px 0; }
+        &.marketing:before { background-position:-160px 0; }
+        &.customer:before { background-position:-200px 0; }
+        &.sales:before { background-position:0 -40px; }
+        &.stats:before { background-position:-40px -40px; }
+        &.fashion:before { background-position:-80px -40px; }
+        &.kids:before { background-position:-120px -40px; }
+        &.cosmetic:before { background-position:-160px -40px; }
+        &.living:before { background-position:-200px -40px; }
+        &.food:before { background-position:0 -80px; }
+        &.appliance:before { background-position:-40px -80px; }
+        &.etc:before { background-position:-80px -80px; }
+        &.all:before { background-position:-120px -80px; }
       }
       .item .label { display:block; font-size:11px; color:#5b5b5b; font-weight:400; }
     }
@@ -42,22 +42,22 @@
      }
     .category { display:flex; flex-wrap:wrap; max-width:860px; margin:0 auto;
       .item { width:20%; margin:0 0 90px; text-align:center;
-        &:before { content:""; display:block; margin:0 auto 10px; width:60px; height:60px; background-image:url('../images/sfix_subcategory.png'); }
+        &:before { content:""; display:block; margin:0 auto 10px; width:60px; height:60px; background-image:url('../images/sfix_subcategory.png'); background-size:360px auto; }
         &.notify:before { background-position:-60px 0; }
         &.edit:before { background-position:-120px 0; }
         &.display:before { background-position:-180px 0; }
         &.marketing:before { background-position:-240px 0; }
         &.customer:before { background-position:-300px 0; }
-        &.sales:before { background-position:-360px 0; }
-        &.stats:before { background-position:0 -60px; }
-        &.fashion:before { background-position:-60px -60px; }
-        &.kids:before { background-position:-120px -60px; }
-        &.cosmetic:before { background-position:-180px -60px; }
-        &.living:before { background-position:-240px -60px; }
-        &.food:before { background-position:-300px -60px; }
-        &.appliance:before { background-position:-360px -60px; }
-        &.etc:before { background-position:0 -120px; }
-        &.all:before { background-position:-60px -120px; }
+        &.sales:before { background-position:0 -60px; }
+        &.stats:before { background-position:-60px -60px; }
+        &.fashion:before { background-position:-120px -60px; }
+        &.kids:before { background-position:-180px -60px; }
+        &.cosmetic:before { background-position:-240px -60px; }
+        &.living:before { background-position:-300px -60px; }
+        &.food:before { background-position:0 -120px; }
+        &.appliance:before { background-position:-60px -120px; }
+        &.etc:before { background-position:-120px -120px; }
+        &.all:before { background-position:-180px -120px; }
       }
       .item .label { display:block; font-size:15px; color:#5b5b5b; font-weight:400; }
      }

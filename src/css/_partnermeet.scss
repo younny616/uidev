@@ -19,7 +19,7 @@
 }
 
 @include respond(tablet-pc) {
-  .partnerMeet { padding:180px 0 190px; background:#000;
+  .partnerMeet { max-width:1404px; margin:0 auto; padding:180px 0 190px; background:#000;
     .heading { margin:0 0 55px; text-align:center;
       .title { font-size:32px; line-height:48px; color:#fff; font-weight:400; }
       .label { display:block; margin:0 0 30px; font-size:14px; color:#5398f5; font-weight:800; text-transform:uppercase; }
