@@ -40,21 +40,42 @@
   #header .navigation {}
   #header .navigation .menu > li { position:relative; display:inline-block; padding:0 20px; font-size:14px; vertical-align:top; }
   #header .navigation .menu > li a { color:#000; font-weight:bold; font-size:16px; }
-  #header .navigation .menuContent {
-    position:absolute; left:20px; margin:10px 0 0; padding:20px; border:1px solid #ddd; background:#fff;
-    .shotcut { font-size:20px; }
-    .list li { display:block; }
+
+  #header .navigation .menuContent { opacity:0; height:0;
+    overflow:hidden; position:absolute; left:20px; margin:10px 0 0; border:1px solid #ddd; background:#fff; white-space:nowrap; border-radius:2px;
+    .shotcut { display:block; margin:0 0 34px; font-size:20px; }
+    .subMenu { display:inline-block; min-width:152px; padding:34px 24px 20px; box-sizing:border-box;
+      &.curation { position:relative; z-index:1; background:#fafafa;
+        &:before { content:""; display:block; width:100%; height:100%; position:absolute; top:-100%; bottom:0; left:0; right:0; z-index:-1; background:#fafafa; }
+      }
+      .menuTitle { display:block; margin:0 0 15px; font-size:13px; color:#959595; font-weight:400; }
+    }
+    .list li { display:block; margin:0 0 12px; }
   }
+  #header .navigation .menu > li:hover .menuContent { opacity:1; height:auto; }
   #header .util {
     display:flex; margin:0 0 0 auto; font-size:14px;
-    .story { font-size:15px; color:#5b5b5b; font-weight:500; }
+    .story { position:relative; font-size:15px; color:#5b5b5b; font-weight:500; text-decoration:none; }
+    .story:hover { color:#0055fb;
+      &:before { content:""; position:absolute; bottom:0; display:block; width:100%; height:3px; background:#0055fb;; }
+     }
   }
-  #header .user { width:24px; height:24px;
+  #header .user { position:relative; width:24px; height:24px; margin:0 0 0 20px;
     .btnUser { @include blind(); position:relative; width:16px; height:16px; }
     .btnUser:before { content:""; position:absolute; top:0; left:3px; display:inline-block; width:11px; height:11px; border:2px solid #5b5b5b; border-radius:50%; box-sizing:border-box; }
     .btnUser:after { @extend .btnUser:before; top:9px; left:1px; width:15px; height:16px; }
   }
-  #header .layer { display:none; }
+  #header .layer { position:absolute; left:-23px; top:34px; min-width:200px; padding:19px; border:1px solid #e8e8e8; box-sizing:border-box; background:#fff; border-radius:2px;
+    .info {
+      .id { @include ellipsis(100px, inline-block); }
+      .btnLogout { display:block; margin:8px 0 0; font-size:12px; color:#959595; }
+     }
+    .my { display:flex; margin:18px 0 0; padding:18px 0 0; border-top:1px solid #e8e8e8;
+      .detail { width:80px; }
+      .count { display:block; margin:0 0 6px; color:#0055fb; font-size:18px; }
+      .label { font-size:13px; color:#959595; }
+     }
+   }
   #header .search { display:none; }
 
   #contents { min-height:700px; }
