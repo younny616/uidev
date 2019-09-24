@@ -6,9 +6,7 @@ const pug = require('gulp-pug');
 const fileinclude = require('gulp-file-include');
 const prettify = require('gulp-prettify');
 const prettifyOptions = require('./prettify');
-const mode = require('gulp-mode')({
-  modes: ['production', 'development', 'deploy'],
-});
+const mode = require('gulp-mode')({ modes: ['production', 'development', 'deploy'] });
 const sass = require('gulp-sass');
 const cleanCSS = require('gulp-clean-css');
 const rename = require('gulp-rename');
@@ -23,7 +21,11 @@ const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
 const del = require('del');
 const glob = require('glob');
+const decache = require('decache');
 const stringify = require('js-stringify');
+
+
+
 
 /**
  * Mode Variables
@@ -97,16 +99,22 @@ const html = () => {
  * Pug handler
  */
 const pugs = () => {
+  const cachedFiles = glob.sync(paths.scripts.cachedData);
+
+  cachedFiles.forEach(path => {
+    decache(`./${path}`);
+  });
+
   return src(paths.pugs.src)
     .pipe(pug({
       basedir: paths.pugs.dir,
       locals: {
         require,
         stringify,
-      }
+      },
     }))
     .on('error', function (err) {
-        console.log(err.toString());
+        console.log(err.message.toString());
         this.emit('end');
     })
     .pipe(mode.production(buildReplace(isDeploy)))
@@ -177,18 +185,18 @@ const scripts = () => {
  * Ignores handler
  */
 const ignore = (done) => {
-    const files = paths.scripts.ignore;
+  const files = paths.scripts.ignore;
 
-    files.map((path, i) => {
-      return src(path)
-        .on('error', function (err) {
-          console.log(err.toString());
-          this.emit('end');
-        })
-        .pipe(!isProduction ? dest(paths.scripts.ignorePath[i]) : dest(`${buildPath}/js/${paths.scripts.ignorePath[i].slice(paths.scripts.ignorePath[i].lastIndexOf('/') + 1)}`));
-    });
+  files.map((path, i) => {
+    return src(path)
+      .on('error', function (err) {
+        console.log(err.toString());
+        this.emit('end');
+      })
+      .pipe(!isProduction ? dest(paths.scripts.ignorePath[i]) : dest(`${buildPath}/js/${paths.scripts.ignorePath[i].slice(paths.scripts.ignorePath[i].lastIndexOf('/') + 1)}`));
+  });
 
-    done();
+  done();
 }
 
 

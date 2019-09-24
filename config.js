@@ -50,7 +50,8 @@ const paths = {
       `${project.dest}/js/vue`,
       `${project.dest}/js/ui`,
       `${project.dest}/js/data`,
-    ]
+    ],
+    cachedData: `${project.src}/js/data/**/*.js`,
   },
   images: {
     src: `${project.src}/images/**/*.*`,

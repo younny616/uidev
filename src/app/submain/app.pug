@@ -1,15 +1,49 @@
 extends /layouts/layout
 include /components/slider
-include /components/sliderItem
+include /components/list
 
 block append contents
-  - var mainSlider = require('./src/js/data/mainSlider');
-  - var mainSliderItem = JSON.parse(stringify(mainSlider));
-  - var sliderClass = 'mainSlider';
-
+  - var newApp = 'newApp';
+  - var newAppData = require('./src/js/data/newApp.js');
   div
-    +slider(sliderClass)
-      +sliderItem(mainSliderItem)
+    +slider(newApp, newAppData, 'typeApp', 'app', false, true)
+
+  - var bestTheme = 'bestTheme';
+  - var bestThemeData = require('./src/js/data/bestTheme.js');
+  div
+    +slider(bestTheme, bestThemeData, 'typeTheme', 'theme', false, true)
+
+  - var newTheme = 'newTheme';
+  - var newThemeData = require('./src/js/data/newTheme.js');
+  div
+    +slider(newTheme, newThemeData, 'typeTheme', 'theme', false, true)
+
+  - var combinePC = 'combinePC';
+  - var combinePCData = require('./src/js/data/combinePC.js');
+  - var combineMobile = 'combineMobile';
+  - var combineMobileData = require('./src/js/data/combineMobile.js');
+  div
+    div.combineWrap
+      +slider(combinePC, combinePCData, 'typeCombinePC', 'image', false, true)
+      div.combinePCFrame
+      +slider(combineMobile, combineMobileData, 'typeCombineMobile', 'image', false, false)
+      div.combineMobileFrame
+
+  - var mobileTheme = 'mobileTheme';
+  - var mobileThemeData = require('./src/js/data/mobileTheme.js');
+  div(style="background:#f5f5f5;")
+    +slider(mobileTheme, mobileThemeData, 'typeZigzag', 'image', false, true)
+
+  - var freeTheme = 'freeTheme';
+  - var freeThemeData = require('./src/js/data/freeTheme.js');
+  div
+    +list(freeTheme, freeThemeData, 'typeTheme')
+
+  - var freeTheme = 'freeTheme';
+  - var freeThemeData = require('./src/js/data/freeTheme.js');
+  div
+    +list(freeTheme, freeThemeData, 'typeTheme')
+
 
 block append body
   script(src="//cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js")

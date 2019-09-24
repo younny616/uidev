@@ -1,0 +1,6 @@
+include /components/listItem
+
+mixin list(id, datas, typeClass)
+  div(id=`${id}` class="listWrap")
+    ul(class=`${typeClass}`)
+      +listItem(datas, `${typeClass.slice(4).toLowerCase()}`)

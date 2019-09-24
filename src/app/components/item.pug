@@ -1,0 +1,22 @@
+mixin item(item, index, types)
+  case types
+    when 'app'
+      div.image
+        img(src=item[index].src)
+      div.inner
+        strong.title= item[index].title
+        span.subTitle= item[index].subTitle
+        span.price= item[index].price
+        p.description= item[index].description
+    when 'theme'
+      div.image
+        img(src=item[index].src)
+      div.inner
+        strong.title= item[index].title
+        span.subTitle= item[index].subTitle
+        span.price= item[index].price
+        button.btnSample Sample
+    when 'image'
+      div.image
+        a(href="/" target="_blank")
+          img(src=item[index].src)
