@@ -24,3 +24,26 @@ function user() {
         $(this).parents('.user').toggleClass('selected');
     });
 } user();
+
+function navigationMenu() {
+    $('#header .navigation .btnFold').on('click', function () {
+        if($('body').hasClass('navShow') == true){
+            $('body').removeClass('navShow');
+            $(this).text('메뉴보기');
+        }else{
+            $('body').addClass('navShow');
+            $(this).text('메뉴닫기');
+        }
+    });
+    $('#header .btnFoldLayout').on('click', function () {
+        $('body').removeClass('navShow');
+    });
+
+    $('#header .navigation .menu > li > a').on('click', function () {
+        if($(this).parent('li').hasClass('selected') == true){
+            $(this).parent('li').removeClass('selected');
+        }else{
+            $(this).parent('li').addClass('selected').siblings('li').removeClass('selected');
+        }
+    });
+} navigationMenu();

@@ -3,8 +3,8 @@
     .heading {
       .title { margin:0 0 30px; font-size:18px; color:#000; font-weight:bold; }
     }
-    .category { display:flex; flex-wrap:wrap; margin:0 auto;
-      .item { width:25%; max-width:60px; margin:0 0 31px; text-align:center;
+    .category { display:flex; flex-wrap:wrap; margin:0 -20px;
+      .item { width:25%; max-width:100px; margin:0 0 31px; text-align:center;
         &:before { content:""; display:block; margin:0 auto 10px; width:40px; height:40px; background-image:url('../images/sfix_subcategory.png'); background-size:240px auto; }
         &.notify:before { background-position:-40px 0; }
         &.edit:before { background-position:-80px 0; }

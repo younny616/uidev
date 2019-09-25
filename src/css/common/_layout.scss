@@ -12,14 +12,16 @@
 
 @include respond(mobile-tablet) {
   #header { position:fixed; top:0; left:0; right:0; z-index:90; height:60px;
-    .navigation { position:absolute; right:0; top:0; bottom:0; width:300px; height:100%; background:#fff; }
-    .user { padding:80px 0 0;
+    .navigation { position:fixed; top:0; bottom:0; right:0; z-index:101; overflow:auto; width:300px; height:100%; background:#fff;
+      .menu > li > a { display:block; height:60px; padding:20px; line-height:1; font-size:18px; font-weight:500; box-sizing:border-box; }
+     }
+    .user { position:relative; padding:80px 20px 20px;
       .info {
         .id { font-size:18px; }
-        .btnLogout { position:absolute; bottom:0; font-size:12px; color:#959595; }
+        .btnLogout { position:absolute; bottom:0; right:0; font-size:12px; color:#959595; }
       }
-      .my {
-        .detail { margin:0 0 0 24px;
+      .my { margin:35px 0 0;
+        .detail { display:inline-block; margin:0 24px 0 0;
           .count { display:block; font-size:20px; color:#000; }
           .label { font-size:12px; color:#000; }
         }
@@ -28,6 +30,24 @@
 
 
   }
+
+  #header .nav .menuContent { height:0; overflow:hidden; transition: .3s;
+    -webkit-box-shadow: 0px 1px 0px 0px rgba(232,232,232,1), 0px -1px 0px 0px rgba(232,232,232,1);
+    -moz-box-shadow: 0px 1px 0px 0px rgba(232,232,232,1), 0px -1px 0px 0px rgba(232,232,232,1);
+    box-shadow: 0px 1px 0px 0px rgba(232,232,232,1), 0px -1px 0px 0px rgba(232,232,232,1);
+    .shotcut { display:block; padding:22px 0; border-bottom:1px solid #e8e8e8; font-size:15px; color:#000; }
+    .subMenu { display:inline-block; width:100%; padding:0 24px 20px; box-sizing:border-box; background:#fafafa;
+      .menuTitle { display:block; margin:29px 0 15px; font-size:11px; color:#797980; font-weight:400; }
+      .list li { margin:0 0 25px; font-size:14px; color:#000; font-weight:400; }
+    }
+    .subMenu + .subMenu { border-top:1px solid #e8e8e8; }
+  }
+  #header .nav li.selected .menuContent { height:auto; }
+
+  #header .btnFoldLayout { position:fixed; top:0; left:0; z-index:100; display:block; width:0; height:100%; font-size:0; color:transparent; line-height:0; background:rgba(0, 0, 0, 0.4); -webkit-transition:.32s; -moz-transition:.32s; transition:.32s; }
+  .navShow #header .btnFoldLayout { width:100%; }
+
+
   #footer { position:relative; margin:10px 0 0; }
   #footer .logo { position:absolute; left:20px; bottom:139px; }
   #footer .menu {
