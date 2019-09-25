@@ -13,11 +13,7 @@
 }
 
 @include respond(tablet-pc) {
-
-}
-
-@include respond(pc) {
-  .mTitle { position:relative; width:1406px; margin:60px auto 40px;
+  .mTitle { position:relative; margin:60px auto 40px;
     &.typeLeft { text-align:left;
       .title { margin:0 0 2px; font-size:28px; font-weight:800; }
       .desc { font-size:18px; color:#000; }
@@ -29,7 +25,6 @@
       .btnAll { margin: 0 0 40px; }
     }
     &.subMainTheme { margin:40px auto 20px; }
-
     .title { color:#000; }
     .desc { font-size:16px; color:#959595; }
     .btnAll { font-size:16px; color:#0055fb;
@@ -39,7 +34,11 @@
 
   section + section {
     .mTitle {
-       &.subMainTheme { margin:0 auto 20px; }
+      &.subMainTheme { margin:0 auto 20px; }
     }
   }
+}
+
+@include respond(pc) {
+
 }

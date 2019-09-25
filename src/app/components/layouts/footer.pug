@@ -6,6 +6,9 @@ footer#footer
       div.familysite
         button.button(type='button')
         ul.site
+          each item in ['개발자센터','마케팅센터']
+            li
+              a(href="#none")= item
     div.nav
       mixin menu(title, ...items)
         div.menu

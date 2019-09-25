@@ -2,69 +2,69 @@ header#header
   div.inner
     h1.logo
       img(src='logo.png' alt='cafe24 store')
-    nav.navigation
-      ul.menu
-        li
-          a(href='') 앱
-          div.menuContent
-            div.subMenu
-              a.shotcut(href='') 앱 바로가기
-              strong.menuTitle 카테고리
-              ul.list
-                li 전체
-                li 전체
-                li 전체
-                li 전체
-                li 패션
-            div.subMenu.curation
-              strong.menuTitle 앱 기획전
-              ul.list
-                li 상반기 TOP 12
-                li 주목할만한 신상 앱
-                li 주목할만한 신상 앱
-                li 주목할만한 신상 앱
-                li 주목할만한 신상 앱
-        li
-          a(href='#none') 테마
-          div.menuContent
-            div.subMenu
-              a.shotcut(href='') 테마 바로가기
-              strong.menuTitle 카테고리
-              ul.list
-                li 전체
-                li 전체
-                li 전체
-                li 전체
-                li 패션
-            div.subMenu.curation
-              strong.menuTitle 앱 기획전
-              ul.list
-                li 상반기 TOP 12
-                li 주목할만한 신상 앱
-                li 주목할만한 신상 앱
-                li 주목할만한 신상 앱
-                li 주목할만한 신상 앱
-        li
-          a.curation(href='#none') 기획전
-          div.menuContent
-            div.subMenu
-              strong.menuTitle 앱 기획전
-              ul.list
-                li 전체
-                li 전체
-                li 전체
-                li 전체
-                li 패션
-            div.subMenu
-              strong.menuTitle 테마 기획전
-              ul.list
-                li 전체
-                li 전체
-                li 전체
-                li 전체
-                li 패션
-    div.util
-      a.story(href='#none') 스토리
+    div.navigation
+      nav.nav
+        ul.menu
+          li
+            a(href='') 앱
+            div.menuContent
+              div.subMenu
+                a.shotcut(href='') 앱 바로가기
+                strong.menuTitle 카테고리
+                ul.list
+                  li 전체
+                  li 전체
+                  li 전체
+                  li 전체
+                  li 패션
+              div.subMenu.curation
+                strong.menuTitle 앱 기획전
+                ul.list
+                  li 상반기 TOP 12
+                  li 주목할만한 신상 앱
+                  li 주목할만한 신상 앱
+                  li 주목할만한 신상 앱
+                  li 주목할만한 신상 앱
+          li
+            a(href='#none') 테마
+            div.menuContent
+              div.subMenu
+                a.shotcut(href='') 테마 바로가기
+                strong.menuTitle 카테고리
+                ul.list
+                  li 전체
+                  li 전체
+                  li 전체
+                  li 전체
+                  li 패션
+              div.subMenu.curation
+                strong.menuTitle 앱 기획전
+                ul.list
+                  li 상반기 TOP 12
+                  li 주목할만한 신상 앱
+                  li 주목할만한 신상 앱
+                  li 주목할만한 신상 앱
+                  li 주목할만한 신상 앱
+          li
+            a.curation(href='#none') 기획전
+            div.menuContent
+              div.subMenu
+                strong.menuTitle 앱 기획전
+                ul.list
+                  li 전체
+                  li 전체
+                  li 전체
+                  li 전체
+                  li 패션
+              div.subMenu
+                strong.menuTitle 테마 기획전
+                ul.list
+                  li 전체
+                  li 전체
+                  li 전체
+                  li 전체
+                  li 패션
+        a.story(href='#none') 스토리
       div.user
         button.btnUser(type='button') 사용자 정보 보기
         div.layer
@@ -78,16 +78,22 @@ header#header
             div.detail
               strong.count 999
               span.label 관심상품
-      div.search
+    div.search
+      div.searchWrap
         button.btnSearch(type='button') 검색
         div.searchField
-          select
+          select.select
             option 전체
+            option 앱
           div.searchForm
             input(type='search' placeholder='검색어를 입력하세요')
             div.result
-              strong.title
+              strong.title 앱 인기
               div.items
-                each value in ['마케팅 앱', '카카오톡 상담하기 앱', '무료테마', '의류 패션 테마']
+                each value in ['고객관리', '마케팅', '리뷰앱']
                   button.value(type='button')= value
-        button.btnClose(type='button') 닫기
+              strong.title 테마 인기
+              div.items
+                each value in ['스타일난다', '글로벌 스킨', '미니멀 스타일 테마']
+                  button.value(type='button')= value
+          button.btnClose(type='button') 닫기
