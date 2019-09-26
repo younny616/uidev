@@ -26,7 +26,7 @@ function user() {
 } user();
 
 function navigationMenu() {
-    $('#header .navigation .btnFold').on('click', function () {
+    $('#header .btnFold').on('click', function () {
         if($('body').hasClass('navShow') == true){
             $('body').removeClass('navShow');
             $(this).text('메뉴보기');
