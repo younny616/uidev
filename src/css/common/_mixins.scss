@@ -125,7 +125,7 @@
           }
         }
       }
-     }
+    }
   }
 }
 
@@ -171,4 +171,8 @@
       }
     }
   }
+}
+
+@mixin resCenter($width : 1406px) {
+  position:relative; width:$width; left:50%; transform:translateX(-50%);
 }
