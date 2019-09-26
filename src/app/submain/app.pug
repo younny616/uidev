@@ -11,27 +11,46 @@ include /components/partnermeet
 block append contents
 
   +subVisual('app', 'APP', '쇼핑몰 확장을 위한 앱을 설치하세요','상반기 TOP 12','주목할만한 신상 앱', '나도 인플루언서', '핫 썸머! 쿨~한 앱', '재능마켓')
-  +subVisual('theme', 'Theme', '딱 맞는 테마로 쇼핑몰을 꾸며보세요','이미지 중심의 콘텐츠 테마','미니멀리스트 스타일 테마 모음', '인싸들의 모바일 전용 테마', '금주 신상 테마 모음전', '테마 큐레이션 최대 5개 노출')
+
+  section.sectionAppList
+    +mTitle('typeLeft', '이번주를 뜨겁게 달군 인기 앱')
+    div.appGroup
+      +applist(false, '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', false, '/images/@img_app_icon.png')
+      +applist(false, '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', false, '/images/@img_app_icon.png')
+      +applist(false, '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', false, '/images/@img_app_icon.png')
+      +applist(false, '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', false, '/images/@img_app_icon.png')
 
   - var newApp = 'newApp';
   - var newAppData = require('./src/js/data/newApp.js');
 
   section.sectionNewApp
 
-    +mTitle(false, '새로 출시된 앱')
+    +mTitle('typeLeft', '새로 출시된 앱')
     +slider(newApp, newAppData, 'typeApp', 'app', false, true)
 
   section.sectionAppList
-    +mTitle(false, '이번주를 뜨겁게 달군 핫한 앱')
-    +appSimple('앱 제목1', '마케팅', '1,000円', '/images/@img_app_icon.png')
-    +appSimple('앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '10,000円', '/images/@img_app_icon.png')
-    +appSimple('앱 제목2', '마케팅', '10,000円', '/images/@img_app_icon.png')
-    +appSimple('앱 제목2', '마케팅', '10,000円', '/images/@img_app_icon.png')
-
+    +mTitle('typeLeft', '나도 인플루언서', '우리 쇼핑몰도 핫한 인플루언서가 되고 싶지 않으세요? 인플루언서 쇼핑몰의 필수설치 앱!', '전체보기')
+    div.appGroup
+      +applist(false, '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', '최소한의 서류 작업과 신용 확인없이 긴 신청 절차를 피하십시오.', '/images/@img_app_icon.png')
+      +applist(false, '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', '최소한의 서류 작업과 신용 확인없이 긴 신청 절차를 피하십시오.', '/images/@img_app_icon.png')
+      +applist(false, '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', '최소한의 서류 작업과 신용 확인없이 긴 신청 절차를 피하십시오.', '/images/@img_app_icon.png')
+      +applist(false, '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', '최소한의 서류 작업과 신용 확인없이 긴 신청 절차를 피하십시오.', '/images/@img_app_icon.png')
 
   section.sectionAppList
-    +mTitle(false, '이번주를 뜨겁게 달군 핫한 앱')
-    +applist('dd', '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', 'dd', '/images/@img_app_icon.png')
+    +mTitle('typeLeft', '고객관리의 다양한 도구 모음', '고객 상담과 리뷰를 편리하게 관리하고 최상의 경험을 제공하는 앱을 소개합니다.', '전체보기')
+    div.appGroup
+      +applist(false, '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', false, '/images/@img_app_icon.png')
+      +applist(false, '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', false, '/images/@img_app_icon.png')
+      +applist(false, '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', false, '/images/@img_app_icon.png')
+      +applist(false, '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', false, '/images/@img_app_icon.png')
+
+  section.sectionAppList
+    +mTitle('typeLeft', '최고의 이메일 마케팅 솔루션', '적합한 고객에게 개인화 된 마케팅 이메일을 자동으로 전송', '전체보기')
+    div.appGroup
+      +applist(false, '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', false, '/images/@img_app_icon.png')
+      +applist(false, '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', false, '/images/@img_app_icon.png')
+      +applist(false, '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', false, '/images/@img_app_icon.png')
+      +applist(false, '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', false, '/images/@img_app_icon.png')
 
 
 

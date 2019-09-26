@@ -1,12 +1,12 @@
 @include respond(mobile) {
   .subVisual {
-    height:360px; padding:115px 20px 0; box-sizing:border-box; background-size:cover; background-position:center;
+    height:360px; padding:140px 20px 0; box-sizing:border-box; background-size:cover; background-position:center;
     &.app { background-image:url('../images/bg_submain_visual_app.png'); }
     &.theme { background-image:url('../images/bg_submain_visual_theme.png'); }
-    h2.title { font-size:30px; line-height:40px; color:#fff; font-weight:400; }
-    .label { display:block; margin:0 0 8px; font-size:14px; color:#fff; font-weight:800; }
-    .keyword { overflow:hidden; height:48px; margin:30px 0 0;
-      .value { display:inline-block; min-width:104px; height:48px; margin:0 5px 5px; line-height:46px; padding:0 24px; font-size:15px; color:#fff; font-weight:400; text-align:center; text-decoration:none; border:1px solid rgba(255,255,255, 0.6); box-sizing:border-box; border-radius:25px; }
+    h2.title { font-size:20px; line-height:26px; color:#fff; font-weight:400; }
+    .label { display:block; margin:0 0 5px; font-size:10px; color:#fff; font-weight:800; }
+    .keyword { overflow:hidden; height:72px; margin:28px -3px 0;
+      .value { display:inline-block; min-width:54px; height:32px; margin:0 3px 8px; line-height:32px; padding:0 16px; font-size:12px; color:#fff; font-weight:400; text-align:center; text-decoration:none; border:1px solid rgba(255,255,255, 0.6); box-sizing:border-box; border-radius:25px; }
     }
   }
 }

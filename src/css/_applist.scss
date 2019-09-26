@@ -1,16 +1,18 @@
 @include respond(mobile) {
-  .mAppList {
-    display:flex; align-items:center; margin:0 20px 39px; background:#fff;
-
-    .thumbnail { width:60px; height:60px;
+  .sectionAppList { max-width:1404px; margin:0 auto; border-bottom:1px solid #e8e8e8; background:#fff; }
+  .appList {
+     padding:0 20px 39px; background:#fff;
+     &:after { @include clearfix(); }
+    .thumbnail { float:left; width:60px; height:60px;
       img { max-width:100%; }
     }
     .infomation {
-      padding:0 0 0 15px;
+      padding:0 0 0 76px;
       .title { font-size:15px; color:#000; font-weight:500; }
       .category { display:block; font-size:11px; color:#758ea6; }
       .price { display:block; margin:3px 0 0; font-size:12px; color:#797980; font-weight:400; }
     }
+    .infoDesc { margin:13px 0 0; padding:0 0 0 76px; }
   }
 }
 
@@ -19,25 +21,28 @@
 }
 
 @include respond(tablet) {
+  .appList { width:(100%/2); }
+}
 
+@include respond(tablet-pc) {
+.sectionAppList { max-width:1404px; margin:0 auto; }
+  .appGroup { display:flex; flex-wrap:wrap; }
+  .appList { margin:0 0 40px; padding:0 40px 0 0; box-sizing:border-box;
+    .thumbnail { float:left; width:80px; height:80px;
+      img { max-width:100%; }
+    }
+    .infomation { padding:0 0 0 96px;
+      .title { font-size:16px; line-height:21px; color:#000; font-weight:500; }
+      .category { display:block; font-size:13px; color:#758ea6; }
+      .price { display:block; margin:3px 0 0; font-size:14px; color:#797980; font-weight:400; }
+    }
+    .infoDesc { margin:28px 0 0; font-size:14px; color:#797980; }
+  }
 }
 
 @include respond(pc) {
-  .mAppList {
-    display:flex; align-items:center; width:308px; margin:0 0 40px;
 
-    .thumbnail {
-      width:80px; height:80px;
+  .appList { width:(100%/4); }
 
-      img { max-width:100%; }
-     }
-     .infomation {
-         padding:0 0 0 16px;
-
-        .title { font-size:16px; color:#000; font-weight:500; }
-        .category { display:block; font-size:13px; color:#758ea6; }
-        .price { display:block; margin:3px 0 0; font-size:14px; color:#797980; font-weight:400; }
-     }
-  }
 }
 

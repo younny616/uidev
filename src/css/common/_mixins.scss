@@ -38,6 +38,12 @@
     }
   }
 
+  @else if $breakpoint == "tablet-to-pc" {
+    @media (min-width: 1080px) and (max-width:1170px) {
+      @content;
+    }
+  }
+
   @else if $breakpoint == "pc" {
     @media (min-width: 1080px) {
       @content;
@@ -52,6 +58,18 @@
 @mixin flex($justify: center, $align: center, $wrap: wrap, $dir: row, ) { display:flex; justify-content:$justify; align-items:$align; flex-wrap:$wrap; flex-direction:$dir; }
 
 @mixin clearfix() { content:''; display:block; clear:both; }
+
+@mixin icoSearch($width:24px, $height:24px, $thick:2px, $color:#5b5b5b) { width:$width; height:$height;
+  &:before { content:""; position:absolute; top:4px; left:4px; display:block; width:14px; height:14px; border:$thick solid $color; border-radius:50%; box-sizing:border-box; }
+  &:after { content:""; position:absolute; top:15px; left:15px; display:block; width:2px; height:5px; box-sizing:border-box; background:$color; transform:rotate(-45deg); }
+}
+
+@mixin icoClose($width:24px, $height:24px, $thick:2px, $color:#5b5b5b) { width:$width; height:$height;
+  &:before { content:""; position:absolute; top:4px; left:4px; display:block; width:14px; height:14px; border:$thick solid $color; border-radius:50%; box-sizing:border-box; }
+  &:after { content:""; position:absolute; top:15px; left:15px; display:block; width:2px; height:5px; box-sizing:border-box; background:$color; transform:rotate(-45deg); }
+}
+
+
 
 @mixin text-ellipsis($lineHeight, $line) {
   overflow:hidden; width:100%; text-overflow:ellipsis; text-align:left;
