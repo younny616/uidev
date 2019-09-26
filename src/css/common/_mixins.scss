@@ -39,7 +39,13 @@
   }
 
   @else if $breakpoint == "tablet-to-pc" {
-    @media (min-width: 1080px) and (max-width:1170px) {
+    @media (min-width: 1024px) and (max-width:1170px) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint == "pc-full" {
+    @media (min-width: 1171px) {
       @content;
     }
   }
