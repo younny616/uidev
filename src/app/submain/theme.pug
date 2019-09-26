@@ -8,17 +8,15 @@ include /components/partnermeet
 include /components/randomList
 
 block append contents
-  style.
-    #header { display:none; }
-  //- section.themeVisual
-  //-   +subVisual('theme', 'Theme', '딱 맞는 테마로 쇼핑몰을 꾸며보세요','이미지 중심의 콘텐츠 테마','미니멀리스트 스타일 테마 모음', '인싸들의 모바일 전용 테마', '금주 신상 테마 모음전', '테마 큐레이션 최대 5개 노출')
+  section.themeVisual
+    +subVisual('theme', 'Theme', '딱 맞는 테마로 쇼핑몰을 꾸며보세요','이미지 중심의 콘텐츠 테마','미니멀리스트 스타일 테마 모음', '인싸들의 모바일 전용 테마', '금주 신상 테마 모음전', '테마 큐레이션 최대 5개 노출')
 
   //- - function makeRandom(datas) { return datas.sort((v1, v2) => Math.random() - Math.random()); }
   //- - var randomListData = require('./src/js/data/randomApp.js');
   //- - var randomBackData = makeRandom(randomListData);
   //- - var randomThemeData = require('./src/js/data/randomTheme.js');
 
-  //- section.combineRandom
+  //- section.combineRandomArea
   //-   div.randomWrap
   //-     div.randomApp
   //-       +mTitle('typeRandom', '<strong>APP</strong> <span>똑똑한 쇼핑몰 분석 앱 모음</span>', '잠재고객과 구매고객의 선호도를 분석하고 싶다면<br>분석 앱 어떤가요?', '자세히보기')
@@ -28,15 +26,15 @@ block append contents
   //-       +mTitle('typeRandom', '<strong>THEME</strong> <span>똑똑한 쇼핑몰 분석 앱 모음</span>', '나의 쇼핑몰 고객에게 인싸가 될 수 있도록 핫한<br>디자인을 모았습니다', '자세히보기')
   //-       +randomList(randomThemeData, 'theme')
 
-  //- - var bestTheme = 'bestTheme';
-  //- - var bestThemeData = require('./src/js/data/bestTheme.js');
-  //- section.bestTheme
-  //-   +mTitle('typeLeft subMainTheme', '이번주 BEST 인기 테마')
-  //-   +slider(bestTheme, bestThemeData, 'typeTheme', 'theme', false, true)
+  - var bestTheme = 'bestTheme';
+  - var bestThemeData = require('./src/js/data/bestTheme.js');
+  section.bestThemeArea
+    +mTitle('typeLeft subMainTheme', '이번주 BEST 인기 테마')
+    +slider(bestTheme, bestThemeData, 'typeTheme', 'theme', true, true)
 
   - var newTheme = 'newTheme';
   - var newThemeData = require('./src/js/data/newTheme.js');
-  section.newTheme
+  section.newThemeArea
     +mTitle('typeLeft subMainTheme', '따끈따끈 신규 테마')
     +slider(newTheme, newThemeData, 'typeTheme', 'theme', true, true)
 
@@ -44,7 +42,7 @@ block append contents
   - var combineThemeData = require('./src/js/data/combineTheme.js');
   - var combineThumbs = 'combineThumbs';
   - var combineThumbsData = require('./src/js/data/combineThumbs.js');
-  section.combineTheme
+  section.combineThemeArea
     +mTitle('typeCenter', 'PC와 Mobile 세트 상품으로 완벽한 쇼핑몰 만들기', '디바이스 사이즈별 최적화된 디자인을 제공합니다.', '세트상품 전체보기')
     div.combineWrap
       div.combineThemeFrame
@@ -53,38 +51,38 @@ block append contents
     div.combineDetail
       button.btnDetail 상세보기
 
-  //- - var freeTheme = 'freeTheme';
-  //- - var freeThemeData = require('./src/js/data/freeTheme.js');
-  //- section.freeTheme
-  //-   +mTitle('typeLeft subMainTheme', '무료테마', false, '전체보기')
-  //-   +list(freeTheme, freeThemeData, 'typeTheme')
+  - var freeTheme = 'freeTheme';
+  - var freeThemeData = require('./src/js/data/freeTheme.js');
+  section.freeThemeArea
+    +mTitle('typeLeft subMainTheme', '무료테마', false, '전체보기')
+    +list(freeTheme, freeThemeData, 'typeTheme')
 
   - var mobileTheme = 'mobileTheme';
   - var mobileThemeData = require('./src/js/data/mobileTheme.js');
-  section.mobileTheme
+  section.mobileThemeArea
     +mTitle('typeCenter', '혹시 모바일 테마를 찾고 계신가요?', '모바일에 최적화된 테마를 만나보세요.', '전체보기')
-    +slider(mobileTheme, mobileThemeData, 'typeZigzag', 'image', false, true)
+    +slider(mobileTheme, mobileThemeData, 'typeZigzag', 'image', true, false)
 
-  //- - var choseTheme = 'choseTheme';
-  //- - var choseThemeData = require('./src/js/data/choseTheme.js');
-  //- section.choseTheme
-  //-   +mTitle('typeLeft subMainTheme', '인싸들이 선택한 테마', '나의 쇼핑몰 고객에게 인싸가 되는 핫한 디자인을 모았습니다.', '전체보기')
-  //-   +list(choseTheme, choseThemeData, 'typeTheme')
+  - var choseTheme = 'choseTheme';
+  - var choseThemeData = require('./src/js/data/choseTheme.js');
+  section.choseThemeArea
+    +mTitle('typeLeft subMainTheme', '인싸들이 선택한 테마', '나의 쇼핑몰 고객에게 인싸가 되는 핫한 디자인을 모았습니다.', '전체보기')
+    +list(choseTheme, choseThemeData, 'typeTheme')
 
-  //- - var minimalTheme = 'minimalTheme';
-  //- - var minimalThemeData = require('./src/js/data/minimalTheme.js');
-  //- section.minimalTheme
-  //-   +mTitle('typeLeft subMainTheme', '미니멀리스트 테마모음 ', '', '전체보기')
-  //-   +list(minimalTheme, minimalThemeData, 'typeTheme')
+  - var minimalTheme = 'minimalTheme';
+  - var minimalThemeData = require('./src/js/data/minimalTheme.js');
+  section.minimalThemeArea
+    +mTitle('typeLeft subMainTheme', '미니멀리스트 테마모음 ', '', '전체보기')
+    +list(minimalTheme, minimalThemeData, 'typeTheme')
 
-  //- section.themeCate
-  //-   +category('테마 카테고리', 'theme')(class="theme")
+  section.themeCate
+    +category('테마 카테고리', 'theme')(class="theme")
 
-  //- section.themePartner
-  //-   +partnermeet('뛰어난 품질과 서비스를 제공하는 <br>카페24가 검증한 파트너와 만나보세요', '파트너 보러가기')(class="partner")
+  section.themePartner
+    +partnermeet('뛰어난 품질과 서비스를 제공하는 <br>카페24가 검증한 파트너와 만나보세요', '파트너 보러가기')(class="partner")
 
-  //- section.makeTheme
-  //-   include /components/shopmaking
+  section.makeTheme
+    include /components/shopmaking
 
 block append body
   script(src="//cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js")

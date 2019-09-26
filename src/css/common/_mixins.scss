@@ -69,8 +69,6 @@
   &:after { content:""; position:absolute; top:15px; left:15px; display:block; width:2px; height:5px; box-sizing:border-box; background:$color; transform:rotate(-45deg); }
 }
 
-
-
 @mixin text-ellipsis($lineHeight, $line) {
   overflow:hidden; width:100%; text-overflow:ellipsis; text-align:left;
 
@@ -189,8 +187,4 @@
       }
     }
   }
-}
-
-@mixin resCenter($width : 1406px) {
-  position:relative; width:$width; left:50%; transform:translateX(-50%);
 }

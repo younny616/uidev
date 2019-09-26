@@ -6,16 +6,16 @@
             pc: {
                 loop: true,
                 loopedSlides: 4,
+                loopAdditionalSlides: 4,
                 slidesPerGroup: 4,
                 speed: 1200,
                 autoplay: false,
+                allowTouchMove: true,
                 slidesPerView: 'auto',
                 pagination: false,
             },
             mobile: {
                 loop: false,
-                loopedSlides: 1,
-                slidesPerGroup: 1,
                 speed: 1200,
                 autoplay: false,
                 allowTouchMove: true,
@@ -26,11 +26,33 @@
                 },
             }
         },
+        zigzag: {
+            pc: {
+                loop: true,
+                loopedSlides: 4,
+                loopAdditionalSlides: 4,
+                slidesPerGroup: 4,
+                speed: 1200,
+                autoplay: false,
+                allowTouchMove: true,
+                slidesPerView: 'auto',
+                navigation: false,
+            },
+            mobile: {
+                loop: false,
+                speed: 1200,
+                autoplay: false,
+                allowTouchMove: true,
+                slidesPerView: 'auto',
+                navigation: false,
+            }
+        },
         combine: {
             pc: {
                 loop: true,
                 speed: 1200,
                 autoplay: false,
+                allowTouchMove: false,
                 slidesPerView: 'auto',
                 slideToClickedSlide: true,
             },
@@ -38,6 +60,7 @@
                 loop: false,
                 speed: 1200,
                 autoplay: false,
+                allowTouchMove: true,
                 slidesPerView: 'auto',
                 slideToClickedSlide: true,
                 allowTouchMove: true,
@@ -50,6 +73,7 @@
                 loop: true,
                 speed: 1200,
                 autoplay: false,
+                allowTouchMove: true,
                 slidesPerView: 'auto',
                 watchSlidesVisibility: true,
                 watchSlidesProgress: true,
@@ -59,9 +83,9 @@
         }
     }
 
-    // var bestThemeSlider = new Cafe24.SwiperSlider('#bestTheme', pcOptions).init();
+    var bestThemeSlider = new Cafe24.SwiperSlider('#bestTheme', loadBoundary ?  sliderOptions.theme.pc : sliderOptions.theme.mobile).init();
     var newThemeSlider = new Cafe24.SwiperSlider('#newTheme', loadBoundary ?  sliderOptions.theme.pc : sliderOptions.theme.mobile).init();
-    var mobileTheme = new Cafe24.SwiperSlider('#mobileTheme', loadBoundary ?  sliderOptions.theme.pc : sliderOptions.theme.mobile).init();
+    var mobileTheme = new Cafe24.SwiperSlider('#mobileTheme', loadBoundary ?  sliderOptions.zigzag.pc : sliderOptions.zigzag.mobile).init();
 
     var combineThumbsSlider = new Cafe24.SwiperSlider('#combineThumbs', sliderOptions.combine.thumbs).init();
     var combineTheme = new Cafe24.SwiperSlider('#combineTheme', loadBoundary ?  sliderOptions.combine.pc : sliderOptions.combine.mobile).init();
@@ -75,13 +99,17 @@
 
     $(window).on('resize', function() {
         var ww = $(window).width();
-        var resizeBoundary = 769;
+        var resizeBoundary = 1080;
 
         if (ww < resizeBoundary && !isDestroy) {
             isDestroy = true;
 
+            bestThemeSlider.destroy();
+            bestThemeSlider = new Cafe24.SwiperSlider('#bestTheme', sliderOptions.theme.mobile).init();
             newThemeSlider.destroy();
             newThemeSlider = new Cafe24.SwiperSlider('#newTheme', sliderOptions.theme.mobile).init();
+            mobileTheme.destroy();
+            mobileTheme = new Cafe24.SwiperSlider('#mobileTheme', sliderOptions.zigzag.mobile).init();
 
             combineTheme.destroy();
             combineTheme = new Cafe24.SwiperSlider('#combineTheme', sliderOptions.combine.mobile).init();
@@ -90,8 +118,12 @@
         } else if (ww > resizeBoundary && isDestroy) {
             isDestroy = false;
 
+            bestThemeSlider.destroy();
+            bestThemeSlider = new Cafe24.SwiperSlider('#bestTheme', sliderOptions.theme.pc).init();
             newThemeSlider.destroy();
             newThemeSlider = new Cafe24.SwiperSlider('#newTheme', sliderOptions.theme.pc).init();
+            mobileTheme.destroy();
+            mobileTheme = new Cafe24.SwiperSlider('#mobileTheme', sliderOptions.zigzag.pc).init();
 
             combineTheme.destroy();
             combineTheme = new Cafe24.SwiperSlider('#combineTheme', sliderOptions.combine.pc).init();

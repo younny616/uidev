@@ -9,7 +9,6 @@ include /components/subcategory
 include /components/partnermeet
 
 block append contents
-
   +subVisual('app', 'APP', '쇼핑몰 확장을 위한 앱을 설치하세요','상반기 TOP 12','주목할만한 신상 앱', '나도 인플루언서', '핫 썸머! 쿨~한 앱', '재능마켓')
 
   section.sectionAppList
@@ -22,11 +21,9 @@ block append contents
 
   - var newApp = 'newApp';
   - var newAppData = require('./src/js/data/newApp.js');
-
-  section.sectionNewApp
-
+  section.newAppArea
     +mTitle('typeLeft', '새로 출시된 앱')
-    +slider(newApp, newAppData, 'typeApp', 'app', false, true)
+    +slider(newApp, newAppData, 'typeApp', 'app', true, true)
 
   section.sectionAppList
     +mTitle('typeLeft', '나도 인플루언서', '우리 쇼핑몰도 핫한 인플루언서가 되고 싶지 않으세요? 인플루언서 쇼핑몰의 필수설치 앱!', '전체보기')
