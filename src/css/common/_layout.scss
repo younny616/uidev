@@ -43,24 +43,48 @@
 
   #header .btnFold { }
 
-  #header .btnFold { @include blind(); position:absolute; top:15px; right:20px; display:inline-block; width:23px; height:23px; }
-  #header .btnFold:before, #header .btnFold:after { width:16px; height:2px; }
-  #header .btnFold:before, #header .btnFold:after { display: block; content: ""; position:absolute; top:10px; left:4px; }
-  #header .btnFold:before { display: block; content: ""; color:#000; box-shadow: inset 0 0 0 32px, 0 -5px, 0 5px; }
-  #header .btnFold:after { margin-top: 4px; }
+  #header .btnFold { @include blind(); position:absolute; top:15px; right:20px; display:inline-block; width:23px; height:23px;
+    &:before,
+    &:after { content:""; display:block; position:absolute; top:10px; left:4px; width:16px; height:2px; transition:.5s; }
+    &:before { color:#000; box-shadow:inset 0 0 0 32px, 0 -5px, 0 5px; }
+   }
 
   #header .btnFoldLayout { position:fixed; top:0; left:0; z-index:100; display:block; width:0; height:100%; font-size:0; color:transparent; line-height:0; background:rgba(0, 0, 0, 0.4); transition:.3s; }
   .navShow #header .btnFoldLayout { width:calc(100% - 300px); }
   .navShow #header .navigation { right:0; }
-
   .navShow #header .btnFold { z-index:101;
     &:before { background:#000; transform:rotate(-315deg); box-shadow:none; }
-    &:after { background:#000; transform:translateY(-4px) rotate(-45deg); }
+    &:after { background:#000; transform:rotate(-45deg); }
    }
 
 
 
-  #header .search { background:#fff; }
+  #header .search { transition:.2s ease-out;
+    .searchWrap {  }
+    .btnSearch { @include blind(); position:absolute; top:15px; right:59px; width:24px; height:24px;
+      &:before { content:""; position:absolute; top:4px; left:4px; display:block; width:14px; height:14px; border:2px solid #5b5b5b; border-radius:50%; box-sizing:border-box; }
+      &:after { content:""; position:absolute; top:15px; left:15px; display:block; width:2px; height:5px; box-sizing:border-box; background:#5b5b5b; transform:rotate(-45deg); }
+    }
+    .searchField { display:none; position:relative; padding:20px 16px; transition:.2s ease-out;
+      .select { width:100px; height:35px; border-radius:2px; }
+      .searchForm {
+        input { width:100%; height:44px; margin:5px 0 0; padding:0 13px; line-height:44px; box-sizing:border-box; border:1px solid #e8e8e8; background:#fff; border-radius:2px; }
+        .result { display:none; padding:28px 14px 0; box-sizing:border-box;
+          .title { display:block; margin:28px 0 16px; font-weight:400; font-size:13px; color:#959595;
+            &:first-child { margin-top:0; }
+          }
+          .value { display:block; margin:0 0 17px; font-size:15px; font-weight:500; color:#000; }
+        }
+      }
+      .searchForm.selected .result { display:block; }
+      .btnClose { position:absolute; top:0; right:0; }
+    }
+    &.active { position:fixed; top:0; left:0; right:0; z-index:100; height:100%; background:#fff;
+      .searchField { display:block; }
+      .btnSearch { display:none; }
+    }
+  }
+
 
 
   #footer { position:relative; margin:10px 0 0; }

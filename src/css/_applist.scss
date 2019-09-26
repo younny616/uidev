@@ -25,7 +25,7 @@
 }
 
 @include respond(tablet-pc) {
-.sectionAppList { max-width:1404px; margin:0 auto; }
+.sectionAppList { }
   .appGroup { display:flex; flex-wrap:wrap; }
   .appList { margin:0 0 40px; padding:0 40px 0 0; box-sizing:border-box;
     .thumbnail { float:left; width:80px; height:80px;

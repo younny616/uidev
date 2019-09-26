@@ -9,10 +9,12 @@
 }
 
 @include respond(tablet) {
+  .gInner { padding:0 20px; }
 
 }
 
 @include respond(tablet-pc) {
+  .gInner { margin:0 auto; }
   .mTitle { position:relative; margin:60px auto 40px;
     &.typeLeft { text-align:left;
       .title { margin:0 0 2px; font-size:28px; font-weight:800; }
@@ -73,6 +75,17 @@
   }
 }
 
-@include respond(pc) {
+@include respond(tablet-to-pc) {
+  .gInner { max-width:1240px; padding:0 20px; }
 
+}
+
+
+
+@include respond(pc) {
+  .gInner { max-width:1240px; padding:0 20px; }
+}
+
+@include respond(pc-full) {
+  .gInner { max-width:1404px; }
 }
