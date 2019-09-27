@@ -205,7 +205,7 @@ const ignore = (done) => {
  */
 const images = () => {
   return src(paths.images.src)
-    .pipe(
+    .pipe(mode.production(
       imagemin([
         imagemin.gifsicle({ interlaced: true }),
         imagemin.jpegtran({ progressive: true }),
@@ -218,7 +218,7 @@ const images = () => {
           }
         ]
       })
-    ]))
+    ])))
     .pipe(!isProduction ? dest(paths.images.dest) : dest(`${buildPath}/${project.build.images}`))
 }
 

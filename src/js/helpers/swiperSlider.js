@@ -28,6 +28,7 @@ class SwiperSlider {
       slidesPerView: 1,
       slideToClickedSlide: true,
       allowTouchMove: false,
+      grabCursor: true,
       autoplay: {
         delay: 4000,
         disableOnInteraction: false,
@@ -47,6 +48,11 @@ class SwiperSlider {
         prevEl: `${this.target} .sliderCtrl .slidePrev`,
         nextEl: `${this.target} .sliderCtrl .slideNext`,
       },
+      // on: {
+      //   init: () => {
+      //     $(this.el).removeClass('loading');
+      //   }
+      // }
     }
 
     this.setOptions = _.mergeWith(this.default, this.options);

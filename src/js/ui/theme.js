@@ -1,6 +1,7 @@
 (function(UI) {
     var loadBoundary = $(window).width() > 769 ? true : false;
-    var isDestroy = false;
+    var isDestroyTablet = false;
+    var isDestroyMobile = false;
     var sliderOptions = {
         theme: {
             pc: {
@@ -52,9 +53,9 @@
                 loop: true,
                 speed: 1200,
                 autoplay: false,
-                allowTouchMove: false,
+                allowTouchMove: true,
+                loopedSlides: 10,
                 slidesPerView: 'auto',
-                slideToClickedSlide: true,
             },
             mobile: {
                 loop: false,
@@ -75,8 +76,9 @@
                 autoplay: false,
                 allowTouchMove: true,
                 slidesPerView: 'auto',
-                watchSlidesVisibility: true,
-                watchSlidesProgress: true,
+                touchRatio: 0.2,
+                slideToClickedSlide: true,
+                loopedSlides: 10,
                 navigation: false,
                 pagination: false,
             },
@@ -99,10 +101,10 @@
 
     $(window).on('resize', function() {
         var ww = $(window).width();
-        var resizeBoundary = 1080;
+        var resizeBoundaryTablet = 1080;
 
-        if (ww < resizeBoundary && !isDestroy) {
-            isDestroy = true;
+        if (ww < resizeBoundaryTablet && !isDestroyTablet) {
+            isDestroyTablet = true;
 
             bestThemeSlider.destroy();
             bestThemeSlider = new Cafe24.SwiperSlider('#bestTheme', sliderOptions.theme.mobile).init();
@@ -115,8 +117,8 @@
             combineTheme = new Cafe24.SwiperSlider('#combineTheme', sliderOptions.combine.mobile).init();
             combineTheme.controller.control = combineThumbsSlider;
             combineThumbsSlider.controller.control = combineTheme;
-        } else if (ww > resizeBoundary && isDestroy) {
-            isDestroy = false;
+        } else if (ww > resizeBoundaryTablet && isDestroyTablet) {
+            isDestroyTablet = false;
 
             bestThemeSlider.destroy();
             bestThemeSlider = new Cafe24.SwiperSlider('#bestTheme', sliderOptions.theme.pc).init();
