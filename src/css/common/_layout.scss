@@ -18,6 +18,8 @@
       .story { display:block; height:60px; padding:20px; line-height:1; font-size:18px; font-weight:500; box-sizing:border-box; text-decoration:none; }
      }
     .user { position:relative; margin:0 20px; padding:60px 0 20px; border-bottom:1px solid #e8e8e8;
+      .btnUser { display:none; }
+      .btnLogin { font-size:12px; color:#0055fb; border:1px solid #0055fb; border-radius:2px; }
       .info {
         &:before { content:""; display:block; width:60px; height:60px; background:url('../images/ico_user.png'); background-size:60px auto; }
         .id { @include ellipsis(100%, inline-block); font-size:18px; font-weight:400; }
