@@ -9,15 +9,15 @@
       .btnAll { display:block; margin:17px 0 0; color:#0055fb; font-size:14px; font-weight:400; }
     }
     .story { margin:45px 20px 0;
-      .item { display:block; max-width:600px; margin:0 auto; padding:120px 0 0; vertical-align:top; box-sizing:border-box; border-radius:3px; background-size:cover;
+      .item { display:block; max-width:600px; margin:0 auto; padding:120px 0 0; vertical-align:top; box-sizing:border-box; border-radius:3px; background-size:contain;
         .info { padding:20px 0; box-sizing:border-box; background:#fff;
           .title { @include ellipsis(100%, block); font-size:18px; color:#000; font-weight:400; }
           .desc { margin:10px 0 0; font-size:13px; line-height:20px; color:#959595; }
         }
       }
-      .item.simple { background-image:url('../images/bg_story_simple.jpg'); }
-      .item.my { background-image:url('../images/bg_story_my.jpg'); }
-      .item.company { background-image:url('../images/bg_story_company.jpg'); }
+      .item.simple { background-image:url('../images/bg_story_simple_m.jpg'); }
+      .item.my { background-image:url('../images/bg_story_my_m.jpg'); }
+      .item.company { background-image:url('../images/bg_story_company_m.jpg'); }
     }
   }
 }

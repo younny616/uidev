@@ -1,8 +1,8 @@
 @include respond(mobile) {
   .subVisual {
     height:360px; padding:140px 20px 0; box-sizing:border-box; background-size:cover; background-position:center;
-    &.app { background-image:url('../images/bg_submain_visual_app.png'); }
-    &.theme { background-image:url('../images/bg_submain_visual_theme.png'); }
+    &.app { background-image:url('../images/bg_submain_visual_app_m.png'); }
+    &.theme { background-image:url('../images/bg_submain_visual_theme_m.png'); }
     h2.title { font-size:20px; line-height:26px; color:#fff; font-weight:400; }
     .label { display:block; margin:0 0 5px; font-size:10px; color:#fff; font-weight:800; }
     .keyword { overflow:hidden; height:72px; margin:28px -3px 0;
