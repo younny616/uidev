@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 class SwiperSlider {
   constructor(target, options, effect) {
     this.prefix = 'slider';
@@ -23,28 +25,37 @@ class SwiperSlider {
       loop: true,
       speed: 800,
       effect: 'slide',
-      allowTouchMove: false,
       slidesPerView: 1,
       slideToClickedSlide: true,
+      allowTouchMove: false,
+      grabCursor: true,
       autoplay: {
         delay: 4000,
         disableOnInteraction: false,
       },
       pagination: {
         el: `${this.target} .${this.prefix}Pagination`,
+        type: 'bullets',
         clickable : true,
         modifierClass: `${this.prefix}Pagination-`,
         clickableClass: `${this.prefix}Pagination-clickable`,
         bulletClass: 'page',
         bulletActiveClass: 'active',
+        currentClass: 'current',
+        totalClass: 'total',
       },
       navigation: {
         prevEl: `${this.target} .sliderCtrl .slidePrev`,
         nextEl: `${this.target} .sliderCtrl .slideNext`,
       },
+      // on: {
+      //   init: () => {
+      //     $(this.el).removeClass('loading');
+      //   }
+      // }
     }
 
-    this.setOptions = Object.assign({}, this.default, this.options);
+    this.setOptions = _.mergeWith(this.default, this.options);
   }
 
   init() {

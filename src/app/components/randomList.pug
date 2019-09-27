@@ -1,0 +1,21 @@
+mixin randomList(items, types)
+  ul(class=`randomList ${types}`)
+    each item, i in items
+      case types
+        when 'app'
+          if i < 4
+            li.item
+              img(src=items[i].src)
+          if (items.length - 1) === i
+            li.item.lastItem
+              if items.length <= 4
+                span= items.length
+              else
+                span= '+' + items.length
+        when 'theme'
+            li.item
+              div.image
+                img(src=items[i].src)
+        when 'random'
+            li.item
+              img(src=items[i].src)

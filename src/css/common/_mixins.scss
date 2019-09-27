@@ -57,34 +57,13 @@
   }
 }
 
-@mixin square($size : auto, $radius: 0) {
-  width: $size;
-  height: $size;
-  border: 1px solid pink;
-  text-align: center;
-
-  @if $radius != 0 {
-    border-radius: $radius;
-  }
-}
-
-
 @mixin blind { overflow: hidden; text-indent:150%; white-space:nowrap; font-size:1px; line-height:0; color:transparent; }
-@mixin ellipsis($width: 100%,  $display: inline-block) {
-  display: $display; max-width: $width; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; word-wrap: normal;
-}
 
-@mixin flex() {
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
+@mixin ellipsis($width: 100%,  $display: inline-block) { display: $display; max-width: $width; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; word-wrap: normal; }
 
-@mixin clearfix() {
-  content:"";
-  display:block;
-  clear:both;
-}
+@mixin flex($justify: center, $align: center, $wrap: wrap, $dir: row, ) { display:flex; justify-content:$justify; align-items:$align; flex-wrap:$wrap; flex-direction:$dir; }
+
+@mixin clearfix() { content:''; display:block; clear:both; }
 
 @mixin icoSearch($width:24px, $height:24px, $thick:2px, $color:#5b5b5b) { width:$width; height:$height;
   &:before { content:""; position:absolute; top:4px; left:4px; display:block; width:14px; height:14px; border:$thick solid $color; border-radius:50%; box-sizing:border-box; }
@@ -96,93 +75,13 @@
   &:after { content:""; position:absolute; top:15px; left:15px; display:block; width:2px; height:5px; box-sizing:border-box; background:$color; transform:rotate(-45deg); }
 }
 
-
-
 @mixin text-ellipsis($lineHeight, $line) {
-  overflow: hidden;
-  width:100%;
-  text-overflow:ellipsis;
-  text-align: left;
+  overflow:hidden; width:100%; text-overflow:ellipsis; text-align:left;
 
   @if $line >= 2 {
-    display:-webkit-box;
-    height:#{$lineHeight * $line + 'px'};
-    max-height:#{$lineHeight * $line + 'px'};
-    line-height:#{$lineHeight + 'px'};
-
-    -webkit-line-clamp:$line;
-    -webkit-box-orient: vertical;
-
+    display:-webkit-box; height:#{$lineHeight * $line + 'px'}; max-height:#{$lineHeight * $line + 'px'}; line-height:#{$lineHeight + 'px'}; -webkit-line-clamp:$line; -webkit-box-orient: vertical;
   } @else {
-    display:block;
-    white-space:nowrap;
-    word-break:break-word;
-  }
-}
-
-@mixin item($types) {
-  .item {
-    overflow:hidden; width:326px; margin:0 17px; border:1px solid #eaeaea; border-radius:4px; transition:all .3s ease;
-
-    &:hover {
-      box-shadow:0 30px 30px 0 rgba(92, 95, 101, .2);
-    }
-
-    .image {
-      position:relative;
-
-      &:after {
-        content:''; display:block; position:absolute; left:0; bottom:0; right:0; width:100%; height:1px; background:rgba(0, 0, 0, 0.03);
-      }
-    }
-
-     @if $types == 'app' {
-      .inner {
-        height:226px; padding:30px 20px; box-sizing:border-box; text-align:left;
-
-        .title {
-          margin:0 0 3px; font-size:20px; font-weight:500;
-        }
-
-        .subTitle {
-          display:block; margin:0 0 7px; font-size:13px; color:#758ea6;
-        }
-
-        .price {
-          display:block; margin:0 0 20px; font-size:14px; color:#797980;
-        }
-
-        .description {
-          font-size:14px; color:#797980; line-height:21px;
-        }
-      }
-     } @else {
-      .inner {
-        height:136px; padding:30px 20px; box-sizing:border-box; text-align:left;
-
-        .title {
-          display:block; margin:0 0 3px; font-size:20px; font-weight:500; line-height:1;
-        }
-
-        .subTitle {
-          display:block; margin:0 0 21px; font-size:13px; color:#5398f5;
-        }
-
-        .price {
-          display:block; font-size:14px; color:#797980;
-        }
-
-        .btnSample {
-          overflow:hidden; display:block; position:absolute; right:16px; bottom:16px; width:100px; height:36px; padding:11px; box-sizing:border-box; background:#eff7ff; border-radius:4px; font-size:13px; color:#108af9; text-align:center; line-height:0;
-
-          transition:all 0.3s ease;
-
-          &:hover {
-            background:#0055fb; color:#fff;
-          }
-        }
-      }
-     }
+    display:block; white-space:nowrap; word-break:break-word;
   }
 }
 
@@ -229,3 +128,5 @@
     }
   }
 }
+
+.icon svg { fill:red; }

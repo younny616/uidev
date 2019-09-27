@@ -5,8 +5,8 @@ mixin slider(id, datas, typeClass, types, pages, ctrls)
     div.sliderContainer
       div.sliderWrapper
         +sliderItem(datas, types)
-      if pages
-        div.sliderPagination
+    if pages
+      div.sliderPagination
     if ctrls
       div.sliderCtrl
         div.prevWrap

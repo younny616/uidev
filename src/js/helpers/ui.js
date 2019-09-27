@@ -15,6 +15,7 @@ class UI {
 
         return $(document).on('click', target, callback);
     }
+
 }
 
 export default new UI();
