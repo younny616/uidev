@@ -1,14 +1,14 @@
 @include respond(mobile) {
-  .shopProduct {
-    margin:10px 0; padding:78px 0; text-align:center; background:url('../images/bg_shop_product.png'); background-size:cover; background-position:center;
+  .shopProduct { position:relative; margin:10px 0; padding:78px 0 160px; text-align:center; border-bottom:1px solid #e8e8e8; background:url('../images/bg_shop_product_m.png'); background-size:cover; background-position:center;
     .heading {
-      h3.title { font-size:30px; color:#000; font-weight:800; }
-      .subTitle { font-size:15px; color:#000; font-weight:400; }
-      .desc { display:inline-block; margin:40px 0 0; font-size:14px; color:#959595; font-weight:400; }
+      h3.title { font-size:30px; line-height:40px; color:#000; font-weight:800; }
+      .subTitle { display:block; margin:0 0 16px; font-size:15px; color:#000; font-weight:400; }
+    }
+    .login { position:absolute; bottom:65px; left:0; right:0; margin:0 auto;
+      .desc { display:inline-block; font-size:14px; color:#959595; font-weight:400; }
       .btnLogin { display:block; margin:8px 0 0; color:#0055fb; font-size:14px; font-weight:400; text-decoration:underline; }
     }
-    .button {
-      margin:46px 0 0;
+    .button { margin:34px 0 0;
       .btnProduct { display:inline-block; height:56px; padding:0 35px; line-height:56px; font-size:14px; font-weight:800; border-radius:3px; color:#fff; background:#0055fb; }
     }
   }
@@ -24,16 +24,16 @@
 }
 
 @include respond(tablet-pc) {
-  .shopProduct {
-    padding:175px 0; text-align:center; background:url('../images/bg_shop_product.png'); background-size:cover; background-position:center;
+  .shopProduct { padding:175px 0; text-align:center; background:url('../images/bg_shop_product.png'); background-size:cover; background-position:center;
     .heading {
       h3.title { font-size:44px; color:#000; font-weight:800; }
       .subTitle { font-size:28px; color:#000; }
+    }
+    .login {
       .desc { display:inline-block; margin:40px 0 0; font-size:15px; color:#959595; font-weight:400; }
       .btnLogin { display:inline-block; margin:0 0 0 10px; color:#0055fb; font-size:15px; font-weight:400; text-decoration:underline; }
     }
-    .button {
-      margin:46px 0 0;
+    .button { margin:46px 0 0;
       .btnProduct { display:inline-block; height:56px; padding:0 56px; line-height:56px; font-size:16px; font-weight:800; border-radius:3px; color:#fff; background:#0055fb; }
     }
   }
