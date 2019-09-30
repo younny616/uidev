@@ -104,7 +104,7 @@
   #footer { position:relative; margin:10px 0 0; }
   #footer .logo { position:absolute; left:20px; bottom:139px; }
   #footer .corp .familysite { display:none; }
-  #footer .menu { display:inline-block; width:49%; margin:0 0 47px; vertical-align:top;
+  #footer .menu { display:inline-block; width:49%; margin:0 0 28px; vertical-align:top;
     .title { margin:0 0 17px; }
     .link { margin:0 0 18px; font-size:14px; font-weight:400; color:#5b5b5b; text-decoration:none; }
   }
@@ -138,10 +138,13 @@
     overflow:hidden; position:absolute; left:-6px; border:1px solid #ddd; background:#fff; white-space:nowrap; border-radius:2px;
     .shotcut { display:block; margin:0 0 34px; font-size:20px; }
     .subMenu { display:inline-block; min-width:152px; padding:34px 24px 20px; box-sizing:border-box;
-      &.curation { position:relative; z-index:1; background:#fafafa;
+      &.curation { position:relative; z-index:1; min-width:200px; background:#fafafa;
         &:before { content:""; display:block; width:100%; height:100%; position:absolute; top:-100%; bottom:0; left:0; right:0; z-index:-1; background:#fafafa; }
       }
       .menuTitle { display:block; margin:0 0 15px; font-size:13px; color:#959595; font-weight:400; }
+      .list.half { display:flex; flex-wrap:wrap; width:100%; min-width:304px;
+        li { min-width:144px; }
+      }
     }
     .list li { display:block; margin:0 0 12px; }
   }
@@ -173,11 +176,11 @@
    }
   #header .user.selected .layer { opacity:1; height:auto; }
   #header .search { transition:.2s ease-out;
-    .btnSearch { @include blind(); position:relative; width:24px; height:24px; margin:22px 0 0 30px;
+    .btnSearch { @include blind(); position:absolute; width:24px; height:24px; margin:22px 0 0 30px;
       &:before { content:""; position:absolute; top:4px; left:4px; display:block; width:14px; height:14px; border:2px solid #5b5b5b; border-radius:50%; box-sizing:border-box; }
       &:after { content:""; position:absolute; top:15px; left:15px; display:block; width:2px; height:5px; box-sizing:border-box; background:#5b5b5b; transform:rotate(-45deg); }
     }
-    .searchWrap { border-bottom:1px solid #ebebeb; }
+    .searchWrap { height:0; border-bottom:1px solid #ebebeb; }
     .searchField { display:none; position:relative; width:660px; margin:0 auto; transition:.2s ease-out;
       .select { width:100px; height:40px; vertical-align:top; border-radius:2px; }
       .searchForm { position:relative; display:inline-block;
@@ -203,7 +206,7 @@
     &.active { position:fixed; top:0; left:0; right:0; z-index:100; height:68px;
       .searchWrap { width:100%; height:100%; padding:14px 0 0; box-sizing:border-box; border-bottom:1px solid #ebebeb; background:#fff; transition:.2s ease-out; }
       .searchField { display:block; }
-      .btnSearch { display:none; }
+      .btnSearch { opacity:0; }
     }
    }
 
