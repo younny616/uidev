@@ -47,3 +47,26 @@ function navigationMenu() {
         }
     });
 } navigationMenu();
+
+$(document).ready(function(){
+    if($('.fSelect').length > 0){
+        $('.fSelect').each(function(i){
+            var arr = $(this).attr('class').split(' ');
+            if(arr.length > 1){
+                $(this).removeClass();
+                for(var j = 0; j<(arr.length+1); j++){
+                    if(j == 0){
+                        $(this).addClass('fSelect');
+                    }else if(j == 1){
+                        $(this).addClass('eSelect');
+                    }else{
+                        var className = arr[(j-1)];
+                        $(this).addClass(className);
+                    }
+                }
+            }else{
+                $(this).addClass('eSelect');
+            }
+        });
+    }
+});
