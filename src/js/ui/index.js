@@ -49,6 +49,15 @@ function navigationMenu() {
     });
 } navigationMenu();
 
+function goTop(){
+    $('#footer .btnTop').click(function () {
+        $('body,html').animate({
+            scrollTop: 0
+        }, 400);
+        return false;
+    });
+} goTop();
+
 $(document).ready(function(){
     if($('.fSelect').length > 0){
         $('.fSelect').each(function(i){
@@ -70,7 +79,11 @@ $(document).ready(function(){
             }
         });
     }
+
+Cafe24.UI.onToggleClass('#footer .familysite .eClick', true, 'selected');
+
 });
+
 
 (function(UI) {
     var loadBoundary = $(window).width() > 769 ? true : false;

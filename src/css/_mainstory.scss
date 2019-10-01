@@ -49,7 +49,7 @@
       .item { display:inline-block; max-width:455px; margin:0 18px; vertical-align:top; box-sizing:border-box; border-radius:3px; background-size:cover;
         .info { min-height:150px; padding:20px 23px; box-sizing:border-box; background:#fff;
           .title { @include ellipsis(100%, block); font-size:22px; color:#000; font-weight:400; }
-          .desc { margin:16px 0 0; font-size:14px; line-height:20px; color:#959595; }
+          .desc { @include text-ellipsis(20, 2); margin:16px 0 0; font-size:14px; line-height:20px; color:#959595; }
         }
       }
       .item.simple { background-image:url('../images/bg_story_simple.jpg'); }
