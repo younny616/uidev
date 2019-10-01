@@ -6,14 +6,15 @@ const project = {
   title: 'store',
   build: {
     svn: 'D:/fe',
-    baseDir: 'test/store',
+    baseDir: 'API/store',
+    etcDir: 'img.echosting.cafe24.com/api/store',
     styles: 'css',
     scripts: 'js',
     images: 'images',
     fonts: 'fonts',
   },
   deploy: {
-    echosting : '//img.echosting.cafe24.com'
+    echosting : '/'
   },
   src: 'src',
   dest: 'dist',

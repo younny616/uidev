@@ -77,6 +77,54 @@ $(document).ready(function(){
     var isDestroyTablet = false;
     var isDestroyMobile = false;
     var sliderOptions = {
+        theme: {
+            pc: {
+                loop: true,
+                loopedSlides: 4,
+                loopAdditionalSlides: 4,
+                slidesPerGroup: 4,
+                speed: 1200,
+                autoplay: false,
+                allowTouchMove: true,
+                slidesPerView: 'auto',
+                pagination: false,
+            },
+            mobile: {
+                loop: false,
+                speed: 1200,
+                autoplay: false,
+                allowTouchMove: true,
+                slidesPerView: 'auto',
+                navigation: false,
+                pagination: {
+                    type: 'fraction',
+                },
+            }
+        },
+        app: {
+            pc: {
+                loop: true,
+                loopedSlides: 4,
+                loopAdditionalSlides: 4,
+                slidesPerGroup: 4,
+                speed: 1200,
+                autoplay: false,
+                allowTouchMove: true,
+                slidesPerView: 'auto',
+                pagination: false,
+            },
+            mobile: {
+                loop: false,
+                speed: 1200,
+                autoplay: false,
+                allowTouchMove: true,
+                slidesPerView: 'auto',
+                navigation: false,
+                pagination: {
+                    type: 'fraction',
+                },
+            }
+        },
         random: {
             mobile : {
                 loop: false,
@@ -92,10 +140,13 @@ $(document).ready(function(){
     }
 
     var combineRandom = loadBoundary ? null : new Cafe24.SwiperSlider('#combineRandom', sliderOptions.random.mobile).init();
+    var bestThemeSlider = new Cafe24.SwiperSlider('#bestTheme', loadBoundary ?  sliderOptions.theme.pc : sliderOptions.theme.mobile).init();
+    var newAppSlider = new Cafe24.SwiperSlider('#newApp', loadBoundary ?  sliderOptions.app.pc : sliderOptions.app.mobile).init();
+    var newThemeSlider = new Cafe24.SwiperSlider('#newTheme', loadBoundary ? sliderOptions.theme.pc : sliderOptions.theme.mobile).init();
 
     $(window).on('resize', function() {
         var ww = $(window).width();
-        var resizeBoundary = 1080;
+        var resizeBoundaryTablet = 1080;
         var resizeBoundaryMobile = 769;
 
         if (ww < resizeBoundaryMobile && !isDestroyMobile) {
@@ -112,7 +163,31 @@ $(document).ready(function(){
             combineRandom.destroy();
             combineRandom = null;
         }
+
+        if (ww < resizeBoundaryTablet && !isDestroyTablet) {
+            isDestroyTablet = true;
+
+            bestThemeSlider.destroy();
+            bestThemeSlider = new Cafe24.SwiperSlider('#bestTheme', sliderOptions.theme.mobile).init();
+
+            newAppSlider.destroy();
+            newAppSlider = new Cafe24.SwiperSlider('#newApp', sliderOptions.app.mobile).init();
+
+            newThemeSlider.destroy();
+            newThemeSlider = new Cafe24.SwiperSlider('#newTheme', sliderOptions.theme.mobile).init();
+        } else if (ww > resizeBoundaryTablet && isDestroyTablet) {
+            isDestroyTablet = false;
+
+            bestThemeSlider.destroy();
+            bestThemeSlider = new Cafe24.SwiperSlider('#bestTheme', sliderOptions.theme.pc).init();
+
+            newAppSlider.destroy();
+            newAppSlider = new Cafe24.SwiperSlider('#newApp', sliderOptions.app.pc).init();
+
+            newThemeSlider.destroy();
+            newThemeSlider = new Cafe24.SwiperSlider('#newTheme', sliderOptions.theme.pc).init();
+
+        }
     });
 
 })(Cafe24.UI);
-

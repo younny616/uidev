@@ -47,12 +47,6 @@
     }
   }
 
-  section + section {
-    .mTitle {
-      &.subMainTheme { margin:0 auto 20px; }
-    }
-  }
-
   .random {
     &App {
       .mTitle {
@@ -118,18 +112,12 @@
       .desc { margin:0 0 30px; font-size:28px; color:#fff; line-height:35px; }
     }
 
-    &.typeFirst { padding:40px 0 20px; }
+    &.typeFirst { padding:40px 0 0; }
 
     .title { color:#000; }
     .desc { font-size:16px; color:#959595; }
     .btnAll { font-size:16px; color:#0055fb;
       .icoArrow { margin:0 0 1px 7px; @include icoArrow('right', 7px, 10px, 1px, #0055fb); }
-    }
-  }
-
-  section + section {
-    .mTitle {
-      &.subMainTheme { margin:0 auto 20px; }
     }
   }
 
@@ -140,7 +128,7 @@
           .title {
             strong { color:#fff; }
           }
-          .desc { color:#fff; }
+          .desc { color:#fff; font-weight:800; }
         }
       }
     }
@@ -151,7 +139,7 @@
           .title {
             strong { color:#000; }
           }
-          .desc { color:#000; }
+          .desc { color:#000; font-weight:800; }
         }
       }
     }
@@ -186,12 +174,6 @@
     .desc { font-size:16px; color:#959595; }
     .btnAll { font-size:16px; color:#0055fb;
       .icoArrow { margin:0 0 1px 7px; @include icoArrow('right', 7px, 10px, 1px, #0055fb); }
-    }
-  }
-
-  section + section {
-    .mTitle {
-      &.subMainTheme { margin:0 auto 20px; }
     }
   }
 

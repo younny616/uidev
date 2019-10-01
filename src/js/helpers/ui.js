@@ -10,7 +10,7 @@ class UI {
         if (!parent) {
             callback = () => $(target).toggleClass(className);
         } else {
-            callback = () => $(target).parents(parent).toggleClass(className);
+            callback = () => $(target).parents().toggleClass(className);
         }
 
         return $(document).on('click', target, callback);

@@ -133,4 +133,5 @@
             combineThumbsSlider.controller.control = combineTheme;
         }
     });
+
 })(Cafe24.UI);

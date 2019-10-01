@@ -6,7 +6,8 @@ mixin item(item, index, types)
           img(src=item[index].src alt="")
     when 'app'
       div.image
-        img(src=item[index].src alt="")
+        a(href="/" target="_blank")
+          img(src=item[index].src alt="")
       div.inner
         strong(class="title", onclick="Cafe24.Utils._truncate(2)")= item[index].title
         span.subTitle= item[index].subTitle
@@ -14,7 +15,8 @@ mixin item(item, index, types)
         p.description= item[index].description
     when 'theme'
       div.image
-        img(src=item[index].src alt="")
+        a(href="/" target="_blank")
+          img(src=item[index].src alt="")
       div.inner
         strong.title= item[index].title
         span.subTitle= item[index].subTitle
