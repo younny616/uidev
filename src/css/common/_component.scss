@@ -1,4 +1,18 @@
 @include respond(mobile) {
+  .fSelect { position:relative; display:inline-block; height:35px; line-height:35px; padding:0 6px; vertical-align:top; box-sizing:border-box;
+    .fNow { color:#000; cursor:pointer; font-size:15px; }
+    .fButton { display:inline-block; position:absolute; top:0; bottom:0; right:10px; margin:auto; overflow:hidden; width:0; height:0; border-style:solid; border-width:5px 5px 0 5px; border-color:#000 transparent transparent transparent; vertical-align:2px; line-height:10; -webkit-transition:.3s ease-out; transition:.3s ease-out; }
+    .fOption { display:none; position:absolute; /*top:0; */left:-1px; width:100%; height:auto; padding:9px 0; border:1px solid #e8e8e8; border-radius:3px; background:#fff;
+      a { display:block; padding:12px 9px 12px 15px; color:#959595; line-height:16px; font-size:15px; font-weight:400;
+        &:hover { text-decoration:none; color:#0055fb; background:#f6f7f9; }
+      }
+    }
+  }
+  .fSelect.eSelect select { display:none; visibility:hidden; position:absolute; z-index:-1; }
+  .fSelect:disabled, .fSelect.disabled { cursor:default; opacity:0.65; }
+  .fSelect.show { z-index:2; }
+  .fSelect.show .fButton { -webkit-transform:rotate(180deg); transform:rotate(180deg); }
+
   .mTitle { position:relative;
     &.typeLeft { text-align:left; padding:29px 20px 12px;
       .title { margin:0 0 8px; font-size:20px; font-weight:800; }
@@ -6,7 +20,6 @@
       .btnAll { position:absolute; right:20px; top:30px;
         .icoArrow { display:none; }
       }
-    }
 
     &.typeCenter { text-align:center; padding:55px 20px 52px;
       .title { margin:0 0 5px; font-size:22px; line-height:28px; font-weight:400; }
@@ -68,6 +81,19 @@
 }
 
 @include respond(tablet-pc) {
+  .fSelect { position:relative; display:inline-block; height:40px; line-height:38px; padding:0 16px; vertical-align:top; border-radius:3px; border:1px solid #e8e8e8; box-sizing:border-box;
+    .fNow { color:#000; cursor:pointer; }
+    .fButton { display:inline-block; position:absolute; top:0; bottom:0; right:10px; margin:auto; overflow:hidden; width:0; height:0; border-style:solid; border-width:5px 5px 0 5px; border-color:#000 transparent transparent transparent; vertical-align:2px; line-height:10; -webkit-transition:.3s ease-out; transition:.3s ease-out; }
+    .fOption { display:none; position:absolute; /*top:0; */left:-1px; width:100%; height:auto; margin:6px 0 0; padding:9px 0; border:1px solid #e8e8e8; background:#fff;
+      a { display:block; padding:12px 9px 12px 15px; color:#959595; line-height:16px;
+        &:hover { text-decoration:none; color:#0055fb; background:#f6f7f9; }
+       }
+    }
+  }
+  .fSelect.eSelect select { display:none; visibility:hidden; position:absolute; z-index:-1; }
+  .fSelect:disabled, .fSelect.disabled { cursor:default; opacity:0.65; }
+  .fSelect.show { z-index:2; background:#f6f7f9; }
+  .fSelect.show .fButton { -webkit-transform:rotate(180deg); transform:rotate(180deg); }
   .gInner { margin:0 auto; }
   .mTitle { position:relative; max-width:1404px;
     &.typeLeft { text-align:left; margin:0 auto 19px;
@@ -196,11 +222,11 @@
   .gInner { max-width:1240px; padding:0 20px; }
 }
 
-
 @include respond(pc) {
   .gInner { max-width:1240px; padding:0 20px; }
 }
 
 @include respond(pc-full) {
+  .mTitle { max-width:1404px; }
   .gInner { max-width:1404px; }
 }

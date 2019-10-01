@@ -48,6 +48,7 @@ function navigationMenu() {
     });
 } navigationMenu();
 
+<<<<<<< HEAD
 
 (function(UI) {
     var loadBoundary = $(window).width() > 769 ? true : false;
@@ -92,3 +93,27 @@ function navigationMenu() {
     });
 
 })(Cafe24.UI);
+=======
+$(document).ready(function(){
+    if($('.fSelect').length > 0){
+        $('.fSelect').each(function(i){
+            var arr = $(this).attr('class').split(' ');
+            if(arr.length > 1){
+                $(this).removeClass();
+                for(var j = 0; j<(arr.length+1); j++){
+                    if(j == 0){
+                        $(this).addClass('fSelect');
+                    }else if(j == 1){
+                        $(this).addClass('eSelect');
+                    }else{
+                        var className = arr[(j-1)];
+                        $(this).addClass(className);
+                    }
+                }
+            }else{
+                $(this).addClass('eSelect');
+            }
+        });
+    }
+});
+>>>>>>> 58d78db9ce6ea7a807cac306cf275dfce2c0b022
