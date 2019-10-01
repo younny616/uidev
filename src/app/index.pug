@@ -1,7 +1,8 @@
 extends layouts/layout
 include /components/applist
 include /components/common/mTitle
-
+include /components/slider
+include /components/randomList
 
 block append contents
     include /components/mainvisual
@@ -18,13 +19,51 @@ block append contents
                 +applist(false, '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', false, '/images/@img_app_icon.png')
                 +applist(false, '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', false, '/images/@img_app_icon.png')
                 +applist(false, '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', false, '/images/@img_app_icon.png')
+            div.appMore
+                button.btnMore 더보기
+                    i.icoArrow
 
+    - var bestTheme = 'bestTheme';
+    - var bestThemeData = require('./src/js/data/bestTheme.js');
+    section.bestThemeArea
+        +mTitle('typeLeft subMainTheme', '이번주 BEST 인기 테마')
+        +slider(bestTheme, bestThemeData, 'typeTheme', 'theme', true, true)
 
+    - function makeRandom(datas) { return datas.sort((v1, v2) => Math.random() - Math.random()); }
+    - var randomListData = require('./src/js/data/randomApp.js');
+    - var randomBackData = makeRandom(randomListData);
+    - var randomThemeData = require('./src/js/data/randomTheme.js');
+    section.combineRandomArea
+        div#combineRandom.sliderWrap.typeRandom
+            div.sliderContainer
+                div.sliderWrapper
+                    div.slide.item.randomApp
+                        +mTitle('typeRandom', '<strong>APP</strong> <span>똑똑한 쇼핑몰 분석 앱 모음</span>', '잠재고객과 구매고객의 선호도를 분석하고 싶다면 분석 앱 어떤가요?', '자세히보기')
+                        +randomList(randomListData, 'app')
+                        +randomList(randomBackData, 'random')
+                    div.slide.item.randomTheme
+                        +mTitle('typeRandom', '<strong>THEME</strong> <span>똑똑한 쇼핑몰 분석 앱 모음</span>', '나의 쇼핑몰 고객에게 인싸가 될 수 있도록 핫한 디자인을 모았습니다', '자세히보기')
+                        +randomList(randomThemeData, 'theme')
+            div.sliderPagination
 
+    - var newApp = 'newApp';
+    - var newAppData = require('./src/js/data/newApp.js');
+    section.newAppArea
+        +mTitle('typeLeft', '새로 출시된 앱')
+        +slider(newApp, newAppData, 'typeApp', 'app', true, true)
 
-    include /components/mainstory
+    - var newTheme = 'newTheme';
+    - var newThemeData = require('./src/js/data/newTheme.js');
+    section.newThemeArea
+        +mTitle('typeLeft', '따끈따끈 신규 테마')
+        +slider(newTheme, newThemeData, 'typeTheme', 'theme', true, true)
 
-    include /components/shopmaking
+    section.mainStoryArea
+        include /components/mainstory
+
+    section.shopMakingArea
+        include /components/shopmaking
 
 block append body
+  script(src="//cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js")
   script(src="/js/ui/index.js")

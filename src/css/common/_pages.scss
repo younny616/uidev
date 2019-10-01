@@ -3,25 +3,17 @@
    * index.html
    */
   section {
-    &.combineRandomArea {}
-  }
-
-  /**
-   * submain/app.html
-   */
-  section {
-    &.newAppArea { margin-bottom:10px; padding:14px 0 0 20px; border-bottom:1px solid #e8e8e8;  background:#fff; }
-  }
-
-  /**
-   * theme.html
-   */
-  section {
-    &.bestThemeArea { margin-bottom:10px; padding:14px 0 0 20px; border-bottom:1px solid #e8e8e8;  background:#fff; }
-    &.newThemeArea { padding:14px 0 0 20px; background:#fff; }
-    &.combineThemeArea { padding:14px 0 0 20px; background:#f2f2f2; }
+    &.sectionAppList { margin-bottom:10px; border-bottom:1px solid #e8e8e8; background:#fff; }
+    &.mainStoryArea { margin-bottom:10px; border-bottom:1px solid #e8e8e8; background:#fff; }
+    &.cateArea { margin-bottom:10px; border-bottom:1px solid #e8e8e8; background:#fff; }
+    &.partnerArea { margin-bottom:10px; border-bottom:1px solid #e8e8e8; background:#fff; }
+    &.shopMakingArea { padding-bottom:10px; }
+    &.newAppArea { margin-bottom:10px; border-bottom:1px solid #e8e8e8;  background:#fff; }
+    &.bestThemeArea { margin-bottom:10px; border-bottom:1px solid #e8e8e8; background:#fff; }
+    &.newThemeArea { margin-bottom:10px; background:#fff; border-bottom:1px solid #e8e8e8; }
+    &.combineThemeArea { background:#f2f2f2; }
     &.freeThemeArea { background:#fff; }
-    &.mobileThemeArea { padding:0 0 0 20px; }
+    &.mobileThemeArea { padding:0 0 0 0; }
     &.choseThemeArea { background:#fff; margin-bottom:10px; border-bottom:1px solid #e8e8e8; }
     &.minimalThemeArea { background:#fff; margin-bottom:10px; border-bottom:1px solid #e8e8e8; }
     &.themeCate {
@@ -35,28 +27,14 @@
    * index.html
    */
   section {
-     &.combineRandomArea {}
-  }
-
-  /**
-   * submain/app.html
-   */
-  section {
-    &.newAppArea { margin:0 auto 92px; padding:28px 0 100px; background:#fff; }
-  }
-
-  /**
-   * submain/theme.html
-   */
-  section {
-    &.bestThemeArea { }
-    &.newThemeArea { }
-    &.combineThemeArea { margin:0 auto 92px; padding:28px 0 100px; background:#f2f2f2; }
-    &.freeThemeArea { }
-    &.mobileThemeArea { margin:0 auto 92px; padding:28px 0 8px; background:#f5f5f5; }
-    &.choseThemeArea { }
-    &.minimalThemeArea { }
-    &.themeCate {
+    &.bestThemeArea { padding:60px 0 0; }
+    &.combineRandomArea {}
+    &.newAppArea { background:#fff; }
+    &.combineThemeArea { background:#f2f2f2; }
+    &.freeThemeArea { padding:92px 0 0; }
+    &.mobileThemeArea { background:#f5f5f5; }
+    &.choseThemeArea { padding:92px 0 0; }
+    &.cateArea {
       .subCategory { border-top:0; }
     }
   }

@@ -8,9 +8,11 @@ class Utils {
         return values.sort((v1, v2) => Math.random() - Math.random());
     }
 
-    _trunCate(text, leng, delimiter) {
-        delimiter = delimiter || "&hellip;";
-        return text.leng > leng ? text.substr(0, leng) + delimiter : text;
+    _truncate(text, leng, delimiter) {
+        delimiter = delimiter || '...';
+        console.log(this);
+        console.log(text.substr(0, leng) + delimiter);
+        return this.text = text.leng > leng ? text.substr(0, leng) + delimiter : text;
     }
 
 }

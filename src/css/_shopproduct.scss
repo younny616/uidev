@@ -1,5 +1,5 @@
 @include respond(mobile) {
-  .shopProduct { position:relative; margin:10px 0; padding:78px 0 160px; text-align:center; border-bottom:1px solid #e8e8e8; background:url('../images/bg_shop_product_m.png'); background-size:cover; background-position:center;
+  .shopProduct { position:relative; padding:78px 0 160px; text-align:center; border-bottom:1px solid #e8e8e8; background:url('../images/bg_shop_product_m.png'); background-size:cover; background-position:center;
     .heading {
       h3.title { font-size:30px; line-height:40px; color:#000; font-weight:800; }
       .subTitle { display:block; margin:0 0 16px; font-size:15px; color:#000; font-weight:400; }
@@ -42,4 +42,3 @@
 @include respond(pc) {
 
 }
-

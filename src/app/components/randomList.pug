@@ -7,11 +7,12 @@ mixin randomList(items, types)
             li.item
               img(src=items[i].src)
           if (items.length - 1) === i
-            li.item.lastItem
-              if items.length <= 4
-                span= items.length
-              else
-                span= '+' + items.length
+            if items.length <= 4
+              li(class="item lastItem" data-item-count=items.length)
+            else
+              li(class="item lastItem" data-item-count='+' + items.length)
+
+                img(src="/images/app_last_icon.jpg" alt="")
         when 'theme'
             li.item
               div.image
