@@ -9,7 +9,7 @@ block append contents
 
     section.sectionAppList
         div.gInner
-            +mTitle('typeLeft typeFirst', '이번주를 뜨겁게 달군 인기 앱')
+            +mTitle('typeLeft typeSpace', '이번주를 뜨겁게 달군 인기 앱')
             div.appGroup
                 +applist(false, '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', false, '/images/@img_app_icon.png')
                 +applist(false, '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', false, '/images/@img_app_icon.png')
@@ -26,7 +26,7 @@ block append contents
     - var bestTheme = 'bestTheme';
     - var bestThemeData = require('./src/js/data/bestTheme.js');
     section.bestThemeArea
-        +mTitle('typeLeft subMainTheme', '이번주 BEST 인기 테마')
+        +mTitle('typeLeft typeSpace', '이번주 BEST 인기 테마')
         +slider(bestTheme, bestThemeData, 'typeTheme', 'theme', true, true)
 
     - function makeRandom(datas) { return datas.sort((v1, v2) => Math.random() - Math.random()); }

@@ -80,7 +80,7 @@ $(document).ready(function(){
         });
     }
 
-Cafe24.UI.onToggleClass('#footer .familysite .eClick', true, 'selected');
+    Cafe24.UI.onToggleClass('#footer .familysite .eClick', true, 'selected');
 
 });
 
