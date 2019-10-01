@@ -9,7 +9,7 @@ mixin item(item, index, types)
         a(href="/" target="_blank")
           img(src=item[index].src alt="")
       div.inner
-        strong(class="title", onclick="Cafe24.Utils._truncate(2)")= item[index].title
+        strong.title= item[index].title
         span.subTitle= item[index].subTitle
         span.price= item[index].price
         p.description= item[index].description

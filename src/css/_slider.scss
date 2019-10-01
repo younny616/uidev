@@ -418,10 +418,10 @@
               img { width:100%; }
             }
             .inner { height:169px; padding:22.5px 15px;
-              .title { margin:0 0 2px; font-size:15px; @include text-ellipsis(17, 2); }
-              .subTitle { display:block; margin:0 0 15.75px; font-size:10px; }
-              .price { font-size:10px; }
-              .description { font-size:10px; @include text-ellipsis(17, 2); }
+              .title { margin:0 0 2px; font-size:16px; @include text-ellipsis(22, 1); }
+              .subTitle { display:block; margin:0 0 15.75px; font-size:11px; }
+              .price { font-size:11px; }
+              .description { font-size:11px; @include text-ellipsis(17, 2); }
             }
         }
       }

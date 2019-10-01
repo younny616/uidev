@@ -23,12 +23,6 @@
       .btnAll { font-size:14px; }
     }
 
-    &.typeCenter { text-align:center; padding:55px 20px 52px;
-      .title { margin:0 0 5px; font-size:22px; line-height:28px; font-weight:400; }
-      .desc { margin:0 0 11px; font-size:13px; color:#000; }
-      .btnAll { font-size:14px; }
-    }
-
     &.typeRandom { z-index:3; text-align:left; padding:30px 20px;
       .title { margin:0 0 9px; font-size:13px; font-weight:800;
         strong { font-size:inherit; font-weight:inherit; color:#fff; }
@@ -114,7 +108,7 @@
       .desc { margin:0 0 30px; font-size:28px; color:#fff; line-height:35px; }
     }
 
-    &.typeSpace { padding:60px 0 0; }
+    &.typeSpace { padding:60px 20px 0; }
 
     .title { color:#000; }
     .desc { font-size:16px; color:#959595; }
