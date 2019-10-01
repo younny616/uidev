@@ -50,7 +50,7 @@
     > [class^=type] { padding:0 0 92px; }
 
     [class*=type] { overflow:hidden; width:100%; max-width:1440px; margin:0 auto;
-      .item { position:relative; float:left; box-sizing:border-box; }
+      .item { position:relative; float:left; box-sizing:border-box; transition:all .3s ease; }
     }
 
     .typeApp {

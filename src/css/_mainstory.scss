@@ -1,14 +1,12 @@
 @include respond(mobile) {
   .mainStory {
-    margin:10px 0; padding:60px 0; border-bottom:1px solid #e8e8e8; background:#fff;
-
     .heading {
       text-align:center;
       h3.title { font-size:22px; color:#000; font-weight:400; }
       .desc { margin:5px 0 0; font-size:13px; color:#000; font-weight:400; }
       .btnAll { display:block; margin:17px 0 0; color:#0055fb; font-size:14px; font-weight:400; }
     }
-    .story { margin:45px 20px 0;
+    .story { margin:0 20px 0;
       .item { display:block; max-width:600px; margin:0 auto; padding:120px 0 0; vertical-align:top; box-sizing:border-box; border-radius:3px; background-size:contain;
         .info { padding:20px 0; box-sizing:border-box; background:#fff;
           .title { @include ellipsis(100%, block); font-size:18px; color:#000; font-weight:400; }
@@ -68,4 +66,3 @@
     }
   }
 }
-

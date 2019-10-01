@@ -4,5 +4,5 @@ mixin mTitle(typeClass, title, desc, btnTxt)
     if desc
       p.desc !{desc}
     if btnTxt
-      button.btnAll !{btnTxt}
+      a(href="#none" class="btnAll") !{btnTxt}
         i.icoArrow

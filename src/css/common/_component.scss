@@ -1,4 +1,5 @@
 @include respond(mobile) {
+<<<<<<< HEAD
   .fSelect { position:relative; display:inline-block; height:35px; line-height:35px; padding:0 6px; vertical-align:top; box-sizing:border-box;
     .fNow { color:#000; cursor:pointer; font-size:15px; }
     .fButton { display:inline-block; position:absolute; top:0; bottom:0; right:10px; margin:auto; overflow:hidden; width:0; height:0; border-style:solid; border-width:5px 5px 0 5px; border-color:#000 transparent transparent transparent; vertical-align:2px; line-height:10; -webkit-transition:.3s ease-out; transition:.3s ease-out; }
@@ -18,30 +19,68 @@
       .title { margin:0 0 2px; font-size:28px; font-weight:800; }
       .desc { font-size:18px; color:#000; }
       .btnAll { position:absolute; right:0; bottom:8px; }
+=======
+  .mTitle { position:relative;
+    &.typeLeft { text-align:left; padding:29px 20px 12px;
+      .title { margin:0 0 8px; font-size:20px; font-weight:800; }
+      .desc { margin:0 0 30px; font-size:16px; line-height:22px; color:#000; }
+      .btnAll { position:absolute; right:20px; top:30px;
+        .icoArrow { display:none; }
+      }
+>>>>>>> 636f7d1... mTitle
     }
 
-    &.typeCenter { text-align:center;
-      .title { margin:0 0 4px; font-size:36px; font-weight:400; }
-      .desc { margin:0 0 31px; font-size:16px; color:#959595; }
-      .btnAll { margin: 0 0 40px; }
+    &.typeCenter { text-align:center; padding:55px 20px 52px;
+      .title { margin:0 0 5px; font-size:22px; line-height:28px; font-weight:400; }
+      .desc { margin:0 0 11px; font-size:13px; color:#000; }
+      .btnAll { font-size:14px; }
     }
 
-    &.typeRandom { z-index:3; text-align:left;
+    &.typeRandom { z-index:3; text-align:left; padding:30px 20px;
       .title { margin:0 0 9px; font-size:13px; font-weight:800;
         strong { font-size:inherit; font-weight:inherit; color:#fff; }
         span { margin:0 0 0 10px; font-size:inherit; font-weight:inherit; color:#959595;}
       }
-      .desc { margin:0 0 23px; font-size:18px; color:#fff; line-height:25px; }
+      .desc { margin:0 0 23px; font-size:18px; font-weight:800; color:#fff; line-height:25px; }
       .btnAll { font-size:14px;
         .icoArrow { margin:0 0 1px 7px; @include icoArrow('right', 5px, 9px, 1px, #0055fb); }
       }
     }
 
-    &.subMainTheme { margin:40px auto 20px; }
     .title { color:#000; }
     .desc { font-size:16px; color:#959595; }
     .btnAll { font-size:16px; color:#0055fb;
       .icoArrow { margin:0 0 1px 7px; @include icoArrow('right', 7px, 10px, 1px, #0055fb); }
+    }
+  }
+
+  section + section {
+    .mTitle {
+      &.subMainTheme { margin:0 auto 20px; }
+    }
+  }
+
+  .random {
+    &App {
+      .mTitle {
+        &.typeRandom {
+          .title {
+            strong { color:#fff; }
+          }
+          .desc { color:#fff; }
+        }
+      }
+    }
+
+    &Theme {
+      .mTitle {
+        &.typeRandom {
+          .title {
+            strong { color:#000; }
+          }
+          .desc { color:#000; }
+        }
+      }
     }
   }
 }
@@ -65,17 +104,17 @@
   .fSelect.show { z-index:2; background:#f6f7f9; }
   .fSelect.show .fButton { -webkit-transform:rotate(180deg); transform:rotate(180deg); }
   .gInner { margin:0 auto; }
-  .mTitle { position:relative; margin:60px auto 40px;
-    &.typeLeft { text-align:left;
+  .mTitle { position:relative; max-width:1404px;
+    &.typeLeft { text-align:left; margin:0 auto 19px;
       .title { margin:0 0 2px; font-size:28px; font-weight:800; }
       .desc { font-size:18px; color:#000; }
       .btnAll { position:absolute; right:0; bottom:8px; }
     }
 
-    &.typeCenter { text-align:center;
+    &.typeCenter { text-align:center; margin:0 auto; padding:90px 0 75px;
       .title { margin:0 0 4px; font-size:36px; font-weight:400; }
       .desc { margin:0 0 31px; font-size:16px; color:#959595; }
-      .btnAll { margin: 0 0 40px; }
+      .btnAll {  }
     }
 
     &.typeRandom { width:auto; z-index:3; margin:0; padding:56px 33px 0 33px; text-align:left;
@@ -86,7 +125,8 @@
       .desc { margin:0 0 30px; font-size:28px; color:#fff; line-height:35px; }
     }
 
-    &.subMainTheme { margin:40px auto 20px; }
+    &.typeFirst { padding:40px 0 20px; }
+
     .title { color:#000; }
     .desc { font-size:16px; color:#959595; }
     .btnAll { font-size:16px; color:#0055fb;

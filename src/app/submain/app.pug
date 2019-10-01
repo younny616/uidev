@@ -7,26 +7,9 @@ include /components/app_simple
 include /components/applist
 include /components/subcategory
 include /components/partnermeet
-include /components/randomList
 
 block append contents
   +subVisual('app', 'APP', '쇼핑몰 확장을 위한 앱을 설치하세요','상반기 TOP 12','주목할만한 신상 앱', '나도 인플루언서', '핫 썸머! 쿨~한 앱', '재능마켓')
-  - function makeRandom(datas) { return datas.sort((v1, v2) => Math.random() - Math.random()); }
-  - var randomListData = require('./src/js/data/randomApp.js');
-  - var randomBackData = makeRandom(randomListData);
-  - var randomThemeData = require('./src/js/data/randomTheme.js');
-  section.combineRandomArea
-    div#combineRandom.sliderWrap.typeRandom
-      div.sliderContainer
-        div.sliderWrapper
-          div.slide.item.randomApp
-            +mTitle('typeRandom', '<strong>APP</strong> <span>똑똑한 쇼핑몰 분석 앱 모음</span>', '잠재고객과 구매고객의 선호도를 분석하고 싶다면 분석 앱 어떤가요?', '자세히보기')
-            +randomList(randomListData, 'app')
-            +randomList(randomBackData, 'random')
-          div.slide.item.randomTheme
-            +mTitle('typeRandom', '<strong>THEME</strong> <span>똑똑한 쇼핑몰 분석 앱 모음</span>', '나의 쇼핑몰 고객에게 인싸가 될 수 있도록 핫한<br>디자인을 모았습니다', '자세히보기')
-            +randomList(randomThemeData, 'theme')
-        div.sliderPagination
 
   section.sectionAppList
     div.gInner
@@ -70,10 +53,14 @@ block append contents
         +applist(false, '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', false, '/images/@img_app_icon.png')
         +applist(false, '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', false, '/images/@img_app_icon.png')
 
-  +category('앱 카테고리', 'app')(class="app")
+  section.cateArea
+    +category('앱 카테고리', 'app')(class="app")
 
-  +partnermeet('뛰어난 품질과 서비스를 제공하는 <br>카페24가 검증한 개발사와 만나보세요', '개발사 보러가기')(class="develop")
-  include /components/shopmaking
+  section.partnerArea
+    +partnermeet('뛰어난 품질과 서비스를 제공하는 <br>카페24가 검증한 개발사와 만나보세요', '개발사 보러가기')(class="develop")
+
+  section.shopMakingArea
+    include /components/shopmaking
 
 block append body
   script(src="//cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js")

@@ -1,8 +1,7 @@
+include /components/common/mTitle
+
 div.mainStory
-    div.heading
-        h3.title 내 쇼핑몰을 위한 스토리
-        p.desc 카페24 스토어의 다양한 이야기를 만나보세요.
-        a.btnAll(href="") 전체보기
+    +mTitle('typeCenter', '내 쇼핑몰을 위한 스토리', '카페24 스토어의 다양한 이야기를 만나보세요.', '전체보기')
     div.story
         mixin storyItem(title, desc)
             div.item&attributes(attributes)
