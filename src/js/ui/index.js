@@ -49,7 +49,6 @@ function navigationMenu() {
     });
 } navigationMenu();
 
-<<<<<<< HEAD
 $(document).ready(function(){
     if($('.fSelect').length > 0){
         $('.fSelect').each(function(i){
@@ -72,7 +71,6 @@ $(document).ready(function(){
         });
     }
 });
-=======
 
 (function(UI) {
     var loadBoundary = $(window).width() > 769 ? true : false;
@@ -117,4 +115,3 @@ $(document).ready(function(){
     });
 
 })(Cafe24.UI);
->>>>>>> 636f7d1... mTitle
