@@ -25,27 +25,31 @@ const decache = require('decache');
 const stringify = require('js-stringify');
 
 
-
-
 /**
  * Mode Variables
  */
 const isDeploy = mode.deploy();
 const isProduction = mode.production();
-const buildPath = `${project.build.svn}/${project.build.baseDir}`;
+const buildPath = {
+  base: `${project.build.svn}/${project.build.baseDir}`,
+  etc: `${project.build.svn}/${project.build.etcDir}`,
+}
 
 const buildReplace = (onDeploy) => {
   return replace(/(src|href)="([^"]*)"/g, (match, param, string, offset) => {
     let protocol = /(?:((http(s?))\:)?\/\/)/g;
     let baseDir = `${project.build.baseDir}${string}`;
+    let etcDir = `${project.build.etcDir}${string}`;
 
     if (!protocol.test(string) && string.length > 1 && string.charAt(0) !== '#' && string.charAt(0) !== '{' && string.charAt(0) !== '!') {
       if (onDeploy) {
         let image = /\.(?:jpg|gif|png|svg)/g;
 
-        if (image.test(string)) return `${param}="${project.deploy.echosting}/${baseDir}"`;
+        if (image.test(string)) return `${param}="${project.deploy.echosting}/${etcDir}"`;
       }
-      return `${param}="/${baseDir}"`;
+
+      return `${param}="/${etcDir}"`;
+
     } else {
       return `${param}="${string}"`;
     }
@@ -91,7 +95,7 @@ const html = () => {
     })
     .pipe(mode.production(buildReplace(isDeploy)))
     .pipe(prettify(prettifyOptions))
-    .pipe(!isProduction ? dest(paths.html.dest) : dest(buildPath))
+    .pipe(!isProduction ? dest(paths.html.dest) : dest(buildPath.base))
 };
 
 
@@ -119,7 +123,7 @@ const pugs = () => {
     })
     .pipe(mode.production(buildReplace(isDeploy)))
     .pipe(prettify(prettifyOptions))
-    .pipe(!isProduction ? dest(paths.pugs.dest) : dest(buildPath));
+    .pipe(!isProduction ? dest(paths.pugs.dest) : dest(buildPath.base));
 };
 
 
@@ -141,7 +145,7 @@ const styles = () => {
         suffix: '.min'
     }))
     .pipe(sourcemaps.write('.'))
-    .pipe(!isProduction ? dest(paths.styles.dest) : dest(`${buildPath}/${project.build.styles}`));
+    .pipe(!isProduction ? dest(paths.styles.dest) : dest(`${buildPath.etc}/${project.build.styles}`));
 };
 
 
@@ -177,7 +181,7 @@ const scripts = () => {
         noSource: true
     }))
     .pipe(sourcemaps.write('./'))
-    .pipe(!isProduction ? dest(paths.scripts.dest) : dest(`${buildPath}/${project.build.scripts}`));
+    .pipe(!isProduction ? dest(paths.scripts.dest) : dest(`${buildPath.etc}/${project.build.scripts}`));
 };
 
 
@@ -193,7 +197,7 @@ const ignore = (done) => {
         console.log(err.toString());
         this.emit('end');
       })
-      .pipe(!isProduction ? dest(paths.scripts.ignorePath[i]) : dest(`${buildPath}/js/${paths.scripts.ignorePath[i].slice(paths.scripts.ignorePath[i].lastIndexOf('/') + 1)}`));
+      .pipe(!isProduction ? dest(paths.scripts.ignorePath[i]) : dest(`${buildPath.etc}/js/${paths.scripts.ignorePath[i].slice(paths.scripts.ignorePath[i].lastIndexOf('/') + 1)}`));
   });
 
   done();
@@ -219,14 +223,14 @@ const images = () => {
         ]
       })
     ])))
-    .pipe(!isProduction ? dest(paths.images.dest) : dest(`${buildPath}/${project.build.images}`))
+    .pipe(!isProduction ? dest(paths.images.dest) : dest(`${buildPath.etc}/${project.build.images}`))
 }
 
 
 /**
  * Fonts handler
  */
-const fonts = () => src(paths.fonts.src).pipe(!isProduction ? dest(paths.fonts.dest) : dest(`${buildPath}/${project.build.fonts}`));
+const fonts = () => src(paths.fonts.src).pipe(!isProduction ? dest(paths.fonts.dest) : dest(`${buildPath.etc}/${project.build.fonts}`));
 
 
 /**
@@ -236,7 +240,8 @@ const clean = (done) => {
   // const inquirer = require('inquirer'); 검증절차 추가 필수
 
   if (mode.production()) {
-    del.sync([`${buildPath}/**`, `!${project.title}`], { force: true });
+    del.sync([`${buildPath.base}/**`, `!${project.title}`], { force: true });
+    del.sync([`${buildPath.etc}/**`, `!${project.title}`], { force: true });
   } else {
     del.sync(['dist/**', '!dist']);
   }
