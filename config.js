@@ -11,6 +11,7 @@ const project = {
     styles: 'css',
     scripts: 'js',
     images: 'images',
+    svg: 'svg',
     fonts: 'fonts',
   },
   deploy: {
@@ -58,6 +59,11 @@ const paths = {
     src: `${project.src}/images/**/*.*`,
     dest: `${project.dest}/images`,
     wildcard: `${project.src}/images/**/*.*`,
+  },
+  svg: {
+    src: `${project.src}/svg/**/*.*`,
+    dest: project.dest,
+    wildcard: `${project.src}/svg/**/*.*`,
   },
   fonts: {
     src: `${project.src}/fonts/**/*.{ttf,otf,woff,woff2,eot,svg}`,
