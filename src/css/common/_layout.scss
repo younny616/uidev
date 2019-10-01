@@ -13,6 +13,7 @@
 @include respond(mobile-tablet) {
   #wrap { background:#f5f5f5; }
   #header { position:fixed; top:0; left:0; right:0; z-index:90; height:50px;
+    &.fixed { border-bottom:1px solid #ececec; background:#fff; }
     .navigation { position:fixed; top:0; bottom:0; right:-100%; z-index:101; opacity:0; overflow:auto; width:300px; height:100%; background:#fff; transition:.3s;
       .menu > li > a,
       .story { display:block; height:60px; padding:20px; line-height:1; font-size:18px; font-weight:500; box-sizing:border-box; text-decoration:none; }
@@ -124,8 +125,8 @@
 }
 
 @include respond(pc) {
-  #header { display:flex; position:fixed; top:0; z-index:90; width:100%; height:68px; border-bottom:1px solid #ececec; box-sizing:border-box; transition:.3s;
-    &.fixed { background:#fff; }
+  #header { display:flex; position:fixed; top:0; z-index:90; width:100%; height:68px; box-sizing:border-box; transition:.3s;
+    &.fixed { border-bottom:1px solid #ececec; background:#fff; }
    }
   #header .inner { display:flex; position:relative; width:100%; max-width:1404px; margin:0 auto; padding:0 20px; }
   #header .logo { width:200px; font-size:14px; }

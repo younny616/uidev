@@ -1,11 +1,12 @@
-function headerFixed() {
-    var headerHeight = 0; //$('#header').height();
-    if(headerHeight < $(window).scrollTop()){
-        $('#header').addClass('fixed');
-    }else{
-        $('#header').removeClass('fixed');
+$(window).scroll(function() {
+    var $el = $('#header');
+
+    if($(this).scrollTop() > 0){
+        $el.addClass('fixed');
+    } else {
+        $el.removeClass('fixed');
     }
-} headerFixed();
+});
 
 function searchActive() {
     $('#header .search .btnSearch').on('click', function() {
