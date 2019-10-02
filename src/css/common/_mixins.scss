@@ -59,7 +59,7 @@
 
 @mixin blind { overflow: hidden; text-indent:150%; white-space:nowrap; font-size:1px; line-height:0; color:transparent; }
 
-@mixin ellipsis($width: 100%,  $display: inline-block) { display: $display; max-width: $width; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; word-wrap: normal; }
+@mixin ellipsis($width: 100%, $display: inline-block) { display:$display; max-width:$width; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; word-wrap:normal; }
 
 @mixin flex($justify: center, $align: center, $wrap: wrap, $dir: row, ) { display:flex; justify-content:$justify; align-items:$align; flex-wrap:$wrap; flex-direction:$dir; }
 
@@ -81,7 +81,7 @@
   @if $line >= 2 {
     display:-webkit-box; height:#{$lineHeight * $line + 'px'}; max-height:#{$lineHeight * $line + 'px'}; line-height:#{$lineHeight + 'px'}; -webkit-line-clamp:$line; -webkit-box-orient: vertical;
   } @else {
-    display:block; white-space:nowrap; word-break:break-word;
+    display:block; white-space:nowrap; word-break:break-word; height:#{$lineHeight * $line + 'px'}; max-height:#{$lineHeight * $line + 'px'};
   }
 }
 

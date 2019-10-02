@@ -9,6 +9,7 @@ const prettifyOptions = require('./prettify');
 const mode = require('gulp-mode')({ modes: ['production', 'development', 'deploy'] });
 const sass = require('gulp-sass');
 const cleanCSS = require('gulp-clean-css');
+const svgSprite = require('gulp-svg-sprite');
 const rename = require('gulp-rename');
 const replace = require('gulp-replace');
 const autoprefixer = require('gulp-autoprefixer');
@@ -215,16 +216,40 @@ const images = () => {
         imagemin.jpegtran({ progressive: true }),
         imagemin.optipng({ optimizationLevel: 5 }),
         imagemin.svgo({
-        plugins: [
-          {
-            removeViewBox: false,
-            collapseGroups: true
-          }
-        ]
-      })
+          plugins: [
+            {
+              removeViewBox: false,
+              collapseGroups: true
+            }
+          ]
+        })
     ])))
     .pipe(!isProduction ? dest(paths.images.dest) : dest(`${buildPath.etc}/${project.build.images}`))
 }
+
+/**
+ * SVG handler
+ */
+const svg = () => {
+  return src(paths.svg.src)
+    .pipe(svgSprite({
+      mode: {
+        inline: true, // Prepare for inline embedding
+        symbol: {
+          dest: '.',
+          sprite: 'svg/sprite.svg',
+          prefix: 'icon_',
+          bust: false,
+          example: true,
+        },
+      }
+    }))
+    .on('error', function (err) {
+      console.log(err.toString());
+      this.emit('end');
+    })
+    .pipe(!isProduction ? dest(paths.svg.dest) : dest(`${buildPath.etc}/${project.build.svg}`))
+};
 
 
 /**
@@ -259,6 +284,7 @@ const watcher = (done) => {
   watch(paths.html.src, parallel(html)).on('change', browserSync.reload);
   watch(paths.pugs.src, parallel(pugs)).on('change', browserSync.reload);
   watch(paths.images.wildcard, parallel(images)).on('change', browserSync.reload);
+  watch(paths.svg.wildcard, parallel(svg)).on('change', browserSync.reload);
   watch(paths.fonts.wildcard, parallel(fonts)).on('change', browserSync.reload);
 
   done();
@@ -268,7 +294,7 @@ const watcher = (done) => {
 /**
  * build Function
  */
-const build = series(clean, parallel(styles, scripts, ignore, html, pugs, images, fonts));
+const build = series(clean, parallel(styles, scripts, ignore, html, pugs, images, svg, fonts));
 
 
 /**
@@ -283,6 +309,7 @@ exports.ignore = ignore;
 exports.html = html;
 exports.pugs = pugs;
 exports.images = images;
+exports.svg = svg;
 exports.fonts = fonts;
 exports.watcher = watcher;
 exports.clean = clean;

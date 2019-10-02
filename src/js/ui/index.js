@@ -80,15 +80,18 @@ $(document).ready(function(){
         });
     }
 
-Cafe24.UI.onToggleClass('#footer .familysite .eClick', true, 'selected');
+    Cafe24.UI.onToggleClass('#footer .familysite .eClick', true, 'selected');
 
 });
 
 
 (function(UI) {
-    var loadBoundary = $(window).width() > 769 ? true : false;
-    var isDestroyTablet = false;
-    var isDestroyMobile = false;
+    var isDestroy = {
+        pc: false,
+        tablet: false,
+        mobile: false
+    };
+
     var sliderOptions = {
         theme: {
             pc: {
@@ -99,7 +102,14 @@ Cafe24.UI.onToggleClass('#footer .familysite .eClick', true, 'selected');
                 speed: 1200,
                 autoplay: false,
                 allowTouchMove: true,
-                slidesPerView: 'auto',
+                pagination: false,
+            },
+            tablet: {
+                loop: true,
+                speed: 1200,
+                autoplay: false,
+                allowTouchMove: true,
+                navigation: false,
                 pagination: false,
             },
             mobile: {
@@ -107,7 +117,6 @@ Cafe24.UI.onToggleClass('#footer .familysite .eClick', true, 'selected');
                 speed: 1200,
                 autoplay: false,
                 allowTouchMove: true,
-                slidesPerView: 'auto',
                 navigation: false,
                 pagination: {
                     type: 'fraction',
@@ -123,7 +132,14 @@ Cafe24.UI.onToggleClass('#footer .familysite .eClick', true, 'selected');
                 speed: 1200,
                 autoplay: false,
                 allowTouchMove: true,
-                slidesPerView: 'auto',
+                pagination: false,
+            },
+            tablet: {
+                loop: true,
+                speed: 1200,
+                autoplay: false,
+                allowTouchMove: true,
+                navigation: false,
                 pagination: false,
             },
             mobile: {
@@ -131,7 +147,6 @@ Cafe24.UI.onToggleClass('#footer .familysite .eClick', true, 'selected');
                 speed: 1200,
                 autoplay: false,
                 allowTouchMove: true,
-                slidesPerView: 'auto',
                 navigation: false,
                 pagination: {
                     type: 'fraction',
@@ -141,57 +156,115 @@ Cafe24.UI.onToggleClass('#footer .familysite .eClick', true, 'selected');
         random: {
             mobile : {
                 loop: false,
-                loopedSlides: 4,
-                loopAdditionalSlides: 4,
-                slidesPerGroup: 4,
                 speed: 1200,
                 autoplay: false,
                 allowTouchMove: true,
-                slidesPerView: 'auto',
+                navigation: false,
             }
         },
-    }
+    };
 
-    var combineRandom = loadBoundary ? null : new Cafe24.SwiperSlider('#combineRandom', sliderOptions.random.mobile).init();
-    var bestThemeSlider = new Cafe24.SwiperSlider('#bestTheme', loadBoundary ?  sliderOptions.theme.pc : sliderOptions.theme.mobile).init();
-    var newAppSlider = new Cafe24.SwiperSlider('#newApp', loadBoundary ?  sliderOptions.app.pc : sliderOptions.app.mobile).init();
-    var newThemeSlider = new Cafe24.SwiperSlider('#newTheme', loadBoundary ? sliderOptions.theme.pc : sliderOptions.theme.mobile).init();
+    var bestThemeSlider = null;
+    var newAppSlider = null;
+    var newThemeSlider = null;
+    var combineRandom = null;
+
+    (function() {
+        var loadBoundary = (function() {
+            var ww = $(window).width();
+
+            if (ww < 769) {
+                return 'mobile';
+            } else if (ww < 1080 && ww > 770) {
+                return 'tablet';
+            } else {
+                return 'pc';
+            }
+        })();
+
+        switch (loadBoundary) {
+            case 'mobile':
+                newAppSlider = new Cafe24.SwiperSlider('#newApp', sliderOptions.app.mobile).init();
+                newThemeSlider = new Cafe24.SwiperSlider('#newTheme', sliderOptions.theme.mobile).init();
+                combineRandom = new Cafe24.SwiperSlider('#combineRandom', sliderOptions.random.mobile).init();
+                break;
+            case 'tablet':
+                bestThemeSlider = new Cafe24.SwiperSlider('#bestTheme', sliderOptions.theme.tablet).init();
+                newAppSlider = new Cafe24.SwiperSlider('#newApp', sliderOptions.app.tablet).init();
+                newThemeSlider = new Cafe24.SwiperSlider('#newTheme', sliderOptions.theme.tablet).init();
+                break;
+            case 'pc':
+                bestThemeSlider = new Cafe24.SwiperSlider('#bestTheme', sliderOptions.theme.pc).init();
+                newAppSlider = new Cafe24.SwiperSlider('#newApp', sliderOptions.app.pc).init();
+                newThemeSlider = new Cafe24.SwiperSlider('#newTheme', sliderOptions.theme.pc).init();
+                break;
+        }
+
+        return true;
+    })();
 
     $(window).on('resize', function() {
         var ww = $(window).width();
-        var resizeBoundaryTablet = 1080;
-        var resizeBoundaryMobile = 769;
+        var resizeBoundary = {
+            pc: 1081,
+            tablet: 1080,
+            mobile: 770
+        }
 
-        if (ww < resizeBoundaryMobile && !isDestroyMobile) {
-            isDestroyMobile = true;
+        if (ww < resizeBoundary.mobile && !isDestroy.mobile) {
+            isDestroy.mobile = true;
+            isDestroy.tablet = false;
 
             if (combineRandom !== null) {
                 combineRandom.destroy();
+                combineRandom = null
+            }
+
+            if (bestThemeSlider !== null) {
+                bestThemeSlider.destroy();
+                bestThemeSlider = null;
             }
 
             combineRandom = new Cafe24.SwiperSlider('#combineRandom', sliderOptions.random.mobile).init();
-        } else if (ww > resizeBoundaryMobile && isDestroyMobile) {
-            isDestroyMobile = false;
-
-            combineRandom.destroy();
-            combineRandom = null;
-        }
-
-        if (ww < resizeBoundaryTablet && !isDestroyTablet) {
-            isDestroyTablet = true;
-
-            bestThemeSlider.destroy();
-            bestThemeSlider = new Cafe24.SwiperSlider('#bestTheme', sliderOptions.theme.mobile).init();
 
             newAppSlider.destroy();
             newAppSlider = new Cafe24.SwiperSlider('#newApp', sliderOptions.app.mobile).init();
 
             newThemeSlider.destroy();
             newThemeSlider = new Cafe24.SwiperSlider('#newTheme', sliderOptions.theme.mobile).init();
-        } else if (ww > resizeBoundaryTablet && isDestroyTablet) {
-            isDestroyTablet = false;
 
-            bestThemeSlider.destroy();
+        } else if (ww > resizeBoundary.mobile && ww < resizeBoundary.tablet && !isDestroy.tablet) {
+            isDestroy.mobile = false;
+            isDestroy.tablet = true;
+            isDestroy.pc = false;
+
+            if (combineRandom !== null) {
+                combineRandom.destroy();
+                combineRandom = null
+            }
+
+            if (bestThemeSlider !== null) {
+                bestThemeSlider.destroy();
+                bestThemeSlider = null;
+            }
+
+            bestThemeSlider = new Cafe24.SwiperSlider('#bestTheme', sliderOptions.theme.tablet).init();
+
+            newAppSlider.destroy();
+            newAppSlider = new Cafe24.SwiperSlider('#newApp', sliderOptions.app.tablet).init();
+
+            newThemeSlider.destroy();
+            newThemeSlider = new Cafe24.SwiperSlider('#newTheme', sliderOptions.theme.tablet).init();
+
+        } else if (ww > resizeBoundary.pc && !isDestroy.pc) {
+            isDestroy.tablet = false;
+            isDestroy.pc = true;
+
+            if (bestThemeSlider !== null) {
+                bestThemeSlider.destroy();
+                bestThemeSlider = null;
+            }
+
             bestThemeSlider = new Cafe24.SwiperSlider('#bestTheme', sliderOptions.theme.pc).init();
 
             newAppSlider.destroy();
@@ -199,7 +272,6 @@ Cafe24.UI.onToggleClass('#footer .familysite .eClick', true, 'selected');
 
             newThemeSlider.destroy();
             newThemeSlider = new Cafe24.SwiperSlider('#newTheme', sliderOptions.theme.pc).init();
-
         }
     });
 
