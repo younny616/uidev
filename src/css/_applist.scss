@@ -1,5 +1,5 @@
 @include respond(mobile) {
-  .sectionAppList { max-width:1404px; margin:0 auto; border-bottom:1px solid #e8e8e8; background:#fff; }
+  .appListArea {  }
   .appList {
      padding:0 20px 39px; background:#fff;
      &:after { @include clearfix(); }
@@ -14,14 +14,6 @@
     }
     .infoDesc { margin:13px 0 0; padding:0 0 0 76px; }
   }
-
-  .appMore { padding:0 20px 20px; text-align:center;
-    .btnMore { width:100%; height:40px; margin:0 auto; border:1px solid #d8d8d9; border-radius:4px;
-      .icoArrow {
-        @include icoArrow('bottom', 10px, 5px, 1px, #000); margin:0 0 0 8px;
-      }
-    }
-  }
 }
 
 @include respond(mobile-tablet) {
@@ -33,7 +25,7 @@
 }
 
 @include respond(tablet-pc) {
-.sectionAppList { }
+  .appListArea { }
   .appGroup { display:flex; flex-wrap:wrap; }
   .appList { margin:0 0 40px; padding:0 40px 0 0; box-sizing:border-box;
     .thumbnail { float:left; width:80px; height:80px;
@@ -46,8 +38,6 @@
     }
     .infoDesc { margin:28px 0 0; font-size:14px; color:#797980; }
   }
-
-  .appMore { display:none; }
 }
 
 @include respond(pc) {

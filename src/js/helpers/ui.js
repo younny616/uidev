@@ -10,10 +10,14 @@ class UI {
         if (!parent) {
             callback = () => $(target).toggleClass(className);
         } else {
-            callback = () => $(target).parents().toggleClass(className);
+            callback = () => $(target).parent().toggleClass(className);
         }
 
         return $(document).on('click', target, callback);
+    }
+
+    onPagination(target, startCount, moreCount) {
+
     }
 
 }
