@@ -13,11 +13,13 @@ class UI {
             callback = () => $(target).parent().toggleClass(className);
         }
 
-        return $(document).on('click', target, callback);
+        return $(document).on('click', target, callback, false);
     }
 
     onPagination(target, startCount, moreCount) {
-
+        return $(document).on('click', target, () => {
+            console.log(target);
+        });
     }
 
 }

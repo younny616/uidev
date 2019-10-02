@@ -7,8 +7,9 @@ include /components/randomList
 
 block append contents
     include /components/mainvisual
-    style.
-        #header {display:none;}
+
+    svg(width="1700px", height="790px")
+        use(xlink:href="/images/svg_sprite.svg#cafe24store")
 
     section.appListArea
         div.gInner
@@ -26,7 +27,7 @@ block append contents
 
     - var bestTheme = 'bestTheme';
     - var bestThemeData = require('./src/js/data/bestTheme.js');
-    section.bestThemeArea( onclick="Cafe24.UI.onToggleClass('.bestThemeArea', false, 'active');")
+    section.bestThemeArea
         +mTitle('typeLeft gBlankTop', '이번주 BEST 인기 테마')
         +slider(bestTheme, bestThemeData, 'typeList', 'theme', true, true)
         +mPagination('typeMore')

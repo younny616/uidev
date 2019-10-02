@@ -237,10 +237,10 @@ const svg = () => {
         inline: true, // Prepare for inline embedding
         symbol: {
           dest: '.',
-          sprite: 'svg/sprite.svg',
-          prefix: 'icon_',
+          sprite: 'svg_sprite.svg',
+          prefix: 'icon-%s',
           bust: false,
-          example: true,
+          example: false,
         },
       }
     }))
@@ -248,7 +248,7 @@ const svg = () => {
       console.log(err.toString());
       this.emit('end');
     })
-    .pipe(!isProduction ? dest(paths.svg.dest) : dest(`${buildPath.etc}/${project.build.svg}`))
+    .pipe(!isProduction ? dest(paths.images.dest) : dest(`${buildPath.etc}/${project.build.images}`))
 };
 
 

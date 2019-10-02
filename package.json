@@ -23,7 +23,9 @@
     "url": "https://github.com/younny616/gulp-boilerplate"
   },
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "svg4everybody": "^2.1.9"
+  },
   "devDependencies": {
     "@babel/cli": "^7.1.0",
     "@babel/core": "^7.1.0",
