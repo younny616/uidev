@@ -128,3 +128,8 @@
     }
   }
 }
+
+@mixin more($child, $count) {
+  &:nth-child(#{$count}n) ~ #{$child} { display:none; }
+  &:nth-child(#{$count}n) ~ #{$child}.displayed { display:block; }
+}

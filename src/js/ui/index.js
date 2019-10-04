@@ -275,6 +275,7 @@ $(document).ready(function(){
         }
     });
 
-    UI.onPagination('.btnMore', '#bestTheme .sliderWrapper', 4);
+    UI.onPagination('.appListArea .btnMore', '.appGroup', 4);
+    UI.onPagination('.bestThemeArea .btnMore', '#bestTheme .sliderWrapper', 4);
 
 })(Cafe24.UI);
