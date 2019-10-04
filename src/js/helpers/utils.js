@@ -4,7 +4,7 @@ class Utils {
         this.version = '1.0.0';
     }
 
-    _makeRandom(values) { // insted pug function
+    _makeRandom(values) {
         return values.sort((v1, v2) => Math.random() - Math.random());
     }
 }

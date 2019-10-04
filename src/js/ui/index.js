@@ -275,6 +275,6 @@ $(document).ready(function(){
         }
     });
 
-    UI.onPagination('.btnMore', 'section', 4, 4);
+    UI.onPagination('.btnMore', '#bestTheme .sliderWrapper', 4);
 
 })(Cafe24.UI);

@@ -5,9 +5,6 @@ class SwiperSlider {
     this.prefix = 'slider';
     this.target = target;
     this.options = options || {} ;
-    /**
-     * @effect : ['slide', 'fade', 'coverflow']
-     */
     this.effect = effect || '';
     this.default = {
       containerModifierClass: `${this.prefix}Container-`,
@@ -21,6 +18,7 @@ class SwiperSlider {
       slideDuplicatePrevClass: 'slideDuplicatePrev',
       slideNextClass: 'slideNext',
       slideDuplicateNextClass: 'slideDuplicateNext',
+      noSwipingClass: 'displayed',
       init: false,
       loop: false,
       speed: 1200,
