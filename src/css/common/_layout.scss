@@ -13,6 +13,10 @@
 
 @include respond(mobile-tablet) {
   #header { position:fixed; top:0; left:0; right:0; z-index:90; height:50px;
+    .logo { width:122px; height:15px; margin:20px 0 0 20px;
+      a { display:block; height:15px; }
+      svg { display:block; width:100%; height:100%; }
+    }
     &.fixed { border-bottom:1px solid #ececec; background:#fff; }
     .navigation { position:fixed; top:0; bottom:0; right:-100%; z-index:101; opacity:0; overflow:auto; width:300px; height:100%; background:#fff; transition:.3s;
       .menu > li > a,
@@ -70,8 +74,8 @@
    }
   #header .search { transition:.2s ease-out;
     .btnSearch { @include blind(); position:absolute; top:15px; right:59px; width:24px; height:24px;
-      &:before { content:""; position:absolute; top:4px; left:4px; display:block; width:14px; height:14px; border:2px solid #5b5b5b; border-radius:50%; box-sizing:border-box; }
-      &:after { content:""; position:absolute; top:15px; left:15px; display:block; width:2px; height:5px; box-sizing:border-box; background:#5b5b5b; transform:rotate(-45deg); }
+      &:before { content:""; position:absolute; top:4px; left:4px; display:block; width:14px; height:14px; border:2px solid #000; border-radius:50%; box-sizing:border-box; }
+      &:after { content:""; position:absolute; top:15px; left:15px; display:block; width:2px; height:5px; box-sizing:border-box; background:#000; transform:rotate(-45deg); }
     }
     .searchField { display:none; position:relative; padding:20px 16px; transition:.2s ease-out;
       .searchForm {
@@ -97,7 +101,9 @@
     }
   }
   #footer { position:relative; }
-  #footer .logo { position:absolute; left:20px; bottom:139px; }
+  #footer .logo { position:absolute; left:20px; bottom:89px; width:122px; height:14px;
+    svg { display:block; width:100%; height:100%; fill:#959595; }
+  }
   #footer .corp .familysite { display:none; }
   #footer .menu { display:inline-block; width:49%; margin:0 0 28px; vertical-align:top;
     .title { margin:0 0 17px; }
@@ -123,6 +129,9 @@
     &.fixed { background:#fff; box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.1); }
     &.typeWhite {
       &:not(.fixed) {
+        .logo {
+          svg { fill:#fff; }
+        }
         .nav .menu>li>a, .story { color:#fff;
           &:hover { color:#0055fb; }
          }
@@ -138,7 +147,10 @@
 
    }
   #header .inner { display:flex; position:relative; width:100%; max-width:1404px; margin:0 auto; padding:0 20px; }
-  #header .logo { width:200px; font-size:14px; }
+  #header .logo { width:171px; height:20px; margin:24px 32px 0 0; font-size:14px;
+    a { display:block; height:20px; }
+    svg { width:100%; height:100%; }
+  }
   #header .navigation { display:flex; flex:1; flex-direction:row-reverse; }
   #header .nav { display:flex; flex:1; margin-right:auto;
     .menu { margin:20px 0 0;
@@ -160,8 +172,14 @@
    }
 
   #header .nav .menuContent { opacity:0; height:0; overflow:hidden; position:absolute; top:47px; left:-38px; display:flex; background:#fff; white-space:nowrap; border-radius:2px;
-    .shotcut { display:block; margin:0 0 34px; font-size:20px; }
-    .subMenu { display:inline-block; min-width:152px; padding:34px 24px 20px; box-sizing:border-box;
+    .shotcut { display:block; margin:0 0 34px; font-size:20px; text-decoration:none;
+      .icoArrow { margin:2px 0 0 7px; @include icoArrow('right', 8px, 16px, 2px, #000, inline-block); }
+      &:hover { color:#0055fb;
+        .icoArrow:before { border-color:#0055fb; }
+      }
+
+     }
+    .subMenu { display:inline-block; min-width:152px; padding:34px 24px 20px 36px; box-sizing:border-box;
       &.curation { position:relative; z-index:1; min-width:200px; padding-top:97px; background:#fafafa;
         &:before { display:block; width:100%; height:100%; position:absolute; top:-100%; bottom:0; left:0; right:0; z-index:-1; background:#fafafa; }
       }
@@ -172,7 +190,9 @@
       }
     }
     .list li { display:block; margin:0 4px 12px 0;
-      > a { display:block; padding:0 12px; box-sizing:border-box; }
+      > a { display:block; padding:0 12px 0 0; box-sizing:border-box; text-decoration:none;
+        &:hover { color:#0055fb; }
+      }
      }
   }
   #header .nav .menu > li:hover .menuContent { opacity:1; height:auto; overflow:visible; border:1px solid #ddd;
@@ -192,7 +212,7 @@
     .btnUser:before { content:""; position:absolute; top:0; left:3px; display:inline-block; width:11px; height:11px; border:2px solid #5b5b5b; border-radius:50%; box-sizing:border-box; }
     .btnUser:after { @extend .btnUser:before; top:9px; left:1px; width:15px; height:16px; }
   }
-  #header .layer { opacity:0; height:0; position:absolute; right:-23px; top:34px; min-width:200px; padding:19px; border:1px solid #e8e8e8; box-sizing:border-box; background:#fff; border-radius:3px;  transition:.2s ease-out;
+  #header .layer { opacity:0; height:0; z-index:1; position:absolute; right:-23px; top:34px; min-width:200px; padding:19px; border:1px solid #e8e8e8; box-sizing:border-box; background:#fff; border-radius:3px;  transition:.2s ease-out;
     -webkit-box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.08);
     -moz-box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.08);
     box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.08);
@@ -254,11 +274,15 @@
   #contents { overflow:hidden; min-height:700px; }
 
   #footer { position:relative; padding:0; border-top:1px solid #e8e8e8; height:auto; line-height:1; background:#fff; }
-  #footer .top { display:flex; width:100%; max-width:1404px; margin:0 auto; padding:40px 0 60px; font-size:0; }
+  #footer .top { display:flex; width:100%; max-width:1404px; margin:0 auto; padding:60px 0 60px; font-size:0;
+    .logo { width:157px; height:19px;
+      svg { width:100%; height:100%; }
+    }
+  }
   #footer .menu { display:inline-block; margin:0 0 0 20px; padding:0 65px 0 0; vertical-align:top; box-sizing:border-box; }
   #footer .menu:first-child { margin:0; }
   #footer .menu .title { font-size:12px; }
-  #footer .menu .link { margin:15px 0 0; font-size:14px; line-height:1; }
+  #footer .menu .link { margin:20px 0 0; font-size:14px; line-height:1; }
   #footer .menu .link[target="_blank"] { position:relative; }
   #footer .menu .link[target="_blank"]:after { content:""; display:inline-block; width:12px; height:12px; margin:0 0 0 12px; background:url("//img.echosting.cafe24.com/api/app/sfix_layout.png") no-repeat -75px 0; }
   #footer .bottom { position:relative; max-width:1404px; margin:0 auto; padding:31px 0 40px; }
