@@ -91,6 +91,8 @@
 
 @include respond(tablet) {
   .listWrap {
+    > [class^=type] { padding:0 0 69px; }
+
     .typeApp {
       .item { width:50%; margin:0 auto; max-width:540px; box-sizing:border-box;
         .image {

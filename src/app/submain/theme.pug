@@ -1,5 +1,6 @@
 extends /layouts/layout
 include /components/common/mTitle
+include /components/common/mPagination
 include /components/slider
 include /components/list
 include /components/subvisual
@@ -14,7 +15,8 @@ block append contents
   - var bestThemeData = require('./src/js/data/bestTheme.js');
   section.bestThemeArea
     +mTitle('typeLeft gBlankTop', '이번주 BEST 인기 테마')
-    +slider(bestTheme, bestThemeData, 'typeTheme', 'theme', true, true)
+    +slider(bestTheme, bestThemeData, 'typeList', 'theme', true, true)
+    +mPagination('typeMore')
 
   - var newTheme = 'newTheme';
   - var newThemeData = require('./src/js/data/newTheme.js');

@@ -553,6 +553,8 @@
         }
       }
     }
+
+    .sliderCtrl { display:none; }
   }
 
   .sliderWrap.typeZigzag {
@@ -562,7 +564,13 @@
       }
     }
 
-    .sliderPagination { }
+    .sliderPagination { bottom:22.5px;
+      .page { width:10px; height:10px; margin:0 4px; }
+    }
+  }
+
+  .combineDetail { padding:33.75px 0 75px;
+    .btnDetail { padding:9px 48.75px; }
   }
 }
 
@@ -576,14 +584,19 @@
   .sliderWrap.typeTheme {
     .sliderCtrl { animation:fadeOut .6s linear forwards; }
   }
+  .sliderWrap.typeList {
+    .sliderCtrl { animation:fadeOut .6s linear forwards; }
+  }
 }
 
 @media (min-width: 1641px) {
   .sliderWrap.typeApp {
     .sliderCtrl { animation:fadeIn .6s linear forwards; }
   }
-
   .sliderWrap.typeTheme {
+    .sliderCtrl { animation:fadeIn .6s linear forwards; }
+  }
+  .sliderWrap.typeList {
     .sliderCtrl { animation:fadeIn .6s linear forwards; }
   }
 }

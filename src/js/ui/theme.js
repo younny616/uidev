@@ -1,7 +1,10 @@
 (function(UI) {
-    var loadBoundary = $(window).width() > 769 ? true : false;
-    var isDestroyTablet = false;
-    var isDestroyMobile = false;
+    var isDestroy = {
+        pc: false,
+        tablet: false,
+        mobile: false
+    };
+
     var sliderOptions = {
         theme: {
             pc: {
@@ -11,8 +14,15 @@
                 slidesPerGroup: 4,
                 speed: 1200,
                 autoplay: false,
+                allowTouchMove: false,
+                pagination: false,
+            },
+            tablet: {
+                loop: true,
+                speed: 1200,
+                autoplay: false,
                 allowTouchMove: true,
-                slidesPerView: 'auto',
+                navigation: false,
                 pagination: false,
             },
             mobile: {
@@ -20,7 +30,6 @@
                 speed: 1200,
                 autoplay: false,
                 allowTouchMove: true,
-                slidesPerView: 'auto',
                 navigation: false,
                 pagination: {
                     type: 'fraction',
@@ -33,6 +42,12 @@
                 loopedSlides: 4,
                 loopAdditionalSlides: 4,
                 slidesPerGroup: 4,
+                speed: 1200,
+                autoplay: false,
+                allowTouchMove: false,
+            },
+            tablet: {
+                loop: true,
                 speed: 1200,
                 autoplay: false,
                 allowTouchMove: true,
@@ -57,6 +72,14 @@
                 loopedSlides: 10,
                 slidesPerView: 'auto',
             },
+            tablet: {
+                loop: true,
+                speed: 1200,
+                autoplay: false,
+                allowTouchMove: true,
+                loopedSlides: 10,
+                slidesPerView: 'auto',
+            },
             mobile: {
                 loop: false,
                 speed: 1200,
@@ -74,7 +97,7 @@
                 loop: true,
                 speed: 1200,
                 autoplay: false,
-                allowTouchMove: true,
+                allowTouchMove: false,
                 slidesPerView: 'auto',
                 touchRatio: 0.2,
                 slideToClickedSlide: true,
@@ -83,51 +106,150 @@
                 pagination: false,
             },
         }
-    }
+    };
 
-    var bestThemeSlider = new Cafe24.SwiperSlider('#bestTheme', loadBoundary ?  sliderOptions.theme.pc : sliderOptions.theme.mobile).init();
-    var newThemeSlider = new Cafe24.SwiperSlider('#newTheme', loadBoundary ?  sliderOptions.theme.pc : sliderOptions.theme.mobile).init();
-    var mobileTheme = new Cafe24.SwiperSlider('#mobileTheme', loadBoundary ?  sliderOptions.zigzag.pc : sliderOptions.zigzag.mobile).init();
+    var bestThemeSlider = null;
+    var newThemeSlider = null;
+    var mobileThemeSlider = null;
+    var combineThemeSlider = null;
+    var combineThumbsSlider = null;
 
-    var combineThumbsSlider = new Cafe24.SwiperSlider('#combineThumbs', sliderOptions.combine.thumbs).init();
-    var combineTheme = new Cafe24.SwiperSlider('#combineTheme', loadBoundary ?  sliderOptions.combine.pc : sliderOptions.combine.mobile).init();
+    (function() {
+        var loadBoundary = (function() {
+            var ww = $(window).width();
 
-    combineTheme.controller.control = combineThumbsSlider;
-    combineThumbsSlider.controller.control = combineTheme;
+            if (ww < 769) {
+                return 'mobile';
+            } else if (ww < 1080 && ww > 770) {
+                return 'tablet';
+            } else {
+                return 'pc';
+            }
+        })();
+
+        switch (loadBoundary) {
+            case 'mobile':
+                newThemeSlider = new Cafe24.SwiperSlider('#newTheme', sliderOptions.theme.mobile).init();
+                mobileThemeSlider = new Cafe24.SwiperSlider('#mobileTheme', sliderOptions.zigzag.mobile).init();
+                combineThemeSlider = new Cafe24.SwiperSlider('#combineTheme', sliderOptions.combine.mobile).init();
+                break;
+            case 'tablet':
+                bestThemeSlider = new Cafe24.SwiperSlider('#bestTheme', sliderOptions.theme.tablet).init();
+                newThemeSlider = new Cafe24.SwiperSlider('#newTheme', sliderOptions.theme.tablet).init();
+                mobileThemeSlider = new Cafe24.SwiperSlider('#mobileTheme', sliderOptions.zigzag.tablet).init();
+                combineThemeSlider = new Cafe24.SwiperSlider('#combineTheme', sliderOptions.combine.tablet).init();
+                break;
+            case 'pc':
+                bestThemeSlider = new Cafe24.SwiperSlider('#bestTheme', sliderOptions.theme.pc).init();
+                newThemeSlider = new Cafe24.SwiperSlider('#newTheme', sliderOptions.theme.pc).init();
+                mobileThemeSlider = new Cafe24.SwiperSlider('#mobileTheme', sliderOptions.zigzag.pc).init();
+                combineThemeSlider = new Cafe24.SwiperSlider('#combineTheme', sliderOptions.combine.pc).init();
+                combineThumbsSlider = new Cafe24.SwiperSlider('#combineThumbs', sliderOptions.combine.thumbs).init();
+                combineThemeSlider.controller.control = combineThumbsSlider;
+                combineThumbsSlider.controller.control = combineThemeSlider;
+                break;
+        }
+
+        return true;
+    })();
 
     $(window).on('resize', function() {
         var ww = $(window).width();
-        var resizeBoundaryTablet = 1080;
+        var resizeBoundary = {
+            pc: 1081,
+            tablet: 1080,
+            mobile: 770
+        }
 
-        if (ww < resizeBoundaryTablet && !isDestroyTablet) {
-            isDestroyTablet = true;
+        if (ww < resizeBoundary.mobile && !isDestroy.mobile) {
+            isDestroy.mobile = true;
+            isDestroy.tablet = false;
 
-            bestThemeSlider.destroy();
-            bestThemeSlider = new Cafe24.SwiperSlider('#bestTheme', sliderOptions.theme.mobile).init();
+            if (bestThemeSlider !== null) {
+                bestThemeSlider.destroy();
+                bestThemeSlider = null;
+            }
+
             newThemeSlider.destroy();
             newThemeSlider = new Cafe24.SwiperSlider('#newTheme', sliderOptions.theme.mobile).init();
-            mobileTheme.destroy();
-            mobileTheme = new Cafe24.SwiperSlider('#mobileTheme', sliderOptions.zigzag.mobile).init();
 
-            combineTheme.destroy();
-            combineTheme = new Cafe24.SwiperSlider('#combineTheme', sliderOptions.combine.mobile).init();
-            combineTheme.controller.control = combineThumbsSlider;
-            combineThumbsSlider.controller.control = combineTheme;
-        } else if (ww > resizeBoundaryTablet && isDestroyTablet) {
-            isDestroyTablet = false;
+            mobileThemeSlider.destroy();
+            mobileThemeSlider = new Cafe24.SwiperSlider('#mobileTheme', sliderOptions.zigzag.mobile).init();
 
-            bestThemeSlider.destroy();
+            combineThemeSlider.destroy();
+            combineThemeSlider = new Cafe24.SwiperSlider('#combineTheme', sliderOptions.combine.mobile).init();
+
+            if (combineThumbsSlider !== null) {
+                combineThumbsSlider.destroy();
+                combineThumbsSlider = null;
+            }
+
+        } else if (ww > resizeBoundary.mobile && ww < resizeBoundary.tablet && !isDestroy.tablet) {
+            isDestroy.mobile = false;
+            isDestroy.tablet = true;
+            isDestroy.pc = false;
+
+            if (bestThemeSlider !== null) {
+                bestThemeSlider.destroy();
+                bestThemeSlider = null;
+            }
+
+            if (combineThumbsSlider !== null) {
+                combineThumbsSlider.destroy();
+                combineThumbsSlider = null;
+            }
+
+            bestThemeSlider = new Cafe24.SwiperSlider('#bestTheme', sliderOptions.theme.tablet).init();
+
+            newThemeSlider.destroy();
+            newThemeSlider = new Cafe24.SwiperSlider('#newTheme', sliderOptions.theme.tablet).init();
+
+            mobileThemeSlider.destroy();
+            mobileThemeSlider = new Cafe24.SwiperSlider('#mobileTheme', sliderOptions.zigzag.tablet).init();
+
+            combineThemeSlider.destroy();
+            combineThemeSlider = new Cafe24.SwiperSlider('#combineTheme', sliderOptions.combine.tablet).init();
+
+            if (combineThumbsSlider !== null) {
+                combineThumbsSlider.destroy();
+                combineThumbsSlider = null;
+            }
+
+            combineThumbsSlider = new Cafe24.SwiperSlider('#combineThumbs', sliderOptions.combine.thumbs).init();
+            combineThemeSlider.controller.control = combineThumbsSlider;
+            combineThumbsSlider.controller.control = combineThemeSlider;
+
+        } else if (ww > resizeBoundary.pc && !isDestroy.pc) {
+            isDestroy.tablet = false;
+            isDestroy.pc = true;
+
+            if (bestThemeSlider !== null) {
+                bestThemeSlider.destroy();
+                bestThemeSlider = null;
+            }
+
             bestThemeSlider = new Cafe24.SwiperSlider('#bestTheme', sliderOptions.theme.pc).init();
+
             newThemeSlider.destroy();
             newThemeSlider = new Cafe24.SwiperSlider('#newTheme', sliderOptions.theme.pc).init();
-            mobileTheme.destroy();
-            mobileTheme = new Cafe24.SwiperSlider('#mobileTheme', sliderOptions.zigzag.pc).init();
 
-            combineTheme.destroy();
-            combineTheme = new Cafe24.SwiperSlider('#combineTheme', sliderOptions.combine.pc).init();
-            combineTheme.controller.control = combineThumbsSlider;
-            combineThumbsSlider.controller.control = combineTheme;
+            mobileThemeSlider.destroy();
+            mobileThemeSlider = new Cafe24.SwiperSlider('#mobileTheme', sliderOptions.zigzag.pc).init();
+
+            combineThemeSlider.destroy();
+            combineThemeSlider = new Cafe24.SwiperSlider('#combineTheme', sliderOptions.combine.pc).init();
+
+            if (combineThumbsSlider !== null) {
+                combineThumbsSlider.destroy();
+                combineThumbsSlider = null;
+            }
+
+            combineThumbsSlider = new Cafe24.SwiperSlider('#combineThumbs', sliderOptions.combine.thumbs).init();
+            combineThemeSlider.controller.control = combineThumbsSlider;
+            combineThumbsSlider.controller.control = combineThemeSlider;
         }
     });
+
+    UI.onPagination('.bestThemeArea .btnMore', '#bestTheme .sliderWrapper', 4);
 
 })(Cafe24.UI);
