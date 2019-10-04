@@ -34,7 +34,7 @@
                 pagination: {
                     type: 'fraction',
                 },
-            }
+            },
         },
         zigzag: {
             pc: {
@@ -61,14 +61,14 @@
                 allowTouchMove: true,
                 slidesPerView: 'auto',
                 navigation: false,
-            }
+            },
         },
         combine: {
             pc: {
                 loop: true,
                 speed: 1200,
                 autoplay: false,
-                allowTouchMove: true,
+                allowTouchMove: false,
                 loopedSlides: 10,
                 slidesPerView: 'auto',
             },
@@ -97,7 +97,7 @@
                 loop: true,
                 speed: 1200,
                 autoplay: false,
-                allowTouchMove: false,
+                allowTouchMove: true,
                 slidesPerView: 'auto',
                 touchRatio: 0.2,
                 slideToClickedSlide: true,
@@ -138,6 +138,9 @@
                 newThemeSlider = new Cafe24.SwiperSlider('#newTheme', sliderOptions.theme.tablet).init();
                 mobileThemeSlider = new Cafe24.SwiperSlider('#mobileTheme', sliderOptions.zigzag.tablet).init();
                 combineThemeSlider = new Cafe24.SwiperSlider('#combineTheme', sliderOptions.combine.tablet).init();
+                combineThumbsSlider = new Cafe24.SwiperSlider('#combineThumbs', sliderOptions.combine.thumbs).init();
+                combineThemeSlider.controller.control = combineThumbsSlider;
+                combineThumbsSlider.controller.control = combineThemeSlider;
                 break;
             case 'pc':
                 bestThemeSlider = new Cafe24.SwiperSlider('#bestTheme', sliderOptions.theme.pc).init();
@@ -170,6 +173,11 @@
                 bestThemeSlider = null;
             }
 
+            if (combineThumbsSlider !== null) {
+                combineThumbsSlider.destroy();
+                combineThumbsSlider = null;
+            }
+
             newThemeSlider.destroy();
             newThemeSlider = new Cafe24.SwiperSlider('#newTheme', sliderOptions.theme.mobile).init();
 
@@ -178,11 +186,7 @@
 
             combineThemeSlider.destroy();
             combineThemeSlider = new Cafe24.SwiperSlider('#combineTheme', sliderOptions.combine.mobile).init();
-
-            if (combineThumbsSlider !== null) {
-                combineThumbsSlider.destroy();
-                combineThumbsSlider = null;
-            }
+            combineThemeSlider.controller.control = null;
 
         } else if (ww > resizeBoundary.mobile && ww < resizeBoundary.tablet && !isDestroy.tablet) {
             isDestroy.mobile = false;
@@ -192,11 +196,6 @@
             if (bestThemeSlider !== null) {
                 bestThemeSlider.destroy();
                 bestThemeSlider = null;
-            }
-
-            if (combineThumbsSlider !== null) {
-                combineThumbsSlider.destroy();
-                combineThumbsSlider = null;
             }
 
             bestThemeSlider = new Cafe24.SwiperSlider('#bestTheme', sliderOptions.theme.tablet).init();

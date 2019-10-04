@@ -6,6 +6,20 @@
     };
 
     var sliderOptions = {
+        simple: {
+            pc: {
+                loop: true,
+                speed: 1200,
+                autoplay: false,
+                allowTouchMove: false,
+            },
+            tablet: {
+                loop: true,
+                speed: 1200,
+                autoplay: false,
+                allowTouchMove: true,
+            },
+        },
         app: {
             pc: {
                 loop: true,
@@ -39,6 +53,7 @@
     };
 
     var newAppSlider = null;
+    var makeAppSlider = null;
 
     (function() {
         var loadBoundary = (function() {
@@ -59,9 +74,11 @@
                 break;
             case 'tablet':
                 newAppSlider = new Cafe24.SwiperSlider('#newApp', sliderOptions.app.tablet).init();
+                makeAppSlider = new Cafe24.SwiperSlider('#makeApp', sliderOptions.simple.tablet).init();
                 break;
             case 'pc':
                 newAppSlider = new Cafe24.SwiperSlider('#newApp', sliderOptions.app.pc).init();
+                makeAppSlider = new Cafe24.SwiperSlider('#makeApp', sliderOptions.simple.pc).init();
                 break;
         }
 
@@ -80,6 +97,11 @@
             isDestroy.mobile = true;
             isDestroy.tablet = false;
 
+            if (makeAppSlider !== null) {
+                makeAppSlider.destroy();
+                makeAppSlider = null;
+            }
+
             newAppSlider.destroy();
             newAppSlider = new Cafe24.SwiperSlider('#newApp', sliderOptions.app.mobile).init();
         } else if (ww > resizeBoundary.mobile && ww < resizeBoundary.tablet && !isDestroy.tablet) {
@@ -89,12 +111,22 @@
 
             newAppSlider.destroy();
             newAppSlider = new Cafe24.SwiperSlider('#newApp', sliderOptions.app.tablet).init();
+
+            if (makeAppSlider !== null) {
+                makeAppSlider.destroy();
+                makeAppSlider = null;
+            }
+
+            makeAppSlider = new Cafe24.SwiperSlider('#makeApp', sliderOptions.simple.tablet).init();
         } else if (ww > resizeBoundary.pc && !isDestroy.pc) {
             isDestroy.tablet = false;
             isDestroy.pc = true;
 
             newAppSlider.destroy();
             newAppSlider = new Cafe24.SwiperSlider('#newApp', sliderOptions.app.pc).init();
+
+            makeAppSlider.destroy();
+            makeAppSlider = new Cafe24.SwiperSlider('#makeApp', sliderOptions.simple.pc).init();
         }
     });
 

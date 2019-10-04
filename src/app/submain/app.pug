@@ -38,6 +38,11 @@ block append contents
         +applist(false, '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', '최소한의 서류 작업과 신용 확인없이 긴 신청 절차를 피하십시오.', '/images/@img_app_icon.png')
         +applist(false, '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', '최소한의 서류 작업과 신용 확인없이 긴 신청 절차를 피하십시오.', '/images/@img_app_icon.png')
 
+  - var makeApp = 'makeApp';
+  - var makeAppData = require('./src/js/data/makeApp.js');
+  section.makeAppArea
+    +slider(makeApp, makeAppData, 'typeSimple', 'image', false, true)
+
   section.appListArea
     div.gInner
       +mTitle('typeLeft gBlankTop', '고객관리의 다양한 도구 모음', '고객 상담과 리뷰를 편리하게 관리하고 최상의 경험을 제공하는 앱을 소개합니다.', '전체보기')
@@ -67,5 +72,4 @@ block append contents
 
 block append body
   script(src="//cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js")
-  script(src="/js/ui/index.js")
   script(src="/js/ui/app.js")

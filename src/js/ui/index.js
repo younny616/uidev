@@ -215,14 +215,14 @@ $(document).ready(function(){
             isDestroy.mobile = true;
             isDestroy.tablet = false;
 
-            if (combineRandom !== null) {
-                combineRandom.destroy();
-                combineRandom = null
-            }
-
             if (bestThemeSlider !== null) {
                 bestThemeSlider.destroy();
                 bestThemeSlider = null;
+            }
+
+            if (combineRandom !== null) {
+                combineRandom.destroy();
+                combineRandom = null
             }
 
             combineRandom = new Cafe24.SwiperSlider('#combineRandom', sliderOptions.random.mobile).init();
