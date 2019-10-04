@@ -10,7 +10,7 @@
   }
 
   .mTitle { position:relative;
-    &.typeLeft { text-align:left; padding:29px 20px 12px;
+    &.typeLeft { padding:29px 20px 12px; text-align:left;
       .title { margin:0 0 8px; font-size:20px; font-weight:800; }
       .desc { margin:0 0 30px; font-size:16px; line-height:22px; color:#000; }
       .btnAll { position:absolute; right:20px; top:30px;
@@ -18,7 +18,7 @@
       }
     }
 
-    &.typeCenter { text-align:center; padding:55px 20px 52px;
+    &.typeCenter { padding:55px 20px 52px; text-align:center;
       .title { margin:0 0 5px; font-size:22px; line-height:28px; font-weight:400; }
       .desc { margin:0 0 11px; font-size:13px; color:#000; }
       .btnAll { font-size:14px; }
@@ -79,24 +79,25 @@
   }
 
   .mTitle { position:relative; max-width:1404px; padding-left:20px; padding-right:20px;
-    &.typeLeft { text-align:left; margin:0 auto 19px;
+    &.typeLeft { margin:0 auto 19px; text-align:left;
       .title { margin:0 0 2px; font-size:28px; font-weight:800; }
       .desc { font-size:18px; color:#000; }
-      .btnAll { position:absolute; right:0; bottom:8px; }
+      .btnAll { position:absolute; right:20px; bottom:8px; }
     }
 
-    &.typeCenter { text-align:center; margin:0 auto; padding:90px 0 75px;
+    &.typeCenter { margin:0 auto; padding:90px 0 75px; text-align:center;
       .title { margin:0 0 4px; font-size:36px; font-weight:400; }
       .desc { margin:0 0 31px; font-size:16px; color:#959595; }
-      .btnAll {  }
+      .btnAll { }
     }
 
     &.typeRandom { width:auto; z-index:3; margin:0; padding:56px 33px 0 33px; text-align:left;
       .title { margin:0 0 9px; font-size:13px; font-weight:800;
         strong { font-size:inherit; font-weight:inherit; color:#fff; }
-        span { margin:0 0 0 10px; font-size:inherit; font-weight:inherit; color:#959595;}
+        span { margin:0 0 0 10px; font-size:inherit; font-weight:inherit; color:#959595; }
       }
       .desc { margin:0 0 30px; font-size:28px; color:#fff; line-height:35px; }
+      .btnAll { position:relative; }
     }
 
     .title { color:#000; }
@@ -127,36 +128,25 @@
   }
 
   .mTitle {
-    &.typeLeft { text-align:left;
-      .title { margin:0 0 2px; font-size:28px; font-weight:800; }
-      .desc { font-size:18px; color:#000; }
-      .btnAll { position:absolute; right:0; bottom:8px; }
+    &.typeLeft {
+      .title { margin:0 0 2px; }
+      .desc { font-size:18px; }
+      .btnAll { bottom:8px; }
     }
 
-    &.typeCenter { text-align:center;
-      .title { margin:0 0 4px; font-size:36px; font-weight:400; }
-      .desc { margin:0 0 31px; font-size:16px; color:#959595; }
-      .btnAll { margin: 0 0 40px; }
+    &.typeCenter { padding:67.5px 0 56.25px;
+      .title { margin:0 0 3px; }
+      .desc { margin:0 0 23.25px; }
+      .btnAll { margin: 0 0 30px; }
     }
 
-    &.typeRandom { width:auto; z-index:3; margin:0; padding:42px 24.75px 0 24.75px; text-align:left;
-      .title { margin:0 0 6.75px; font-size:10px; font-weight:800;
-        strong { font-size:inherit; font-weight:inherit; color:#fff; }
-        span { margin:0 0 0 7.5px; font-size:inherit; font-weight:inherit; color:#959595;}
+    &.typeRandom { padding:42px 24.75px 0 24.75px;
+      .title { margin:0 0 6.75px;
+        span { margin:0 0 0 7.5px; }
       }
       .desc { margin:0 0 22.5px; font-size:21px; color:#fff; line-height:28px; }
     }
-
-    &.typeSpace { padding:45px 0 0; }
-
-    .title { color:#000; }
-    .desc { font-size:16px; color:#959595; }
-    .btnAll { font-size:16px; color:#0055fb;
-      .icoArrow { margin:0 0 1px 7px; @include icoArrow('right', 7px, 10px, 1px, #0055fb); }
-    }
   }
-
-  .mPagination { padding:0 0 20px; }
 }
 
 @include respond(tablet-to-pc) {

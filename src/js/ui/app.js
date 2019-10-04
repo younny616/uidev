@@ -1,6 +1,10 @@
 (function(UI) {
-    var loadBoundary = $(window).width() > 769 ? true : false;
-    var isDestroyTablet = false;
+    var isDestroy = {
+        pc: false,
+        tablet: false,
+        mobile: false
+    };
+
     var sliderOptions = {
         app: {
             pc: {
@@ -11,7 +15,14 @@
                 speed: 1200,
                 autoplay: false,
                 allowTouchMove: true,
-                slidesPerView: 'auto',
+                pagination: false,
+            },
+            tablet: {
+                loop: true,
+                speed: 1200,
+                autoplay: false,
+                allowTouchMove: true,
+                navigation: false,
                 pagination: false,
             },
             mobile: {
@@ -19,28 +30,68 @@
                 speed: 1200,
                 autoplay: false,
                 allowTouchMove: true,
-                slidesPerView: 'auto',
                 navigation: false,
                 pagination: {
                     type: 'fraction',
                 },
             }
         },
-    }
+    };
 
-    var newAppSlider = new Cafe24.SwiperSlider('#newApp', loadBoundary ?  sliderOptions.app.pc : sliderOptions.app.mobile).init();
+    var newAppSlider = null;
+
+    (function() {
+        var loadBoundary = (function() {
+            var ww = $(window).width();
+
+            if (ww < 769) {
+                return 'mobile';
+            } else if (ww < 1080 && ww > 770) {
+                return 'tablet';
+            } else {
+                return 'pc';
+            }
+        })();
+
+        switch (loadBoundary) {
+            case 'mobile':
+                newAppSlider = new Cafe24.SwiperSlider('#newApp', sliderOptions.app.mobile).init();
+                break;
+            case 'tablet':
+                newAppSlider = new Cafe24.SwiperSlider('#newApp', sliderOptions.app.tablet).init();
+                break;
+            case 'pc':
+                newAppSlider = new Cafe24.SwiperSlider('#newApp', sliderOptions.app.pc).init();
+                break;
+        }
+
+        return true;
+    })();
 
     $(window).on('resize', function() {
         var ww = $(window).width();
-        var resizeBoundary = 1080;
+        var resizeBoundary = {
+            pc: 1081,
+            tablet: 1080,
+            mobile: 770
+        }
 
-        if (ww < resizeBoundary && !isDestroyTablet) {
-            isDestroyTablet = true;
+        if (ww < resizeBoundary.mobile && !isDestroy.mobile) {
+            isDestroy.mobile = true;
+            isDestroy.tablet = false;
 
             newAppSlider.destroy();
             newAppSlider = new Cafe24.SwiperSlider('#newApp', sliderOptions.app.mobile).init();
-        } else if (ww > resizeBoundary && isDestroyTablet) {
-            isDestroyTablet = false;
+        } else if (ww > resizeBoundary.mobile && ww < resizeBoundary.tablet && !isDestroy.tablet) {
+            isDestroy.mobile = false;
+            isDestroy.tablet = true;
+            isDestroy.pc = false;
+
+            newAppSlider.destroy();
+            newAppSlider = new Cafe24.SwiperSlider('#newApp', sliderOptions.app.tablet).init();
+        } else if (ww > resizeBoundary.pc && !isDestroy.pc) {
+            isDestroy.tablet = false;
+            isDestroy.pc = true;
 
             newAppSlider.destroy();
             newAppSlider = new Cafe24.SwiperSlider('#newApp', sliderOptions.app.pc).init();
