@@ -258,7 +258,7 @@ const clean = (done) => {
   // const inquirer = require('inquirer'); 검증절차 추가 필수
 
   if (mode.production()) {
-    del.sync([`${buildPath.base}/**`, `!${project.title}`], { force: true });
+    del.sync([`${buildPath.base}/**`, `!${buildPath.base}/index.html`, `!${project.title}`], { force: true });
     del.sync([`${buildPath.etc}/**`, `!${project.title}`], { force: true });
   } else {
     del.sync(['dist/**', '!dist']);
