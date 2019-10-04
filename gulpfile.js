@@ -170,7 +170,7 @@ const scripts = () => {
               min: '.min.js'
         },
         mangle: true,
-        preserveComments: 'all',
+        preserveComments: 'some',
         ignoreFiles: ['-min.js'],
         noSource: true
     }))
