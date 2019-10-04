@@ -95,10 +95,6 @@
     combineTheme.controller.control = combineThumbsSlider;
     combineThumbsSlider.controller.control = combineTheme;
 
-    /**
-     * reinit slider on resize
-     */
-
     $(window).on('resize', function() {
         var ww = $(window).width();
         var resizeBoundaryTablet = 1080;
