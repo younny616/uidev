@@ -8,6 +8,9 @@ include /components/applist
 include /components/subcategory
 include /components/partnermeet
 
+block append variables
+  - var headerClass = 'typeWhite';
+
 block append contents
   +subVisual('app', 'APP', '쇼핑몰 확장을 위한 앱을 설치하세요','상반기 TOP 12','주목할만한 신상 앱', '나도 인플루언서', '핫 썸머! 쿨~한 앱', '재능마켓')
 
@@ -64,4 +67,5 @@ block append contents
 
 block append body
   script(src="//cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js")
+  script(src="/js/ui/index.js")
   script(src="/js/ui/app.js")

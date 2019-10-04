@@ -7,6 +7,9 @@ include /components/subvisual
 include /components/subcategory
 include /components/partnermeet
 
+block append variables
+  - var headerClass = 'typeWhite';
+
 block append contents
   section.themeVisual
     +subVisual('theme', 'Theme', '딱 맞는 테마로 쇼핑몰을 꾸며보세요','이미지 중심의 콘텐츠 테마','미니멀리스트 스타일 테마 모음', '인싸들의 모바일 전용 테마', '금주 신상 테마 모음전', '테마 큐레이션 최대 5개 노출')
@@ -72,4 +75,5 @@ block append contents
 
 block append body
   script(src="//cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js")
+  script(src="/js/ui/index.js")
   script(src="/js/ui/theme.js")
