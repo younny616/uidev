@@ -65,7 +65,7 @@ const live = (done) => {
   browserSync.init({
     server: {
       baseDir: `./${project.dest}`,
-      index: 'index.html',
+      index: 'main.html',
       directory: false,
       https: false,
     },
@@ -85,18 +85,11 @@ const live = (done) => {
  */
 const html = () => {
   return src(paths.html.src)
-    .pipe(fileinclude({
-      prefix: '<@',
-      suffix: '@>',
-      basepath: `${paths.html.dir}`
-    }))
     .on('error', function (err) {
         console.log(err.toString());
         this.emit('end');
     })
-    .pipe(mode.production(buildReplace(isDeploy)))
-    .pipe(prettify(prettifyOptions))
-    .pipe(!isProduction ? dest(paths.html.dest) : dest(buildPath.base))
+    .pipe(!isProduction ? dest(paths.html.dest) : dest(buildPath.base));
 };
 
 
@@ -224,7 +217,7 @@ const images = () => {
           ]
         })
     ])))
-    .pipe(!isProduction ? dest(paths.images.dest) : dest(`${buildPath.etc}/${project.build.images}`))
+    .pipe(!isProduction ? dest(paths.images.dest) : dest(`${buildPath.etc}/${project.build.images}`));
 }
 
 /**
@@ -248,7 +241,7 @@ const svg = () => {
       console.log(err.toString());
       this.emit('end');
     })
-    .pipe(!isProduction ? dest(paths.images.dest) : dest(`${buildPath.etc}/${project.build.images}`))
+    .pipe(!isProduction ? dest(paths.images.dest) : dest(`${buildPath.etc}/${project.build.images}`));
 };
 
 
@@ -281,7 +274,6 @@ const clean = (done) => {
 const watcher = (done) => {
   watch(paths.styles.wildcard, parallel(styles)).on('change', browserSync.reload);
   watch(paths.scripts.wildcard, parallel(scripts, ignore)).on('change', browserSync.reload);
-  watch(paths.html.src, parallel(html)).on('change', browserSync.reload);
   watch(paths.pugs.src, parallel(pugs)).on('change', browserSync.reload);
   watch(paths.images.wildcard, parallel(images)).on('change', browserSync.reload);
   watch(paths.svg.wildcard, parallel(svg)).on('change', browserSync.reload);
@@ -294,7 +286,7 @@ const watcher = (done) => {
 /**
  * build Function
  */
-const build = series(clean, parallel(styles, scripts, ignore, html, pugs, images, svg, fonts));
+const build = series(clean, parallel(styles, scripts, ignore, pugs, html, images, svg, fonts));
 
 
 /**
@@ -306,8 +298,8 @@ exports.live = live;
 exports.styles = styles;
 exports.scripts = scripts;
 exports.ignore = ignore;
-exports.html = html;
 exports.pugs = pugs;
+exports.html = html;
 exports.images = images;
 exports.svg = svg;
 exports.fonts = fonts;
