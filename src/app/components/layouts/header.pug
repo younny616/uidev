@@ -1,6 +1,9 @@
 header#header(class=headerClass)
   div.inner
     h1.logo
+      a(href='#none')
+        svg
+          use(xlink:href="/images/svg_sprite.svg#cafe24store")
     div.navigation
       div.user
         // - (로그아웃인 경우) a.btnLogin(href="#none") 로그인
@@ -24,6 +27,7 @@ header#header(class=headerClass)
             div.menuContent
               div.subMenu
                 a.shotcut(href='#none') 앱 바로가기
+                  span.icoArrow
                 strong.menuTitle 카테고리
                 div.menuInner
                   ul.list.half
@@ -45,6 +49,7 @@ header#header(class=headerClass)
             div.menuContent
               div.subMenu
                 a.shotcut(href='') 테마 바로가기
+                  span.icoArrow
                 strong.menuTitle 카테고리
                 div.menuInner
                   ul.list.half

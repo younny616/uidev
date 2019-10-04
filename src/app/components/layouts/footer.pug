@@ -2,7 +2,8 @@ footer#footer
   div.top
     div.corp
       h2.logo
-        img(src='' alt='cafe24 store')
+        svg
+          use(xlink:href="/images/svg_sprite.svg#cafe24store")
       div.familysite
         button.button.eClick(type='button') Family Site
         ul.site
@@ -16,11 +17,10 @@ footer#footer
           each item in items
             a.link(href='#none')= item
       +menu('about', '스토어', '이용약관', '개인정보 처리방침')
-      +menu('products', 'Apps', 'Themes')
-      +menu('story', '앱 직접 제작', 'B2B 서비스')
-      +menu('support', 'FAQ', '헬프센터')
+      +menu('story', '앱 활용 성공사례', '앱 직접 제작', 'B2B 서비스')
+      +menu('support', 'FAQ')
       +menu('partners', '파트너센터')
-      +menu('store', 'Korea')
+      +menu('store', 'Japan', 'Korea')
   div.bottom
     div.policy
       a(href='#none') 회사소개
