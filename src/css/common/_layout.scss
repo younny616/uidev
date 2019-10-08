@@ -7,7 +7,7 @@
 
 @include respond(mobile) {
   #wrap {  }
-  #contents { background:#f5f5f5; }
+  #contents { overflow:hidden; background:#f5f5f5; }
   #footer .menu .title { font-size:11px; }
 }
 

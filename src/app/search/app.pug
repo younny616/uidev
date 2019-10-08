@@ -1,0 +1,22 @@
+extends /layouts/layout
+include /components/common/mTitle
+include /components/common/mPagination
+include /components/searchHead
+include /components/stateBar
+include /components/filter
+include /components/list
+
+block append contents
+  +searchHead('앱','배너', '마케팅', '고객지원', '유료', '브론즈')
+
+  section.gridArea
+    div.grid.wFilter
+      - var filterAppData = require('./src/js/data/filterApp.js');
+      div.filterWrap
+        +filter(filterAppData)
+    div.grid.wFilterResult
+      +stateBar(false)
+
+
+block append body
+  script(src="/js/ui/search.js")
