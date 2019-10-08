@@ -13,12 +13,23 @@ class UI {
         let toggleFunc;
 
         if (!parent) {
-            toggleFunc = () => $(self).toggleClass(className);
+            toggleFunc = (e) => $(e.currentTarget).toggleClass(className);
         } else {
-            toggleFunc = () => $(self).parent().toggleClass(className);
+            toggleFunc = (e) => $(e.currentTarget).parent().toggleClass(className);
         }
 
         return $(document).on('click', self, toggleFunc);
+    }
+
+    /**
+     * @param {string} self : button class
+     * @param {string} className : toggle class
+     */
+    onSlideToggleClass(self, className) {
+        return $(document).on('click', self, (e) => {
+            $(e.currentTarget).toggleClass(className);
+            $(e.currentTarget).siblings().slideToggle(() => $(e.currentTarget).parent().toggleClass(className));
+        });
     }
 
     /**
@@ -44,10 +55,7 @@ class UI {
 
             return checkDisplay(children, isDisplayed => isDisplayed.every((display) => display === true)) ? $(self).hide() : false;
         });
-
-        // return $(document).on('click', target, callback);
     }
-
 }
 
 export default new UI();

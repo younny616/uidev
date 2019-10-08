@@ -1,0 +1,23 @@
+extends /layouts/layout
+include /components/common/mTitle
+include /components/common/mPagination
+include /components/list
+include /components/filter
+
+block append contents
+  div.gInner
+    +mTitle('typeSearch', '앱')
+    button(type="button").btnFilter 필터
+
+  section.filterArea
+    - var filterThemeData = require('./src/js/data/filterTheme.js');
+    div.filterWrap
+      +filter(filterThemeData)
+
+  section.searchResultArea
+    - var searchTheme = 'searchTheme';
+    - var searchThemeData = require('./src/js/data/searchTheme.js');
+    +list(searchTheme, searchThemeData, 'typeTheme')
+
+block append body
+  script(src="/js/ui/search.js")
