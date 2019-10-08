@@ -65,9 +65,14 @@
 @include respond(tablet-pc) {
   /* grid */
   .gridArea { display:flex; flex-wrap:wrap;
+    $g1: 358 / 1404 * 100 + '%';
+    $g2: 1046 / 1404 * 100 + '%';
+
     .grid {  }
     .grid3 { width:30%; }
     .grid7 { width:70%; }
+    .g1 { min-width:#{$g1}; }
+    .g2 { width:#{$g2}; }
   }
 
   /* form */
