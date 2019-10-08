@@ -12,11 +12,13 @@
     &.combineThemeArea { background:#f2f2f2; }
     &.freeThemeArea { background:#fff; }
     &.mobileThemeArea { padding:0 0 0 0; }
-    &.choseThemeArea { background:#fff; margin-bottom:10px; border-bottom:1px solid #e8e8e8; }
-    &.minimalThemeArea { background:#fff; margin-bottom:10px; border-bottom:1px solid #e8e8e8; }
+    &.choseThemeArea { margin-bottom:10px; border-bottom:1px solid #e8e8e8; background:#fff; }
+    &.minimalThemeArea { margin-bottom:10px; border-bottom:1px solid #e8e8e8; background:#fff; }
     &.themeCate {
       .subCategory { border-top:0; }
     }
+    &.themeListArea { margin-bottom:10px; border-bottom:1px solid #e8e8e8; background:#fff; }
+    &.searchHeadArea { @include section-bar; }
   }
 }
 

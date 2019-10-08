@@ -1,5 +1,5 @@
 @include respond(mobile) {
-  .searchHead { margin:0 0 10px; padding:36px 20px 40px; border-bottom:1px solid #e8e8e8; background:#fff;
+  .searchHead { padding:36px 20px 40px;
     .heading { display:flex;
       .title { font-size:36px; color:#000; }
       .btnFilter { align-self:flex-end; display:inline-block; height:40px; margin:0 0 0 auto; padding:0 15px; font-size:14px; border-radius:3px; border:1px solid #d8d8d9; box-sizing:border-box;
@@ -32,10 +32,10 @@
       .btnFilter { display:none; }
     }
     .search { display:flex; margin:10px 0 0;
-      .filter { position:relative; display:inline-block; margin:0 8px 0 0; border:1px solid #70bac2; border-radius:15px; box-sizing:border-box;
-        .value { display:inline-block; height:30px; padding:7px 35px 7px 8px; font-size:13px; line-height:1; color:#118c99; vertical-align:top; box-sizing:border-box; }
+      .filter { position:relative; display:inline-block; margin:0 8px 0 0;  border-radius:15px; box-sizing:border-box;
+        .value { display:inline-block; height:30px; padding:7px 35px 7px 8px; font-size:13px; line-height:1; vertical-align:top; box-sizing:border-box; }
         .btnDelete { @include blind; position:absolute; top:0; right:0; z-index:1; display:inline-block; width:34px; height:30px; border-radius:0 15px 15px 0;
-          &:before { content:"";  display:block; width:16px; height:16px; margin:0 auto; border-radius:50%; background:#a0d1d6; }
+          &:before { content:"";  display:block; width:16px; height:16px; margin:0 auto; border-radius:50%;  }
           .icoDelete { position:absolute; top:14px; right:14px; display:inline-block; width:8px; height:8px;
             &:before,
             &:after { content:""; display:block; position:absolute; top:0; left:0; width:10px; height:1px; background:#fff; }
@@ -46,6 +46,22 @@
         }
       }
       .btnReset { display:inline-block; height:32px; padding:6px 35px 7px 8px; font-size:13px; line-height:1; color:#959595; background:#f5f5f5; border-radius:15px; box-sizing:border-box; }
+    }
+    &.typeApp {
+      .filter { border:1px solid #70bac2;
+        .value { color:#118c99; }
+        .btnDelete {
+          &:before { background:#a0d1d6; }
+        }
+      }
+    }
+    &.typeTheme {
+      .filter { border:1px solid #af97d8;
+        .value { color:#7a51be; }
+        .btnDelete {
+          &:before { background:#cab9e5; }
+        }
+      }
     }
 
   }

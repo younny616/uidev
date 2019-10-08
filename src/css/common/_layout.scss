@@ -4,10 +4,9 @@
   .link { display:block; color:#959595; }
 }
 
-
 @include respond(mobile) {
   #wrap { padding:50px 0 0; }
-  #contents { padding:0 20px; }
+  #contents { overflow:hidden; }
   #footer .menu .title { font-size:11px; }
 }
 
