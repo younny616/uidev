@@ -40,11 +40,10 @@ block append contents
     div.combineDetail
       button.btnDetail 상세보기
 
-  - var freeTheme = 'freeTheme';
   - var freeThemeData = require('./src/js/data/freeTheme.js');
   section.freeThemeArea
     +mTitle('typeLeft', '무료 테마', false, '전체보기')
-    +list(freeTheme, freeThemeData, 'typeTheme')
+    +list(freeThemeData, 'typeTheme')
 
   - var mobileTheme = 'mobileTheme';
   - var mobileThemeData = require('./src/js/data/mobileTheme.js');
@@ -52,17 +51,15 @@ block append contents
     +mTitle('typeCenter', '혹시 모바일 테마를 찾고 계신가요?', '모바일에 최적화된 테마를 만나보세요.', '전체보기')
     +slider(mobileTheme, mobileThemeData, 'typeZigzag', 'image', true, false)
 
-  - var choseTheme = 'choseTheme';
   - var choseThemeData = require('./src/js/data/choseTheme.js');
   section.choseThemeArea
     +mTitle('typeLeft', '인싸들이 선택한 테마', '나의 쇼핑몰 고객에게 인싸가 되는 핫한 디자인을 모았습니다.', '전체보기')
-    +list(choseTheme, choseThemeData, 'typeTheme')
+    +list(choseThemeData, 'typeTheme')
 
-  - var minimalTheme = 'minimalTheme';
   - var minimalThemeData = require('./src/js/data/minimalTheme.js');
   section.minimalThemeArea
     +mTitle('typeLeft', '미니멀리스트 테마모음 ', '미니멀리스트 디자인을 모았습니다.', '전체보기')
-    +list(minimalTheme, minimalThemeData, 'typeTheme')
+    +list(minimalThemeData, 'typeTheme')
 
   section.cateArea
     +category('테마 카테고리', 'theme')(class="theme")

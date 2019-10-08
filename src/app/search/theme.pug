@@ -3,23 +3,24 @@ include /components/common/mTitle
 include /components/common/mPagination
 include /components/searchHead
 include /components/stateBar
-
 include /components/filter
 include /components/list
-
 
 block append contents
   +searchHead('앱','배너', '마케팅', '고객지원', '유료', '브론즈')
 
   section.gridArea
-    div.grid.g1
+    div.grid.wFilter
       - var filterThemeData = require('./src/js/data/filterTheme.js');
       div.filterWrap
 
         +filter(filterThemeData)
-    div.grid.g2
+    div.grid.wFilterResult
       +stateBar(false)
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5148929768b0da164baf0c3dc287d53c808fa328
       - var searchThemeData = require('./src/js/data/searchTheme.js');
       +list(searchThemeData, 'typeTheme')
 
