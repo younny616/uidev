@@ -1,0 +1,12 @@
+mixin searchHead(title, ...value)
+    div.searchHead
+        div.heading
+            h3.title #{title}
+            button.btnFilter(type='button') 필터
+        div.search
+            each item in value
+                div.filter
+                    span.value= item
+                    button.btnDelete(type='button') 삭제
+                        span.icoDelete
+            button.btnReset(type='button') 초기화
