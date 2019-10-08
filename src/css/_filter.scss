@@ -3,77 +3,86 @@
 }
 
 @include respond(tablet-pc) {
+  .btnFilter { position:relative; padding:26px 0 26px 23px; font-size:16px; color:#000;
+    &:before { content:''; display:block; position:absolute; left:0; top:33px; width:15px; height:11px; background-image:url('#{$src}/sfix_filter.png'); background-size:100px auto; background-position:0 0; }
+  }
   .filterWrap { width:100%; max-width:240px;
-    > h3 { position:relative; padding:26px 0 26px 23px; font-size:16px; color:#000;
-      &:before { content:''; display:block; position:absolute; left:0; top:33px; width:15px; height:11px; background-image:url('#{$src}/sfix_filter.png'); background-size:100px auto; background-position:0 0; }
-    }
     > div { position:relative; border-top:1px solid #e8e8e8;
       .title { display:block; padding:20px 0; font-size:13px; font-weight:400; cursor:pointer;
-        .btnToggle { position:absolute; right:8px; top:18px;
-          .icoArrow { @include icoArrow('top', 14px, 7px, 2px); }
+        .btnToggle { position:absolute; right:8px; top:18px; z-index:3;
+          .icoArrow { @include icoArrow('top', 14px, 7px, 2px); transform:rotate(180deg); transition:transform .3s ease; }
+        }
+        &.active {
+          .btnToggle {
+            .icoArrow { transform:rotate(0); }
+          }
         }
       }
-      ul {
-        li { overflow:hidden; position:relative; margin:0 0 16px; padding:0 0 8px; color:#5b5b5b;
-          input {
-            &[type="checkbox"] { position:relative; top:-1px; width:20px; height:20px; border:1px solid #ccc; border-radius:4px;
-              & + label { margin:0 0 0 11px;
-                &:before,
-                &:after { content:''; display:block; position:absolute; z-index:3; width:20px; height:20px; box-sizing:border-box; opacity:0; transition:opacity .3s ease; }
+      .toggleWrap { display:none;
+        ul { overflow:hidden;
+          li { overflow:hidden; position:relative; margin:0 0 16px; padding:0 0 8px; color:#5b5b5b;
+            input {
+              &[type="checkbox"] { position:relative; top:-1px; width:20px; height:20px; border:1px solid #ccc; border-radius:4px;
+                & + label { margin:0 0 0 11px;
+                  &:before,
+                  &:after { content:''; display:block; position:absolute; z-index:3; width:20px; height:20px; box-sizing:border-box; opacity:0; transition:opacity .3s ease; }
 
-                &:before { left:0; top:1px; border-radius:4px; background:#0055fb; }
-                &:after { left:5px; top:7px; width:10px; height:5px; border-left:2px solid #fff; border-bottom:2px solid #fff; transform:rotateZ(-45deg); }
+                  &:before { left:0; top:1px; border-radius:4px; background:#0055fb; }
+                  &:after { left:5px; top:7px; width:10px; height:5px; border-left:2px solid #fff; border-bottom:2px solid #fff; transform:rotateZ(-45deg); }
 
-               }
-              &:checked + label {
-                &:before,
-                &:after { opacity:1; }
+                }
+                &:checked + label {
+                  &:before,
+                  &:after { opacity:1; }
+                }
               }
+              &[type="text"] { position:relative; width:96px; height:32px; padding:4px 24px 4px 10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; font-size:12px; color:#5b5b5b; line-height:28px; text-align:right; }
             }
-            &[type="text"] { position:relative; width:96px; height:32px; padding:4px 24px 4px 10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; font-size:12px; color:#5b5b5b; line-height:28px; text-align:right; }
-          }
-          &.self { margin:-11px 0 16px; padding:0 0 0 30px;
-            strong { display:block; margin:0 0 5px; font-size:12px; color:#959595; font-weight:400; }
-            p { position:relative; float:left; }
-            span { display:block; float:left;
-              &.dash { margin:0 6px; font-size:10px; height:32px; line-height:32px; }
-              &.sigh { position:absolute; right:10px; top:6px; font-size:12px; color:#959595;  }
+            &.self { margin:-11px 0 16px; padding:0 0 0 30px;
+              strong { display:block; margin:0 0 5px; font-size:12px; color:#959595; font-weight:400; }
+              p { position:relative; float:left; }
+              span { display:block; float:left;
+                &.dash { margin:0 6px; font-size:10px; height:32px; line-height:32px; }
+                &.sigh { position:absolute; right:10px; top:6px; font-size:12px; color:#959595;  }
+              }
             }
           }
         }
       }
       &.layouts {
         $layoutLength: 6;
-        ul { @include flex();
-          li { min-width:80px; margin:0 0 8px; padding:13px 19px; box-sizing:border-box; text-align:center;
-            input {
-              &[type="checkbox"] { visibility:hidden; width:25px; height:25px;
-                & + label { display:block; margin:0; padding:8px 0 0; font-size:11px; color:#959595;
-                  &:before ,
-                  &:after { left:27.5px; top:13px; width:25px; height:25px; border:0; border-radius:0; background-color:transparent; background-image:url('#{$src}/sfix_layouts.png'); background-size:(100% * $layoutLength) auto; transform:none; }
+        .toggleWrap {
+          ul { @include flex();
+            li { min-width:80px; margin:0 0 8px; padding:13px 19px; box-sizing:border-box; text-align:center;
+              input {
+                &[type="checkbox"] { visibility:hidden; width:25px; height:25px;
+                  & + label { display:block; margin:0; padding:8px 0 0; font-size:11px; color:#959595;
+                    &:before ,
+                    &:after { left:27.5px; top:13px; width:25px; height:25px; border:0; border-radius:0; background-color:transparent; background-image:url('#{$src}/sfix_layouts.png'); background-size:(100% * $layoutLength) auto; transform:none; }
 
-                  &:before { opacity:1; }
-                  &:after { opacity:0; }
-                }
-                &:checked + label {
-                  &:before { opacity:0; }
-                  &:after { opacity:1; }
+                    &:before { opacity:1; }
+                    &:after { opacity:0; }
+                  }
+                  &:checked + label {
+                    &:before { opacity:0; }
+                    &:after { opacity:1; }
+                  }
                 }
               }
-            }
 
-            @for $i from 1 through $layoutLength {
-              &:nth-child(#{$i}) {
-                input {
-                  &[type="checkbox"] {
-                    & + label {
-                      &:before {
-                        @if $i == 1 { left:27px }
-                        background-position:(($i - 1) * 100%) 0;
-                      }
-                      &:after {
-                        @if $i == 1 { left:27px }
-                        background-position:(($i - 1) * 100%) 100%;
+              @for $i from 1 through $layoutLength {
+                &:nth-child(#{$i}) {
+                  input {
+                    &[type="checkbox"] {
+                      & + label {
+                        &:before {
+                          @if $i == 1 { left:27px }
+                          background-position:(($i - 1) * 100%) 0;
+                        }
+                        &:after {
+                          @if $i == 1 { left:27px }
+                          background-position:(($i - 1) * 100%) 100%;
+                        }
                       }
                     }
                   }
@@ -84,21 +93,26 @@
         }
       }
       &.colors {
-        ul { @include flex(left); margin:0 0 18px;
-          li { padding:6px; margin:0 0 6px; text-align:left;
-            input {
-              &[type="checkbox"] { visibility:hidden; width:24px; height:24px; border-radius:50%; background:transparent;
-                & + label { position:absolute; left:6px; top:6px; width:24px; height:24px; border:1px solid rgba(0, 0, 0, 0.1); border-radius:50%; margin:0; font-size:0; color:transparent;
-                  &:before { content:none; }
-                  &:after { position:absolute; left:-5px; top:-5px; width:34px; height:34px; border:1px solid #0055fb; border-radius:50%; transform:none; }
-                }
-                &:checked + label {
-                  &:after { opacity:1; }
+        .toggleWrap {
+          ul { @include flex(left); margin:0 0 18px;
+            li { padding:6px; margin:0 0 6px; text-align:left;
+              input {
+                &[type="checkbox"] { visibility:hidden; width:24px; height:24px; border-radius:50%; background:transparent;
+                  & + label { position:absolute; left:6px; top:6px; width:24px; height:24px; border:1px solid rgba(0, 0, 0, 0.1); border-radius:50%; margin:0; font-size:0; color:transparent;
+                    &:before { content:none; }
+                    &:after { position:absolute; left:-5px; top:-5px; width:34px; height:34px; border:1px solid #0055fb; border-radius:50%; transform:none; }
+                  }
+                  &:checked + label {
+                    &:after { opacity:1; }
+                  }
                 }
               }
             }
           }
         }
+      }
+      &.active {
+        .toggleWrap { display:block; }
       }
     }
   }
