@@ -19,9 +19,9 @@ block append contents
         +filter(filterThemeData)
     div.grid.g2
       +stateBar(false)
-      - var searchTheme = 'searchTheme';
+
       - var searchThemeData = require('./src/js/data/searchTheme.js');
-      +list(searchTheme, searchThemeData, 'typeTheme')
+      +list(searchThemeData, 'typeTheme')
 
 block append body
   script(src="/js/ui/search.js")
