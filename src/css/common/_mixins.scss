@@ -21,13 +21,13 @@
   }
 
   @else if $breakpoint == "mobile-tablet" {
-    @media (max-width:1079px)  {
+    @media (max-width: 1079px)  {
       @content;
     }
   }
 
   @else if $breakpoint == "tablet" {
-    @media (min-width: 768px) and (max-width:1079px)  {
+    @media (min-width: 768px) and (max-width: 1079px)  {
       @content;
     }
   }
@@ -39,7 +39,13 @@
   }
 
   @else if $breakpoint == "tablet-to-pc" {
-    @media (min-width: 1024px) and (max-width:1170px) {
+    @media (min-width: 1024px) and (max-width: 1170px) {
+      @content;
+    }
+  }
+
+  @else if $breakpoint == "pc-to-tablet" {
+    @media (min-width: 1081px) and (max-width: 1304px) {
       @content;
     }
   }
@@ -134,6 +140,6 @@
   &:nth-child(#{$count}n) ~ #{$child}.displayed { display:block; }
 }
 
-@function percent($value) {
-  @return #{$value / 1404 * 100 + '%'};
+@function percent($pixel, $width) {
+  @return #{$pixel / $width * 100 + '%'};
 }

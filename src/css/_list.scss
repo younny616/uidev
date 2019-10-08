@@ -1,17 +1,16 @@
 @include respond(mobile) {
   .listWrap { width:100%;
-    > [class^=type] { padding:0 0 46px; }
-
-    [class*=type] { overflow:hidden; width:100%; margin:0 auto;
-      .item { position:relative; float:left; box-sizing:border-box; }
-    }
-
-    .typeApp {
-      .item { overflow:hidden; max-width:310px; margin:36px 9px;
+    > [class^=type] { overflow:hidden; width:100%; margin:0 auto; padding:0 0 46px;
+      .item { overflow:hidden; position:relative; float:left; box-sizing:border-box;
         .image { overflow:hidden; position:relative; border:1px solid #eaeaea; border-radius:4px; box-shadow:0 5px 5px 0 rgba(60, 64, 67, .05);
           img { width:100%; }
           &:after { content:''; display:block; position:absolute; left:0; bottom:0; right:0; width:100%; height:1px; background:rgba(0, 0, 0, 0.03); }
         }
+      }
+    }
+
+    .typeApp {
+      .item {width:calc(100% - 40px); margin:0 auto;
         .inner { height:180px; padding:15px 15px; box-sizing:border-box; text-align:left;
           .title { display:block; margin:0 0 1px; font-size:16px; @include text-ellipsis(16px, 1); }
           .subTitle { display:block; margin:0 0 1px; font-size:11px; color:#758ea6; }
@@ -22,18 +21,10 @@
     }
 
     .typeTheme { width:calc(100% - 40px); margin:0 auto;
-      .item { overflow:hidden; width:50%; max-width:364.5px; box-sizing:border-box;
-        &:nth-child(even) {
-          padding:0 0 10px 1.25%;
-        }
-        &:nth-child(odd) {
-          padding:0 1.25% 10px 0;
-        }
+      .item { width:50%; max-width:364.5px;
+        &:nth-child(even) { padding:0 0 10px 1.25%; }
+        &:nth-child(odd) { padding:0 1.25% 10px 0; }
 
-        .image { overflow:hidden; position:relative; border:1px solid #eaeaea; border-radius:4px; box-shadow:0 5px 5px 0 rgba(60, 64, 67, .05);
-          img { width:100%; }
-          &:after { content:''; display:block; position:absolute; left:0; bottom:0; right:0; width:100%; height:1px; background:rgba(0, 0, 0, 0.03); }
-        }
         .inner { height:92px; padding:18px 0; box-sizing:border-box; text-align:left;
           .title { display:block; margin:0 0 3px; font-size:16px; font-weight:500; line-height:1; @include text-ellipsis(16px, 1); }
           .subTitle { display:block; font-size:11px; color:#5398f5; }
@@ -47,35 +38,28 @@
 
 @include respond(tablet-pc) {
   .listWrap { width:100%; max-width:1640px; margin:0 auto;
-    > [class^=type] { padding:0 0 92px; box-sizing:border-box; }
-
-    [class*=type] { overflow:hidden; width:100%; max-width:1440px; margin:0 auto;
-      .item { position:relative; float:left; box-sizing:border-box; transition:all .3s ease; }
-    }
-
-    .typeApp {
-      .item { overflow:hidden; width:22.5%; max-width:326px; margin:0 1.25%; border:1px solid #eaeaea; box-sizing:border-box; border-radius:4px;
+    > [class^=type] {  overflow:hidden; width:100%; max-width:1440px; margin:0 auto; padding:0 0 60px; box-sizing:border-box;
+      .item { position:relative; float:left; border:1px solid #eaeaea; border-radius:4px; box-sizing:border-box; transition:all .3s ease;
         &:hover { box-shadow:0 18px 18px 0 rgba(92, 95, 101, .2); }
-
         .image { position:relative;
           &:after { content:''; display:block; position:absolute; left:0; bottom:0; right:0; width:100%; height:1px; background:rgba(0, 0, 0, 0.03); }
         }
+      }
+    }
+
+    .typeApp {
+      .item { overflow:hidden; width:22.5%; max-width:326px; margin:0 1.25% 2.5%;
         .inner { height:226px; padding:30px 20px; box-sizing:border-box; text-align:left;
-          .title { display:block; margin:0 0 3px; font-size:20px; font-weight:500; }
+          .title { display:block; margin:0 0 3px; font-size:20px; font-weight:500; @include text-ellipsis(24, 2); }
           .subTitle { display:block; margin:0 0 7px; font-size:13px; color:#758ea6; }
           .price { display:block; margin:0 0 20px; font-size:14px; color:#797980; }
-          .description { font-size:14px; color:#797980; line-height:21px; }
+          .description { font-size:14px; color:#797980; line-height:21px; @include text-ellipsis(20, 3); }
         }
       }
     }
 
     .typeTheme {
-      .item { overflow:hidden; width:22.5%; max-width:326px; margin:0 1.25%; border:1px solid #eaeaea; box-sizing:border-box; border-radius:4px;
-        &:hover { box-shadow:0 18px 18px 0 rgba(92, 95, 101, .2); }
-
-        .image { position:relative;
-          &:after { content:''; display:block; position:absolute; left:0; bottom:0; right:0; width:100%; height:1px; background:rgba(0, 0, 0, 0.03); }
-        }
+      .item { overflow:hidden; width:22.5%; max-width:326px; margin:0 1.25% 2.5%;
         .inner { height:136px; padding:30px 20px; box-sizing:border-box; text-align:left;
           .title { display:block; margin:0 0 3px; font-size:20px; font-weight:500; line-height:1; }
           .subTitle { display:block; margin:0 0 21px; font-size:13px; color:#5398f5; }
@@ -87,47 +71,14 @@
       }
     }
   }
+
   [class*="grid"] {
-    .listWrap { position:relative; left:-17px; width:calc(100% + 34.4px);
-      > [class^=type] { padding:0 0 92px; box-sizing:border-box; }
-
-      [class*=type] { max-width:1080px;
-        .item { position:relative; float:left; box-sizing:border-box; transition:all .3s ease; }
-      }
-
-      .typeApp {
-        .item { overflow:hidden; width:22.5%; max-width:326px; margin:0 1.25%; border:1px solid #eaeaea; box-sizing:border-box; border-radius:4px;
-          &:hover { box-shadow:0 18px 18px 0 rgba(92, 95, 101, .2); }
-
-          .image { position:relative;
-            &:after { content:''; display:block; position:absolute; left:0; bottom:0; right:0; width:100%; height:1px; background:rgba(0, 0, 0, 0.03); }
-          }
-          .inner { height:226px; padding:30px 20px; box-sizing:border-box; text-align:left;
-            .title { display:block; margin:0 0 3px; font-size:20px; font-weight:500; }
-            .subTitle { display:block; margin:0 0 7px; font-size:13px; color:#758ea6; }
-            .price { display:block; margin:0 0 20px; font-size:14px; color:#797980; }
-            .description { font-size:14px; color:#797980; line-height:21px; }
-          }
-        }
-      }
+    .listWrap { left:#{'-' + percent(17, 1080)}; width:calc(#{100% '+' percent(34, 1080)});
+      > [class^=type] { max-width:1080px; }
 
       .typeTheme {
-        .item { width:33.33%; max-width:326px; margin:0 1.5% 1.5%;
-          &:nth-child(3n+3) ~ .item { margin:1.5%; }
-
-
-
-          .image { position:relative;
-            &:after { content:''; display:block; position:absolute; left:0; bottom:0; right:0; width:100%; height:1px; background:rgba(0, 0, 0, 0.03); }
-          }
-          .inner { height:136px; padding:30px 20px; box-sizing:border-box; text-align:left;
-            .title { display:block; margin:0 0 3px; font-size:20px; font-weight:500; line-height:1; }
-            .subTitle { display:block; margin:0 0 21px; font-size:13px; color:#5398f5; }
-            .price { display:block; font-size:14px; color:#797980; }
-            .btnSample { overflow:hidden; display:block; position:absolute; right:16px; bottom:16px; width:100px; height:36px; padding:11px; box-sizing:border-box; background:#eff7ff; border-radius:4px; font-size:13px; color:#108af9; text-align:center; line-height:0; transition:all 0.3s ease;
-              &:hover { background:#0055fb; color:#fff; }
-            }
-          }
+        .item { width:percent(326, 1080); max-width:326px; margin:0 percent(17, 1080) percent(17, 1080);
+          &:nth-child(3n+3) ~ .item { margin:percent(17, 1080); }
         }
       }
     }
@@ -136,32 +87,46 @@
 
 @include respond(tablet) {
   .listWrap {
-    > [class^=type] { padding:0 10px 69px; }
-
-    .typeApp {
-      .item { width:50%; max-width:540px; margin:0 auto; box-sizing:border-box;
+    > [class^=type] { padding:0 10px 69px;
+      .item { width:calc(50% - 20px); max-width:540px; margin:0 10px 20px;
         .image {
           img { width:100%; }
         }
+      }
+    }
+
+    .typeApp {
+      .item {
         .inner { height:169px; padding:22.5px 15px;
-          .title { margin:0 0 2px; font-size:15px; }
+          .title { margin:0 0 2px; font-size:15px; @include text-ellipsis(22, 1); }
           .subTitle { margin:0 0 15.75px; font-size:10px; }
           .price { font-size:10px; }
-          .description { font-size:10px; line-height:17px; }
+          .description { font-size:10px; line-height:17px; @include text-ellipsis(17, 2); }
         }
       }
     }
 
     .typeTheme {
-      .item { width:calc(50% - 20px); max-width:540px; margin:0 10px 20px;
-        .image {
-          img { width:100%; }
-        }
+      .item {
         .inner { height:102px; padding:22.5px 15px;
           .title { margin:0 0 2px; font-size:15px; }
           .subTitle { margin:0 0 15.75px; font-size:10px; }
           .price { font-size:10px; }
           .btnSample { right:12px; bottom:12px; width:75px; height:27px; padding:8px; font-size:10px; }
+        }
+      }
+    }
+  }
+}
+
+@include respond(pc-to-tablet) {
+  [class*="grid"] {
+    .listWrap { left:#{'-' + percent(10, 934)}; width:calc(#{100% '+' percent(20, 934)});
+      > [class^=type] { max-width:934px; padding:0 0 69px; box-sizing:border-box; }
+
+      .typeTheme {
+        .item { width:percent(448, 1080); max-width:448px; margin:0 percent(10, 1080) percent(10, 1080);
+          &:nth-child(2n+2) ~ .item { margin:percent(10, 1080); }
         }
       }
     }
