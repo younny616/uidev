@@ -1,4 +1,5 @@
 mixin filter(datas)
+  p.title 필터
   each data, i in datas
     div(class=`${i > 1 ? data['type'] + ' active' : data['type']}`)
       strong(class=`${i > 1 ? 'title active' : 'title'}`)= data['title']

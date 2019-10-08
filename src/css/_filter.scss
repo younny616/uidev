@@ -3,10 +3,10 @@
 }
 
 @include respond(tablet-pc) {
-  .btnFilter { position:relative; padding:26px 0 26px 23px; font-size:16px; color:#000;
-    &:before { content:''; display:block; position:absolute; left:0; top:33px; width:15px; height:11px; background-image:url('#{$src}/sfix_filter.png'); background-size:100px auto; background-position:0 0; }
-  }
   .filterWrap { width:100%; max-width:240px;
+    > .title { position:relative; margin:16px 0 24px; padding:0 0 0 23px; font-size:16px; color:#000;
+      &:before { content:''; display:block; position:absolute; left:0; top:7px; width:15px; height:11px; background-image:url('#{$src}/sfix_filter.png'); background-size:100px auto; background-position:0 0; }
+    }
     > div { position:relative; border-top:1px solid #e8e8e8;
       .title { display:block; padding:20px 0; font-size:13px; font-weight:400; cursor:pointer;
         .btnToggle { position:absolute; right:8px; top:18px; z-index:3;
