@@ -9,16 +9,19 @@ include /components/list
 block append contents
   +searchHead('앱','배너', '마케팅', '고객지원', '유료', '브론즈')
 
-  section.gridArea
-    div.grid.wFilter
+  section.searchArea.gridSet
+    div.wFilter
       - var filterThemeData = require('./src/js/data/filterTheme.js');
       div.filterWrap
 
         +filter(filterThemeData)
-    div.grid.wFilterResult
+    div.wFilterResult
       +stateBar(false)
       - var searchThemeData = require('./src/js/data/searchTheme.js');
       +list(searchThemeData, 'typeTheme')
+
+    +mPagination('typeList', 'RW RTB', '8')
+    +mPagination('typeMore', 'RMB')
 
 block append body
   script(src="/js/ui/search.js")
