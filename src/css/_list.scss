@@ -88,7 +88,7 @@
     }
   }
   [class*="grid"] {
-    .listWrap { position:relative; left:-17px; width:calc(1046px + 34px);
+    .listWrap { position:relative; left:-17px; width:calc(100% + 34.4px);
       > [class^=type] { padding:0 0 92px; box-sizing:border-box; }
 
       [class*=type] { max-width:1080px;
@@ -112,8 +112,8 @@
       }
 
       .typeTheme {
-        .item { width:33.33%; max-width:326px; margin:0 17px 17px;
-          &:nth-child(3n+3) ~ .item { margin:17px; }
+        .item { width:33.33%; max-width:326px; margin:0 1.5% 1.5%;
+          &:nth-child(3n+3) ~ .item { margin:1.5%; }
 
 
 

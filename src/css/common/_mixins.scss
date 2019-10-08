@@ -133,3 +133,7 @@
   &:nth-child(#{$count}n) ~ #{$child} { display:none; }
   &:nth-child(#{$count}n) ~ #{$child}.displayed { display:block; }
 }
+
+@function percent($value) {
+  @return #{$value / 1404 * 100 + '%'};
+}
