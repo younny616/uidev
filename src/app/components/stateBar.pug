@@ -1,0 +1,9 @@
+mixin stateBar(typeClass)
+    div(class=`stateBar${!typeClass ? '' : ' '+typeClass}`)
+        div.left
+            div.total
+                strong.data 1,222개
+                | 결과
+        div.right
+            select.fSelect
+                option 가격순

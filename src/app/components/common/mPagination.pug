@@ -1,5 +1,5 @@
-mixin mPagination(types, maxLength)
-  div(class=`mPagination ${types}`)
+mixin mPagination(types, typeDevice, maxLength)
+  div(class=`mPagination ${types+ ' ' +typeDevice}`)
     case types
       when 'typeMore'
         button.btnMore 더보기
@@ -8,4 +8,6 @@ mixin mPagination(types, maxLength)
         - var number = 1;
         ul
           while number < maxLength
-            li= number++
+            li
+              a(href='#none')= number++
+        a.btnLast(href='#none') 마지막 페이지
