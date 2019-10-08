@@ -7,9 +7,10 @@ include /components/stateBar
 
 block append contents
 
-    +searchHead('앱','배너', '마케팅', '고객지원', '유료', '브론즈')
+    section.searchHeadArea
+        +searchHead('typeApp','앱','배너', '마케팅', '고객지원', '유료', '브론즈')
 
-    section.gridArea
+    section.gridSet
         div.grid3 필터
         div.grid7
             +stateBar(false)

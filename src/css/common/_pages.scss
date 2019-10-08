@@ -18,6 +18,7 @@
       .subCategory { border-top:0; }
     }
     &.themeListArea { margin-bottom:10px; border-bottom:1px solid #e8e8e8; background:#fff; }
+    &.searchHeadArea { @include section-bar; }
   }
 }
 

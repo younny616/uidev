@@ -1,5 +1,5 @@
-mixin searchHead(title, ...value)
-    div.searchHead
+mixin searchHead(typeClass, title, ...value)
+    div(class=`searchHead${!typeClass ? '' : ' '+typeClass}`)
         div.heading
             h3.title #{title}
             button.btnFilter(type='button') 필터

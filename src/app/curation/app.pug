@@ -1,0 +1,20 @@
+extends /layouts/layout
+include /components/common/mTitle
+include /components/common/mPagination
+include /components/applist
+include /components/list
+include /components/stateBar
+
+block append contents
+
+    +mTitle('typeSub', '고객관리의 다양한 도구모음 제목이 길어지는 경우 가이드 영역 입니다','고객상담과 리뷰를 편리하게 최상의 경험을 제공하는 앱을 소개합니다.')
+
+    +stateBar(false)
+    - var curationAppData = require('./src/js/data/curationApp.js');
+    +list(curationAppData, 'typeApp')
+
+    +mPagination('typeMore', false)
+
+block append body
+    script(src="//cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js")
+    script(src="/js/ui/app.js")
