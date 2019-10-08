@@ -58,8 +58,13 @@ block append contents
 
   - var minimalThemeData = require('./src/js/data/minimalTheme.js');
   section.minimalThemeArea
-    +mTitle('typeLeft', '미니멀리스트 테마모음 ', '미니멀리스트 디자인을 모았습니다.', '전체보기')
+    +mTitle('typeLeft', '미니멀리스트 테마모음', '미니멀리스트 디자인을 모았습니다.', '전체보기')
     +list(minimalThemeData, 'typeTheme')
+
+  - var newAppData = require('./src/js/data/newApp.js');
+  section.minimalThemeArea
+    +mTitle('typeLeft', '테스트', '테스트', '전체보기')
+    +list(newAppData, 'typeApp')
 
   section.cateArea
     +category('테마 카테고리', 'theme')(class="theme")
