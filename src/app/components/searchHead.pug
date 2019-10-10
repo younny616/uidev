@@ -2,7 +2,7 @@ mixin searchHead(typeClass, title, ...value)
     div(class=`searchHead${!typeClass ? '' : ' '+typeClass}`)
         div.heading
             h3.title #{title}
-            button.btnFilter(type='button') 필터
+            button.btnFilter(type='button') 필터 test
         div.search
             each item in value
                 div.filter
