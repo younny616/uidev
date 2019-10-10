@@ -3,6 +3,7 @@ mixin mPagination(types, typeDevice, maxLength)
     case types
       when 'typeMore'
         button.btnMore 더보기
+          span.page (1/2)
           i.icoArrow
       when 'typeList'
         - var number = 1;
