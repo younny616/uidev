@@ -55,13 +55,13 @@
     .search { font-size:16px; font-weight:800;
       .value { display:block; color:#0055fb; }
     }
-    .empty { width:50%; max-width:296px; margin:40px auto 15px;
+    .empty { display:inline-block; width:50%; max-width:296px; margin:40px 0 15px;
       img { width:100%; }
     }
-    .desc { font-size:14px; color:#959595; text-align:center; }
+    .desc { font-size:14px; color:#959595; }
 
     &.typeSearch { margin:0 20px; padding:45px 0 30px; border-bottom:1px solid #e8e8e8; }
-    &.typeCategory { padding:45px 0 45px; }
+    &.typeCategory { padding:80px 0 80px; background:#f5f5f5; }
   }
 
   .mPagination { padding:0 20px 20px; background:#fff;
@@ -146,6 +146,19 @@
     .btnAll { font-size:16px; color:#0055fb;
       .icoArrow { margin:0 0 1px 7px; @include icoArrow('right', 7px, 10px, 1px, #0055fb); }
     }
+  }
+
+  .mEmpty { text-align:center;
+    .search { font-size:22px; font-weight:800;
+      .value { color:#0055fb; }
+    }
+    .empty { display:inline-block; width:148px; margin:70px 0;
+      img { width:100%; }
+    }
+    .desc { font-size:16px; color:#959595; }
+
+    &.typeSearch { padding:80px 0; border-bottom:1px solid #e8e8e8; }
+    &.typeCategory { padding:24px 0 0; text-align:left; border-top:1px solid #e8e8e8; }
   }
 
   .mPagination { padding:0 0 20px; text-align:center;

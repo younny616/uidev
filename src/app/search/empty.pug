@@ -6,9 +6,10 @@ include /components/stateBar
 include /components/list
 
 block append contents
-  +searchHead('앱','배너', '마케팅', '고객지원', '유료', '브론즈')
+  section.searchHeadArea
+    +searchHead('typeTheme', '앱','배너', '마케팅', '고객지원', '유료', '브론즈')
 
-  section.gridArea
+  section.emptyArea
     +mEmpty('typeSearch')
 
   - var newAppData = require('./src/js/data/newApp.js');

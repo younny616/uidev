@@ -4,6 +4,7 @@
   "description": "Front build up with gulp (prototype)",
   "main": "index.js",
   "scripts": {
+    "start": "gulp build --production",
     "serve": "gulp dev --development",
     "build": "gulp build --production",
     "deploy": "gulp build --production --deploy",

@@ -1,6 +1,6 @@
 @include respond(mobile) {
   .listWrap { width:100%;
-    > [class^=type] { overflow:hidden; width:100%; margin:0 auto; padding:0 0 46px;
+    > [class^=type] { overflow:hidden; width:calc(100% - 40px); margin:0 auto;
       .item { overflow:hidden; position:relative; float:left; box-sizing:border-box;
         .image { overflow:hidden; position:relative;
           img { width:100%; }
@@ -9,7 +9,7 @@
       }
     }
 
-    .typeApp { width:calc(100% - 40px); margin:0 auto;
+    .typeApp { padding:0 0 10px;
       .item { width:100%; margin:0 0 20px; border:1px solid #eaeaea; border-radius:4px; box-shadow:0 5px 5px 0 rgba(60, 64, 67, .05);
         .inner { height:180px; padding:15px 15px; box-sizing:border-box; text-align:left;
           .title { display:block; margin:0 0 1px; font-size:16px; @include text-ellipsis(16px, 1); }
@@ -20,7 +20,7 @@
       }
     }
 
-    .typeTheme { width:calc(100% - 40px); margin:0 auto;
+    .typeTheme {
       .item { width:50%; max-width:364.5px;
         &:nth-child(even) { padding:0 0 10px 1.25%; }
         &:nth-child(odd) { padding:0 1.25% 10px 0; }

@@ -2,7 +2,7 @@ mixin mEmpty(types)
   div(class=`mEmpty ${types}`)
     case types
       when 'typeCategory'
-        p.desc 정확히 일치하는 상품이 없습니다. <br> 검색 조건을 다시 설정해 주세요
+        p.desc 정확히 일치하는 상품이 없습니다. <br class="RW RMB"> 검색 조건을 다시 설정해 주세요
       when 'typeSearch'
         p.search
           strong.value '가나다라마'
