@@ -1,5 +1,7 @@
 mixin filter(datas)
+  button.btnReset(type="button") 초기화
   p.title 필터
+  button.btnClose(type="button") 닫기
   each data, i in datas
     div(class=`${i > 1 ? data['type'] + ' active' : data['type']}`)
       strong(class=`${i > 1 ? 'title active' : 'title'}`)= data['title']
@@ -30,3 +32,5 @@ mixin filter(datas)
                 else
                   label(for=`${data['type'] + (i+1)}`)
                     span= key
+
+  button.btnFilterApply 필터 적용하기

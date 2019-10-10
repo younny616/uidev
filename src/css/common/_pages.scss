@@ -1,24 +1,23 @@
 @include respond(mobile) {
   section {
-    &.appListArea { margin-bottom:10px; border-bottom:1px solid #e8e8e8; background:#fff; }
-    &.mainStoryArea { margin-bottom:10px; border-bottom:1px solid #e8e8e8; background:#fff; }
-    &.cateArea { margin-bottom:10px; border-bottom:1px solid #e8e8e8; background:#fff; }
-    &.partnerArea { margin-bottom:10px; border-bottom:1px solid #e8e8e8; background:#fff; }
-    &.shopMakingArea { padding-bottom:10px; }
-    &.newAppArea { margin-bottom:10px; border-bottom:1px solid #e8e8e8;  background:#fff; }
+    &.appListArea,
+    &.mainStoryArea,
+    &.cateArea,
+    &.partnerArea,
+    &.newAppArea,
+    &.bestThemeArea,
+    &.newThemeArea,
+    &.choseThemeArea,
+    &.themeListArea,
+    &.searchHeadArea,
+    &.minimalThemeArea { @include section-bar(); }
     &.makeAppArea { display:none; }
-    &.bestThemeArea { margin-bottom:10px; border-bottom:1px solid #e8e8e8; background:#fff; }
-    &.newThemeArea { margin-bottom:10px; background:#fff; border-bottom:1px solid #e8e8e8; }
     &.combineThemeArea { background:#f2f2f2; }
-    &.freeThemeArea { background:#fff; }
-    &.mobileThemeArea { padding:0 0 0 0; }
-    &.choseThemeArea { margin-bottom:10px; border-bottom:1px solid #e8e8e8; background:#fff; }
-    &.minimalThemeArea { margin-bottom:10px; border-bottom:1px solid #e8e8e8; background:#fff; }
+    &.mobileThemeArea { padding:0; }
     &.themeCate {
       .subCategory { border-top:0; }
     }
-    &.themeListArea { margin-bottom:10px; border-bottom:1px solid #e8e8e8; background:#fff; }
-    &.searchHeadArea { @include section-bar; }
+
   }
 }
 

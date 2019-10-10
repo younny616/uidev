@@ -7,16 +7,19 @@ include /components/filter
 include /components/list
 
 block append contents
-  +searchHead('앱','배너', '마케팅', '고객지원', '유료', '브론즈')
+  section.searchHeadArea
+    +searchHead('typeApp', '앱','배너', '마케팅', '고객지원', '유료', '브론즈')
 
   section.gridArea
-    div.grid.wFilter
-      - var filterAppData = require('./src/js/data/filterApp.js');
+    - var filterAppData = require('./src/js/data/filterApp.js');
+    div.wFilter
       div.filterWrap
         +filter(filterAppData)
-    div.grid.wFilterResult
-      +stateBar(false)
 
+    div.wFilterResult
+      +stateBar(false)
+      +mPagination('typeList', 'RW RTB', '8')
+      +mPagination('typeMore', 'RMB')
 
 block append body
   script(src="/js/ui/search.js")
