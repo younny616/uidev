@@ -85,9 +85,7 @@ $(document).ready(function(){
 
 (function(UI) {
     UI.onToggleClass('#footer .familysite .eClick', true, 'selected');
-
-    UI.onAddClass('.btnFilter', '.wFilter', 'active');
-    UI.onRemoveClass('.btnClose', '.wFilter', 'active');
-
-    UI.onResetAll('.btnReset', '.wFilter', 'checkbox');
+    UI.onAddClass('.searchHead .btnFilter', '.wFilter', 'active');
+    UI.onRemoveClass('.filterWrap .btnClose', '.wFilter', 'active');
+    UI.onResetAll('.filterWrap .btnReset', '.wFilter', 'checkbox');
 })(Cafe24.UI);

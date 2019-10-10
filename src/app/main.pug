@@ -7,7 +7,6 @@ include /components/randomList
 
 block append contents
     include /components/mainvisual
-
     section.appListArea
         div.gInner
             +mTitle('typeLeft gBlankTop', '이번주를 뜨겁게 달군 인기 앱')
@@ -20,14 +19,14 @@ block append contents
                 +applist(false, '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', false, '/images/@img_app_icon.png')
                 +applist(false, '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', false, '/images/@img_app_icon.png')
                 +applist(false, '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', false, '/images/@img_app_icon.png')
-            +mPagination('typeMore')
+            +mPagination('typeMore', 'RMB')
 
     - var bestTheme = 'bestTheme';
     - var bestThemeData = require('./src/js/data/bestTheme.js');
     section.bestThemeArea
         +mTitle('typeLeft gBlankTop', '이번주 BEST 인기 테마')
         +slider(bestTheme, bestThemeData, 'typeList', 'theme', true, true)
-        +mPagination('typeMore')
+        +mPagination('typeMore', 'RMB')
 
     - function makeRandom(datas) { return datas.sort((v1, v2) => Math.random() - Math.random()); }
     - var randomListData = require('./src/js/data/randomApp.js');
