@@ -122,11 +122,11 @@
 
   [class*="grid"] {
     .listWrap {
-      > [class^=type] { max-width:933px; }
+      > [class^=type] { max-width:751px; padding:0; }
 
-      .typeTheme { left:#{'-' + percent(17, 889)}; width:calc(100% + #{percent(34, 889)});
-        .item { width:percent(432.5, 933); max-width:432.5px; margin:0 percent(17, 933) percent(17, 933);
-          &:nth-child(2n+2) ~ .item { margin:percent(17, 933); }
+      .typeTheme { left:#{'-' + percent(10, 731)}; width:calc(100% + #{percent(20, 731)});
+        .item { width:percent(355.5, 751); max-width:355.5px; margin:0 percent(10, 751) percent(10, 751);
+          &:nth-child(2n+2) ~ .item { margin:percent(10, 751); }
         }
       }
     }
