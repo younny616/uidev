@@ -1,3 +1,5 @@
+import Utils from './utils';
+
 class UI {
     constructor(name) {
         this.name = name || 'Cafe UI';
@@ -5,10 +7,31 @@ class UI {
     }
 
     /**
-     * @param {string} self : button class
-     * @param {boolean} parent : target parent class
-     * @param {string} className : toggle class
+     * @param {string} self : selctor class
+     * @param {string} target : target class
+     * @param {string} className : add class name
      */
+
+    onAddClass(self, target, className) {
+        return $(document).on('click', self, () => $(target).addClass(className));
+    }
+
+    /**
+     * @param {string} self : selctor class
+     * @param {string} target : target class
+     * @param {string} className : remove class name
+     */
+
+    onRemoveClass(self, target, className) {
+        return $(document).on('click', self, () => $(target).removeClass(className));
+    }
+
+    /**
+     * @param {string} self : selctor class
+     * @param {boolean} parent : using parent true / fasle
+     * @param {string} className : toggle class name
+     */
+
     onToggleClass(self, parent, className) {
         let toggleFunc;
 
@@ -22,9 +45,20 @@ class UI {
     }
 
     /**
-     * @param {string} self : button class
-     * @param {string} className : toggle class
+     * @param {string} self : selctor class
+     * @param {string} target : target class
+     * @param {string} resetType : input type name
      */
+
+    onResetAll(self, target, resetType) {
+        return $(document).on('click', self, () => Utils._resetAll(target, resetType));
+    }
+
+    /**
+     * @param {string} self : selctor class
+     * @param {string} className : toggle class name
+     */
+
     onSlideToggleClass(self, className) {
         return $(document).on('click', self, (e) => {
             $(e.currentTarget).toggleClass(className);
@@ -33,10 +67,11 @@ class UI {
     }
 
     /**
-     * @param {string} self : button class
-     * @param {string} target : button class
-     * @param {number} moreCount : target parent class
+     * @param {string} self : selctor class
+     * @param {string} target : target class
+     * @param {number} moreCount : count Number
      */
+
     onPagination(self, target, moreCount) {
         const checkDisplay = (target, callBack) => {
             const isDisplayed = Array.prototype.map.call(target, (self, i) => getComputedStyle(self).getPropertyValue('display') === 'block' ? true : false);

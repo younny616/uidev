@@ -80,5 +80,14 @@ $(document).ready(function(){
         });
     }
 
-    Cafe24.UI.onToggleClass('#footer .familysite .eClick', true, 'selected');
+
 });
+
+(function(UI) {
+    UI.onToggleClass('#footer .familysite .eClick', true, 'selected');
+
+    UI.onAddClass('.btnFilter', '.wFilter', 'active');
+    UI.onRemoveClass('.btnClose', '.wFilter', 'active');
+
+    UI.onResetAll('.btnReset', '.wFilter', 'checkbox');
+})(Cafe24.UI);

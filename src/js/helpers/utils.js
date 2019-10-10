@@ -9,15 +9,19 @@ class Utils {
     }
 
     _number_format(e, _self, delegator) {
-        var deleteComma = _self.value.toString().replace(/\,/g, '');
+        let deleteComma = _self.value.toString().replace(/\,/g, '');
 
-        if (isFinite(deleteComma) === false) {
-            alert('문자는 입력하실 수 없습니다.');
-            return _self.value = '';
-        }
+        if (isFinite(deleteComma) === false) return _self.value = '';
 
         let temp = deleteComma;
         return _self.value = temp.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, "$1,");
+    }
+
+    _resetAll(target, inputType) {
+        const container = document.querySelector(target);
+        const targets = container.querySelectorAll(`input[type=${inputType}]`);
+
+        targets.forEach(self => self.checked = false);
     }
 }
 

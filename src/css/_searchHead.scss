@@ -10,8 +10,6 @@
       .title { font-size:36px; color:#000; flex:1 1 auto; }
       .btnFilter { display:block; flex:0 0 auto; position:relative; height:40px; padding:0 16px 0 38px; border:1px solid #d8d8d9; border-radius:4px; font-size:14px; transition:all .3s ease;
         &:before { content:''; display:block; position:absolute; left:16px; top:13px; width:14px; height:13px; background-image:url('#{$src}/sfix_filter.png'); background-size:50px auto; background-position:-25px 0; }
-        &:hover { border:1px solid #1e1e1e; background:#1e1e1e; color:#fff; }
-        &:hover:before { background-position:-25px -25px; }
       }
     }
     .search { display:flex; flex-wrap:wrap; margin:28px 0 -25px;

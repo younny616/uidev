@@ -1,12 +1,22 @@
 @include respond(mobile) {
   .active {
-    .filterWrap { overflow-y:auto; position:fixed; top:0; left:0; right:0; z-index:100; width:100%; height:100%; padding:20px; box-sizing:border-box; background:#fff; -webkit-overflow-scrolling:touch; }
+    .filterWrap { display:block; overflow-y:auto; position:fixed; top:0; left:0; right:0; z-index:100; width:100%; height:100%; padding:0 20px 20px; box-sizing:border-box; background:#fff; -webkit-overflow-scrolling:touch; }
   }
 
-  .filterWrap { width:100%;
-    > .title { font-size:16px; color:#000; }
+  .filterWrap { display:none;
+    > .title { width:100%; padding:20px 0; font-size:14px; font-weight:500; color:#000; text-align:center; }
+    .btn {
+      &Reset { position:absolute; left:0; top:1px; padding:20px; font-size:13px; border-bottom:1px solid #e8e8e8; color:#959595; }
+      &Close { position:absolute; right:0; top:1px; padding:20px; font-size:13px; border-bottom:1px solid #e8e8e8; color:transparent;
+        &:before,
+        &:after { content:''; display:block; position:absolute; top:50%; width:15px; height:2px; margin:0 auto; background:#000; }
+        &:before { left:calc(50% - 7.5px); transform:rotate(-45deg); }
+        &:after { right:calc(50% - 7.5px); transform:rotate(45deg); }
+      }
+      &FilterApply { display:block; width:100%; height:40px; border-radius:4px; background:#0055fb; font-size:13px; color:#fff; }
+    }
     > div { position:relative; border-top:1px solid #e8e8e8;
-      .title { display:block; padding:20px 0; font-size:13px; font-weight:400; cursor:pointer;
+      .title { display:block; padding:15px 0 16px; font-size:18px; font-weight:800; color:#000; cursor:pointer;
         .btnToggle { position:absolute; right:8px; top:18px; z-index:3;
           .icoArrow { @include icoArrow('top', 14px, 7px, 2px); transform:rotate(180deg); transition:transform .3s ease; }
         }
@@ -16,29 +26,29 @@
           }
         }
       }
-      .toggleWrap { display:none; max-width:240px;
+      .toggleWrap { display:none; max-width:320px;
         ul { overflow:hidden;
-          li { overflow:hidden; position:relative; margin:0 0 16px; padding:0 0 8px; color:#5b5b5b;
+          li { overflow:hidden; position:relative; margin:0 0 9px; padding:0 0 8px; font-size:15px; color:#000;
             input {
               &[type="checkbox"] { position:relative; top:-1px; width:20px; height:20px; border:1px solid #ccc; border-radius:4px;
                 & + label { margin:0 0 0 11px;
                   &:before,
                   &:after { content:''; display:block; position:absolute; z-index:3; width:20px; height:20px; box-sizing:border-box; opacity:0; transition:opacity .3s ease; }
-
                   &:before { left:0; top:1px; border-radius:4px; background:#0055fb; }
                   &:after { left:5px; top:7px; width:10px; height:5px; border-left:2px solid #fff; border-bottom:2px solid #fff; transform:rotateZ(-45deg); }
-
                 }
                 &:checked + label {
                   &:before,
                   &:after { opacity:1; }
                 }
               }
-              &[type="text"] { position:relative; width:96px; height:32px; padding:4px 24px 4px 10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; font-size:12px; color:#5b5b5b; line-height:28px; text-align:right; }
+              &[type="text"] { position:relative; width:100%; height:32px; padding:4px 24px 4px 10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; font-size:12px; color:#5b5b5b; line-height:28px; text-align:right;
+                &:focus { border-color:#0055fb; }
+              }
             }
-            &.self { margin:-11px 0 16px; padding:0 0 0 30px;
+            &.self { margin:-12px 0 20px; padding:0 0 0 30px;
               strong { display:block; margin:0 0 5px; font-size:12px; color:#959595; font-weight:400; }
-              p { position:relative; float:left; }
+              p { position:relative; float:left; width:percent(138, 320); }
               span { display:block; float:left;
                 &.dash { margin:0 6px; font-size:10px; height:32px; line-height:32px; }
                 &.sigh { position:absolute; right:10px; top:6px; font-size:12px; color:#959595;  }
@@ -50,20 +60,25 @@
       &.layouts {
         $layoutLength: 6;
         .toggleWrap {
-          ul { @include flex();
-            li { min-width:80px; margin:0 0 8px; padding:13px 19px; box-sizing:border-box; text-align:center;
+          ul { @include flex(); position:relative; left:-10px; top:-10px;
+            li { min-width:86px; margin:10px; padding:13px 19px; box-sizing:border-box; text-align:center;
               input {
                 &[type="checkbox"] { visibility:hidden; width:25px; height:25px;
-                  & + label { display:block; margin:0; padding:8px 0 0; font-size:11px; color:#959595;
+                  & + label { display:block; margin:0; padding:8px 0 0; font-size:12px; color:#959595;
                     &:before ,
-                    &:after { left:27.5px; top:13px; width:25px; height:25px; border:0; border-radius:0; background-color:transparent; background-image:url('#{$src}/sfix_layouts.png'); background-size:(100% * $layoutLength) auto; transform:none; }
-
+                    &:after { left:29.5px; top:13px; width:25px; height:25px; border:0; border-radius:0; background-color:transparent; background-image:url('#{$src}/sfix_layouts.png'); background-size:(100% * $layoutLength) auto; transform:none; }
                     &:before { opacity:1; }
                     &:after { opacity:0; }
+                    span {
+                      &:before { content:''; display:block; position:absolute; left:0; top:0; width:100%; height:100%; border:1px solid transparent; border-radius:4px; box-sizing:border-box; transition:border-color .3s ease; }
+                    }
                   }
                   &:checked + label {
                     &:before { opacity:0; }
                     &:after { opacity:1; }
+                    span {
+                      &:before { border-color:#0055fb; }
+                    }
                   }
                 }
               }
@@ -74,11 +89,11 @@
                     &[type="checkbox"] {
                       & + label {
                         &:before {
-                          @if $i == 1 { left:27px }
+                          @if $i == 1 { left:28px }
                           background-position:(($i - 1) * 100%) 0;
                         }
                         &:after {
-                          @if $i == 1 { left:27px }
+                          @if $i == 1 { left:28px }
                           background-position:(($i - 1) * 100%) 100%;
                         }
                       }
@@ -92,8 +107,8 @@
       }
       &.colors {
         .toggleWrap {
-          ul { @include flex(left); margin:0 0 18px;
-            li { padding:6px; margin:0 0 6px; text-align:left;
+          ul { @include flex(left); position:relative; left:-5px; top:-5px; margin:0 0 6px;
+            li { padding:6px; margin:5px; text-align:left;
               input {
                 &[type="checkbox"] { visibility:hidden; width:24px; height:24px; border-radius:50%; background:transparent;
                   & + label { position:absolute; left:6px; top:6px; width:24px; height:24px; border:1px solid rgba(0, 0, 0, 0.1); border-radius:50%; margin:0; font-size:0; color:transparent;
@@ -111,6 +126,10 @@
       }
       &.active {
         .toggleWrap { display:block; }
+        &.layouts {
+          .toggleWrap {
+           }
+        }
       }
     }
   }
@@ -120,6 +139,11 @@
   .filterWrap { width:100%; max-width:240px;
     > .title { position:relative; margin:16px 0 24px; padding:0 0 0 24px; font-size:16px; color:#000;
       &:before { content:''; display:block; position:absolute; left:0; top:7px; width:15px; height:11px; background-image:url('#{$src}/sfix_filter.png'); background-size:100px auto; background-position:0 0; }
+    }
+    > .btn {
+      &Reset,
+      &Close,
+      &FilterApply { display:none;}
     }
     > div { position:relative; border-top:1px solid #e8e8e8;
       .title { display:block; padding:20px 0; font-size:13px; font-weight:400; cursor:pointer;
@@ -150,11 +174,13 @@
                   &:after { opacity:1; }
                 }
               }
-              &[type="text"] { position:relative; width:96px; height:32px; padding:4px 24px 4px 10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; font-size:12px; color:#5b5b5b; line-height:28px; text-align:right; }
+              &[type="text"] { position:relative; width:100%; height:32px; padding:4px 24px 4px 10px; border:1px solid #ccc; border-radius:4px; box-sizing:border-box; font-size:12px; color:#5b5b5b; line-height:28px; text-align:right;
+                &:focus { border-color:#0055fb; }
+              }
             }
             &.self { margin:-11px 0 16px; padding:0 0 0 30px;
               strong { display:block; margin:0 0 5px; font-size:12px; color:#959595; font-weight:400; }
-              p { position:relative; float:left; }
+              p { position:relative; float:left; width:96px; }
               span { display:block; float:left;
                 &.dash { margin:0 6px; font-size:10px; height:32px; line-height:32px; }
                 &.sigh { position:absolute; right:10px; top:6px; font-size:12px; color:#959595;  }
@@ -166,20 +192,25 @@
       &.layouts {
         $layoutLength: 6;
         .toggleWrap {
-          ul { @include flex();
-            li { min-width:80px; margin:0 0 8px; padding:13px 19px; box-sizing:border-box; text-align:center;
+          ul { @include flex(); position:relative; left:-6px; top:-6px; width:calc(100% + 12px);
+            li { min-width:72px; margin:6px; padding:13px; box-sizing:border-box; text-align:center;
               input {
                 &[type="checkbox"] { visibility:hidden; width:25px; height:25px;
                   & + label { display:block; margin:0; padding:8px 0 0; font-size:11px; color:#959595;
                     &:before ,
-                    &:after { left:27.5px; top:13px; width:25px; height:25px; border:0; border-radius:0; background-color:transparent; background-image:url('#{$src}/sfix_layouts.png'); background-size:(100% * $layoutLength) auto; transform:none; }
-
+                    &:after { left:23px; top:13px; width:25px; height:25px; border:0; border-radius:0; background-color:transparent; background-image:url('#{$src}/sfix_layouts.png'); background-size:(100% * $layoutLength) auto; transform:none; }
                     &:before { opacity:1; }
                     &:after { opacity:0; }
+                    span {
+                      &:before { content:''; display:block; position:absolute; left:0; top:0; width:100%; height:100%; border:1px solid transparent; border-radius:4px; box-sizing:border-box; transition:border-color .3s ease; }
+                    }
                   }
                   &:checked + label {
                     &:before { opacity:0; }
                     &:after { opacity:1; }
+                    span {
+                      &:before { border-color:#0055fb; }
+                    }
                   }
                 }
               }
@@ -190,11 +221,11 @@
                     &[type="checkbox"] {
                       & + label {
                         &:before {
-                          @if $i == 1 { left:27px }
+                          @if $i == 1 { left:23px }
                           background-position:(($i - 1) * 100%) 0;
                         }
                         &:after {
-                          @if $i == 1 { left:27px }
+                          @if $i == 1 { left:23px }
                           background-position:(($i - 1) * 100%) 100%;
                         }
                       }
