@@ -93,16 +93,10 @@ header#header(class=headerClass)
           //- select.fSelect(style='width:100px;')
             option 전체
             option 앱 //
-          div.fSelect.show(style='width:100px;')
-            p.fNow 전체
-            button.fButton
-            ul.fOption(style='display:block;')
-              li.selected
-                a(href='#none') 전체
-              li
-                a(href='#none') 앱
-              li
-                a(href='#none') 테마
+          select.fSelect.eSelect
+            option 전체
+            option 앱
+            option 테마
           div.searchForm
             input(type='search' placeholder='검색어를 입력하세요')
             div.result

@@ -13,6 +13,7 @@ mixin filter(datas)
             if key === '직접입력'
               li(class="self")
                 strong 직접입력
+                button.btnApply(type="button") 적용
                 p
                   input(type="text" name="" id="" class="inputText" onkeyup="Cafe24.Utils._number_format(event, this, ',')")
                   span.sigh 원
@@ -33,4 +34,4 @@ mixin filter(datas)
                   label(for=`${data['type'] + (i+1)}`)
                     span= key
 
-  button.btnFilterApply 필터 적용하기
+  button.btnFilterApply(type="button") 필터 적용하기

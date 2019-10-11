@@ -3,16 +3,6 @@
   .RW { display:none; }
   .RMB { display:block; }
 
-  .fSelect { position:relative; display:inline-block; height:35px; line-height:35px; padding:0 6px; vertical-align:top; box-sizing:border-box;
-    .fNow { color:#000; cursor:pointer; font-size:15px; }
-    .fButton { display:inline-block; position:absolute; top:0; bottom:0; right:10px; margin:auto; overflow:hidden; width:0; height:0; border-style:solid; border-width:5px 5px 0 5px; border-color:#000 transparent transparent transparent; vertical-align:2px; line-height:10; -webkit-transition:.3s ease-out; transition:.3s ease-out; }
-    .fOption { display:none; position:absolute; /*top:0; */ left:-1px; width:100%; height:auto; padding:9px 0; border:1px solid #e8e8e8; border-radius:3px; background:#fff;
-      a { display:block; padding:12px 9px 12px 15px; color:#959595; line-height:16px; font-size:15px; font-weight:400;
-        &:hover { text-decoration:none; color:#0055fb; background:#f6f7f9; }
-      }
-    }
-  }
-
   .mTitle { position:relative;
     &.typeSub { padding:40px 0 10px; background:#fff;
       .title { @include text-ellipsis(26, 1); font-size:20px; font-weight:800; }
@@ -77,6 +67,36 @@
       li { display:inline-block; }
     }
   }
+
+  .fSelect { display:inline-block; position:relative; padding:0 32px 0 16px; box-sizing:border-box; border-radius:4px; line-height:1; text-align:left;
+    &:after { content:''; display:block; position:absolute; right:16px; top:calc(50% - 2px); width:9px; height:5px; background:url('#{$src}/ico_select.png') no-repeat center center; background-size:9px 5px; transition:transform .3s ease; transform:rotate(-180deg);}
+    select { visibility:hidden; position:absolute; z-index:-1; left:-100% }
+    .fButton { position:absolute; top:0; right:0; overflow:hidden; width:100%; height:100%; font-size:1px; line-height:0; color:transparent; text-indent:-150%; letter-spacing:-1em; white-space:nowrap; background:none; }
+    .fNow { overflow:hidden; height:40px; font-size:14px; color:#000; word-break:break-all; cursor:pointer; line-height:40px; }
+    .fOption { display:none; position:absolute; z-index:10; height:auto; margin:6px 0 0 0; padding:9px 0; border:1px solid #e8e8e8; border-radius:4px; opacity:1; background:#fff;
+      li {
+        a { display:block; padding:14px 16px; color:#333; word-break:break-all; white-space:nowrap; line-height:1;
+          &:hover { color:#0055fb; background:#f6f7f9; }
+        }
+        &.selected {
+          a { color:#0055fb; background:#f6f7f9;}
+        }
+      }
+    }
+    &.error { position:relative;
+      &:before { content:''; display:block; position:absolute; left:-1px; top:-1px; width:calc(100% - 2px); height:calc(100% - 2px); border:2px solid #cf1401; border-radius:3px; }
+    }
+    &.show {
+      &:after { transform:rotate(0); }
+    }
+    &.upShow {
+      .fOption { box-shadow:0 0 10px 1px rgba(0, 0, 0, .08); }
+    }
+    &.downShow {
+      .fOption { box-shadow:0 0 10px 1px rgba(0, 0, 0, .08); }
+    }
+    &.hide { display:none; }
+  }
 }
 
 @include respond(tablet-pc) {
@@ -89,21 +109,6 @@
     .wFilter { width:358px; }
     .wFilterResult { width:calc(100% - 358px); }
   }
-
-  /* form */
-  .fSelect { position:relative; display:inline-block; height:40px; line-height:38px; padding:0 16px; vertical-align:top; border-radius:3px; border:1px solid #e8e8e8; box-sizing:border-box;
-    .fNow { color:#000; cursor:pointer; }
-    .fButton { display:inline-block; position:absolute; top:0; bottom:0; right:10px; margin:auto; overflow:hidden; width:0; height:0; border-style:solid; border-width:5px 5px 0 5px; border-color:#000 transparent transparent transparent; vertical-align:2px; line-height:10; -webkit-transition:.3s ease-out; transition:.3s ease-out; }
-    .fOption { display:none; position:absolute; /*top:0; */left:-1px; width:100%; height:auto; margin:6px 0 0; padding:9px 0; border:1px solid #e8e8e8; background:#fff;
-      a { display:block; padding:12px 9px 12px 15px; color:#959595; line-height:16px;
-        &:hover { text-decoration:none; color:#0055fb; background:#f6f7f9; }
-      }
-    }
-  }
-  .fSelect.eSelect select { display:none; visibility:hidden; position:absolute; z-index:-1; }
-  .fSelect:disabled, .fSelect.disabled { cursor:default; opacity:0.65; }
-  .fSelect.show { z-index:2; background:#f6f7f9; }
-  .fSelect.show .fButton { -webkit-transform:rotate(180deg); transform:rotate(180deg); }
 
   .gInner { margin:0 auto;
     .mTitle { padding-left:0; padding-right:0; }
@@ -176,6 +181,36 @@
       }
     }
   }
+
+  .fSelect { display:inline-block; position:relative; min-width:120px; padding:0 16px; border:1px solid #e8e8e8; box-sizing:border-box; border-radius:4px; line-height:1; text-align:left;
+    &:after { content:''; display:block; position:absolute; right:16px; top:calc(50% - 2px); width:9px; height:5px; background:url('#{$src}/ico_select.png') no-repeat center center; background-size:9px 5px; transition:transform .3s ease; transform:rotate(-180deg);}
+    select { visibility:hidden; position:absolute; z-index:-1; left:-100% }
+    .fButton { position:absolute; top:0; right:0; overflow:hidden; width:100%; height:100%; font-size:1px; line-height:0; color:transparent; text-indent:-150%; letter-spacing:-1em; white-space:nowrap; background:none; }
+    .fNow { overflow:hidden; height:40px; font-size:14px; color:#000; word-break:break-all; cursor:pointer; line-height:40px; }
+    .fOption { display:none; position:absolute; z-index:10; width:100%; height:auto; margin:6px 0 0; padding:9px 0; border:1px solid #e8e8e8; border-radius:4px; opacity:1; background:#fff;
+      li {
+        a { display:block; padding:14px 16px; color:#333; word-break:break-all; white-space:pre-wrap; line-height:1;
+          &:hover { color:#0055fb; background:#f6f7f9; }
+        }
+        &.selected {
+          a { color:#0055fb; background:#f6f7f9;}
+        }
+      }
+    }
+    &.error { position:relative;
+      &:before { content:''; display:block; position:absolute; left:-1px; top:-1px; width:calc(100% - 2px); height:calc(100% - 2px); border:2px solid #cf1401; border-radius:3px; }
+    }
+    &.show {
+      &:after { transform:rotate(0); }
+    }
+    &.upShow {
+      .fOption { box-shadow:0 0 10px 1px rgba(0, 0, 0, .08); }
+    }
+    &.downShow {
+      .fOption { box-shadow:0 0 10px 1px rgba(0, 0, 0, .08); }
+    }
+    &.hide { display:none; }
+  }
 }
 
 @include respond(tablet) {
@@ -205,7 +240,7 @@
     &.typeCenter { padding:67.5px 0 56.25px;
       .title { margin:0 0 3px; }
       .desc { margin:0 0 23.25px; }
-      .btnAll { margin: 0 0 30px; }
+      .btnAll { margin:0 0 30px; }
     }
 
     &.typeRandom { padding:42px 24.75px 0 24.75px;
