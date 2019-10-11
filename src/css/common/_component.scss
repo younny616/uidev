@@ -5,15 +5,6 @@
 
   .gInner { padding:0 20px; }
 
-  .fSelect { position:relative; display:inline-block; height:35px; line-height:35px; padding:0 6px; vertical-align:top; box-sizing:border-box;
-    .fNow { color:#000; cursor:pointer; font-size:15px; }
-    .fButton { display:inline-block; position:absolute; top:0; bottom:0; right:10px; margin:auto; overflow:hidden; width:0; height:0; border-style:solid; border-width:5px 5px 0 5px; border-color:#000 transparent transparent transparent; vertical-align:2px; line-height:10; -webkit-transition:.3s ease-out; transition:.3s ease-out; }
-    .fOption { display:none; position:absolute; /*top:0; */ left:-1px; width:100%; height:auto; padding:9px 0; border:1px solid #e8e8e8; border-radius:3px; background:#fff;
-      a { display:block; padding:12px 9px 12px 15px; color:#959595; line-height:16px; font-size:15px; font-weight:400;
-        &:hover { text-decoration:none; color:#0055fb; background:#f6f7f9; }
-      }
-    }
-  }
   .mTitle { position:relative;
     &.typeSub { padding:40px 0 10px; background:#fff;
       .title { @include text-ellipsis(26, 1); font-size:20px; font-weight:800; }
@@ -109,6 +100,11 @@
       .fOption { box-shadow:0 0 10px 1px rgba(0, 0, 0, .08); }
     }
     &.hide { display:none; }
+  }
+
+  /* Global */
+  .btn {
+    &Submit { display:block; width:100%; height:40px; border-radius:4px; background:#0055fb; font-size:13px; color:#fff; }
   }
 }
 
@@ -223,6 +219,21 @@
     }
     &.hide { display:none; }
   }
+
+  /* Global */
+  [class^="btn"] { transition:all .3s ease;
+    &.btn {
+      &Submit { display:inline-block; height:40px; border:1px solid #0055fb; border-radius:4px; background:#0055fb; font-size:13px; color:#fff; }
+      &Normal { display:inline-block; height:40px; border:1px solid #d8d8d9; border-radius:4px; background:#fff; font-size:13px; color:#7b7b7b;
+        &:hover { background-color:#f5f5f5; color:#000; }
+      }
+      &Strong { display:inline-block; height:40px; border:1px solid #000; border-radius:4px; background:#000; font-size:13px; color:#fff; }
+    }
+    &.full { display:block; width:100%; }
+    &.small { width:158px; height:32px; }
+    &.medium { width:160px; }
+    &.large { width:180px; height:48px; }
+  }
 }
 
 @include respond(tablet) {
@@ -267,7 +278,6 @@
 @include respond(tablet-to-pc) {
   .gInner { max-width:1240px; padding:0 20px; }
 }
-
 
 @include respond(pc) {
   .gInner { max-width:1240px; padding:0 20px; }
