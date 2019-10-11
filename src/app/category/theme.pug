@@ -13,17 +13,19 @@ block append contents
     section.searchHeadArea
         +searchHead('typeTheme','테마', false, '배너', '마케팅', '고객지원', '유료', '브론즈')
 
-    section.categoryArea.gridSet
-        - var filterThemeData = require('./src/js/data/filterTheme.js');
-            div.wFilter
-                div.filterWrap
-                    +filter(filterThemeData)
+    section.categoryArea
+        div.gInner
+            div.gridSet
+                - var filterThemeData = require('./src/js/data/filterTheme.js');
+                    div.wFilter
+                        div.filterWrap
+                            +filter(filterThemeData)
 
-        - var searchThemeData = require('./src/js/data/searchTheme.js');
-            div.wFilterResult
-                +stateBar(false)
-                +list(searchThemeData, 'typeTheme')
-                +mPagination('typeMore', false)
+                - var searchThemeData = require('./src/js/data/searchTheme.js');
+                    div.wFilterResult
+                        +stateBar(false)
+                        +list(searchThemeData, 'typeTheme')
+                        +mPagination('typeMore', false)
 
 block append body
     script(src="//cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js")

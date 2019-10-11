@@ -7,20 +7,22 @@ include /components/filter
 include /components/list
 
 block append contents
-  section.searchHeadArea
-    +searchHead('typeTheme', false, '마케팅 입력검색어', '배너', '마케팅', '고객지원', '유료', '브론즈')
+    section.searchHeadArea
+        +searchHead('typeTheme', false, '마케팅 입력검색어', '배너', '마케팅', '고객지원', '유료', '브론즈')
 
-  section.searchArea.gridSet
-    - var filterThemeData = require('./src/js/data/filterTheme.js');
-    div.wFilter
-      div.filterWrap
-        +filter(filterThemeData)
+    section.searchArea
+        div.gInner
+            div.gridSet
+                - var filterThemeData = require('./src/js/data/filterTheme.js');
+                div.wFilter
+                    div.filterWrap
+                      +filter(filterThemeData)
 
-    - var searchThemeData = require('./src/js/data/searchTheme.js');
-    div.wFilterResult
-      +stateBar(false)
-      +list(searchThemeData, 'typeTheme')
-      +mPagination('typeMore', false)
+                - var searchThemeData = require('./src/js/data/searchTheme.js');
+                div.wFilterResult
+                    +stateBar(false)
+                    +list(searchThemeData, 'typeTheme')
+                    +mPagination('typeMore', false)
 
 block append body
-  script(src="/js/ui/search.js")
+    script(src="/js/ui/search.js")
