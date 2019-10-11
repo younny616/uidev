@@ -46,13 +46,14 @@
                 &:focus { border-color:#0055fb; }
               }
             }
-            &.self { margin:-12px 0 20px; padding:0 0 0 30px;
+            &.self { position:relative; margin:-12px 0 20px; padding:0 0 0 30px;
               strong { display:block; margin:0 0 5px; font-size:12px; color:#959595; font-weight:400; }
-              p { position:relative; float:left; width:percent(138, 320); }
+              p { position:relative; float:left; width:percent(138, 290); }
               span { display:block; float:left;
-                &.dash { margin:0 6px; font-size:10px; height:32px; line-height:32px; }
+                &.dash { margin:0 5px; font-size:10px; height:32px; line-height:32px; }
                 &.sigh { position:absolute; right:10px; top:6px; font-size:12px; color:#959595;  }
               }
+              .btnApply { position:absolute; right:0; top:0; font-size:12px; color:#0055fb; }
             }
           }
         }
@@ -185,6 +186,7 @@
                 &.dash { margin:0 6px; font-size:10px; height:32px; line-height:32px; }
                 &.sigh { position:absolute; right:10px; top:6px; font-size:12px; color:#959595;  }
               }
+              .btnApply { position:absolute; right:0; top:0; font-size:12px; color:#0055fb; }
             }
           }
         }

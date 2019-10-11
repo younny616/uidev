@@ -7,8 +7,8 @@ class UI {
     }
 
     /**
-     * @param {string} self : selctor class
-     * @param {string} target : target class
+     * @param {string} self : event selctor
+     * @param {string} target : target selctor
      * @param {string} className : add class name
      */
 
@@ -17,7 +17,7 @@ class UI {
     }
 
     /**
-     * @param {string} self : selctor class
+     * @param {string} self : event selctor
      * @param {string} target : target class
      * @param {string} className : remove class name
      */
@@ -27,26 +27,26 @@ class UI {
     }
 
     /**
-     * @param {string} self : selctor class
-     * @param {boolean} parent : using parent true / fasle
-     * @param {string} className : toggle class name
+     * @param {string} self : event selctor
+     * @param {string} target : arg.length === 2 : target selector
+     * @param {string} className : arg.length === 1 : toggle class name
      */
 
-    onToggleClass(self, parent, className) {
+    onToggleClass(self, ...arg) {
         let toggleFunc;
 
-        if (!parent) {
-            toggleFunc = (e) => $(e.currentTarget).toggleClass(className);
+        if (arg.length === 1) {
+            toggleFunc = (e) => $(e.currentTarget).toggleClass(arg[0]);
         } else {
-            toggleFunc = (e) => $(e.currentTarget).parent().toggleClass(className);
+            toggleFunc = (e) => $(e.currentTarget).parents(arg[0]).toggleClass(arg[1]);
         }
 
         return $(document).on('click', self, toggleFunc);
     }
 
     /**
-     * @param {string} self : selctor class
-     * @param {string} target : target class
+     * @param {string} self : event selctor
+     * @param {string} target : target selctor
      * @param {string} resetType : input type name
      */
 
@@ -55,7 +55,7 @@ class UI {
     }
 
     /**
-     * @param {string} self : selctor class
+     * @param {string} self : event selctor
      * @param {string} className : toggle class name
      */
 
@@ -67,8 +67,8 @@ class UI {
     }
 
     /**
-     * @param {string} self : selctor class
-     * @param {string} target : target class
+     * @param {string} self : event selctor
+     * @param {string} target : target selctor
      * @param {number} moreCount : count Number
      */
 

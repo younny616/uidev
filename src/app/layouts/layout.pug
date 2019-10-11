@@ -11,9 +11,8 @@ html(lang="ko")
     meta(http-equiv="X-UA-Compatible" content="ie=edge")
     title !{title}
     link(rel="stylesheet" href=`/css/${project.title}.min.css`)
-    script(src="/js/plugins/jquery-1.12.4.min.js")
-    script(src=`/js/${project.title}.bundle.min.js`)
   body(class=bodyClass)
+
     block body
       #wrap
         include /components/layouts/header
@@ -24,4 +23,7 @@ html(lang="ko")
 
         include /components/layouts/footer
 
-    script(src="/js/ui/common.js")
+      script(src="/js/plugins/jquery-1.12.4.min.js")
+      script(src=`/js/${project.title}.bundle.min.js`)
+      script(src="/js/plugins/selectPack.js")
+      script(src="/js/ui/common.js")
