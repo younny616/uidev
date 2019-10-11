@@ -72,27 +72,20 @@ header#header(class=headerClass)
               div.subMenu
                 strong.menuTitle 앱 기획전
                 ul.list
-                  li 전체
-                  li 전체
-                  li 전체
-                  li 전체
-                  li 패션
+                  each menu in ["상반기 Top 12", "주목할만한 신상 앱", "나도 인플루언서", "핫 썸머! 쿨~한 앱", "재능마켓"]
+                    li
+                      a(href="#none")= menu
               div.subMenu
                 strong.menuTitle 테마 기획전
                 ul.list
-                  li 전체
-                  li 전체
-                  li 전체
-                  li 전체
-                  li 패션
+                  each menu in ["추천 테마", "인싸들이 선택한 테마", "무료 테마", "재미있고 활기찬", "신규테마 출시"]
+                    li
+                      a(href="#none")= menu
         a.story(href='#none') 스토리
     div.search
       div.searchWrap
         button.btnSearch(type='button') 검색
         div.searchField
-          //- select.fSelect(style='width:100px;')
-            option 전체
-            option 앱 //
           select.fSelect.eSelect
             option 전체
             option 앱
