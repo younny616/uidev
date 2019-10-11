@@ -59,7 +59,8 @@
 
 @include respond(tablet-pc) {
   .searchHead { position:relative; padding:34px 0 20px;
-    &:before { content:""; position:absolute; left:0; right:0; top:0; bottom:0; background:#ddd; height:100%; width:100%; }
+    .inner { max-width:1404px; margin:0 auto; padding:0 20px; }
+    .gEmpty &:before { content:""; position:absolute; left:0; right:0; top:0; bottom:0; background:#ddd; height:100%; width:100%; }
     .head {
       .title { display:block; margin:10px 0 0; font-size:48px; color:#000; }
       .btnFilter { display:none; }
