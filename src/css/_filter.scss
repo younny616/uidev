@@ -4,7 +4,7 @@
   }
 
   .filterWrap { display:none;
-    > .title { width:100%; padding:20px 0; font-size:14px; font-weight:500; color:#000; text-align:center; }
+    > .title { display:block; width:100%; padding:20px 0; font-size:14px; font-weight:500; color:#000; text-align:center; }
     .btn {
       &Reset { position:absolute; left:0; top:1px; padding:20px; font-size:13px; border-bottom:1px solid #e8e8e8; color:#959595; }
       &Close { position:absolute; right:0; top:1px; padding:20px; font-size:13px; border-bottom:1px solid #e8e8e8; color:transparent;
@@ -137,7 +137,7 @@
 
 @include respond(tablet-pc) {
   .filterWrap { width:100%; max-width:240px;
-    > .title { position:relative; margin:16px 0 24px; padding:0 0 0 24px; font-size:16px; color:#000;
+    > .title { display:block; position:relative; margin:16px 0 24px; padding:0 0 0 24px; font-size:16px; font-weight:400; color:#000;
       &:before { content:''; display:block; position:absolute; left:0; top:7px; width:15px; height:11px; background-image:url('#{$src}/sfix_filter.png'); background-size:100px auto; background-position:0 0; }
     }
     > .btn {
@@ -261,6 +261,7 @@
         .toggleWrap { display:block; }
       }
     }
+    .btnSubmit { display:none; }
   }
 }
 
