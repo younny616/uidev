@@ -13,7 +13,7 @@ html(lang="ko")
     link(rel="stylesheet" href=`/css/${project.title}.min.css`)
     script(src="/js/plugins/jquery-1.12.4.min.js")
     script(src=`/js/${project.title}.bundle.min.js`)
-  body
+  body(class=bodyClass)
     block body
       #wrap
         include /components/layouts/header

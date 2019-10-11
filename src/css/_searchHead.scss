@@ -4,6 +4,17 @@
       .title { font-size:36px; color:#000; flex:1 1 auto; }
       .btnFilter { display:block; flex:0 0 auto; position:relative; height:40px; padding:0 16px 0 38px; border:1px solid #d8d8d9; border-radius:4px; font-size:14px; transition:all .3s ease;
         &:before { content:''; display:block; position:absolute; left:16px; top:13px; width:14px; height:13px; background-image:url('#{$src}/sfix_filter.png'); background-size:50px auto; background-position:-25px 0; }
+        &.active { border-color:#000; background:#000; color:#fff;
+          &:before { background-position:-25px -25px; }
+        }
+      }
+      .searchWord {
+        .label { display:block; margin:0 0 10px; font-size:14px; color:#959595; font-weight:500; }
+        .searchForm { position:relative; height:32px; margin:0 0 30px; padding:0 0 0 37px;
+          input { height:32px; font-size:30px; color:#000; font-weight:800; border:0; }
+          &:before { content:""; position:absolute; top:5px; left:1px; display:block; width:21px; height:21px; border:2px solid #000; border-radius:50%; box-sizing:border-box; }
+          &:after { content:""; position:absolute; top:21px; left:20px; display:block; width:2px; height:8px; box-sizing:border-box; background:#000; transform:rotate(-45deg); }
+        }
       }
     }
     .search { display:flex; flex-wrap:wrap; margin:28px 0 -25px;
@@ -47,7 +58,8 @@
 }
 
 @include respond(tablet-pc) {
-  .searchHead { padding:34px 0 20px;
+  .searchHead { position:relative; padding:34px 0 20px;
+    &:before { content:""; position:absolute; left:0; right:0; top:0; bottom:0; background:#ddd; height:100%; width:100%; }
     .head {
       .title { display:block; margin:10px 0 0; font-size:48px; color:#000; }
       .btnFilter { display:none; }

@@ -3,6 +3,8 @@
   .RW { display:none; }
   .RMB { display:block; }
 
+  .gInner { padding:0 20px; }
+
   .fSelect { position:relative; display:inline-block; height:35px; line-height:35px; padding:0 6px; vertical-align:top; box-sizing:border-box;
     .fNow { color:#000; cursor:pointer; font-size:15px; }
     .fButton { display:inline-block; position:absolute; top:0; bottom:0; right:10px; margin:auto; overflow:hidden; width:0; height:0; border-style:solid; border-width:5px 5px 0 5px; border-color:#000 transparent transparent transparent; vertical-align:2px; line-height:10; -webkit-transition:.3s ease-out; transition:.3s ease-out; }
@@ -19,13 +21,14 @@
       .desc { @include text-ellipsis(18, 2); margin:10px 0 0; font-size:13px; color:#000; }
     }
 
-    &.typeLeft { padding:29px 0 12px; text-align:left;
+    &.typeLeft { padding:29px 20px 12px; text-align:left;
       .title { margin:0 0 8px; font-size:20px; font-weight:800; }
       .desc { margin:0 0 30px; font-size:16px; line-height:22px; color:#000; }
       .btnAll { position:absolute; right:20px; top:30px;
         .icoArrow { display:none; }
       }
     }
+    .gInner &.typeLeft { padding-left:0; padding-right:0; }
 
     &.typeCenter { padding:55px 20px 52px; text-align:center;
       .title { margin:0 0 5px; font-size:22px; line-height:28px; font-weight:400; }
@@ -71,6 +74,7 @@
           @include icoArrow('bottom', 10px, 5px, 1px, #000); margin:0 0 0 4px;
         }
       }
+      .page { display:none; }
     }
 
     &.typeList {

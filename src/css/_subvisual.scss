@@ -1,6 +1,6 @@
 @include respond(mobile) {
   .subVisual {
-    height:360px; padding:140px 20px 0; box-sizing:border-box; background-size:cover; background-position:center;
+    height:360px; margin:-50px 0 0; padding:140px 20px 0; box-sizing:border-box; background-size:cover; background-position:center;
     &.app { background-image:url('../images/bg_submain_visual_app_m.png'); }
     &.theme { background-image:url('../images/bg_submain_visual_theme_m.png'); }
     h2.title { font-size:20px; line-height:26px; color:#fff; font-weight:400; }
@@ -21,7 +21,7 @@
 
 @include respond(tablet-pc) {
   .subVisual {
-    height:320px; padding:96px 0 0; box-sizing:border-box; text-align:center; background-size:cover; background-position:center;
+    height:320px; margin:-68px 0 0; padding:96px 0 0; box-sizing:border-box; text-align:center; background-size:cover; background-position:center;
     &.app { background-image:url('../images/bg_submain_visual_app.png'); }
     &.theme { background-image:url('../images/bg_submain_visual_theme.png'); }
     h2.title { font-size:36px; line-height:60px; color:#fff; font-weight:400; }

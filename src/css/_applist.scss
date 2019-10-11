@@ -1,6 +1,6 @@
 @include respond(mobile) {
   .appListArea {  }
-  .appList { padding:0 20px 39px; background:#fff;
+  .appList { padding:0 0 39px; background:#fff;
      &:after { @include clearfix(); }
     .thumbnail { float:left; width:60px; height:60px;
       img { max-width:100%; }
@@ -17,7 +17,6 @@
 }
 
 @include respond(mobile-tablet) {
-
 }
 
 @include respond(tablet) {

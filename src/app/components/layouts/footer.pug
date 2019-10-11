@@ -7,20 +7,43 @@ footer#footer
       div.familysite
         button.button.eClick(type='button') Family Site
         ul.site
-          each item in ['개발자센터','마케팅센터']
+          each item in ['쇼핑몰센터','개발자센터','파트너센터']
             li
               a(href="#none")= item
     div.nav
-      mixin menu(title, ...items)
-        div.menu
-          strong.title= title
-          each item in items
-            a.link(href='#none')= item
-      +menu('about', '스토어', '이용약관', '개인정보 처리방침')
-      +menu('story', '앱 활용 성공사례', '앱 직접 제작', 'B2B 서비스')
-      +menu('support', 'FAQ')
-      +menu('partners', '파트너센터')
-      +menu('store', 'Japan', 'Korea')
+      div.menu
+        strong.title product
+        ul
+          li
+            a.link(href='#none') 앱
+          li
+            a.link(href='#none') 테마
+      div.menu
+        strong.title story
+        ul
+          li
+            a.link(href='#none') 스토어소개
+      div.menu
+        strong.title support
+        ul
+          li
+            a.link(href='#none') FAQ
+      div.menu
+        strong.title partners
+        ul
+          li
+            a.link(href='#none', target='_blank') 개발자센터
+          li
+            a.link(href='#none', target='_blank') 파트너센터
+      div.menu
+        strong.title store
+        ul
+          li
+            a.link(href='#none') Japan
+          li
+            a.link(href='#none') Korea
+          li
+            a.link(href='#none') vietnam
   div.bottom
     div.policy
       a(href='#none') 회사소개

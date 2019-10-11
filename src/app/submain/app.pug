@@ -10,14 +10,15 @@ include /components/subcategory
 include /components/partnermeet
 
 block append variables
+  - var bodyClass = 'gFull';
   - var headerClass = 'typeWhite';
 
 block append contents
   +subVisual('app', 'APP', '쇼핑몰 확장을 위한 앱을 설치하세요','상반기 TOP 12','주목할만한 신상 앱', '나도 인플루언서', '핫 썸머! 쿨~한 앱', '재능마켓')
 
   section.appListArea
+    +mTitle('typeLeft gBlankTop', '이번주를 뜨겁게 달군 인기 앱')
     div.gInner
-      +mTitle('typeLeft gBlankTop', '이번주를 뜨겁게 달군 인기 앱')
       div.appGroup
         +applist(false, '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', false, '/images/@img_app_icon.png')
         +applist(false, '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', false, '/images/@img_app_icon.png')
@@ -32,8 +33,8 @@ block append contents
     +slider(newApp, newAppData, 'typeApp', 'app', true, true)
 
   section.appListArea
+    +mTitle('typeLeft', '나도 인플루언서', '우리 쇼핑몰도 핫한 인플루언서가 되고 싶지 않으세요? 인플루언서 쇼핑몰의 필수설치 앱!', '전체보기')
     div.gInner
-      +mTitle('typeLeft', '나도 인플루언서', '우리 쇼핑몰도 핫한 인플루언서가 되고 싶지 않으세요? 인플루언서 쇼핑몰의 필수설치 앱!', '전체보기')
       div.appGroup
         +applist(false, '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', '최소한의 서류 작업과 신용 확인없이 긴 신청 절차를 피하십시오.', '/images/@img_app_icon.png')
         +applist(false, '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', '최소한의 서류 작업과 신용 확인없이 긴 신청 절차를 피하십시오.', '/images/@img_app_icon.png')
@@ -46,8 +47,8 @@ block append contents
     +slider(makeApp, makeAppData, 'typeSimple', 'image', false, true)
 
   section.appListArea
+    +mTitle('typeLeft gBlankTop', '고객관리의 다양한 도구 모음', '고객 상담과 리뷰를 편리하게 관리하고 최상의 경험을 제공하는 앱을 소개합니다.', '전체보기')
     div.gInner
-      +mTitle('typeLeft gBlankTop', '고객관리의 다양한 도구 모음', '고객 상담과 리뷰를 편리하게 관리하고 최상의 경험을 제공하는 앱을 소개합니다.', '전체보기')
       div.appGroup
         +applist(false, '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', false, '/images/@img_app_icon.png')
         +applist(false, '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', false, '/images/@img_app_icon.png')
@@ -55,8 +56,8 @@ block append contents
         +applist(false, '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', false, '/images/@img_app_icon.png')
 
   section.appListArea
+    +mTitle('typeLeft gBlankTop', '최고의 이메일 마케팅 솔루션', '적합한 고객에게 개인화 된 마케팅 이메일을 자동으로 전송', '전체보기')
     div.gInner
-      +mTitle('typeLeft gBlankTop', '최고의 이메일 마케팅 솔루션', '적합한 고객에게 개인화 된 마케팅 이메일을 자동으로 전송', '전체보기')
       div.appGroup
         +applist(false, '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', false, '/images/@img_app_icon.png')
         +applist(false, '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', false, '/images/@img_app_icon.png')

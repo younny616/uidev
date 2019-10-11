@@ -5,12 +5,11 @@
 }
 
 @include respond(mobile) {
-  #wrap { padding:50px 0 0; }
-  #contents { overflow:hidden; }
   #footer .menu .title { font-size:11px; }
 }
 
 @include respond(mobile-tablet) {
+  #wrap { padding:50px 0 0; }
   #header { position:fixed; top:0; left:0; right:0; z-index:90; height:50px;
     .logo { width:122px; height:15px; margin:20px 0 0 20px;
       a { display:block; height:15px; }
@@ -100,7 +99,7 @@
     }
   }
 
-  #footer { position:relative; }
+  #footer { position:relative; border-top:1px solid #e8e8e8; }
   #footer .logo { position:absolute; left:20px; bottom:89px; width:122px; height:14px;
     svg { display:block; width:100%; height:100%; fill:#959595; }
   }
@@ -117,6 +116,7 @@
 }
 
 @include respond(tablet) {
+  body.gFull #contents { padding-left:0; padding-right:0; }
   #contents { padding:0 20px; }
 }
 
@@ -125,9 +125,10 @@
 }
 
 @include respond(pc) {
+  body.gFull #contents { max-width:100%; padding-left:0; padding-right:0; }
   #header { display:flex; position:fixed; top:0; z-index:90; width:100%; height:68px; box-sizing:border-box; transition:.3s;
     &.fixed { background:#fff; box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.1); }
-    &.typeWhite {
+    &.typeWhite { border-bottom:0;
       &:not(.fixed) {
         .logo {
           svg { fill:#fff; }
@@ -146,7 +147,7 @@
     }
 
    }
-  #header .inner { display:flex; position:relative; width:100%; max-width:1404px; margin:0 auto; padding:0 20px; }
+  #header .inner { display:flex; position:relative; width:100%; max-width:1404px; margin:0 auto; padding:0 60px 0 0; box-sizing:border-box; }
   #header .logo { width:171px; height:20px; margin:24px 32px 0 0; font-size:14px;
     a { display:block; height:20px; }
     svg { width:100%; height:100%; }
@@ -198,7 +199,7 @@
   #header .nav .menu > li:hover .menuContent { opacity:1; height:auto; overflow:visible; border:1px solid #ddd;
     &:before { display:block; position:absolute; top:-22px; height:40px; width:100%; }
   }
-  #header { display:flex; margin:0 0 0 auto; padding:0 60px 0 0; font-size:14px; box-sizing:border-box; border-bottom:1px solid #ececec;
+  #header { display:flex; margin:0 0 0 auto; font-size:14px; box-sizing:border-box; border-bottom:1px solid #ececec;
     .story { position:relative; height:68px; line-height:68px; margin-left:auto; font-size:15px; color:#5b5b5b; font-weight:500; text-decoration:none; }
     .story:hover { color:#0055fb;
       &:after { content:""; position:absolute; bottom:0; display:block; width:100%; height:3px; background:#0055fb; }
@@ -271,7 +272,7 @@
 
   #header .btnFold, #header .btnFoldLayout { display:none; }
 
-  #contents { overflow:hidden; min-height:700px; max-width:1444px; margin:0 auto; padding:68px 20px 0; box-sizing:border-box; }
+  #contents { min-height:700px; max-width:1444px; margin:0 auto; padding:68px 20px 0; box-sizing:border-box; }
 
   #footer { position:relative; padding:0; border-top:1px solid #e8e8e8; height:auto; line-height:1; background:#fff; }
   #footer .top { display:flex; width:100%; max-width:1404px; margin:0 auto; padding:60px 0 60px; font-size:0;
@@ -307,7 +308,7 @@
   #footer .corp .familysite .site a:hover:after { content:""; position:absolute; top:6px; right:6px; display:block; width:3px; height:3px; border-left:1px solid #fff; border-bottom:1px solid #fff; -webkit-transform:rotate(-135deg); transform:rotate(-135deg); }
   #footer .corp .familysite .site .line { margin:3px 0 0; padding:4px 0 0; border-top:1px solid #ebebeb; }
   #footer .corp .familysite.selected .button:after { -webkit-transform:rotate(-90deg); -moz-transform:rotate(-90deg); -ms-transform:rotate(-90deg); transform:rotate(-90deg); }
-  #footer .corp .familysite.selected .site { visibility:visible; height:242px; }
+  #footer .corp .familysite.selected .site { visibility:visible; height:60px; }
   #footer .copyright { margin:17px 0 0; font-size:12px; color:#b8b8b8; }
   #footer .btnTop { z-index:1; position:absolute; top:32px; right:50%; width:72px; height:72px; margin-right:-48%; padding:42px 0 0; font-size:12px; text-align:center; color:#000; text-decoration:none; box-sizing:border-box; text-transform:uppercase; background:#fff; border:1px solid #e8e8e8;
       &:before { content:""; position:absolute; top:22px; left:31px; display:block; margin:0 auto 5px;width:6px; height:6px; border:2px solid #000; border-width:2px 0 0 2px; vertical-align:middle;
