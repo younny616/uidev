@@ -68,14 +68,14 @@
     }
   }
 
-  .fSelect { display:inline-block; position:relative; padding:0 32px 0 16px; box-sizing:border-box; border-radius:4px; line-height:1; text-align:left;
+  .fSelect { display:inline-block; position:relative; min-width:125px; padding:0 32px 0 16px; box-sizing:border-box; border-radius:4px; line-height:1; text-align:right;
     &:after { content:''; display:block; position:absolute; right:16px; top:calc(50% - 2px); width:9px; height:5px; background:url('#{$src}/ico_select.png') no-repeat center center; background-size:9px 5px; transition:transform .3s ease; transform:rotate(-180deg);}
     select { visibility:hidden; position:absolute; z-index:-1; left:-100% }
     .fButton { position:absolute; top:0; right:0; overflow:hidden; width:100%; height:100%; font-size:1px; line-height:0; color:transparent; text-indent:-150%; letter-spacing:-1em; white-space:nowrap; background:none; }
     .fNow { overflow:hidden; height:40px; font-size:14px; color:#000; word-break:break-all; cursor:pointer; line-height:40px; }
-    .fOption { display:none; position:absolute; z-index:10; height:auto; margin:6px 0 0 0; padding:9px 0; border:1px solid #e8e8e8; border-radius:4px; opacity:1; background:#fff;
+    .fOption { display:none; position:absolute; z-index:10; height:auto; margin:6px 0 0 0; padding:10px 0; border:1px solid #e8e8e8; border-radius:4px; opacity:1; background:#fff; text-align:left;
       li {
-        a { display:block; padding:14px 16px; color:#333; word-break:break-all; white-space:nowrap; line-height:1;
+        a { display:block; margin:4px 0; padding:14px 16px; color:#333; word-break:break-all; white-space:nowrap; line-height:1;
           &:hover { color:#0055fb; background:#f6f7f9; }
         }
         &.selected {
@@ -181,7 +181,7 @@
     }
   }
 
-  .fSelect { display:inline-block; position:relative; min-width:120px; padding:0 16px; border:1px solid #e8e8e8; box-sizing:border-box; border-radius:4px; line-height:1; text-align:left;
+  .fSelect { display:inline-block; position:relative; min-width:130px; padding:0 32px 0 16px; border:1px solid #e8e8e8; box-sizing:border-box; border-radius:4px; line-height:1; text-align:left;
     &:after { content:''; display:block; position:absolute; right:16px; top:calc(50% - 2px); width:9px; height:5px; background:url('#{$src}/ico_select.png') no-repeat center center; background-size:9px 5px; transition:transform .3s ease; transform:rotate(-180deg);}
     select { visibility:hidden; position:absolute; z-index:-1; left:-100% }
     .fButton { position:absolute; top:0; right:0; overflow:hidden; width:100%; height:100%; font-size:1px; line-height:0; color:transparent; text-indent:-150%; letter-spacing:-1em; white-space:nowrap; background:none; }

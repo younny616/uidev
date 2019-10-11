@@ -79,7 +79,7 @@ function goTop(){
         }
     });
 
-    UI.onToggleClass('#footer .familysite .eClick', true, 'selected');
+    UI.onToggleClass('#footer .familysite .eClick', '#footer .familysite', 'selected');
     UI.onAddClass('.searchHead .btnFilter', '.wFilter', 'active');
     UI.onRemoveClass('.filterWrap .btnClose', '.wFilter', 'active');
     UI.onResetAll('.filterWrap .btnReset', '.wFilter', 'checkbox');
