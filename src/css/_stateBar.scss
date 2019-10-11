@@ -1,7 +1,7 @@
 @include respond(mobile) {
   .stateBar { display:flex; padding:20px 0; background:#fff;
     .left {
-      .total { font-size:15px; }
+      .total { margin:12px 0 0; font-size:15px; }
     }
     .right { margin:0 0 0 auto; }
   }
