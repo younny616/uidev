@@ -11,12 +11,18 @@ $(window).scroll(function() {
 function searchActive() {
     $('#header .search .btnSearch').on('click', function() {
         $(this).parents('.search').addClass('active');
+        $('#header .searchForm input').focus();
     });
     $('#header .search .btnClose').on('click', function() {
         $(this).parents('.search').removeClass('active');
+        $('#header .searchForm').removeClass('selected');
     });
     $('#header .searchForm input').on('keyup', function() {
         $(this).parents('.searchForm').addClass('selected');
+    });
+    $('.searchHead .searchForm input').on('focus', function() {
+        $('#header .search').addClass('active');
+        $('#header .searchForm input').focus();
     });
 } searchActive();
 

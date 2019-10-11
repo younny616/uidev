@@ -11,7 +11,7 @@ include /components/list
 block append contents
 
     section.searchHeadArea
-        +searchHead('typeApp','앱','배너', '마케팅', '고객지원', '유료', '브론즈')
+        +searchHead('typeApp','앱', false, '배너', '마케팅', '고객지원', '유료', '브론즈')
 
     section.categoryArea.gridSet
         - var filterThemeData = require('./src/js/data/filterTheme.js');
