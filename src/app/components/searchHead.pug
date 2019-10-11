@@ -1,7 +1,13 @@
-mixin searchHead(typeClass, title, ...value)
+mixin searchHead(typeClass, title, searchWord, ...value)
     div(class=`searchHead${!typeClass ? '' : ' '+typeClass}`)
-        div.heading
-            h3.title #{title}
+        div.head
+            if title
+                h3.title #{title}
+            if searchWord
+                div.searchWord
+                    span.label 앱 검색결과
+                    div.searchForm
+                        input(type='text', value=searchWord)
             button.btnFilter(type='button') 필터
         div.search
             each item in value
