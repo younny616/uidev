@@ -1,10 +1,18 @@
 extends /layouts/layout
+include /components/common/mTitle
 include /components/slider
 include /components/list
 
 block append contents
-  div 상품 상세 (테마)
+  - var relativeTheme = 'relativeTheme';
+  - var relativeThemeData = require('./src/js/data/relativeTheme.js');
+  section.relativeThemeArea
+    +mTitle('typeLeft', '유사한 디자인 (7)')
+    +slider(relativeTheme, relativeThemeData, 'typeTheme', 'theme', true, true)
+
+    +mTitle('typeLeft', '패션/의류 인기디자인 (16)')
+    +slider(relativeTheme, relativeThemeData, 'typeTheme', 'theme', true, true)
 
 block append body
   script(src="//cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js")
-  script(src="/js/ui/productTheme.js")
+  script(src="/js/ui/product.js")
