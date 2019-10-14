@@ -10,6 +10,7 @@
     &.choseThemeArea,
     &.themeListArea,
     &.searchHeadArea,
+    &.categoryArea,
     &.minimalThemeArea { @include section-bar(); }
     &.makeAppArea { display:none; }
     &.combineThemeArea { background:#f2f2f2; }

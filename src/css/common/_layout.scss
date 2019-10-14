@@ -46,8 +46,9 @@
     .shotcut { display:block; padding:22px 0; border-bottom:1px solid #e8e8e8; font-size:15px; color:#000; }
     .subMenu { display:inline-block; width:100%; padding:0 24px; box-sizing:border-box; background:#fafafa;
       .menuTitle { display:block; margin:29px 0 15px; font-size:11px; color:#797980; font-weight:400; }
-      .list.half { display:flex; flex-wrap:wrap; width:100%;
-        li { width:50%; }
+      .menuInner { display:flex; }
+      .list.half { width:50%;
+        li { display:block; width:50%; white-space:nowrap; }
       }
       .list li { margin:0 0 25px; font-size:14px; color:#000; font-weight:400; }
     }
