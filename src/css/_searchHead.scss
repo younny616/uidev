@@ -1,4 +1,11 @@
 @include respond(mobile) {
+  &.gEmpty {
+    .searchHead {
+      .head {
+        .btnFilter { display:none; }
+      }
+    }
+  }
   .searchHead { padding:36px 0 40px;
     .head { display:flex; align-items:center;
       .title { @include ellipsis(); display:inline-block; margin:0 10px 0 0; font-size:36px; color:#000; }
@@ -59,7 +66,6 @@
 
 @include respond(tablet-pc) {
   .searchHead { position:relative; padding:34px 0 20px;
-    &.gEmpty { background:#f8f8fb; }
     .head {
       .title { display:block; margin:10px 0 0; font-size:48px; color:#000; }
       .btnFilter { display:none; }
@@ -69,11 +75,8 @@
           input { height:32px; font-size:30px; color:#000; font-weight:800; border:0; background:transparent; }
           &:before { content:""; position:absolute; top:5px; left:1px; display:block; width:21px; height:21px; border:2px solid #000; border-radius:50%; box-sizing:border-box; }
           &:after { content:""; position:absolute; top:21px; left:20px; display:block; width:2px; height:8px; box-sizing:border-box; background:#000; transform:rotate(-45deg); }
-
         }
-
-
-        }
+      }
     }
     .search { display:flex; margin:10px 0 0;
       .filter { position:relative; display:inline-block; margin:0 8px 0 0;  border-radius:15px; box-sizing:border-box;
