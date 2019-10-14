@@ -225,16 +225,23 @@
   /* Global */
   [class^="btn"] { transition:all .3s ease;
     &.btn {
-      &Submit { display:inline-block; height:40px; border:1px solid #0055fb; border-radius:4px; background:#0055fb; font-size:13px; color:#fff; }
-      &Normal { display:inline-block; height:40px; border:1px solid #d8d8d9; border-radius:4px; background:#fff; font-size:13px; color:#7b7b7b;
-        &:hover { background-color:#f5f5f5; color:#000; }
+      &Normal { display:inline-block; border:1px solid #d8d8d9; padding:0 16px; border-radius:4px; background:#fff; font-size:15px; color:#7b7b7b; line-height:38px;
+        &:hover { background-color:#f5f5f5; color:#959595; }
       }
-      &Strong { display:inline-block; height:40px; border:1px solid #000; border-radius:4px; background:#000; font-size:13px; color:#fff; }
+      &Em { display:inline-block; border:1px solid #eff7ff; padding:0 16px; border-radius:4px; background:#eff7ff; font-size:15px; color:#108af9; line-height:38px;
+        &:hover { border-color:#e3efff; background:#e3efff; }
+      }
+      &Submit { display:inline-block; border:1px solid #0055fb; padding:0 16px; border-radius:4px; background:#0055fb; font-size:15px; color:#fff; line-height:38px;
+        &:hover { border-color:#004ce1; background:#004ce1; }
+      }
+      &Light { display:inline-block; border:1px solid #000; padding:0 16px; border-radius:4px; background:#fff; font-size:15px; color:#000; line-height:38px;
+        &:hover { background:#f5f5f5; }
+      }
+      &Dark { display:inline-block; border:1px solid #000; padding:0 16px; border-radius:4px; background:#000; font-size:15px; color:#fff; line-height:38px; }
     }
     &.full { display:block; width:100%; }
-    &.small { width:158px; height:32px; }
-    &.medium { width:160px; }
-    &.large { width:180px; height:48px; }
+    &.small { height:32px; font-size:13px; line-height:30px; }
+    &.large { height:48px; line-height:46px; }
   }
 
   .txt {
@@ -282,7 +289,7 @@
 }
 
 @include respond(tablet-to-pc) {
-  .gInner {  }
+
 }
 
 @include respond(pc) {
@@ -290,5 +297,5 @@
 }
 
 @include respond(pc-full) {
-  .gInner {  }
+
 }
