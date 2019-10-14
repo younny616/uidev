@@ -28,6 +28,7 @@
     &.mobileThemeArea { margin-bottom:92px; background:#f5f5f5; }
     &.relativeThemeArea { padding:100px 0 0; background:#f5f5f5; }
   }
+  .searchHeadArea.gEmpty { background:#f8f8fb; }
 }
 
 @include respond(tablet) {
