@@ -4,24 +4,62 @@ include /components/slider
 include /components/list
 
 block append contents
+  style.
+    .gInner2 { width:1240px; margin:0 auto; border:1px solid red;}
+  section.detailArea
+    div.gInner2
+      div.productThumb
+        div
+          <iframe width="842" height="500" src="https://www.youtube.com/embed/iaSnd6CNCDE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      div.productInfo
+        strong 앱상품제목열다섯자줄바꿈가이드
+        div
+          span.grade 4.8
+          span.review 53개의 리뷰
+          span.wish 좋아요
+        ul
+          li
+            p
+              strong 파트너사
+              span 주식회사 크리마랩(CREAM Lab)
+              button.btnNormal.small 문의하기
+          li
+            p
+              strong 카테고리
+              span 마케팅, 상품/디스플레이
+          li
+            p
+              strong 샘플
+        div
+          strong 25,000
+            span 원
+          button.btnNormal.small 가격옵션
+          p.desc 최초 설치 시 00일간 무료 사용가능
+        div
+          button.btnNormal 샘플보기
+          button.btnSubmit 설치하기
+
+
+
+
   - var relativeApp1 = 'relativeApp1';
   - var relativeApp2 = 'relativeApp2';
   - var relativeAppData = require('./src/js/data/relativeApp.js');
   section.relativeThemeArea
-    +mTitle('typeLeft', '유사한 디자인 (7)')
+    +mTitle('typeLeft', '유사한 앱 (<span class="count">7</span>)')
     +slider(relativeApp1, relativeAppData, 'typeApp', 'app', true, true)
 
-    +mTitle('typeLeft', '<span class="txtEm">패션/의류</span> 인기디자인 (16)')
+    +mTitle('typeLeft', '함께 설치한 앱 (<span class="count">16</span>)')
     +slider(relativeApp2, relativeAppData, 'typeApp', 'app', true, true)
 
   - var relativeTheme1 = 'relativeTheme1';
   - var relativeTheme2 = 'relativeTheme2';
   - var relativeThemeData = require('./src/js/data/relativeTheme.js');
   section.relativeThemeArea
-    +mTitle('typeLeft', '유사한 디자인 (7)')
+    +mTitle('typeLeft', '유사한 디자인 (<span class="count">7</span>)')
     +slider(relativeTheme1, relativeThemeData, 'typeTheme', 'theme', true, true)
 
-    +mTitle('typeLeft', '<span class="txtEm">패션/의류</span> 인기디자인 (16)')
+    +mTitle('typeLeft', '<a href="#" class="txtEm">패션/의류</a> 인기디자인 (<span class="count">16</span>)')
     +slider(relativeTheme2, relativeThemeData, 'typeTheme', 'theme', true, true)
 
 block append body

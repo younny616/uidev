@@ -37,10 +37,12 @@ block append contents
             div.sliderContainer
                 div.sliderWrapper
                     div.slide.item.randomApp
+                        a(href="#") 자세히보기
                         +mTitle('typeRandom', '<strong>APP</strong> <span>똑똑한 쇼핑몰 분석 앱 모음</span>', '잠재고객과 구매고객의 선호도를 분석하고 싶다면 분석 앱 어떤가요?', '자세히보기')
                         +randomList(randomListData, 'app')
                         +randomList(randomBackData, 'random')
                     div.slide.item.randomTheme
+                        a(href="#") 자세히보기
                         +mTitle('typeRandom', '<strong>THEME</strong> <span>똑똑한 쇼핑몰 분석 앱 모음</span>', '나의 쇼핑몰 고객에게 인싸가 될 수 있도록 핫한 디자인을 모았습니다', '자세히보기')
                         +randomList(randomThemeData, 'theme')
                         a(href="/" class="all")

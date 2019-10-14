@@ -23,6 +23,10 @@ class Utils {
 
         targets.forEach(self => self.checked = false);
     }
+
+    _element_exist(target) {
+        return $(target).length !== 0 ? true : false;
+    }
 }
 
 export default new Utils();

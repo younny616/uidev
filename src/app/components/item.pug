@@ -9,20 +9,20 @@ mixin item(item, index, types)
         a(href="/" target="_blank")
           img(src=item[index].src alt="")
       div.inner
-        strong.title
-          a(href="/")= item[index].title
-        span.subTitle= item[index].subTitle
-        span.price= item[index].price
-        p.description= item[index].description
+        a(href="/")
+          strong.title= item[index].title
+          span.subTitle= item[index].subTitle
+          span.price= item[index].price
+          p.description= item[index].description
     when 'theme'
       div.image
         a(href="/" target="_blank")
           img(src=item[index].src alt="")
       div.inner
-        strong.title
-          a(href="/")= item[index].title
-        span.subTitle= item[index].subTitle
-        span.price= item[index].price
+        a(href="/")
+          strong.title= item[index].title
+          span.subTitle= item[index].subTitle
+          span.price= item[index].price
         button.btnSample Sample
     when 'combineImage'
       div.image

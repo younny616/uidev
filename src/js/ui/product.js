@@ -68,6 +68,8 @@
         },
     }
 
+    var relativeApp1Slider = null;
+    var relativeApp2Slider = null;
     var relativeTheme1Slider = null;
     var relativeTheme2Slider = null;
 
@@ -86,14 +88,20 @@
 
         switch (loadBoundary) {
             case 'mobile':
+                relativeApp1Slider = new Cafe24.SwiperSlider('#relativeApp1', sliderOptions.app.mobile).init();
+                relativeApp2Slider = new Cafe24.SwiperSlider('#relativeApp2', sliderOptions.app.mobile).init();
                 relativeTheme1Slider = new Cafe24.SwiperSlider('#relativeTheme1', sliderOptions.theme.mobile).init();
                 relativeTheme2Slider = new Cafe24.SwiperSlider('#relativeTheme2', sliderOptions.theme.mobile).init();
                 break;
             case 'tablet':
+                relativeApp1Slider = new Cafe24.SwiperSlider('#relativeApp1', sliderOptions.app.tablet).init();
+                relativeApp2Slider = new Cafe24.SwiperSlider('#relativeApp2', sliderOptions.app.tablet).init();
                 relativeTheme1Slider = new Cafe24.SwiperSlider('#relativeTheme1', sliderOptions.theme.tablet).init();
                 relativeTheme2Slider = new Cafe24.SwiperSlider('#relativeTheme2', sliderOptions.theme.tablet).init();
                 break;
             case 'pc':
+                relativeApp1Slider = new Cafe24.SwiperSlider('#relativeApp1', sliderOptions.app.pc).init();
+                relativeApp2Slider = new Cafe24.SwiperSlider('#relativeApp2', sliderOptions.app.pc).init();
                 relativeTheme1Slider = new Cafe24.SwiperSlider('#relativeTheme1', sliderOptions.theme.pc).init();
                 relativeTheme2Slider = new Cafe24.SwiperSlider('#relativeTheme2', sliderOptions.theme.pc).init();
                 break;
@@ -114,6 +122,11 @@
             isDestroy.mobile = true;
             isDestroy.tablet = false;
 
+            relativeApp1Slider.destroy();
+            relativeApp1Slider = new Cafe24.SwiperSlider('#relativeApp1', sliderOptions.app.mobile).init();
+            relativeApp2Slider.destroy();
+            relativeApp2Slider = new Cafe24.SwiperSlider('#relativeApp2', sliderOptions.app.mobile).init();
+
             relativeTheme1Slider.destroy();
             relativeTheme1Slider = new Cafe24.SwiperSlider('#relativeTheme1', sliderOptions.theme.mobile).init();
             relativeTheme2Slider.destroy();
@@ -123,6 +136,11 @@
             isDestroy.tablet = true;
             isDestroy.pc = false;
 
+            relativeApp1Slider.destroy();
+            relativeApp1Slider = new Cafe24.SwiperSlider('#relativeApp1', sliderOptions.app.tablet).init();
+            relativeApp2Slider.destroy();
+            relativeApp2Slider = new Cafe24.SwiperSlider('#relativeApp2', sliderOptions.app.tablet).init();
+
             relativeTheme1Slider.destroy();
             relativeTheme1Slider = new Cafe24.SwiperSlider('#relativeTheme1', sliderOptions.theme.tablet).init();
             relativeTheme2Slider.destroy();
@@ -131,6 +149,11 @@
         } else if (ww > resizeBoundary.pc && !isDestroy.pc) {
             isDestroy.tablet = false;
             isDestroy.pc = true;
+
+            relativeApp1Slider.destroy();
+            relativeApp1Slider = new Cafe24.SwiperSlider('#relativeApp1', sliderOptions.app.pc).init();
+            relativeApp2Slider.destroy();
+            relativeApp2Slider = new Cafe24.SwiperSlider('#relativeApp2', sliderOptions.app.pc).init();
 
             relativeTheme1Slider.destroy();
             relativeTheme1Slider = new Cafe24.SwiperSlider('#relativeTheme1', sliderOptions.theme.pc).init();

@@ -64,23 +64,30 @@ function goTop(){
     });
 } goTop();
 
-(function(UI) {
-    $('.fSelect.eSelect').each(function(i) {
-        var propTagName = $(this).prop('tagName');
-
-        if (propTagName == 'SELECT') {
-            var propClassName = $(this).attr('class');
-            var propClassBol = $(this).hasClass('nowrap');
-
-            $(this).selectPack({
-                settingBol: propClassBol,
-                boxClass: propClassName,
-            });
-        }
-    });
-
+(function(UI, Utils) {
     UI.onToggleClass('#footer .familysite .eClick', '#footer .familysite', 'selected');
-    UI.onAddClass('.searchHead .btnFilter', '.wFilter', 'active');
-    UI.onRemoveClass('.filterWrap .btnClose', '.wFilter', 'active');
-    UI.onResetAll('.filterWrap .btnReset', '.wFilter', 'checkbox');
-})(Cafe24.UI);
+
+    if (Utils._element_exist('.fSelect')) {
+        $('.fSelect.eSelect').each(function(i) {
+            var propTagName = $(this).prop('tagName');
+
+            if (propTagName == 'SELECT') {
+                var propClassName = $(this).attr('class');
+                var propClassBol = $(this).hasClass('nowrap');
+
+                $(this).selectPack({
+                    settingBol: propClassBol,
+                    boxClass: propClassName,
+                });
+            }
+        });
+    }
+
+    if (Utils._element_exist('.wFilter')) {
+        UI.onAddClass('.searchHead .btnFilter', '.wFilter', 'active');
+        UI.onRemoveClass('.filterWrap .btnClose', '.wFilter', 'active');
+        UI.onResetAll('.filterWrap .btnReset', '.wFilter', 'checkbox');
+        UI.onSlideToggleClass('.filterWrap > div .title', 'active');
+    }
+
+})(Cafe24.UI, Cafe24.Utils);

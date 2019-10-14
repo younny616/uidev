@@ -3,6 +3,7 @@ include /components/common/mTitle
 include /components/common/mPagination
 include /components/searchHead
 include /components/stateBar
+include /components/applist
 include /components/filter
 include /components/list
 
@@ -16,14 +17,19 @@ block append contents
             div.gridSet
                 - var filterAppData = require('./src/js/data/filterApp.js');
                 div.wFilter
-                  div.filterWrap
-                    +filter(filterAppData)
+                    div.filterWrap
+                        +filter(filterAppData)
 
                 div.wFilterResult
-                  +stateBar(false)
-                  - var searchAppData = require('./src/js/data/searchApp.js');
-                  +list(searchAppData, 'typeApp')
-                  +mPagination('typeMore', false)
-
-block append body
-    script(src="/js/ui/search.js")
+                    +stateBar(false)
+                    div.appGroup
+                        +applist('typeSearch', '앱 제목이', '마케팅', '1,000円', '최소한의 서류 작업과 신용 확인없이 긴 신청 절차를 피하십시오.', '/images/@img_app_icon.png')
+                        +applist('typeSearch', '앱 제목이 한줄일때', '마케팅', '1,000円', '최소한의 서류 작업과 신용 확인없이 긴 신청 절차를 피하십시오.', '/images/@img_app_icon.png')
+                        +applist('typeSearch', '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', '최소한의 서류 작업과 신용 확인없이 긴 신청 절차를 피하십시오.', '/images/@img_app_icon.png')
+                        +applist('typeSearch', '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', '최소한의 서류 작업과 신용 확인없이 긴 신청 절차를 피하십시오.', '/images/@img_app_icon.png')
+                        +applist('typeSearch', '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', '최소한의 서류 작업과 신용 확인없이 긴 신청 절차를 피하십시오.', '/images/@img_app_icon.png')
+                        +applist('typeSearch', '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', '최소한의 서류 작업과 신용 확인없이 긴 신청 절차를 피하십시오.', '/images/@img_app_icon.png')
+                        +applist('typeSearch', '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', '최소한의 서류 작업과 신용 확인없이 긴 신청 절차를 피하십시오.', '/images/@img_app_icon.png')
+                        +applist('typeSearch', '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', '최소한의 서류 작업과 신용 확인없이 긴 신청 절차를 피하십시오.', '/images/@img_app_icon.png')
+                        +applist('typeSearch', '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', '최소한의 서류 작업과 신용 확인없이 긴 신청 절차를 피하십시오.', '/images/@img_app_icon.png')
+                    +mPagination('typeMore', false)

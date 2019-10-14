@@ -6,12 +6,16 @@
           img { width:100%; }
           &:after { content:''; display:block; position:absolute; left:0; bottom:0; right:0; width:100%; height:1px; background:rgba(0, 0, 0, 0.03); }
         }
+        .inner { position:relative;
+          a { display:block; position:absolute; left:0; top:0; width:100%; height:100%; box-sizing:border-box; }
+        }
       }
     }
 
-    .typeApp { padding:0 0 10px;
+    .typeApp { position:relative; left:-5px; width:calc(100% + 10px); padding:0 5px 10px; box-sizing:border-box;
       .item { width:100%; margin:0 0 20px; border:1px solid #eaeaea; border-radius:4px; box-shadow:0 5px 5px 0 rgba(60, 64, 67, .05);
-        .inner { height:180px; padding:15px 15px; box-sizing:border-box; text-align:left;
+        .inner { position:relative; height:180px; text-align:left;
+          a { padding:15px 15px; }
           .title { display:block; margin:0 0 1px; font-size:16px; @include text-ellipsis(16px, 1); }
           .subTitle { display:block; margin:0 0 1px; font-size:11px; color:#758ea6; }
           .price { display:block; margin:0 0 40px; font-size:10px; }
@@ -20,13 +24,11 @@
       }
     }
 
-    .typeTheme {
-      .item { width:50%; max-width:364.5px;
-        &:nth-child(even) { padding:0 0 10px 1.25%; }
-        &:nth-child(odd) { padding:0 1.25% 10px 0; }
+    .typeTheme { position:relative; left:-10px; width:calc(100% + 20px); padding:0 20px; box-sizing:border-box;
+      .item { width:50%; max-width:364.5px; padding:0 10px 10px;
         .image { border:1px solid #eaeaea; border-radius:4px; box-shadow:0 5px 5px 0 rgba(60, 64, 67, .05); }
-
-        .inner { height:92px; padding:18px 0; box-sizing:border-box; text-align:left;
+        .inner { height:92px; text-align:left;
+          a { padding:18px 0; }
           .title { display:block; margin:0 0 3px; font-size:16px; font-weight:500; line-height:1; @include text-ellipsis(16px, 1); }
           .subTitle { display:block; font-size:11px; color:#5398f5; }
           .price { display:block; font-size:12px; color:#797980; }
@@ -35,23 +37,35 @@
       }
     }
   }
+
+  .gInner {
+    .listWrap {
+      .typeApp,
+      .typeTheme { padding:0 0 10px; }
+    }
+  }
 }
 
 @include respond(tablet-pc) {
-  .listWrap { width:100%; max-width:1404px; margin:0 auto;
-    > [class^=type] { overflow:hidden; position:relative; left:-1.25%; width:calc(100% + 2.5%); margin:0 auto; padding:0 0 60px; box-sizing:border-box;
+  .listWrap { width:100%; max-width:1444px; margin:0 auto;
+
+    > [class^=type] { overflow:hidden; position:relative; left:-17px; width:calc(100% + 34px); margin:0 auto; padding:0 20px 60px; box-sizing:border-box;
       .item { overflow:hidden; position:relative; float:left; border:1px solid #eaeaea; border-radius:4px; box-sizing:border-box; transition:all .3s ease;
         &:hover { box-shadow:0 18px 18px 0 rgba(92, 95, 101, .2); }
         .image { position:relative;
           img { width:100%; }
           &:after { content:''; display:block; position:absolute; left:0; bottom:0; right:0; width:100%; height:1px; background:rgba(0, 0, 0, 0.03); }
         }
+        .inner { position:relative;
+          a { display:block; position:absolute; left:0; top:0; width:100%; height:100%; box-sizing:border-box; }
+        }
       }
     }
 
     .typeApp {
-      .item { width:22.5%; max-width:326px; margin:0 1.25% 2.5%;
-        .inner { height:226px; padding:30px 20px; box-sizing:border-box; text-align:left;
+      .item { width:calc(25% - 34px); max-width:326px; margin:0 17px 17px;
+        .inner { height:226px; text-align:left;
+          a { padding:30px 20px; }
           .title { display:block; margin:0 0 3px; font-size:20px; font-weight:500; @include text-ellipsis(24, 2); }
           .subTitle { display:block; margin:0 0 7px; font-size:13px; color:#758ea6; }
           .price { display:block; margin:0 0 20px; font-size:14px; color:#797980; }
@@ -61,8 +75,9 @@
     }
 
     .typeTheme {
-      .item { width:22.5%; max-width:326px; margin:0 1.25% 2.5%;
-        .inner { height:136px; padding:30px 20px; box-sizing:border-box; text-align:left;
+      .item { width:calc(25% - 34px); max-width:326px; margin:0 17px 17px;
+        .inner { height:136px; text-align:left;
+          a { padding:30px 20px; }
           .title { display:block; margin:0 0 3px; font-size:20px; font-weight:500; line-height:1; }
           .subTitle { display:block; margin:0 0 21px; font-size:13px; color:#5398f5; }
           .price { display:block; font-size:14px; color:#797980; }
@@ -74,9 +89,22 @@
     }
   }
 
+  .gInner {
+    .listWrap {
+      .typeApp,
+      .typeTheme { padding:0 0 60px; }
+    }
+  }
+
   [class*="grid"] {
     .listWrap {
       > [class^=type] { max-width:1080px; }
+
+      .typeApp { left:#{'-' + percent(17, 1046)}; width:calc(100% + #{percent(34, 1046)});
+        .item { width:percent(326, 1080); max-width:326px; margin:0 percent(17, 1080) percent(17, 1080);
+          &:nth-child(3n+3) ~ .item { margin:percent(17, 1080); }
+        }
+      }
 
       .typeTheme { left:#{'-' + percent(17, 1046)}; width:calc(100% + #{percent(34, 1046)});
         .item { width:percent(326, 1080); max-width:326px; margin:0 percent(17, 1080) percent(17, 1080);
@@ -89,7 +117,7 @@
 
 @include respond(tablet) {
   .listWrap {
-    > [class^=type] { padding:0 10px 45px;
+    > [class^=type] { left:-10px; width:calc(100% + 20px); padding:0 20px 45px;
       .item { width:calc(50% - 20px); max-width:540px; margin:0 10px 20px;
         .image {
           img { width:100%; }
@@ -99,7 +127,8 @@
 
     .typeApp {
       .item {
-        .inner { height:169px; padding:22.5px 15px;
+        .inner { height:169px;
+          a { padding:22.5px 15px; }
           .title { margin:0 0 2px; font-size:15px; @include text-ellipsis(22, 1); }
           .subTitle { margin:0 0 15.75px; font-size:10px; }
           .price { font-size:10px; }
@@ -110,7 +139,8 @@
 
     .typeTheme {
       .item {
-        .inner { height:102px; padding:22.5px 15px;
+        .inner { height:102px;
+          a { padding:22.5px 15px; }
           .title { margin:0 0 2px; font-size:15px; }
           .subTitle { margin:0 0 15.75px; font-size:10px; }
           .price { font-size:10px; }
@@ -120,9 +150,22 @@
     }
   }
 
+  .gInner {
+    .listWrap {
+      .typeApp,
+      .typeTheme { padding:0 0 45px; }
+    }
+  }
+
   [class*="grid"] {
     .listWrap {
       > [class^=type] { max-width:751px; padding:0; }
+
+      .typeApp { left:#{'-' + percent(10, 731)}; width:calc(100% + #{percent(20, 731)});
+        .item { width:percent(355.5, 751); max-width:355.5px; margin:0 percent(10, 751) percent(10, 751);
+          &:nth-child(2n+2) ~ .item { margin:percent(10, 751); }
+        }
+      }
 
       .typeTheme { left:#{'-' + percent(10, 731)}; width:calc(100% + #{percent(20, 731)});
         .item { width:percent(355.5, 751); max-width:355.5px; margin:0 percent(10, 751) percent(10, 751);

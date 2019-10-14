@@ -78,6 +78,8 @@ class UI {
             return callBack(isDisplayed);
         };
 
+        checkDisplay($(target).children(), isDisplayed => isDisplayed.every((display) => display === true)) ? $(self).hide() : false;
+
         return $(document).on('click', self, () => {
             let children = $(target).children();
             let start = checkDisplay(children, isDisplayed => isDisplayed.indexOf(false));

@@ -11,7 +11,7 @@
                 loop: true,
                 speed: 1200,
                 autoplay: false,
-                allowTouchMove: false,
+                allowTouchMove: true,
             },
             tablet: {
                 loop: true,
@@ -129,5 +129,7 @@
             makeAppSlider = new Cafe24.SwiperSlider('#makeApp', sliderOptions.simple.pc).init();
         }
     });
+
+    UI.onPagination('.appListArea .btnMore', '.appGroup', 4);
 
 })(Cafe24.UI);

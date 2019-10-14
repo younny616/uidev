@@ -52,7 +52,7 @@
                 &.dash { margin:0 5px; font-size:10px; height:32px; line-height:32px; }
                 &.sigh { position:absolute; right:10px; top:6px; font-size:12px; color:#959595;  }
               }
-              .btnApply { position:absolute; right:0; top:0; font-size:12px; color:#0055fb; }
+              .btnApply { display:none; }
             }
           }
         }
@@ -90,11 +90,11 @@
                       & + label {
                         &:before {
                           @if $i == 1 { left:28px }
-                          background-position:(($i - 1) * 100%) 0;
+                          background-position:(-($i - 1) * 100%) 0;
                         }
                         &:after {
                           @if $i == 1 { left:28px }
-                          background-position:(($i - 1) * 100%) 100%;
+                          background-position:(-($i - 1) * 100%) 100%;
                         }
                       }
                     }
@@ -223,11 +223,11 @@
                       & + label {
                         &:before {
                           @if $i == 1 { left:23px }
-                          background-position:(($i - 1) * 100%) 0;
+                          background-position:(-($i - 1) * 100%) 0;
                         }
                         &:after {
                           @if $i == 1 { left:23px }
-                          background-position:(($i - 1) * 100%) 100%;
+                          background-position:(-($i - 1) * 100%) 100%;
                         }
                       }
                     }
