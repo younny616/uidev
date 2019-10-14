@@ -6,9 +6,9 @@ include /components/stateBar
 include /components/list
 
 block append contents
-  section.searchHeadArea
+  section.searchHeadArea.gEmpty
     div.gInner
-      +searchHead('typeTheme', '테마', false, '배너', '마케팅', '고객지원', '유료', '브론즈')
+      +searchHead('typeTheme', false, '가나다라마')
 
   section.emptyArea
     div.gInner

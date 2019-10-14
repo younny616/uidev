@@ -8,12 +8,16 @@ mixin searchHead(typeClass, title, searchWord, ...value)
                     span.label 앱 검색결과
                     div.searchForm
                         input(type='text', value=searchWord)
-            button.btnFilter(type='button') 필터
-        div.search
-            each item in value
-                div.filter
-                    span.value= item
-                    button.btnDelete(type='button') 삭제
-                        span.icoDelete
-            button.btnReset(type='button') 초기화
-                span.icoDelete
+            if value.length > 0
+                button.btnFilter.active(type='button') 필터
+            else
+                button.btnFilter(type='button') 필터
+        if value.length > 0
+            div.search
+                each item in value
+                    div.filter
+                        span.value= item
+                        button.btnDelete(type='button') 삭제
+                            span.icoDelete
+                button.btnReset(type='button') 초기화
+                    span.icoDelete
