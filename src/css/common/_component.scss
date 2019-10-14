@@ -7,7 +7,7 @@
 
   .mTitle { position:relative;
     &.typeSub { padding:40px 20px 10px; background:#fff;
-      .title { @include text-ellipsis(26, 1); font-size:20px; font-weight:800; }
+      .title { @include text-ellipsis(26, 2); font-size:20px; font-weight:800; }
       .desc { @include text-ellipsis(18, 2); margin:10px 0 0; font-size:13px; color:#000; }
     }
 

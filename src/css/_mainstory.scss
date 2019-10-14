@@ -7,11 +7,12 @@
       .btnAll { display:block; margin:17px 0 0; color:#0055fb; font-size:14px; font-weight:400; }
     }
     .story { margin:0 20px 0;
-      .item { display:block; max-width:600px; margin:0 auto; padding:120px 0 0; vertical-align:top; box-sizing:border-box; border-radius:3px; background-size:contain;
-        .info { padding:20px 0; box-sizing:border-box; background:#fff;
+      .item { position:relative; display:block; max-width:600px; margin:0 auto 55px; padding:120px 0 0; vertical-align:top; box-sizing:border-box; border-radius:3px; background-size:contain;
+        .info { padding:20px 0 0; box-sizing:border-box; background:#fff;
           .title { @include ellipsis(100%, block); font-size:18px; color:#000; font-weight:400; }
-          .desc { margin:10px 0 0; font-size:13px; line-height:20px; color:#959595; }
+          .desc { margin:5px 0 0; font-size:13px; line-height:20px; color:#959595; }
         }
+        .detailView { position:absolute; top:0; bottom:0; left:0; right:0; z-index:1; }
       }
       .item.simple { background-image:url('../images/bg_story_simple_m.jpg'); }
       .item.my { background-image:url('../images/bg_story_my_m.jpg'); }
@@ -46,11 +47,12 @@
       .btnAll { display:block; margin:34px 0 0; color:#0055fb; font-size:16px; font-weight:400; }
     }
     .story { display:flex; flex-wrap:wrap; justify-content:center; margin:0 30px;
-      .item { display:inline-block; max-width:455px; margin:0 18px; vertical-align:top; box-sizing:border-box; border-radius:3px; background-size:cover;
+      .item { position:relative; display:inline-block; max-width:455px; margin:0 18px; vertical-align:top; box-sizing:border-box; border-radius:3px; background-size:cover;
         .info { min-height:150px; padding:20px 23px; box-sizing:border-box; background:#fff;
           .title { @include ellipsis(100%, block); font-size:22px; color:#000; font-weight:400; }
           .desc { @include text-ellipsis(20, 2); margin:16px 0 0; font-size:14px; line-height:20px; color:#959595; }
         }
+        .detailView { position:absolute; top:0; bottom:0; left:0; right:0; z-index:1; }
       }
       .item.simple { background-image:url('../images/bg_story_simple.jpg'); }
       .item.my { background-image:url('../images/bg_story_my.jpg'); }
