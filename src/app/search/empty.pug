@@ -7,17 +7,21 @@ include /components/list
 
 block append contents
   section.searchHeadArea
-    +searchHead('typeTheme', '앱','배너', '마케팅', '고객지원', '유료', '브론즈')
+    div.gInner
+      +searchHead('typeTheme', '테마', false, '배너', '마케팅', '고객지원', '유료', '브론즈')
 
   section.emptyArea
-    +mEmpty('typeSearch')
+    div.gInner
+      +mEmpty('typeSearch')
 
   - var newAppData = require('./src/js/data/newApp.js');
   section.appListArea
     +mTitle('typeLeft gBlankTop', '새로 출시된 앱')
-    +list(newAppData, 'typeApp')
+    div.gInner
+      +list(newAppData, 'typeApp')
 
   - var minimalThemeData = require('./src/js/data/minimalTheme.js');
   section.themeListArea
     +mTitle('typeLeft', '미니멀리스트 테마모음', '미니멀리스트 디자인을 모았습니다.', '전체보기')
-    +list(minimalThemeData, 'typeTheme')
+    div.gInner
+      +list(minimalThemeData, 'typeTheme')
