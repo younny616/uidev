@@ -14,7 +14,7 @@
                 slidesPerGroup: 4,
                 speed: 1200,
                 autoplay: false,
-                allowTouchMove: false,
+                allowTouchMove: true,
                 pagination: false,
             },
             tablet: {
@@ -44,7 +44,7 @@
                 slidesPerGroup: 4,
                 speed: 1200,
                 autoplay: false,
-                allowTouchMove: false,
+                allowTouchMove: true,
             },
             tablet: {
                 loop: true,
@@ -68,7 +68,7 @@
                 loop: true,
                 speed: 1200,
                 autoplay: false,
-                allowTouchMove: false,
+                allowTouchMove: true,
                 loopedSlides: 10,
                 slidesPerView: 'auto',
             },
