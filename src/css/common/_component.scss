@@ -236,6 +236,10 @@
     &.medium { width:160px; }
     &.large { width:180px; height:48px; }
   }
+
+  .txt {
+    &Em { font-weight:800; color:#0055fb; }
+  }
 }
 
 @include respond(tablet) {

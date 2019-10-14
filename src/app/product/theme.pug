@@ -4,14 +4,25 @@ include /components/slider
 include /components/list
 
 block append contents
-  - var relativeTheme = 'relativeTheme';
+  - var relativeApp1 = 'relativeApp1';
+  - var relativeApp2 = 'relativeApp2';
+  - var relativeAppData = require('./src/js/data/relativeApp.js');
+  section.relativeThemeArea
+    +mTitle('typeLeft', '유사한 디자인 (7)')
+    +slider(relativeApp1, relativeAppData, 'typeApp', 'app', true, true)
+
+    +mTitle('typeLeft', '<span class="txtEm">패션/의류</span> 인기디자인 (16)')
+    +slider(relativeApp2, relativeAppData, 'typeApp', 'app', true, true)
+
+  - var relativeTheme1 = 'relativeTheme1';
+  - var relativeTheme2 = 'relativeTheme2';
   - var relativeThemeData = require('./src/js/data/relativeTheme.js');
   section.relativeThemeArea
     +mTitle('typeLeft', '유사한 디자인 (7)')
-    +slider(relativeTheme, relativeThemeData, 'typeTheme', 'theme', true, true)
+    +slider(relativeTheme1, relativeThemeData, 'typeTheme', 'theme', true, true)
 
-    +mTitle('typeLeft', '패션/의류 인기디자인 (16)')
-    +slider(relativeTheme, relativeThemeData, 'typeTheme', 'theme', true, true)
+    +mTitle('typeLeft', '<span class="txtEm">패션/의류</span> 인기디자인 (16)')
+    +slider(relativeTheme2, relativeThemeData, 'typeTheme', 'theme', true, true)
 
 block append body
   script(src="//cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js")
