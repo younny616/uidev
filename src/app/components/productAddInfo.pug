@@ -1,0 +1,35 @@
+mixin productAddInfo()
+    div.productAddInfo
+        div.information.condition
+            strong.title 필수요구조건
+            div.content
+                p.desc
+                    |App을 동작하기 위해 어디어디 계정이 필요합니다.
+                    |https://testapp.io를 방문하여 가입해 주세요.
+        div.information.authority
+            strong.title 사용권한
+            div.content
+                ul.desc
+                    each item in ['앱 읽기 + 쓰기권한', '상품분류 읽기 + 쓰기권한', '판매분류 읽기 + 쓰기권한', '주문 읽기 + 쓰기권한', '상품 읽기 + 쓰기권한', '상점 읽기 + 쓰기권한', '']
+                        li= item
+        div.information.language
+            strong.title 멀티쇼핑몰 지원 언어
+            div.content
+        div.information.notice
+            strong.title 상품정보고시
+            div.content
+                a(href='#none').btnNormal 상품정보고시
+        div.information.layout
+            strong.title 레이아웃
+            div.content
+        div.information.design
+            strong.title 디자인스타일
+            div.content
+                p.desc 심플/큐티
+        div.information.color
+            strong.title 대표색상
+            div.content
+        div.information.scope
+            strong.title 적용범위
+            div.content
+                p.desc 카페24 기본 도메인기준 1개

@@ -1,0 +1,7 @@
+mixin screenShot(...items)
+    div.screenShot
+        ul
+            each thumbnail in items
+                li.item
+                    a(href='#none').eLayer
+                        img(src=thumbnail, alt='')

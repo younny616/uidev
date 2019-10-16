@@ -1,6 +1,78 @@
 extends /layouts/layout
+include /components/common/mTitle
 include /components/slider
 include /components/list
+include /components/screenShot
+include /components/productMerit
+include /components/productDetail
+include /components/productAddInfo
+include /components/productPrice
+include /components/faqList
+include /components/partnerInfo
+include /components/productKeyword
+include /components/appRanking
+
+block append contents
+    // 스크린샷
+    section.screenShotArea
+        +mTitle('typeProduct', '스크린샷')
+        div.gInside
+            +screenShot('https://orangemsg.com/cafe24/app/images/cafe24_detail.png', 'https://orangemsg.com/cafe24/app/images/cafe24_detail_add.png', 'https://orangemsg.com/cafe24/app/images/cafe24_detail_add.png', 'https://orangemsg.com/cafe24/app/images/cafe24_detail_add.png', 'https://orangemsg.com/cafe24/app/images/cafe24_detail_add.png')
+
+    //상품상세정보 상단
+    section.productMeritArea
+        div.gInside
+            +productMerit()
+
+    //상품상세
+    section.productDetailArea
+        div.gInside
+            +productDetail()
+
+    //가격정보
+    section.productPriceArea
+        +mTitle('typeProduct', '가격')
+        div.gInside
+            +productPrice()
+
+    //FAQ
+    section.faqListArea
+        +mTitle('typeProduct', 'FAQ')
+        div.gInside
+            +faqList()
+
+    //상품추가정보
+    section.productAddInfoArea
+        +mTitle('typeProduct', '상품추가정보')
+        div.gInside
+            +productAddInfo()
+
+    //파트너정보
+    section.partnerInfoArea
+        +mTitle('typeProduct', '파트너정보')
+        div.gInside
+            +partnerInfo()
+
+    //연관검색어
+    section.productKeywordArea
+        +mTitle('typeProduct', '연관검색어')
+        div.gInside
+            +productKeyword()
+
+
+    - var relativeApp1 = 'relativeApp1';
+    - var relativeApp2 = 'relativeApp2';
+    - var relativeAppData = require('./src/js/data/relativeApp.js');
+    section.relativeThemeArea
+        +mTitle('typeLeft', '유사한 앱 (<span class="count">7</span>)')
+        +slider(relativeApp1, relativeAppData, 'typeApp', 'app', true, true)
+
+        +mTitle('typeLeft', '함께 설치한 앱 (<span class="count">16</span>)')
+        +slider(relativeApp2, relativeAppData, 'typeApp', 'app', true, true)
+
+    section.appRankingArea
+        div.gInside
+            +appRanking()
 
 block append body
   script(src="//cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js")

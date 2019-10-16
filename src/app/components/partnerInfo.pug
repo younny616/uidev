@@ -1,0 +1,31 @@
+mixin partnerInfo()
+    div.partnerInfo
+        div.company
+            div.thumbnail
+                img(src='', alt='')
+            div.information
+                strong.name 파트너사 회사명
+                    // platinum, gold, silver, bronze
+                    span.grade.platinum 플래티넘
+                span.site www.partnerone.co.kr
+                div.detailView 상세정보 보기
+                    button(type='button').btnView 열기
+                    div.tooltip
+                        div.content
+                            dl
+                                dt 사업자유형
+                                dd 법인사업자
+                        button(type='button').btnClose
+        - var detailTitle1 = ['파트너등급', '전문분야']
+        - var detailTitle2 = ['문의메일', '문의전화', '문의시간']
+        - var detailDesc1 = ['플래티넘', '쇼핑몰구축/유지보수', '앱/채널개발']
+        - var detailDesc2 = ['help@partnerone.co.kr', '02-123-4567', '평일 10시~18시 (점심시간12시~1시)']
+        div.detail
+            dl
+                - for (var a = 0; a < 2; a++)
+                    dt= detailTitle1[a]
+                    dd= detailDesc1[a]
+            dl
+                - for (var b = 0; b < 3; b++)
+                    dt= detailTitle2[b]
+                    dd= detailDesc2[b]

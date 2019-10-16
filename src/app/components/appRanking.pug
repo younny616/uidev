@@ -1,0 +1,14 @@
+mixin appRanking()
+    include /components/applist
+    div.appRanking
+        div.heading
+            h3.title 설치율 급상승 앱
+            p.desc 마지막 업데이트 10월 7일 14:58
+        ol.ranking
+            - for (var x = 0; x < 5; x++)
+                li
+                    +applist('typeRank', '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', false, false, '/images/@img_app_icon.png', '3.0')
+        ol.ranking
+            - for (var x = 0; x < 5; x++)
+                li
+                    +applist('typeRank', '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', false, false, '/images/@img_app_icon.png', '3.0')

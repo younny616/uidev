@@ -1,0 +1,24 @@
+@include respond(mobile) {
+
+}
+
+@include respond(mobile-tablet) {
+
+}
+
+@include respond(tablet) {
+
+
+}
+
+@include respond(tablet-pc) {
+  .productDetail {
+    .thumbnail { text-align:center;
+      img { max-width:100%; }
+    }
+  }
+}
+
+@include respond(pc) {
+
+}

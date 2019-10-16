@@ -1,0 +1,32 @@
+@include respond(mobile) {
+  .productKeyword {
+    .keyword { display:flex; flex-wrap:wrap;
+      .btnKeyword { display:inline-block; height:40px; line-height:38px; margin:0 0 10px; padding:0 20px; font-size:14px; color:#5b5b5b; border:1px solid #e8e8e8; border-radius:3px; box-sizing:border-box;
+        &:not(:last-child) { margin-right:10px; }
+      }
+    }
+  }
+}
+
+@include respond(mobile-tablet) {
+
+}
+
+@include respond(tablet) {
+
+
+}
+
+@include respond(tablet-pc) {
+  .productKeyword {
+    .keyword { display:flex; flex-wrap:wrap;
+      .btnKeyword { display:inline-block; height:40px; line-height:38px; margin:0 0 12px; padding:0 18px; border:1px solid #e8e8e8; border-radius:3px; box-sizing:border-box;
+        &:not(:last-child) { margin-right:12px; }
+      }
+    }
+  }
+}
+
+@include respond(pc) {
+
+}

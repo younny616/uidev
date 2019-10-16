@@ -37,6 +37,11 @@
       }
     }
 
+    &.typeProduct { margin:35px 0 25px;
+      .title { font-size:20px; }
+
+    }
+
     .title { color:#000; }
     .desc { font-size:16px; color:#959595; }
     .btnAll { font-size:16px; color:#0055fb;
@@ -156,6 +161,10 @@
       .btnAll { position:relative; }
     }
 
+    &.typeProduct { max-width:1240px; margin:0 auto 20px; padding:0;
+      .title { font-size:32px; font-weight:800; }
+
+    }
     .title { color:#000; }
     .desc { font-size:16px; color:#959595; }
     .btnAll { font-size:16px; color:#0055fb;
