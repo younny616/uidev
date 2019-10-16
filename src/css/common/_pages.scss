@@ -11,7 +11,9 @@
     &.themeListArea,
     &.searchHeadArea,
     &.categoryArea,
-    &.minimalThemeArea { @include section-bar(); }
+    &.minimalThemeArea,
+    &.detailArea { @include section-bar(); }
+    &.detailArea { padding:30px 0 0; }
     &.makeAppArea { display:none; }
     &.combineThemeArea { background:#f2f2f2; }
     &.mobileThemeArea { padding:0; background:#f2f2f2; }

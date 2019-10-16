@@ -1,0 +1,38 @@
+mixin productInfoThumbs(types, kind)
+  div.infoThumb
+    case types
+      when 'app'
+        div.app
+          div.frame
+            iframe(width="640" height="360" src="https://www.youtube.com/embed/iaSnd6CNCDE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+      when 'theme'
+        div.theme
+          case kind
+            when 'pc'
+              div.pc
+                div.frame
+                div.image
+                  img(src="/images/@img_1280_1600.jpg", alt="")
+                div.btnWrap
+                  button.btnStrong 샘플보기
+            when 'mobile'
+              div.mobile
+                div.image
+                  img(src="/images/@img_720_1280.jpg", alt="")
+                div.image
+                  img(src="/images/@img_720_1280.jpg", alt="")
+                div.btnWrap
+                  button.btnStrong 샘플보기
+            when 'combine'
+              div.combine
+                div.pc
+                  div.frame
+                  div.image
+                    img(src="/images/@img_1280_1600.jpg", alt="")
+                  div.btnWrap
+                    button.btnStrong 샘플보기
+                div.mobile
+                  div.image
+                    img(src="/images/@img_720_1280.jpg", alt="")
+                  div.btnWrap
+                    button.btnStrong 샘플보기

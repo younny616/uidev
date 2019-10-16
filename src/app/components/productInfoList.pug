@@ -1,0 +1,37 @@
+mixin productInfoList(types)
+  div.infoList
+    case types
+      when 'app'
+        ul
+          li.partner
+            strong 파트너사
+            p
+              span 주식회사 크리마랩(CREAM Lab)
+            button.btnNormal.small 문의하기
+          li
+            strong 카테고리
+            p
+              span 마케팅, 상품/디스플레이
+      when 'theme'
+        ul
+          li.partner
+            strong 파트너사
+            p
+              span 원디자인
+            button.btnNormal.small 문의하기
+          li
+            strong 카테고리
+            p
+              span 패션/의류
+          li
+            strong 상품코드
+            p
+              span PTH123456
+          li
+            strong 상품구분
+            p
+              span PC+Mobile
+          li
+            strong 제작언어
+            p
+              span 영어, 대만체(번체), 스페인어

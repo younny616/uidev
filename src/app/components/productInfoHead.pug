@@ -1,0 +1,14 @@
+mixin productInfoHead(title)
+  div.infoHead
+    strong.title= title
+    div.infoEtc
+      span.grade
+        svg.icoGrade
+          use(xlink:href="/images/svg_sprite.svg#grade")
+        a(href="#").average 4.8
+      span.review
+        a(href="#")
+          span.count 53
+          | 개의 리뷰
+      // 좋아요 버튼 클릭 active 클래스 추가
+      button(type="button").btnLike 좋아요

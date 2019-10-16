@@ -1,73 +1,37 @@
 extends /layouts/layout
 include /components/common/mTitle
+include /components/productInfoHead
+include /components/productInfoThumbs
+include /components/productInfoList
+include /components/productInfoFixed
 include /components/slider
 include /components/list
 
 block append contents
-  style.
-    .gInside { overflow:hidden; width:1240px; margin:0 auto; border:1px solid red; }
-    .detailArea { display:none; padding:60px 0 0; }
-
   section.detailArea
-    div.gInside
-      div.gridSet
-        div.productThumb
-          div.app
-            div.frame
-              iframe(width="640" height="360" src="https://www.youtube.com/embed/iaSnd6CNCDE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
-          div.image
-            div.theme
-              div.pc
-                div.frame
-                div.image
-                  img(src="/images/@img_pc_thumb.jpg", alt="680/548")
-              div.mobile
-                div.imgea
-                  img(src="/images/@img_mobile_thumb1.jpg", alt="248/440")
-                  img(src="/images/@img_mobile_thumb2.jpg", alt="248/440")
-              div.combine
-                div.pc
-                  div.frame
-                  div.image
-                    img(src="/images/@img_pc_thumb.jpg", alt="680/548")
+    //- div.gInner
+    //-   +productInfoHead('앱상품제목열다섯줄바꿈가이드')
+    //-   +productInfoThumbs('app', 'pc')
+    //-   +productInfoList('app')
+    //-   +productInfoFixed('app', '앱상품제목열다섯자줄바꿈없이노출가이드')
 
-        div.productInfo
-          strong.title 앱상품제목열다섯자줄바꿈가이드
-          div.infoEtc
-            span.grade 4.8
-            span.review 53개의 리뷰
-            span.wish 좋아요
-          ul.infoList
-            li
-              p
-                strong 파트너사
-                span 주식회사 크리마랩(CREAM Lab)
-                button.btnNormal.small 문의하기
-            li
-              p
-                strong 카테고리
-                span 마케팅, 상품/디스플레이
-            li
-              p
-                strong 샘플
-          div.infoPrice
-            strong 25,000
-              span 원
-            span  (세금포함) ~
-            button.btnNormal.small 가격옵션
-            p.desc.typeApp 최초 설치 시 00일간 무료 사용가능
-            p.desc.typeTheme
-              | 이 상품은
-              span PC와 Mobile 테마를 모두 제공
-              | 하는 세트형 테마입니다.
-            strong 무료
-            span  (인앱결제)
-          div.btnWrap
-            button.btnNormal.large 샘플보기
-            button.btnSubmit.large 설치하기
+    div.gInner
+      +productInfoHead('테마상품제목열다섯줄바꿈가이드')
+      +productInfoThumbs('theme', 'pc')
+      +productInfoList('theme')
+      +productInfoFixed('theme', '테마상품제목열다섯자줄바꿈없이노출가이드')
 
+    //- div.gInner
+    //-   +productInfoHead('테마상품제목열다섯줄바꿈가이드')
+    //-   +productInfoThumbs('theme', 'mobile')
+    //-   +productInfoList('theme')
+    //-   +productInfoFixed('theme', '테마상품제목열다섯자줄바꿈없이노출가이드')
 
-
+    //- div.gInner
+    //-   +productInfoHead('테마상품제목열다섯줄바꿈가이드')
+    //-   +productInfoThumbs('theme', 'combine')
+    //-   +productInfoList('theme')
+    //-   +productInfoFixed('theme', '테마상품제목열다섯자줄바꿈없이노출가이드')
 
   - var relativeApp1 = 'relativeApp1';
   - var relativeApp2 = 'relativeApp2';
