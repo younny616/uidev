@@ -12,8 +12,9 @@
 }
 
 @include respond(tablet-pc) {
-  .appRanking { position:relative; max-width:1240px; margin:0 auto; display:flex;
-    .heading { width:360px;
+  .appRanking { max-width:1240px; margin:0 auto; display:flex;
+    .heading { position:relative; width:360px;
+      &:before { content:""; position:absolute; top:114px; left:0; display:block; width:80px; height:92px; background:url('../images/bg_product_ranking.gif'); }
       .title { font-size:28px; color:#000; }
       .desc { margin:8px 0 0; font-size:13px; color:#797980; }
     }
@@ -21,9 +22,6 @@
     .ranking + .ranking { margin:0 0 0 50px; }
 
     ol { counter-reset:ordered; }
-    li {  }
-
-
 
   }
 }
