@@ -12,18 +12,15 @@
     &.searchHeadArea,
     &.categoryArea,
     &.minimalThemeArea,
-<<<<<<< HEAD
     &.detailProductArea,
-    &.detailReviewArea { @include section-bar(); }
+    &.detailReviewArea,
+    &.screenShotArea,
+    &.partnerInfoArea,
+    &.productAddInfoArea,
+    &.faqListArea { @include section-bar(); }
     &.detailProductArea { padding:30px 0 0; }
     &.detailReviewArea { padding:40px 0 0; }
-=======
-    &.screenShotArea,
-    &.productPriceArea,
-    &.productAddInfoArea,
-    &.partnerInfoArea,
     &.faqListArea { @include section-bar(); }
->>>>>>> 5357ca98e8ce6a3cc345e50dde30c21bab53dc24
     &.makeAppArea { display:none; }
     &.combineThemeArea { background:#f2f2f2; }
     &.mobileThemeArea { padding:0; background:#f2f2f2; }
