@@ -12,8 +12,10 @@
     &.searchHeadArea,
     &.categoryArea,
     &.minimalThemeArea,
-    &.detailArea { @include section-bar(); }
-    &.detailArea { padding:30px 0 0; }
+    &.detailProductArea,
+    &.detailReviewArea { @include section-bar(); }
+    &.detailProductArea { padding:30px 0 0; }
+    &.detailReviewArea { padding:40px 0 0; }
     &.makeAppArea { display:none; }
     &.combineThemeArea { background:#f2f2f2; }
     &.mobileThemeArea { padding:0; background:#f2f2f2; }

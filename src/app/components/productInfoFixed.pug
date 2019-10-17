@@ -1,25 +1,32 @@
 mixin productInfoFixed(types, title)
   div.infoFixed
-    strong.title= title
-    strong.price 25,000원
-      span.desc (세금포함) ~
-    case types
-      when 'app'
-          p.desc.typeApp
-            | 최초 설치 시
-            span.count 00
-            | 일간 무료 사용가능
-            button(type="button").btnNormal.small 가격옵션
+    div.inner
+      case types
+        when 'app'
+          div.head
+            div.image
+              img(src="/images/@img_app_icon.png" alt="")
+            strong.title= title
+          div.content
+            strong.price 25,000원
+              span.desc (세금포함) ~
+            p.desc.typeApp
+              | 최초 설치 시
+              span.count 00
+              | 일간 무료 사용가능
           div.btnWrap
             button(type="button").btnLike 좋아요
-            button(type="button").btnEm.large 샘플보기
             button(type="submit").btnSubmit.large 설치하기
-      when 'theme'
-          p.desc.typeTheme
-            | 이 상품은
-            span.txtWarn PC와 Mobile 테마를 모두 제공
-            | 하는 세트형 테마입니다.
+        when 'theme'
+          div.head
+            strong.title= title
+          div.content
+            strong.price 25,000원
+              span.desc (세금포함) ~
+            p.desc.typeTheme
+              | 이 상품은
+              span.txtWarn PC와 Mobile 테마를 모두 제공
+              | 하는 세트형 테마입니다.
           div.btnWrap
             button(type="button").btnLike 좋아요
-            button(type="button").btnEm.large 샘플보기
             button(type="submit").btnSubmit.large 구매하기

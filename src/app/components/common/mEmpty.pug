@@ -1,6 +1,8 @@
 mixin mEmpty(types)
   div(class=`mEmpty ${types}`)
     case types
+      when 'typeReview'
+        p.desc 작성된 리뷰가 없습니다.
       when 'typeCategory'
         p.desc 정확히 일치하는 상품이 없습니다. <br class="RW RMB"> 검색 조건을 다시 설정해 주세요
       when 'typeSearch'
