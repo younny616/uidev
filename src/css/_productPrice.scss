@@ -1,0 +1,37 @@
+@include respond(mobile) {
+  .productPrice {
+    .priceList {  }
+    .item { padding:25px 0;
+      &:not(:last-child) { border-bottom:1px solid #e8e8e8; }
+      .option { @include text-ellipsis(20, 1); font-size:12px; color:#0055fb; }
+      .price { display:inline-block; margin:3px 5px 0 0; font-size:16px; color:#333; font-weight:400; }
+      .desc { font-size:13px; color:#333; }
+    }
+  }
+
+  .gInside { padding:0 20px; }
+}
+
+@include respond(mobile-tablet) {
+
+}
+
+@include respond(tablet) {
+
+
+}
+
+@include respond(tablet-pc) {
+  .productPrice {
+    .priceList { display:flex; flex-wrap:wrap; margin:0 -10px; }
+    .item { width:calc(100%/3 - 20px); margin:0 10px 20px; padding:38px 29px; border:1px solid #e8e8e8; border-radius:3px; box-sizing:border-box;
+      .option { @include text-ellipsis(20, 1); font-size:14px; color:#0055fb; font-weight:800; }
+      .price { display:inline-block; margin:10px 5px 0 0; font-size:28px; color:#333; font-weight:400; }
+      .desc { font-size:16px; color:#333; }
+    }
+  }
+}
+
+@include respond(pc) {
+
+}

@@ -12,10 +12,18 @@
     &.searchHeadArea,
     &.categoryArea,
     &.minimalThemeArea,
+<<<<<<< HEAD
     &.detailProductArea,
     &.detailReviewArea { @include section-bar(); }
     &.detailProductArea { padding:30px 0 0; }
     &.detailReviewArea { padding:40px 0 0; }
+=======
+    &.screenShotArea,
+    &.productPriceArea,
+    &.productAddInfoArea,
+    &.partnerInfoArea,
+    &.faqListArea { @include section-bar(); }
+>>>>>>> 5357ca98e8ce6a3cc345e50dde30c21bab53dc24
     &.makeAppArea { display:none; }
     &.combineThemeArea { background:#f2f2f2; }
     &.mobileThemeArea { padding:0; background:#f2f2f2; }
@@ -31,6 +39,20 @@
     &.combineThemeArea { margin-bottom:92px; padding:0 20px; background:#f2f2f2; }
     &.mobileThemeArea { margin-bottom:92px; background:#f5f5f5; }
     &.relativeThemeArea { padding:100px 0 0; background:#f5f5f5; }
+    /* 상품상세 */
+    &.screenShotArea { padding:110px 0 40px; }
+    &.productMeritArea {
+      &:before { content:""; display:block; max-width:1240px; margin:80px auto; border-top:1px solid #e8e8e8; }
+    }
+    &.productPriceArea { padding:90px 0; }
+    &.productAddInfoArea { padding:80px 0; }
+    &.partnerInfoArea {
+      &:before { content:""; display:block; max-width:1240px; margin:80px auto; border-top:1px solid #e8e8e8; }
+    }
+    &.appRankingArea { padding:118px 0; }
+    &.productKeywordArea { padding:0 0 80px;
+      &:before { content:""; display:block; max-width:1240px; margin:80px auto; border-top:1px solid #e8e8e8; }
+    }
   }
   .searchHeadArea.gEmpty { background:#f8f8fb; }
 }

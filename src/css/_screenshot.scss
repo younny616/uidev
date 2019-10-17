@@ -1,0 +1,41 @@
+@include respond(mobile) {
+  .screenShot {
+    ul { display:flex; flex-wrap:wrap;
+      .item { overflow:hidden; width:(100%/2); height:84px; border-radius:4px; box-sizing:border-box; border:1px solid #ddd;
+        a { display:block; }
+        img { max-width:100%; }
+        &:not(:last-child) { margin-right:8px; }
+      }
+    }
+  }
+}
+
+@include respond(mobile-tablet) {
+
+}
+
+@include respond(tablet) {
+
+
+}
+
+@include respond(tablet-pc) {
+  .screenShot {
+    ul { display:flex; flex-wrap:wrap;
+      .item { overflow:hidden; width:240px; height:134px; margin:0 0 8px; border-radius:4px; box-sizing:border-box; border:1px solid #ddd;
+        a { display:block; }
+        img { max-width:100%; }
+        &:not(:last-child) { margin-right:8px; }
+      }
+    }
+  }
+
+
+
+
+  .gInside { margin:0 auto; max-width:1240px; }
+}
+
+@include respond(pc) {
+
+}

@@ -1,0 +1,46 @@
+@include respond(mobile) {
+  .productMerit { padding:45px 0 0;
+    .heading { margin:0 auto 35px;
+      .title { font-size:20px; line-height:26px; color:#000; }
+      .desc { margin:11px 0 0; font-size:16px; color:#7b7b7b; }
+    }
+    .merit { margin:0 -20px;
+      li { display:flex; align-items:center; padding:30px 20px;
+        &:nth-child(odd) { background:#f6f7f9; }
+        .number { display:inline-block; width:40px; font-size:18px; color:#c5c6ca; font-weight:800; vertical-align:middle; }
+        .desc { flex:1; display:inline-block; font-size:14px; color:#333; vertical-align:middle; }
+      }
+    }
+
+  }
+}
+
+@include respond(mobile-tablet) {
+
+}
+
+@include respond(tablet) {
+
+
+}
+
+@include respond(tablet-pc) {
+  .productMerit {
+    .heading { max-width:1000px; margin:0 auto 80px; text-align:center;
+      .title { font-size:32px; line-height:46px; color:#000; }
+      .desc { margin:25px 0 0; font-size:22px; color:#7b7b7b; }
+    }
+    .merit {
+      li { padding:40px 0 40px 78px;
+        &:nth-child(odd) { background:#f6f7f9; }
+        .number { font-size:28px; color:#c5c6ca; font-weight:800; vertical-align:middle; }
+        .desc { display:inline-block; margin:0 0 0 65px; font-size:18px; color:#333; vertical-align:middle; }
+      }
+    }
+
+  }
+}
+
+@include respond(pc) {
+
+}

@@ -1,4 +1,4 @@
-mixin applist(typeClass, title, category, price, desc, img)
+mixin applist(typeClass, title, category, price, desc, img, grade)
     div(class=`appList${!typeClass ? '' : ' '+typeClass}`)
         a.item(href='#none')
             div.thumbnail
@@ -9,5 +9,7 @@ mixin applist(typeClass, title, category, price, desc, img)
                     span.category #{category}
                 if price
                     strong.price #{price}
+                if grade
+                    div.grade #{grade}
             if desc
                 p.infoDesc #{desc}

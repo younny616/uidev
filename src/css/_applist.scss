@@ -33,6 +33,11 @@
       .infoDesc { @include text-ellipsis(21, 3); width:auto; margin:16px 0 0; padding:0 0 0 96px; }
     }
 
+    &.typeRank { position:relative; width:auto; padding:0;
+      &:before { counter-increment:ordered; content:counters(ordered, ".") " "; position:absolute; top:9px; left:97px; }
+      .infomation { padding:9px 0 0 122px; }
+    }
+
     .thumbnail { float:left; width:80px; height:80px;
       img { max-width:100%; }
     }

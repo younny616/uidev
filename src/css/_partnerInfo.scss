@@ -1,0 +1,61 @@
+@include respond(mobile) {
+  .partnerInfo { position:relative; padding:0 0 80px;
+    .company {  padding:0 20px 0 0; box-sizing:border-box;
+      &:after { content:""; display:block; clear:both; }
+      .thumbnail { float:left; overflow:hidden; width:50px; height:50px; margin:0 22px 0 0; background:#ddd; }
+      .information { padding:0 0 0 62px;
+        .name { display:block; font-size:22px; font-weight:400; line-height:1;
+          .grade { @include blind(); display:inline-block; width:22px; height:24px; vertical-align:middle; background:#ddd; }
+        }
+        .site { font-size:12px; color:#959595; }
+        .detailView { position:absolute; left:0; bottom:40px; margin:24px 0 0;
+          .tooltip { position:absolute; top:0; }
+        }
+      }
+    }
+    .detail { margin:35px 0 0;
+      dl { display:flex; flex-wrap:wrap; justify-content:space-between; box-sizing:border-box;
+        dt { margin:0 0 10px; font-size:14px; color:#333; font-weight:500; }
+        dd { margin:0 0 10px; font-size:14px; color:#333; width:calc(100% - 83px); }
+      }
+    }
+  }
+
+}
+
+@include respond(mobile-tablet) {
+
+}
+
+@include respond(tablet) {
+
+
+}
+
+@include respond(tablet-pc) {
+  .partnerInfo { position:relative; display:flex;
+    .company { width:(100%/3); padding:0 20px 0 0; box-sizing:border-box;
+      &:after { content:""; display:block; clear:both; }
+      .thumbnail { float:left; width:100px; height:100px; margin:0 22px 0 0; background:#ddd; }
+      .information { padding:0 0 0 124px;
+        .name { display:block; font-size:28px; font-weight:400; line-height:1;
+          .grade { @include blind(); display:inline-block; width:22px; height:24px; vertical-align:middle; background:#ddd; }
+        }
+        .site { font-size:14px; color:#959595; }
+        .detailView { position:relative; margin:24px 0 0;
+          .tooltip { position:absolute; }
+        }
+      }
+    }
+    .detail { display:flex; align-items:baseline; flex:1;
+      dl { display:flex; flex-wrap:wrap; justify-content:space-between; max-width:400px; width:(100%/2); padding:0 20px 0 0; box-sizing:border-box;
+        dt { margin:0 0 12px; font-size:16px; color:#333; font-weight:500; }
+        dd { margin:0 0 12px; font-size:16px; color:#333; width:calc(100% - 94px); }
+      }
+    }
+  }
+}
+
+@include respond(pc) {
+
+}
