@@ -1,10 +1,10 @@
 @include respond(mobile) {
   .screenShot {
-    ul { display:flex; flex-wrap:wrap;
-      .item { overflow:hidden; width:(100%/2); height:84px; border-radius:4px; box-sizing:border-box; border:1px solid #ddd;
+    ul { display:flex; flex-wrap:wrap; margin:0 -10px;
+      .item { overflow:hidden; width:calc(100%/2 - 20px); height:84px; margin:0 10px 20px; border-radius:4px; box-sizing:border-box; border:1px solid #ddd;
         a { display:block; }
         img { max-width:100%; }
-        &:not(:last-child) { margin-right:8px; }
+        &:not(:last-child) {  }
       }
     }
   }
@@ -22,7 +22,7 @@
 @include respond(tablet-pc) {
   .screenShot {
     ul { display:flex; flex-wrap:wrap;
-      .item { overflow:hidden; width:240px; height:134px; margin:0 0 8px; border-radius:4px; box-sizing:border-box; border:1px solid #ddd;
+      .item { overflow:hidden; width:calc(100%/5 - 8px); height:134px; margin:0 0 8px; border-radius:4px; box-sizing:border-box; border:1px solid #ddd;
         a { display:block; }
         img { max-width:100%; }
         &:not(:last-child) { margin-right:8px; }

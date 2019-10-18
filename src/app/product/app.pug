@@ -53,7 +53,7 @@ block append contents
     section.productAddInfoArea
         +mTitle('typeProduct', '상품추가정보')
         div.gInside
-            +productAddInfo()
+            +productAddInfo('theme')
 
     //파트너정보
     section.partnerInfoArea
@@ -67,10 +67,6 @@ block append contents
         div.gInside
             +productKeyword()
 
-    section.appRankingArea
-        div.gInside
-            +appRanking()
-
     // 관련 앱
     - var relativeApp1 = 'relativeApp1';
     - var relativeApp2 = 'relativeApp2';
@@ -81,6 +77,10 @@ block append contents
 
       +mTitle('typeLeft', '함께 설치한 앱 (<span class="count">16</span>)')
       +slider(relativeApp2, relativeAppData, 'typeApp', 'app', true, true)
+
+    section.appRankingArea
+        div.gInside
+            +appRanking()
 
 block append body
   script(src="//cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js")
