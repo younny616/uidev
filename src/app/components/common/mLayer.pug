@@ -1,0 +1,11 @@
+include /components/common/mTitle
+
+mixin mLayer(types, title, desc)
+  div.mLayer
+    div.head
+      +mTitle('typeLayer', title)
+      if desc
+        p.desc= desc
+
+    div.content
+    button(type="button").btnClose 닫기

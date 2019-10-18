@@ -70,13 +70,14 @@ class UI {
 
     /**
      * @param {string} self : event selector
+     * @param {string} trigger : event selector
      * @param {string} className : toggle class name
      */
 
-    onSlideAccordion(self, target, className) { // eAccordion
+    onSlideAccordion(self, trigger, className) { // eAccordion
         let waitForTransition = false;
-        return $(document).on('click', `${self} ${target}`, (e) => {
-            const $target = $(e.currentTarget);
+        return $(document).on('click', `${self} ${trigger}`, (e) => {
+            const $target = $(e.currentTarget).parent();
 
             if (!waitForTransition) {
                 $target.toggleClass(className);
@@ -88,11 +89,14 @@ class UI {
                     const $self = $(self);
 
                     if ($self.hasClass(className)) {
+                        const $trigger = $self.find(trigger).parent();
+
                         waitForTransition = !waitForTransition;
-                        $self.find(target).toggleClass(className);
-                        $self.find(target).siblings().slideToggle(() => {
+
+                        $trigger.toggleClass(className);
+                        $trigger.siblings().slideToggle(() => {
                             waitForTransition = !waitForTransition;
-                            $self.find(target).parent().toggleClass(className);
+                            $trigger.parent().toggleClass(className);
                         });
                     }
                 });

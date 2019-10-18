@@ -94,6 +94,7 @@ function goTop(){
         UI.onScrollDown('.eScrollDown', 65);
     }
 
-    UI.onSlideAccordion('.eAccordion', '.trigger', 'active');
+    // UI.onAddClass('.searchHead .btnFilter', '.mLayer', 'active');
+    // UI.onRemoveClass('.mLayer .btnClose', '.mLayer', 'active');
 
 })(Cafe24.UI, Cafe24.Utils);
