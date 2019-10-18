@@ -10,7 +10,6 @@
     };
 
     var calcOffset = function(wrap, gap) {
-
         return (wrap.find('.infoPrice').offset().top + parseInt(wrap.find('.infoPrice').outerHeight(), 10)) - parseInt(gap.outerHeight(), 10);
     };
 

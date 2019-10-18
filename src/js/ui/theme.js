@@ -1,10 +1,20 @@
 (function(UI) {
+    var calcBoundary = function() {
+        var ww = $(window).width();
+
+        if (ww < 769) {
+            return 'mobile';
+        } else if (ww < 1080 && ww > 770) {
+            return 'tablet';
+        } else {
+            return 'pc';
+        }
+    };
     var isDestroy = {
         pc: false,
         tablet: false,
         mobile: false
     };
-
     var sliderOptions = {
         theme: {
             pc: {
@@ -39,20 +49,30 @@
         zigzag: {
             pc: {
                 loop: true,
-                loopedSlides: 4,
-                loopAdditionalSlides: 4,
-                slidesPerGroup: 4,
                 speed: 1200,
-                autoplay: false,
                 allowTouchMove: true,
+                slidesPerView: 'auto',
+                pagination:false,
+                on: {
+                    init: function(_this, e) {
+                        var _this = this;
+
+                        $(this.el).on('mouseenter', function() {
+                            _this.autoplay.stop();
+                        })
+                        .on('mouseleave', function() {
+                            _this.autoplay.start();
+                        });
+                    }
+                }
             },
             tablet: {
                 loop: true,
                 speed: 1200,
-                autoplay: false,
                 allowTouchMove: true,
                 slidesPerView: 'auto',
                 navigation: false,
+                pagination: false,
             },
             mobile: {
                 loop: false,
@@ -61,6 +81,7 @@
                 allowTouchMove: true,
                 slidesPerView: 'auto',
                 navigation: false,
+                pagination: false,
             },
         },
         combine: {
@@ -107,61 +128,44 @@
             },
         }
     };
-
     var bestThemeSlider = null;
     var newThemeSlider = null;
     var mobileThemeSlider = null;
     var combineThemeSlider = null;
     var combineThumbsSlider = null;
 
-    (function() {
-        var loadBoundary = (function() {
-            var ww = $(window).width();
-
-            if (ww < 769) {
-                return 'mobile';
-            } else if (ww < 1080 && ww > 770) {
-                return 'tablet';
-            } else {
-                return 'pc';
-            }
-        })();
-
-        switch (loadBoundary) {
-            case 'mobile':
-                newThemeSlider = new Cafe24.SwiperSlider('#newTheme', sliderOptions.theme.mobile).init();
-                mobileThemeSlider = new Cafe24.SwiperSlider('#mobileTheme', sliderOptions.zigzag.mobile).init();
-                combineThemeSlider = new Cafe24.SwiperSlider('#combineTheme', sliderOptions.combine.mobile).init();
-                break;
-            case 'tablet':
-                bestThemeSlider = new Cafe24.SwiperSlider('#bestTheme', sliderOptions.theme.tablet).init();
-                newThemeSlider = new Cafe24.SwiperSlider('#newTheme', sliderOptions.theme.tablet).init();
-                mobileThemeSlider = new Cafe24.SwiperSlider('#mobileTheme', sliderOptions.zigzag.tablet).init();
-                combineThemeSlider = new Cafe24.SwiperSlider('#combineTheme', sliderOptions.combine.tablet).init();
-                combineThumbsSlider = new Cafe24.SwiperSlider('#combineThumbs', sliderOptions.combine.thumbs).init();
-                combineThemeSlider.controller.control = combineThumbsSlider;
-                combineThumbsSlider.controller.control = combineThemeSlider;
-                break;
-            case 'pc':
-                bestThemeSlider = new Cafe24.SwiperSlider('#bestTheme', sliderOptions.theme.pc).init();
-                newThemeSlider = new Cafe24.SwiperSlider('#newTheme', sliderOptions.theme.pc).init();
-                mobileThemeSlider = new Cafe24.SwiperSlider('#mobileTheme', sliderOptions.zigzag.pc).init();
-                combineThemeSlider = new Cafe24.SwiperSlider('#combineTheme', sliderOptions.combine.pc).init();
-                combineThumbsSlider = new Cafe24.SwiperSlider('#combineThumbs', sliderOptions.combine.thumbs).init();
-                combineThemeSlider.controller.control = combineThumbsSlider;
-                combineThumbsSlider.controller.control = combineThemeSlider;
-                break;
-        }
-
-        return true;
-    })();
+    switch (calcBoundary(window.innerWidth)) {
+        case 'mobile':
+            newThemeSlider = new Cafe24.SwiperSlider('#newTheme', sliderOptions.theme.mobile).init();
+            mobileThemeSlider = new Cafe24.SwiperSlider('#mobileTheme', sliderOptions.zigzag.mobile).init();
+            combineThemeSlider = new Cafe24.SwiperSlider('#combineTheme', sliderOptions.combine.mobile).init();
+            break;
+        case 'tablet':
+            bestThemeSlider = new Cafe24.SwiperSlider('#bestTheme', sliderOptions.theme.tablet).init();
+            newThemeSlider = new Cafe24.SwiperSlider('#newTheme', sliderOptions.theme.tablet).init();
+            mobileThemeSlider = new Cafe24.SwiperSlider('#mobileTheme', sliderOptions.zigzag.tablet).init();
+            combineThemeSlider = new Cafe24.SwiperSlider('#combineTheme', sliderOptions.combine.tablet).init();
+            combineThumbsSlider = new Cafe24.SwiperSlider('#combineThumbs', sliderOptions.combine.thumbs).init();
+            combineThemeSlider.controller.control = combineThumbsSlider;
+            combineThumbsSlider.controller.control = combineThemeSlider;
+            break;
+        case 'pc':
+            bestThemeSlider = new Cafe24.SwiperSlider('#bestTheme', sliderOptions.theme.pc).init();
+            newThemeSlider = new Cafe24.SwiperSlider('#newTheme', sliderOptions.theme.pc).init();
+            mobileThemeSlider = new Cafe24.SwiperSlider('#mobileTheme', sliderOptions.zigzag.pc).init();
+            combineThemeSlider = new Cafe24.SwiperSlider('#combineTheme', sliderOptions.combine.pc).init();
+            combineThumbsSlider = new Cafe24.SwiperSlider('#combineThumbs', sliderOptions.combine.thumbs).init();
+            combineThemeSlider.controller.control = combineThumbsSlider;
+            combineThumbsSlider.controller.control = combineThemeSlider;
+            break;
+    }
 
     $(window).on('resize', function() {
         var ww = $(window).width();
         var resizeBoundary = {
             pc: 1081,
             tablet: 1080,
-            mobile: 770
+            mobile: 769
         }
 
         if (ww < resizeBoundary.mobile && !isDestroy.mobile) {

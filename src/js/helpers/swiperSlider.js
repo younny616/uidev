@@ -29,7 +29,7 @@ class SwiperSlider {
       grabCursor: false,
       spaceBetween: 0,
       autoplay: {
-        delay: 4000,
+        delay: 5000,
         disableOnInteraction: false,
       },
       pagination: {

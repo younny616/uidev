@@ -1,10 +1,18 @@
 (function(UI) {
+    var calcBoundary = function(ww) {
+        if (ww < 769) {
+            return 'mobile';
+        } else if (ww < 1080 && ww > 770) {
+            return 'tablet';
+        } else {
+            return 'pc';
+        }
+    };
     var isDestroy = {
         pc: false,
         tablet: false,
         mobile: false
     };
-
     var sliderOptions = {
         simple: {
             pc: {
@@ -51,46 +59,29 @@
             }
         },
     };
-
     var newAppSlider = null;
     var makeAppSlider = null;
 
-    (function() {
-        var loadBoundary = (function() {
-            var ww = $(window).width();
-
-            if (ww < 769) {
-                return 'mobile';
-            } else if (ww < 1080 && ww > 770) {
-                return 'tablet';
-            } else {
-                return 'pc';
-            }
-        })();
-
-        switch (loadBoundary) {
-            case 'mobile':
-                newAppSlider = new Cafe24.SwiperSlider('#newApp', sliderOptions.app.mobile).init();
-                break;
-            case 'tablet':
-                newAppSlider = new Cafe24.SwiperSlider('#newApp', sliderOptions.app.tablet).init();
-                makeAppSlider = new Cafe24.SwiperSlider('#makeApp', sliderOptions.simple.tablet).init();
-                break;
-            case 'pc':
-                newAppSlider = new Cafe24.SwiperSlider('#newApp', sliderOptions.app.pc).init();
-                makeAppSlider = new Cafe24.SwiperSlider('#makeApp', sliderOptions.simple.pc).init();
-                break;
-        }
-
-        return true;
-    })();
+    switch (calcBoundary(window.innerWidth)) {
+        case 'mobile':
+            newAppSlider = new Cafe24.SwiperSlider('#newApp', sliderOptions.app.mobile).init();
+            break;
+        case 'tablet':
+            newAppSlider = new Cafe24.SwiperSlider('#newApp', sliderOptions.app.tablet).init();
+            makeAppSlider = new Cafe24.SwiperSlider('#makeApp', sliderOptions.simple.tablet).init();
+            break;
+        case 'pc':
+            newAppSlider = new Cafe24.SwiperSlider('#newApp', sliderOptions.app.pc).init();
+            makeAppSlider = new Cafe24.SwiperSlider('#makeApp', sliderOptions.simple.pc).init();
+            break;
+    }
 
     $(window).on('resize', function() {
         var ww = $(window).width();
         var resizeBoundary = {
             pc: 1081,
             tablet: 1080,
-            mobile: 770
+            mobile: 769
         }
 
         if (ww < resizeBoundary.mobile && !isDestroy.mobile) {
