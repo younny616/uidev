@@ -74,7 +74,7 @@ class UI {
      * @param {string} className : toggle class name
      */
 
-    onSlideAccordion(self, trigger, className) { // eAccordion
+    onSlideAccordion(self, trigger, className) {
         let waitForTransition = false;
         return $(document).on('click', `${self} ${trigger}`, (e) => {
             const $target = $(e.currentTarget).parent();

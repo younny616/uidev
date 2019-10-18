@@ -15,15 +15,15 @@ html(lang="ko")
 
     block body
       #wrap
-        include /components/layouts/header
+        block wrap
+          include /components/layouts/header
 
-        #container
-          #contents
-            block contents
+          #container
+            #contents
+              block contents
 
-        include /components/layouts/footer
+          include /components/layouts/footer
 
-      div.dimmed
       script(src="/js/plugins/jquery-1.12.4.min.js")
       script(src=`/js/${project.title}.bundle.min.js`)
       script(src="/js/plugins/selectPack.js")

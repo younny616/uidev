@@ -8,7 +8,7 @@ i, em, address { font-style:normal; }
 table { table-layout:fixed; width:100%; border:0; border-spacing:0; border-collapse:collapse; }
 table img { vertical-align:middle; }
 th, td { border:0; word-wrap:break-word; }
-input, select, textarea { font-size:$global-font-size; color:$global-font-color; vertical-align:middle; outline:0; -webkit-appearance:none; -webkit-border-radius:0; caret-color:#0055fb;}
+input, select, textarea { font-size:$global-font-size; color:$global-font-color; vertical-align:middle; outline:0; -webkit-appearance:none; -webkit-border-radius:0; caret-color:#0055fb; }
 label { cursor:pointer; }
 caption { overflow:hidden; width:1px; font-size:1px; line-height:0; text-indent:150%; white-space:nowrap; }
 legend, .blind { display:block; overflow:hidden; position:absolute; font-size:1px; line-height:0; color:transparent; text-indent:-150%; white-space:nowrap; }
@@ -18,6 +18,12 @@ button::-moz-focus-inner { padding:0; border:0; }
 a { text-decoration:none; color:#000; }
 a:hover { text-decoration:none; }
 
+input::placeholder,
+textarea::placeholder { color:#a4a4a4; font-size:inherit; line-height:inherit; }
+input,
+textarea {
+  &:focus { border-color:#0055fb !important; }
+}
 /* html5 */
 object, del, sub, var { margin:0; padding:0; }
 article, aside, details, figcaption, figure, footer, header, main, hgroup, menu, nav, section { display:block; }

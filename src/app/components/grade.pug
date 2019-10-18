@@ -1,5 +1,5 @@
 mixin grade(count)
-  span.grade
+  div.grade
     - for (var i = 0; i < 5; i++)
       svg(class=`icoGrade${i < count ? ' active' : ''}`)
         use(xlink:href="/images/svg_sprite.svg#grade")
