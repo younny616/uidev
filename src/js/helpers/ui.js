@@ -80,7 +80,6 @@ class UI {
             const $target = $(e.currentTarget).parent();
 
             if (!waitForTransition) {
-                $target.toggleClass(className);
                 $target.siblings().slideToggle(() => {
                     $target.parent().toggleClass(className);
                 });
@@ -93,7 +92,6 @@ class UI {
 
                         waitForTransition = !waitForTransition;
 
-                        $trigger.toggleClass(className);
                         $trigger.siblings().slideToggle(() => {
                             waitForTransition = !waitForTransition;
                             $trigger.parent().toggleClass(className);
