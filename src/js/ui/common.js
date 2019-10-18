@@ -90,4 +90,10 @@ function goTop(){
         UI.onSlideToggleClass('.filterWrap > div .title', 'active');
     }
 
+    if (Utils._element_exist('.eScrollDown')) {
+        UI.onScrollDown('.eScrollDown', 65);
+    }
+
+    UI.onSlideAccordion('.eAccordion', '.trigger', 'active');
+
 })(Cafe24.UI, Cafe24.Utils);

@@ -18,8 +18,8 @@
     &.partnerInfoArea,
     &.productAddInfoArea,
     &.faqListArea { @include section-bar(); }
-    &.detailProductArea { padding:30px 0 0; }
-    &.detailReviewArea { padding:40px 0 0; }
+    &.productThumbsAndInfoArea { padding:30px 0 0; }
+    &.productReviewArea { padding:40px 0 0; }
     &.faqListArea { @include section-bar(); }
     &.makeAppArea { display:none; }
     &.combineThemeArea { background:#f2f2f2; }
@@ -37,6 +37,7 @@
     &.mobileThemeArea { margin-bottom:92px; background:#f5f5f5; }
     &.relativeThemeArea { padding:100px 0 0; background:#f5f5f5; }
     /* 상품상세 */
+    &.productThumbsAndInfoArea { overflow:hidden; padding:60px 0 0; }
     &.screenShotArea { padding:110px 0 40px; }
     &.productMeritArea {
       &:before { content:""; display:block; max-width:1240px; margin:80px auto; border-top:1px solid #e8e8e8; }

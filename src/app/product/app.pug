@@ -1,7 +1,14 @@
 extends /layouts/layout
 include /components/common/mTitle
+include /components/common/mEmpty
 include /components/slider
 include /components/list
+include /components/productInfoHead
+include /components/productInfoThumbs
+include /components/productInfoList
+include /components/productInfoPrice
+include /components/productInfoFixed
+include /components/productReview
 include /components/screenShot
 include /components/productMerit
 include /components/productDetail
@@ -11,6 +18,7 @@ include /components/faqList
 include /components/partnerInfo
 include /components/productKeyword
 include /components/appRanking
+include /components/grade
 
 block append contents
     // 스크린샷
@@ -59,21 +67,22 @@ block append contents
         div.gInside
             +productKeyword()
 
-
-    - var relativeApp1 = 'relativeApp1';
-    - var relativeApp2 = 'relativeApp2';
-    - var relativeAppData = require('./src/js/data/relativeApp.js');
-    section.relativeThemeArea
-        +mTitle('typeLeft', '유사한 앱 (<span class="count">7</span>)')
-        +slider(relativeApp1, relativeAppData, 'typeApp', 'app', true, true)
-
-        +mTitle('typeLeft', '함께 설치한 앱 (<span class="count">16</span>)')
-        +slider(relativeApp2, relativeAppData, 'typeApp', 'app', true, true)
-
     section.appRankingArea
         div.gInside
             +appRanking()
 
+    // 관련 앱
+    - var relativeApp1 = 'relativeApp1';
+    - var relativeApp2 = 'relativeApp2';
+    - var relativeAppData = require('./src/js/data/relativeApp.js');
+    section.relativeThemeArea
+      +mTitle('typeLeft', '유사한 앱 (<span class="count">7</span>)')
+      +slider(relativeApp1, relativeAppData, 'typeApp', 'app', true, true)
+
+      +mTitle('typeLeft', '함께 설치한 앱 (<span class="count">16</span>)')
+      +slider(relativeApp2, relativeAppData, 'typeApp', 'app', true, true)
+
 block append body
   script(src="//cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js")
   script(src="/js/ui/product.js")
+  script(src="/js/ui/productAppSlide.js")

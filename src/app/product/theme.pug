@@ -1,75 +1,119 @@
 extends /layouts/layout
 include /components/common/mTitle
 include /components/common/mEmpty
+include /components/slider
+include /components/list
 include /components/productInfoHead
 include /components/productInfoThumbs
 include /components/productInfoList
 include /components/productInfoPrice
 include /components/productInfoFixed
 include /components/productReview
-include /components/slider
-include /components/list
+include /components/screenShot
+include /components/productMerit
+include /components/productDetail
+include /components/productAddInfo
+include /components/faqList
+include /components/partnerInfo
+include /components/productKeyword
+include /components/appRanking
 include /components/grade
 
 block append contents
-  section.detailProductArea
-    div.gInner
-      div.infoWrap
-        +productInfoHead('앱상품제목열다섯줄바꿈가이드')
-        +productInfoThumbs('app', 'pc')
-        +productInfoList('app')
-        +productInfoPrice('app')
-        +productInfoFixed('app', '앱상품제목열다섯자줄바꿈없이노출가이드')
+  div.detail.typeTheme
+    // 상품 이미지 & 상품정보
+    section.productThumbsAndInfoArea
+      //- div.gInside
+      //-   div.infoWrap
+      //-     +productInfoHead('앱상품제목열다섯줄바꿈가이드')
+      //-     +productInfoThumbs('app', 'pc')
+      //-     +productInfoList('app')
+      //-     +productInfoPrice('app')
+      //-     +productInfoFixed('app', '앱상품제목열다섯자줄바꿈없이노출가이드')
 
-    div.gInner
-      div.infoWrap
-        +productInfoHead('테마상품제목열다섯줄바꿈가이드')
-        +productInfoThumbs('theme', 'pc')
-        +productInfoList('theme')
-        +productInfoPrice('theme')
-        +productInfoFixed('theme', '테마상품제목열다섯자줄바꿈없이노출가이드')
+      //- div.gInside
+      //-   div.infoWrap
+      //-     +productInfoHead('테마상품제목열다섯줄바꿈가이드')
+      //-     +productInfoThumbs('theme', 'pc')
+      //-     +productInfoList('theme')
+      //-     +productInfoPrice('theme')
+      //-     +productInfoFixed('theme', '테마상품제목열다섯자줄바꿈없이노출가이드')
 
-    div.gInner
-      div.infoWrap
-        +productInfoHead('테마상품제목열다섯줄바꿈가이드')
-        +productInfoThumbs('theme', 'mobile')
-        +productInfoList('theme')
-        +productInfoPrice('theme')
-        +productInfoFixed('theme', '테마상품제목열다섯자줄바꿈없이노출가이드')
+      //- div.gInside
+      //-   div.infoWrap
+      //-     +productInfoHead('테마상품제목열다섯줄바꿈가이드')
+      //-     +productInfoThumbs('theme', 'mobile')
+      //-     +productInfoList('theme')
+      //-     +productInfoPrice('theme')
+      //-     +productInfoFixed('theme', '테마상품제목열다섯자줄바꿈없이노출가이드')
 
-    div.gInner
-      div.infoWrap
-        +productInfoHead('테마상품제목열다섯줄바꿈가이드')
-        +productInfoThumbs('theme', 'combine')
-        +productInfoList('theme')
-        +productInfoPrice('theme')
-        +productInfoFixed('theme', '테마상품제목열다섯자줄바꿈없이노출가이드')
+      div.gInside
+        div.infoWrap
+          +productInfoHead('테마상품제목열다섯줄바꿈가이드')
+          +productInfoThumbs('theme', 'combine')
+          +productInfoList('theme')
+          +productInfoPrice('theme')
+          +productInfoFixed('theme', '테마상품제목열다섯자줄바꿈없이노출가이드')
 
-  section.detailReviewArea
-    div.gInner
-      +productReview()
-      +mEmpty('typeReview')
+    //상품상세정보 상단
+    section.productMeritArea
+      div.gInside
+        +productMerit()
 
-  - var relativeApp1 = 'relativeApp1';
-  - var relativeApp2 = 'relativeApp2';
-  - var relativeAppData = require('./src/js/data/relativeApp.js');
-  section.relativeThemeArea
-    +mTitle('typeLeft', '유사한 앱 (<span class="count">7</span>)')
-    +slider(relativeApp1, relativeAppData, 'typeApp', 'app', true, true)
+    //상품상세
+    section.productDetailArea
+      div.gInside
+        +productDetail()
 
-    +mTitle('typeLeft', '함께 설치한 앱 (<span class="count">16</span>)')
-    +slider(relativeApp2, relativeAppData, 'typeApp', 'app', true, true)
+    // 스크린샷
+    section.screenShotArea
+      +mTitle('typeProduct', '스크린샷')
+      div.gInside
+        +screenShot('https://orangemsg.com/cafe24/app/images/cafe24_detail.png', 'https://orangemsg.com/cafe24/app/images/cafe24_detail_add.png', 'https://orangemsg.com/cafe24/app/images/cafe24_detail_add.png', 'https://orangemsg.com/cafe24/app/images/cafe24_detail_add.png', 'https://orangemsg.com/cafe24/app/images/cafe24_detail_add.png')
 
-  - var relativeTheme1 = 'relativeTheme1';
-  - var relativeTheme2 = 'relativeTheme2';
-  - var relativeThemeData = require('./src/js/data/relativeTheme.js');
-  section.relativeThemeArea
-    +mTitle('typeLeft', '유사한 디자인 (<span class="count">7</span>)')
-    +slider(relativeTheme1, relativeThemeData, 'typeTheme', 'theme', true, true)
+    //파트너정보
+    section.partnerInfoArea
+      +mTitle('typeProduct', '파트너정보')
+      div.gInside
+        +partnerInfo()
 
-    +mTitle('typeLeft', '<a href="#" class="txtEm">패션/의류</a> 인기디자인 (<span class="count">16</span>)')
-    +slider(relativeTheme2, relativeThemeData, 'typeTheme', 'theme', true, true)
+    // 상품 리뷰
+    section.productReviewArea#productReviewArea
+      +mTitle('typeProduct', '리뷰')
+      div.gInside
+        +productReview()
+        +mEmpty('typeReview')
+
+    //FAQ
+    section.faqListArea
+      +mTitle('typeProduct', 'FAQ')
+      div.gInside
+          +faqList()
+
+    //상품추가정보
+    section.productAddInfoArea
+      +mTitle('typeProduct', '상품추가정보')
+      div.gInside
+        +productAddInfo()
+
+    //연관검색어
+    section.productKeywordArea
+      +mTitle('typeProduct', '연관검색어')
+      div.gInside
+        +productKeyword()
+
+    // 관련 테마
+    - var relativeTheme1 = 'relativeTheme1';
+    - var relativeTheme2 = 'relativeTheme2';
+    - var relativeThemeData = require('./src/js/data/relativeTheme.js');
+    section.relativeThemeArea
+      +mTitle('typeLeft', '유사한 디자인 (<span class="count">7</span>)')
+      +slider(relativeTheme1, relativeThemeData, 'typeTheme', 'theme', true, true)
+
+      +mTitle('typeLeft', '<a href="#" class="txtEm">패션/의류</a> 인기디자인 (<span class="count">16</span>)')
+      +slider(relativeTheme2, relativeThemeData, 'typeTheme', 'theme', true, true)
 
 block append body
   script(src="//cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js")
   script(src="/js/ui/product.js")
+  script(src="/js/ui/productThemeSlide.js")

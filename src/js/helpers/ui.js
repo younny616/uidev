@@ -7,8 +7,8 @@ class UI {
     }
 
     /**
-     * @param {string} self : event selctor
-     * @param {string} target : target selctor
+     * @param {string} self : event selector
+     * @param {string} target : target selector
      * @param {string} className : add class name
      */
 
@@ -17,7 +17,7 @@ class UI {
     }
 
     /**
-     * @param {string} self : event selctor
+     * @param {string} self : event selector
      * @param {string} target : target class
      * @param {string} className : remove class name
      */
@@ -27,7 +27,7 @@ class UI {
     }
 
     /**
-     * @param {string} self : event selctor
+     * @param {string} self : event selector
      * @param {string} target : arg.length === 2 : target selector
      * @param {string} className : arg.length === 1 : toggle class name
      */
@@ -45,8 +45,8 @@ class UI {
     }
 
     /**
-     * @param {string} self : event selctor
-     * @param {string} target : target selctor
+     * @param {string} self : event selector
+     * @param {string} target : target selector
      * @param {string} resetType : input type name
      */
 
@@ -55,20 +55,54 @@ class UI {
     }
 
     /**
-     * @param {string} self : event selctor
+     * @param {string} self : event selector
      * @param {string} className : toggle class name
      */
 
     onSlideToggleClass(self, className) {
         return $(document).on('click', self, (e) => {
-            $(e.currentTarget).toggleClass(className);
-            $(e.currentTarget).siblings().slideToggle(() => $(e.currentTarget).parent().toggleClass(className));
+            const $target = $(e.currentTarget);
+
+            $target.toggleClass(className);
+            $target.siblings().slideToggle(() => $target.parent().toggleClass(className));
         });
     }
 
     /**
-     * @param {string} self : event selctor
-     * @param {string} target : target selctor
+     * @param {string} self : event selector
+     * @param {string} className : toggle class name
+     */
+
+    onSlideAccordion(self, target, className) { // eAccordion
+        let waitForTransition = false;
+        return $(document).on('click', `${self} ${target}`, (e) => {
+            const $target = $(e.currentTarget);
+
+            if (!waitForTransition) {
+                $target.toggleClass(className);
+                $target.siblings().slideToggle(() => {
+                    $target.parent().toggleClass(className);
+                });
+
+                $target.parent().siblings().each((i, self) => {
+                    const $self = $(self);
+
+                    if ($self.hasClass(className)) {
+                        waitForTransition = !waitForTransition;
+                        $self.find(target).toggleClass(className);
+                        $self.find(target).siblings().slideToggle(() => {
+                            waitForTransition = !waitForTransition;
+                            $self.find(target).parent().toggleClass(className);
+                        });
+                    }
+                });
+            }
+        });
+    }
+
+    /**
+     * @param {string} self : event selector
+     * @param {string} target : target selector
      * @param {number} moreCount : count Number
      */
 
@@ -91,6 +125,20 @@ class UI {
             }
 
             return checkDisplay(children, isDisplayed => isDisplayed.every((display) => display === true)) ? $(self).hide() : false;
+        });
+    }
+
+    /**
+     * @param {string} self : event selector
+     * @param {number} distance : distance offset
+     */
+
+    onScrollDown(self, distance = 0) {
+        return $(self).on('click', (e) => {
+            e.preventDefault();
+            const target = $(e.currentTarget).attr('href');
+
+            $('html, body').stop().animate({ scrollTop: $(target).offset().top - distance }, 600);
         });
     }
 }

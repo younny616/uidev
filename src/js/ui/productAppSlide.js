@@ -14,20 +14,6 @@
         mobile: false
     };
     var sliderOptions = {
-        simple: {
-            pc: {
-                loop: true,
-                speed: 1200,
-                autoplay: false,
-                allowTouchMove: true,
-            },
-            tablet: {
-                loop: true,
-                speed: 1200,
-                autoplay: false,
-                allowTouchMove: true,
-            },
-        },
         app: {
             pc: {
                 loop: true,
@@ -57,69 +43,62 @@
                 },
             }
         },
-    };
-    var newAppSlider = null;
-    var makeAppSlider = null;
+    }
+    var relativeApp1Slider = null;
+    var relativeApp2Slider = null;
 
     switch (calcBoundary(window.innerWidth)) {
         case 'mobile':
-            newAppSlider = new Cafe24.SwiperSlider('#newApp', sliderOptions.app.mobile).init();
+            relativeApp1Slider = new Cafe24.SwiperSlider('#relativeApp1', sliderOptions.app.mobile).init();
+            relativeApp2Slider = new Cafe24.SwiperSlider('#relativeApp2', sliderOptions.app.mobile).init();
             break;
         case 'tablet':
-            newAppSlider = new Cafe24.SwiperSlider('#newApp', sliderOptions.app.tablet).init();
-            makeAppSlider = new Cafe24.SwiperSlider('#makeApp', sliderOptions.simple.tablet).init();
+            relativeApp1Slider = new Cafe24.SwiperSlider('#relativeApp1', sliderOptions.app.tablet).init();
+            relativeApp2Slider = new Cafe24.SwiperSlider('#relativeApp2', sliderOptions.app.tablet).init();
             break;
         case 'pc':
-            newAppSlider = new Cafe24.SwiperSlider('#newApp', sliderOptions.app.pc).init();
-            makeAppSlider = new Cafe24.SwiperSlider('#makeApp', sliderOptions.simple.pc).init();
+            relativeApp1Slider = new Cafe24.SwiperSlider('#relativeApp1', sliderOptions.app.pc).init();
+            relativeApp2Slider = new Cafe24.SwiperSlider('#relativeApp2', sliderOptions.app.pc).init();
             break;
     }
 
     $(window).on('resize', function() {
-        var ww = $(window).width();
+        var ww = window.innerWidth;
         var resizeBoundary = {
             pc: 1081,
             tablet: 1080,
             mobile: 769
-        }
+        };
+
+        isResizing = true;
+        infoFixedOffset = calcOffset($infoWrap, $header);
 
         if (ww < resizeBoundary.mobile && !isDestroy.mobile) {
             isDestroy.mobile = true;
             isDestroy.tablet = false;
 
-            if (makeAppSlider !== null) {
-                makeAppSlider.destroy();
-                makeAppSlider = null;
-            }
-
-            newAppSlider.destroy();
-            newAppSlider = new Cafe24.SwiperSlider('#newApp', sliderOptions.app.mobile).init();
+            relativeApp1Slider.destroy();
+            relativeApp1Slider = new Cafe24.SwiperSlider('#relativeApp1', sliderOptions.app.mobile).init();
+            relativeApp2Slider.destroy();
+            relativeApp2Slider = new Cafe24.SwiperSlider('#relativeApp2', sliderOptions.app.mobile).init();
         } else if (ww > resizeBoundary.mobile && ww < resizeBoundary.tablet && !isDestroy.tablet) {
             isDestroy.mobile = false;
             isDestroy.tablet = true;
             isDestroy.pc = false;
 
-            newAppSlider.destroy();
-            newAppSlider = new Cafe24.SwiperSlider('#newApp', sliderOptions.app.tablet).init();
-
-            if (makeAppSlider !== null) {
-                makeAppSlider.destroy();
-                makeAppSlider = null;
-            }
-
-            makeAppSlider = new Cafe24.SwiperSlider('#makeApp', sliderOptions.simple.tablet).init();
+            relativeApp1Slider.destroy();
+            relativeApp1Slider = new Cafe24.SwiperSlider('#relativeApp1', sliderOptions.app.tablet).init();
+            relativeApp2Slider.destroy();
+            relativeApp2Slider = new Cafe24.SwiperSlider('#relativeApp2', sliderOptions.app.tablet).init();
         } else if (ww > resizeBoundary.pc && !isDestroy.pc) {
             isDestroy.tablet = false;
             isDestroy.pc = true;
 
-            newAppSlider.destroy();
-            newAppSlider = new Cafe24.SwiperSlider('#newApp', sliderOptions.app.pc).init();
-
-            makeAppSlider.destroy();
-            makeAppSlider = new Cafe24.SwiperSlider('#makeApp', sliderOptions.simple.pc).init();
+            relativeApp1Slider.destroy();
+            relativeApp1Slider = new Cafe24.SwiperSlider('#relativeApp1', sliderOptions.app.pc).init();
+            relativeApp2Slider.destroy();
+            relativeApp2Slider = new Cafe24.SwiperSlider('#relativeApp2', sliderOptions.app.pc).init();
         }
     });
-
-    UI.onPagination('.appListArea .btnMore', '.appGroup', 4);
 
 })(Cafe24.UI);

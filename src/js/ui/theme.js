@@ -32,7 +32,6 @@
                 speed: 1200,
                 autoplay: false,
                 allowTouchMove: true,
-                navigation: false,
                 pagination: false,
             },
             mobile: {
@@ -57,7 +56,7 @@
                     init: function(_this, e) {
                         var _this = this;
 
-                        $(this.el).on('mouseenter', function() {
+                        $(document).find(this.el).on('mouseenter', function() {
                             _this.autoplay.stop();
                         })
                         .on('mouseleave', function() {
@@ -73,6 +72,11 @@
                 slidesPerView: 'auto',
                 navigation: false,
                 pagination: false,
+                on: {
+                    init: function(_this, e) {
+                        $(document).find(this.el).off('mouseenter').off('mouseleave');
+                    }
+                }
             },
             mobile: {
                 loop: false,
@@ -82,6 +86,11 @@
                 slidesPerView: 'auto',
                 navigation: false,
                 pagination: false,
+                on: {
+                    init: function() {
+                        $(document).find(this.el).off('mouseenter').off('mouseleave');
+                    }
+                }
             },
         },
         combine: {

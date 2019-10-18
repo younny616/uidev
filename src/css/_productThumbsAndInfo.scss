@@ -84,8 +84,8 @@
       }
     }
 
-    .infoList { padding:0 0 30px;
-      ul {
+    .infoListArea { padding:0 0 30px;
+      .infoList {
         li { position:relative; margin:0 0 12px; font-size:14px; color:#333; line-height:24px;
           strong { display:inline-block; width:percent(130, 660); max-width:130px; font-weight:500; vertical-align:top; }
           p { display:inline-block; position:relative; width:percent(370, 660); max-width:370px; vertical-align:top;
@@ -167,7 +167,6 @@
 
   .reviewWrap {
     .head { position:relative; margin:0 0 18px;
-      .title { display:block; font-size:20px; font-weight:800; line-height:1; }
       .score { margin:-15px 0 0; font-size:40px; line-height:1; text-align:center;
         .average { font-size:inherit; font-weight:800; line-height:inherit; }
         .outOf { font-size:inherit; font-weight:300; color:#d1d1d1; line-height:inherit;
@@ -263,18 +262,9 @@
     &.scrollDown { transform:translateY(-100%); }
   }
 
-  .detailProductArea { overflow:hidden; padding:60px 0;
-    .gInner { overflow:hidden; width:100%; max-width:1280px; margin:0 auto 60px; padding:0 20px; box-sizing:border-box; }
-  }
-
-  .detailReviewArea { overflow:hidden; padding:60px 0;
-    .gInner { overflow:hidden; width:100%; max-width:1280px; margin:0 auto 60px; padding:0 20px; box-sizing:border-box; }
-  }
-
   .infoWrap {
     .infoHead { float:right; width:100%; max-width:420px;
       .title { display:block; margin:16px 0 0; font-size:36px; color:#000; line-height:48px; }
-
       .infoEtc { overflow:hidden; padding:19px 0 23px; border-bottom:1px solid #e8e8e8; font-size:0; line-height:0;
         .grade { display:inline-block; position:relative;
           .icoGrade { position:absolute; left:-1px; top:-1px; width:20px; height:20px; fill:#ffc300; }
@@ -353,8 +343,8 @@
       }
     }
 
-    .infoList { float:right; width:100%; max-width:420px; padding:23px 0 45px;
-      ul {
+    .infoListArea { float:right; width:100%; max-width:420px; padding:23px 0 45px;
+      .infoList {
         li { position:relative; margin:0 0 12px; font-size:16px; color:#333; line-height:24px;
           strong { display:inline-block; width:85px; vertical-align:top; }
           p { display:inline-block; position:relative; width:328px; vertical-align:top;
@@ -436,8 +426,7 @@
 
   .reviewWrap {
     .head { position:relative; margin:0 0 18px;
-      .title { font-size:32px; font-weight:800; line-height:1; }
-      .score { padding:10px 0 15px; font-size:60px; line-height:1;
+      .score { padding:0 0 15px; font-size:60px; line-height:1;
         .average { font-size:inherit; font-weight:800; line-height:inherit; }
         .outOf { font-size:inherit; font-weight:300; color:#d1d1d1; line-height:inherit;
           &:before { content:'/'; display:inline-block; position:relative; top:-4px; margin:0 6px; font-size:47px; font-weight:inherit; color:inherit; line-height:inherit;  }
@@ -481,8 +470,8 @@
         }
       }
 
-      .reviewList { overflow:hidden; text-align:center;
-        ul { text-align:left;
+      .reviewArea { overflow:hidden; text-align:center;
+        .reviewList { text-align:left;
           li { overflow:hidden; position:relative; border-bottom:1px solid #e8e8e8; }
         }
         .reviewInfo { width:200px; padding:38px 0 50px;

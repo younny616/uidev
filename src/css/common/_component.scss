@@ -4,6 +4,7 @@
   .RMB { display:block; }
 
   .gInner { padding:0 20px; }
+  .gInside { padding:0 20px; }
 
   .mTitle { position:relative;
     &.typeSub { padding:40px 20px 10px; background:#fff;
@@ -154,6 +155,8 @@
   .gInner {
     .mTitle { padding-left:0; padding-right:0; }
   }
+
+  .gInside { overflow:hidden; width:100%; max-width:1280px; margin:0 auto; padding:0 20px; box-sizing:border-box; }
 
   .gBlankTop {
     padding-top:50px;

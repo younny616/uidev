@@ -30,7 +30,6 @@
                 speed: 1200,
                 autoplay: false,
                 allowTouchMove: true,
-                navigation: false,
                 pagination: false,
             },
             mobile: {
@@ -60,7 +59,6 @@
                 speed: 1200,
                 autoplay: false,
                 allowTouchMove: true,
-                navigation: false,
                 pagination: false,
             },
             mobile: {

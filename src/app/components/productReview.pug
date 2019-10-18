@@ -1,7 +1,6 @@
 mixin productReview()
   div.reviewWrap
     div.head
-      strong.title 리뷰
       div.score
         span.average 0.0
         span.outOf 5.0
@@ -13,7 +12,7 @@ mixin productReview()
         button(type="button").btnLight 파트너사 문의하기
         button(type="button").btnDark 리뷰쓰기
     div.content
-      div.reviewList.typeBest
+      div.reviewArea.typeBest
         div.gridSet
           div.reviewInfo
             +grade(5)
@@ -35,8 +34,8 @@ mixin productReview()
             a(href="#none") 높은 평가순
           li
             a(href="#none") 낮은 평가순
-      div.reviewList
-        ul
+      div.reviewArea
+        ul.reviewList
           li
             div.gridSet
               div.reviewInfo
