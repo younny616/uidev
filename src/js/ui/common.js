@@ -94,6 +94,9 @@ function goTop(){
         UI.onScrollDown('.eScrollDown', 65);
     }
 
+    UI.onSlideAccordion('.eAccordion', '.btnFold', 'selected');
+
+
     // UI.onAddClass('.searchHead .btnFilter', '.mLayer', 'active');
     // UI.onRemoveClass('.mLayer .btnClose', '.mLayer', 'active');
 

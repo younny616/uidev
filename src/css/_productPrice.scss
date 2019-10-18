@@ -1,5 +1,6 @@
 @include respond(mobile) {
   .productPrice {
+    .infoDesc { padding:15px 0; font-size:13px; color:#7b7b7b; text-align:center; background:#f8f9fa; border-radius:3px; }
     .priceList {  }
     .item { padding:25px 0;
       &:not(:last-child) { border-bottom:1px solid #e8e8e8; }

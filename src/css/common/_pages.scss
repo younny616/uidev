@@ -15,6 +15,7 @@
     &.detailProductArea,
     &.detailReviewArea,
     &.screenShotArea,
+    &.productPriceArea,
     &.partnerInfoArea,
     &.productAddInfoArea,
     &.faqListArea { @include section-bar(); }
