@@ -56,6 +56,11 @@
       .colorChip { display:inline-block; width:40px; height:40px; margin:0 20px 0 0; border-radius:50%; }
     }
 
+    .layout { display:inline-block; min-width:72px; height:72px; padding:0 10px; text-align:center; border:1px solid #e8e8e8; border-radius:3px; box-sizing:border-box;
+      &:before { content:""; display:block; width:25px; height:24px; margin:13px auto 8px; background:#ddd; }
+      .label { font-size:11px; color:#000; }
+    }
+
   }
 }
 

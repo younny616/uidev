@@ -31,9 +31,21 @@ mixin productAddInfo(type)
                 div.content
                     a(href='#none').btnNormal 상품정보고시
         else if type === 'theme'
-            div.information.layout
+            div.information.condition
                 strong.title 레이아웃
                 div.content
+                    div.layout.wide
+                        span.label 와이드
+                    div.layout.secondLeft
+                        span.label 2단 좌측
+                    div.layout.secondRight
+                        span.label 2단 우측
+                    div.layout.third
+                        span.label 3단 기본
+                    div.layout.thirdLeft
+                        span.label 3단 좌측
+                    div.layout.thirdRight
+                        span.label 3단 우측
             div.information.design
                 strong.title 디자인스타일
                 div.content
