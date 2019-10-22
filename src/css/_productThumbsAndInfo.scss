@@ -236,7 +236,7 @@
             .date { margin:0 0 0 5px; font-size:12px; color:#959595; }
           }
         }
-        .txtEm { font-weight:400; text-decoration:underline; }
+        .txtEm { font-weight:400; }
         .btnMoreView { margin:0 4px; color:#0055fb; font-size:14px; }
         .btnThumbsUp { position:relative; padding:0 15px 0 30px; height:30px; border:1px solid #e8e8e8; border-radius:14px; font-size:13px; color:#333;
           &:before { content:''; display:block; position:absolute; left:12px; top:7px; width:12px; height:12px; background:url('/#{$src}/ico_thumbs_up.png') no-repeat center center; background-size:12px auto; }
@@ -496,7 +496,7 @@
             .date { margin:0 0 0 10px; font-size:12px; color:#959595; }
           }
         }
-        .txtEm { font-weight:400; text-decoration:underline; }
+        .txtEm { font-weight:400; }
         .btnMoreView { margin:0 4px; color:#0055fb; font-size:16px; }
         .btnThumbsUp { position:relative; padding:0 14px 0 34px; height:32px; border:1px solid #e8e8e8; border-radius:14px; font-size:12px; color:#333;
           &:before { content:''; display:block; position:absolute; left:12px; top:8px; width:14px; height:14px; background:url('/#{$src}/ico_thumbs_up.png') no-repeat center center; background-size:14px auto; }

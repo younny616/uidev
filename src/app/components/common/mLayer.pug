@@ -1,11 +1,52 @@
-include /components/common/mTitle
+include /components/grade
 
-mixin mLayer(types, title, desc)
-  div.mLayer
-    div.head
-      +mTitle('typeLayer', title)
-      if desc
-        p.desc= desc
-
-    div.content
-    button(type="button").btnClose 닫기
+mixin mLayer(id, title, desc)
+  - var types = id.replace('mLayer', '');
+  div(id=`${id}` class="mLayer")
+    div.inner
+      div.head
+        strong.title= title
+        if desc
+          p.desc= desc
+        button(type="button").btnClose 닫기
+      div.content
+        case types
+          when 'Install'
+            div.inputArea
+              // 입력 오류
+              //- input(type="text" class="inputNormal full large error" placeholder="쇼핑몰 ID를 입력해주세요.")
+              input(type="text" class="fText full large" placeholder="쇼핑몰 ID를 입력해주세요.")
+            div.btnArea
+              // 입력 미완료
+              //- button(type="submit").btnSubmit.full.large.disabled 완료
+              // 입력 완료
+              button(type="submit").btnSubmit.full.large.success 완료
+            div.txtArea
+              p
+                | 아직 쇼핑몰이 없으신가요?
+                a(href="#none").txtEm 무료 쇼핑몰 만들기
+          when 'Review'
+            div.reviewArea
+              +grade(0)
+              // 평점 클릭 전
+              //-  div.scoreWrap
+                //-  p 별을 눌러 상품 평점을 남겨주세요.
+              // 평점 클릭 후
+              div.scoreWrap.active
+                p 평점
+                  span 4.0
+            div.inputArea
+              textarea(name="" cols="30", rows="6" class="fTextarea" placeholder="상품에 대한 소중한 평가를 남겨주세요.\n(5자 이상 입력)")
+            div.infoArea
+              ul.infoList
+                li
+                  | 상품 문의는
+                  span (파트너 문의하기)
+                  | 를 통해 남겨주세요.
+                li 아이디, 비밀번호 등의 개인 정보는 포함하지 않도록 주의하세요.
+                li 개인정보, 저작권 침해, 음란, 욕설, 비방, 홍보성 글을 등록한 <br class="RW"> 경우 관리자에 의해 임의 삭제될 수 있습니다.
+            div.btnArea
+              // 입력 미완료
+              //- button(type="submit").btnSubmit.full.large.disabled 완료
+              // 입력 완료
+              button(type="submit").btnSubmit.full.large.success 완료

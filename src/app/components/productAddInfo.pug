@@ -1,21 +1,24 @@
-mixin productAddInfo(type)
-    div.productAddInfo
-        if type === 'app'
+mixin productAddInfo(typeClass)
+    div(class=`productAddInfo${!typeClass ? '' : ' '+typeClass}`)
+        if typeClass === 'app'
             div.information.condition
-                strong.title 필수요구조건
+                div.head
+                    strong.title 필수요구조건
                 div.content
                     p.desc
                         |App을 동작하기 위해 어디어디 계정이 필요합니다.
                         br
                         |https://testapp.io를 방문하여 가입해 주세요.
             div.information.authority
-                strong.title 사용권한
+                div.head
+                    strong.title 사용권한
                 div.content
                     ul.desc
                         each item in ['앱 읽기 + 쓰기권한', '상품분류 읽기 + 쓰기권한', '판매분류 읽기 + 쓰기권한', '주문 읽기 + 쓰기권한', '상품 읽기 + 쓰기권한', '상점 읽기 + 쓰기권한', '']
                             li= item
             div.information.language
-                strong.title 멀티쇼핑몰 지원 언어
+                div.head
+                    strong.title 멀티쇼핑몰 지원 언어
                 div.content
                     div.flagGroup
                         span.flag.kr(title='Korea')
@@ -27,12 +30,14 @@ mixin productAddInfo(type)
                         span.flag.pt(title='Portugal')
                         span.flag.tw(title='Taiwan')
             div.information.notice
-                strong.title 상품정보고시
+                div.head
+                    strong.title 상품정보고시
                 div.content
                     a(href='#none').btnNormal 상품정보고시
-        else if type === 'theme'
+        else if typeClass === 'theme'
             div.information.condition
-                strong.title 레이아웃
+                div.head
+                    strong.title 레이아웃
                 div.content
                     div.layout.wide
                         span.label 와이드
@@ -47,21 +52,36 @@ mixin productAddInfo(type)
                     div.layout.thirdRight
                         span.label 3단 우측
             div.information.design
-                strong.title 디자인스타일
+                div.head
+                    strong.title 디자인스타일
                 div.content
                     p.desc 심플/큐티
             div.information.color
-                strong.title 대표색상
+                div.head
+                    strong.title 대표색상
                 div.content
                     div.colorGroup
                         span.colorChip(style="background-color:#ef1c00;", title="red")
                         span.colorChip(style="background-color:#e66f2b;", title="orange")
                         span.colorChip(style="background-color:#f1bb00;", title="yellow")
             div.information.notice
-                strong.title 상품정보고시
+                div.head
+                    strong.title 상품정보고시
                 div.content
                     a(href='#none').btnNormal 상품정보고시
             div.information.scope
-                strong.title 적용범위
+                div.head
+                    strong.title 적용범위
+                    div.mTooltip
+                        button(type="button").btnTip.info.eTip 도움말
+                        div.tooltip
+                            div.content
+                                strong.titleTip 적용범위란?
+                                p.descTip 구매하신 테마를 적용할 수 있는 Cafe24 도메인 개수입니다. 기본 도메인 및 멀티 쇼핑몰 도메인을 포함하는 개수이며,
+                                    span.txtWarn 적용 범위를 초과하여 사용할 경우 라이선스 위반에 따른 사용제재 및 불이익을 받을 수 있으므로 주의하시기 바랍니다.
+                                ul.txtInfo
+                                    li ※ 쇼핑몰 생성 시 자동 발급되는 Cafe24 기본 도메인 형식 id.cafe24shop.com (shop1.id.cafe24shop.com)
+                                    li ※ 멀티쇼핑몰 도메인 형식 (shop2~shop6) shop2.id.cafe24shop.com, shop3.id.cafe24shop.com.
+                            button(type='button').btnClose.eClose
                 div.content
                     p.desc 카페24 기본 도메인기준 1개

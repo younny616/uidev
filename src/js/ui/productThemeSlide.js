@@ -71,7 +71,6 @@
         };
 
         isResizing = true;
-        infoFixedOffset = calcOffset($infoWrap, $header);
 
         if (ww < resizeBoundary.mobile && !isDestroy.mobile) {
             isDestroy.mobile = true;
