@@ -20,8 +20,6 @@
     &.productAddInfoArea,
     &.faqListArea { @include section-bar(); }
     &.productThumbsAndInfoArea { padding:30px 0 0; }
-    &.productReviewArea { padding:40px 0 0; }
-    &.faqListArea { @include section-bar(); }
     &.makeAppArea { display:none; }
     &.combineThemeArea { background:#f2f2f2; }
     &.mobileThemeArea { padding:0; background:#f2f2f2; }

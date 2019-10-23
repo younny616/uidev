@@ -25,7 +25,7 @@
             }
           }
         }
-        .btnLike { position:relative; float:right; width:16px; height:14px; font-size:0; line-height:0;
+        .btnLike { position:relative; float:right; width:16px; height:14px; @include blind();
           &:before,
           &:after { content:''; display:block; position:absolute; left:0; top:0; width:16px; height:14px; background:url('/#{$src}/ico_like.png'); background-size:16px auto; transition:all .3s ease; }
           &:before { opacity:1; background-position:0 0; }
@@ -116,7 +116,7 @@
         .btn {
           &Em { width:calc(50% - 5px); margin:0 5px 0 0; font-weight:800; }
           &Submit { width:calc(50% - 5px); margin:0 0 0 5px; font-weight:800; }
-          &Like { display:none; position:relative; width:48px; height:48px; margin:0 2px 0 0; border:1px solid #d8d8d9; border-radius:4px; font-size:0; line-height:0; transition:all .3s ease; vertical-align:top;
+          &Like { display:none; position:relative; width:48px; height:48px; margin:0 2px 0 0; border:1px solid #d8d8d9; border-radius:4px; transition:all .3s ease; vertical-align:top; @include blind();
             &:before,
             &:after { content:''; display:block; position:absolute; left:50%; top:50%; width:20px; height:18px; background:url('/#{$src}/ico_like.png'); background-size:20px auto; transition:all .3s ease; transform:translate(-50%, -50%); }
             &:before { opacity:1; background-position:0 0; }
@@ -143,7 +143,7 @@
         .content { display:none; }
         .btnWrap { padding:10px 0;
           .btn {
-            &Like { position:relative;  width:27px; height:27px; margin:0 2px 0 0; font-size:0; line-height:0; transition:all .3s ease; vertical-align:top;
+            &Like { position:relative;  width:27px; height:27px; margin:0 2px 0 0; transition:all .3s ease; vertical-align:top; @include blind();
               &:before,
               &:after { content:''; display:block; position:absolute; left:50%; top:50%; width:20px; height:18px; background:url('/#{$src}/ico_like.png'); background-size:20px auto; transition:all .3s ease; transform:translate(-50%, -50%); }
               &:before { opacity:1; background-position:0 0; }
@@ -162,96 +162,6 @@
         }
       }
       &.fixed { z-index:100; opacity:1; visibility:visible; }
-    }
-  }
-
-  .reviewWrap {
-    .head { position:relative; margin:0 0 18px;
-      .score { margin:-15px 0 0; font-size:40px; line-height:1; text-align:center;
-        .average { font-size:inherit; font-weight:800; line-height:inherit; }
-        .outOf { font-size:inherit; font-weight:300; color:#d1d1d1; line-height:inherit;
-          &:before { content:'/'; display:inline-block; position:relative; top:-4px; margin:0 6px; font-size:31px; font-weight:inherit; color:inherit; line-height:inherit;  }
-        }
-      }
-      .review { display:block; margin:20px 0 30px; font-size:13px; color:#959595; line-height:1; text-align:center;
-        a { display:inline-block; position:relative; padding:0 19px; color:inherit; transition:all .3s ease;
-          &:before,
-          &:after { content:''; display:block; position:absolute; left:0; top:0; width:14px; height:14px; background:url('/#{$src}/ico_review.png'); background-size:14px auto; transition:all .3s ease; }
-          &:before { opacity:1; background-position:0 0; }
-          &:after { opacity:0; background-position:0 -14px; }
-          &:hover { color:#000;
-            &:before { opacity:0; }
-            &:after { opacity:1; }
-          }
-        }
-      }
-      .btnWrap {
-        .btn {
-          &Light { width:calc(50% - 5px); margin:0 5px 0 0; }
-          &Dark { width:calc(50% - 5px); margin:0 0 0 5px; }
-        }
-      }
-    }
-    .content {
-      .sortList { padding:25px 0 0;
-        ul {
-          li { display:inline-block; font-size:0; line-height:0;
-            &:last-child a {
-              &:after { content:none; }
-            }
-            a { display:block; position:relative; font-size:13px; font-weight:400; color:#797980; line-height:20px; box-sizing:border-box;
-              &:before { content:''; display:none; position:absolute; left:0; top:calc(50% - 5px); width:8px; height:5px; border-left:2px solid #000; border-bottom:2px solid #000; transform:rotateZ(-45deg); }
-              &:after { content:''; display:inline-block; width:1px; height:10px; margin:0 10px; background:#d8d8d9; }
-              &.active { padding:0 0 0 16px; font-weight:800; color:#000;
-                &:before { display:block; }
-              }
-            }
-          }
-        }
-      }
-
-      .reviewList { overflow:hidden; text-align:center;
-        ul { text-align:left;
-          li { overflow:hidden; position:relative; border-bottom:1px solid #e8e8e8; }
-        }
-        .reviewInfo { flex:1 1 0; padding:34px 0 0;
-          .grade { display:block; margin:0 0 10px;
-            .icoGrade { width:15px; height:15px; fill:#d4d4d4;
-              &.active { fill:#ffc300; }
-            }
-          }
-          .author { display:block; font-size:14px; color:#333; line-height:23px; }
-          .date { font-size:12px; color:#959595; }
-        }
-        .reviewText { display:flex; align-items:center; width:100%; padding:20px 0 30px; font-size:14px; color:#333; line-height:20px; box-sizing:border-box;
-          .text { display:inline-block; }
-        }
-        .recommend { position:absolute; right:0; top:79px; }
-        .comment { overflow:hidden; margin:0 0 20px 0; padding:20px; border-radius:4px; background:#f9f9f9; font-size:14px; color:#333; line-height:20px; text-align:left;
-          .commentText {
-            .text { display:inline-block; }
-          }
-          .commentInfo { margin:25px 0 0;
-            .admin { font-size:12px; color:#333; }
-            .date { margin:0 0 0 5px; font-size:12px; color:#959595; }
-          }
-        }
-        .txtEm { font-weight:400; }
-        .btnMoreView { margin:0 4px; color:#0055fb; font-size:14px; }
-        .btnThumbsUp { position:relative; padding:0 15px 0 30px; height:30px; border:1px solid #e8e8e8; border-radius:14px; font-size:13px; color:#333;
-          &:before { content:''; display:block; position:absolute; left:12px; top:7px; width:12px; height:12px; background:url('/#{$src}/ico_thumbs_up.png') no-repeat center center; background-size:12px auto; }
-          &:hover,
-          &.active { border-color:#fff5f5; background:#fff5f5; color:#ff2828; }
-        }
-        .btnMoreReview { min-width:160px; margin:10px auto; padding:10px; font-size:14px; color:#0055fb;
-          &:before { content:'+'; display:inline-block; margin:0 4px 0 0 ; font-size:inherit; color:inherit; }
-        }
-        &.typeBest { position:relative; margin:30px 0 0; padding:40px 0 0; border-radius:4px; text-align:left; background:#eff7ff url('/#{$src}/img_best_review.png') no-repeat 20px 20px; background-size:126px auto;
-          .reviewInfo { padding:20px; }
-          .reviewText { padding:20px; }
-          .recommend { right:20px; top:99px; }
-        }
-      }
     }
   }
 }
@@ -282,7 +192,7 @@
             }
           }
         }
-        .btnLike { position:relative; float:right; width:20px; height:18px; font-size:0; line-height:0;
+        .btnLike { position:relative; float:right; width:20px; height:18px; @include blind();
           &:before,
           &:after { content:''; display:block; position:absolute; left:0; top:0; width:20px; height:18px; background:url('/#{$src}/ico_like.png'); background-size:20px auto; transition:all .3s ease; }
           &:before { opacity:1; background-position:0 0; }
@@ -402,7 +312,7 @@
         }
         .btnWrap { padding:10px 0; margin:0;
           .btn {
-            &Like { position:relative; width:48px; height:48px; margin:0 2px 0 0; border:1px solid #d8d8d9; border-radius:4px; font-size:0; line-height:0; transition:all .3s ease; vertical-align:top;
+            &Like { position:relative; width:48px; height:48px; margin:0 2px 0 0; border:1px solid #d8d8d9; border-radius:4px; transition:all .3s ease; vertical-align:top; @include blind();
               &:before,
               &:after { content:''; display:block; position:absolute; left:50%; top:50%; width:20px; height:18px; background:url('/#{$src}/ico_like.png'); background-size:20px auto; transition:all .3s ease; transform:translate(-50%, -50%); }
               &:before { opacity:1; background-position:0 0; }
@@ -421,95 +331,6 @@
         }
       }
       &.fixed { z-index:100; opacity:1; visibility:visible; }
-    }
-  }
-
-  .reviewWrap {
-    .head { position:relative; margin:0 0 18px;
-      .score { padding:0 0 15px; font-size:60px; line-height:1;
-        .average { font-size:inherit; font-weight:800; line-height:inherit; }
-        .outOf { font-size:inherit; font-weight:300; color:#d1d1d1; line-height:inherit;
-          &:before { content:'/'; display:inline-block; position:relative; top:-4px; margin:0 6px; font-size:47px; font-weight:inherit; color:inherit; line-height:inherit;  }
-        }
-      }
-      .review { display:inline-block; font-size:16px; color:#959595; line-height:1;
-        a { display:block; position:relative; padding:0 30px 2px 28px; color:inherit; transition:all .3s ease;
-          &:before,
-          &:after { content:''; display:block; position:absolute; left:0; top:0; width:18px; height:18px; background:url('/#{$src}/ico_review.png'); background-size:18px auto; transition:all .3s ease; }
-          &:before { opacity:1; background-position:0 0; }
-          &:after { opacity:0; background-position:0 -18px; }
-          &:hover { color:#000;
-            &:before { opacity:0; }
-            &:after { opacity:1; }
-          }
-        }
-      }
-      .btnWrap { position:absolute; right:0; bottom:5px;
-        .btn {
-          &Light { min-width:160px; margin:0 3px; }
-          &Dark { min-width:160px; margin:0 3px; }
-        }
-      }
-    }
-    .content {
-      .sortList { padding:24px 0 21px;
-        ul {
-          li { display:inline-block; font-size:0; line-height:0;
-            &:last-child a {
-              &:after { content:none; }
-            }
-            a { display:block; position:relative; font-size:15px; font-weight:400; color:#797980; line-height:24px; box-sizing:border-box;
-              &:before { content:''; display:none; position:absolute; left:0; top:calc(50% - 3px); width:7px; height:3px; border-left:2px solid #000; border-bottom:2px solid #000; transform:rotateZ(-45deg); }
-              &:after { content:''; display:inline-block; width:1px; height:12px; margin:0 12px; background:#d8d8d9; }
-
-              &.active { padding:0 0 0 16px; font-weight:800; color:#000;
-                &:before { display:block; }
-              }
-            }
-          }
-        }
-      }
-
-      .reviewArea { overflow:hidden; text-align:center;
-        .reviewList { text-align:left;
-          li { overflow:hidden; position:relative; border-bottom:1px solid #e8e8e8; }
-        }
-        .reviewInfo { width:200px; padding:38px 0 50px;
-          .grade { display:block; margin:0 0 10px;
-            .icoGrade { width:15px; height:15px; fill:#d4d4d4;
-              &.active { fill:#ffc300; }
-            }
-          }
-          .author { display:block; font-size:14px; color:#333; line-height:23px; }
-          .date { font-size:12px; color:#959595; }
-        }
-        .reviewText { display:flex; align-items:center; flex:1 1 0; padding:38px 38px 38px 0; font-size:16px; color:#333; line-height:24px;
-          .text { display:inline-block; }
-        }
-        .recommend { display:flex; align-items:center; justify-content:center; padding:0 38px; }
-        .comment { overflow:hidden; margin:0 0 20px 200px; padding:38px; border-radius:4px; background:#f9f9f9; font-size:16px; color:#333; line-height:24px; text-align:left;
-          .commentText {
-            .text { display:inline-block; }
-          }
-          .commentInfo { margin:20px 0 0;
-            .admin { font-size:14px; color:#333; }
-            .date { margin:0 0 0 10px; font-size:12px; color:#959595; }
-          }
-        }
-        .txtEm { font-weight:400; }
-        .btnMoreView { margin:0 4px; color:#0055fb; font-size:16px; }
-        .btnThumbsUp { position:relative; padding:0 14px 0 34px; height:32px; border:1px solid #e8e8e8; border-radius:14px; font-size:12px; color:#333;
-          &:before { content:''; display:block; position:absolute; left:12px; top:8px; width:14px; height:14px; background:url('/#{$src}/ico_thumbs_up.png') no-repeat center center; background-size:14px auto; }
-          &:hover,
-          &.active { border-color:#fff5f5; background:#fff5f5; color:#ff2828; }
-        }
-        .btnMoreReview { min-width:160px; margin:10px auto; padding:20px; font-size:16px; color:#0055fb;
-          &:before { content:'+'; display:inline-block; margin:0 4px 0 0 ; font-size:inherit; color:inherit; }
-        }
-        &.typeBest { margin:24px 0 30px; padding:50px 0 0; border-radius:4px; text-align:left; background:#eff7ff url('/#{$src}/img_best_review.png') no-repeat 38px 38px; background-size:182px auto;
-          .reviewInfo { padding:38px 38px 50px; }
-        }
-      }
     }
   }
 }

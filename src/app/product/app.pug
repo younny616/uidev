@@ -1,5 +1,6 @@
 extends /layouts/layout
 include /components/common/mTitle
+include /components/common/mLayer
 include /components/common/mEmpty
 include /components/slider
 include /components/list
@@ -21,66 +22,84 @@ include /components/appRanking
 include /components/grade
 
 block append contents
-    // 스크린샷
-    section.screenShotArea
-        +mTitle('typeProduct', '스크린샷')
-        div.gInside
-            +screenShot('https://orangemsg.com/cafe24/app/images/cafe24_detail.png', 'https://orangemsg.com/cafe24/app/images/cafe24_detail_add.png', 'https://orangemsg.com/cafe24/app/images/cafe24_detail_add.png', 'https://orangemsg.com/cafe24/app/images/cafe24_detail_add.png', 'https://orangemsg.com/cafe24/app/images/cafe24_detail_add.png')
+    div.detail.typeApp
+        // 상품 이미지 & 상품정보
+        section.productThumbsAndInfoArea
+            div.gInside
+                div.infoWrap
+                    +productInfoHead('앱상품제목열다섯줄바꿈가이드')
+                    +productInfoThumbs('app', 'pc')
+                    +productInfoList('app')
+                    +productInfoPrice('app')
+                    +productInfoFixed('app', '앱상품제목열다섯자줄바꿈없이노출가이드')
 
-    //상품상세정보 상단
-    section.productMeritArea
-        div.gInside
-            +productMerit()
+        // 스크린샷
+        section.screenShotArea
+            +mTitle('typeProduct', '스크린샷')
+            div.gInside
+                +screenShot('https://orangemsg.com/cafe24/app/images/cafe24_detail.png', 'https://orangemsg.com/cafe24/app/images/cafe24_detail_add.png', 'https://orangemsg.com/cafe24/app/images/cafe24_detail_add.png', 'https://orangemsg.com/cafe24/app/images/cafe24_detail_add.png', 'https://orangemsg.com/cafe24/app/images/cafe24_detail_add.png')
 
-    //상품상세
-    section.productDetailArea
-        div.gInside
-            +productDetail()
+        //상품상세정보 상단
+        section.productMeritArea
+            div.gInside
+                +productMerit()
 
-    //가격정보
-    section.productPriceArea
-        +mTitle('typeProduct', '가격')
-        div.gInside
-            +productPrice()
+        //상품상세
+        section.productDetailArea
+            div.gInside
+                +productDetail()
 
-    //FAQ
-    section.faqListArea
-        +mTitle('typeProduct', 'FAQ')
-        div.gInside
-            +faqList()
+        //가격정보
+        section.productPriceArea
+            +mTitle('typeProduct', '가격')
+            div.gInside
+                +productPrice()
 
-    //상품추가정보
-    section.productAddInfoArea
-        +mTitle('typeProduct', '상품추가정보')
-        div.gInside
-            +productAddInfo('theme')
+        //FAQ
+        section.faqListArea
+            +mTitle('typeProduct', 'FAQ')
+            div.gInside
+                +faqList()
 
-    //파트너정보
-    section.partnerInfoArea
-        +mTitle('typeProduct', '파트너정보')
-        div.gInside
-            +partnerInfo()
+        //상품추가정보
+        section.productAddInfoArea
+            +mTitle('typeProduct', '상품추가정보')
+            div.gInside
+                +productAddInfo('app')
 
-    //연관검색어
-    section.productKeywordArea
-        +mTitle('typeProduct', '연관검색어')
-        div.gInside
-            +productKeyword()
+        //파트너정보
+        section.partnerInfoArea
+            +mTitle('typeProduct', '파트너정보')
+            div.gInside
+                +partnerInfo()
 
-    // 관련 앱
-    - var relativeApp1 = 'relativeApp1';
-    - var relativeApp2 = 'relativeApp2';
-    - var relativeAppData = require('./src/js/data/relativeApp.js');
-    section.relativeThemeArea
-      +mTitle('typeLeft', '유사한 앱 (<span class="count">7</span>)')
-      +slider(relativeApp1, relativeAppData, 'typeApp', 'app', true, true)
+        //연관검색어
+        section.productKeywordArea
+            +mTitle('typeProduct', '연관검색어')
+            div.gInside
+                +productKeyword()
 
-      +mTitle('typeLeft', '함께 설치한 앱 (<span class="count">16</span>)')
-      +slider(relativeApp2, relativeAppData, 'typeApp', 'app', true, true)
+        // 관련 앱
+        - var relativeApp1 = 'relativeApp1';
+        - var relativeApp2 = 'relativeApp2';
+        - var relativeAppData = require('./src/js/data/relativeApp.js');
+        section.relativeThemeArea
+        +mTitle('typeLeft', '유사한 앱 (<span class="count">7</span>)')
+        +slider(relativeApp1, relativeAppData, 'typeApp', 'app', true, true)
 
-    section.appRankingArea
-        div.gInside
-            +appRanking()
+        +mTitle('typeLeft', '함께 설치한 앱 (<span class="count">16</span>)')
+        +slider(relativeApp2, relativeAppData, 'typeApp', 'app', true, true)
+
+        section.appRankingArea
+            div.gInside
+                +appRanking()
+
+block append wrap
+  +mLayer('mLayerInstall', '쇼핑몰 아이디 입력', '입력한 쇼핑몰 아이디를 통해 구매 및 문의가 가능합니다.')
+  +mLayer('mLayerReview', '리뷰 작성하기')
+  +mLayer('mLayerQuestion', '문의하기')
+  +mLayer('mLayerAlert')
+  div.dimmed
 
 block append body
   script(src="//cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js")

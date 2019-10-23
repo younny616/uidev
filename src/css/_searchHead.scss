@@ -57,6 +57,14 @@
         }
       }
     }
+    &.discard {
+      .filter { min-width:auto;
+        .value { padding:8px; }
+      }
+      .btnReset { padding:8px;
+        &:after { content:none; }
+      }
+    }
   }
 }
 
@@ -111,9 +119,15 @@
         }
       }
     }
-
+    &.discard {
+      .filter {
+        .value { padding:8px; }
+      }
+      .btnReset { height:32px; padding:8px;
+        &:after { content:none; }
+      }
+    }
   }
-
 }
 
 @include respond(tablet) {

@@ -144,13 +144,13 @@
   &:after { content:""; display:block; width:100%; height:10px; border-top:1px solid #e8e8e8; background:#f5f5f5; }
 }
 
-@function percent($pixel, $width) {
-  @return #{$pixel / $width * 100 + '%'};
-}
-
 @mixin icoX($width: 12px, $heigh: 2px, $background: #000) {
   &:before,
   &:after { content:''; display:block; position:absolute; top:50%; width:$width; height:$heigh; background:$background; }
   &:before { left:calc(50% - #{$width / 2}); transform:rotate(-45deg); }
   &:after { right:calc(50% - #{$width / 2}); transform:rotate(45deg); }
+}
+
+@function percent($pixel, $width) {
+  @return #{$pixel / $width * 100 + '%'};
 }

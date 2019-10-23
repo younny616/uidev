@@ -12,7 +12,7 @@ class UI {
      * @param {string} className : add class name
      */
 
-    onAddClass(self, target, className) {
+    onAddClass(self, target, className, callBack) {
         return $(document).on('click', self, () => $(target).addClass(className));
     }
 
@@ -141,6 +141,68 @@ class UI {
             const target = $(e.currentTarget).attr('href');
 
             $('html, body').stop().animate({ scrollTop: $(target).offset().top - distance }, 600);
+        });
+    }
+
+    /**
+     * @param {string} self : event selector
+     * @param {string} className : toggle class name
+     */
+    onShowLayer(self, className) {
+        return $(document).on('click', self, (e) => {
+            let $target;
+            const tagName = e.currentTarget.tagName;
+
+            switch(tagName) {
+                case 'A' :
+                    $target = $(e.currentTarget.attributes.href.value);
+                    break;
+                case 'BUTTON':
+                    $target = $(e.currentTarget.dataset.layer);
+                    break;
+            }
+
+            $target.addClass(className);
+            $('.dimmed').addClass(className);
+        });
+    }
+
+    /**
+     * @param {string} self : event selector
+     * @param {string} trigger : event selector
+     * @param {string} className : toggle class name
+     * @param {number} distance: position left distance
+     */
+    onHideLayer(self, target, className) {
+        return $(document).on('click', self, (e) => {
+            const $target = $(e.currentTarget).parents(target);
+
+            $target.removeClass(className);
+            $('.dimmed').removeClass(className);
+        });
+    }
+
+    onToggleTooltip(self, target, className, distance) {
+
+        return $(document).on('click', self, (e) => {
+            const $self = $(e.currentTarget);
+            const $target = $self.parents(target);
+            const $tooltip = $target.find('.tooltip');
+            const $tooltipArrow = $tooltip.find('.arrow');
+            let contentSize = $self.offset().left + parseInt($tooltip.innerWidth(), 10);
+            let posLeft = distance || 20;
+
+            $target.toggleClass(className);
+
+            console.log($self.offset().left);
+
+            if (window.innerWidth < contentSize) {
+                $tooltip.css('left', '-' + ($self.offset().left - posLeft) + 'px');
+                $tooltipArrow.css('left', ($self.offset().left - posLeft) + (($self.outerWidth(true) / 2) - ($tooltipArrow.width() / 2)) + 'px');
+            } else {
+                $tooltip.css('left', '-' + posLeft + 'px');
+                $tooltipArrow.css('left', posLeft + (($self.outerWidth(true) / 2) - ($tooltipArrow.width() / 2)) + 'px');
+            }
         });
     }
 }

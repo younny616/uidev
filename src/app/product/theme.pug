@@ -72,6 +72,12 @@ block append contents
       div.gInside
         +screenShot('https://orangemsg.com/cafe24/app/images/cafe24_detail.png', 'https://orangemsg.com/cafe24/app/images/cafe24_detail_add.png', 'https://orangemsg.com/cafe24/app/images/cafe24_detail_add.png', 'https://orangemsg.com/cafe24/app/images/cafe24_detail_add.png', 'https://orangemsg.com/cafe24/app/images/cafe24_detail_add.png')
 
+    //상품추가정보
+    section.productAddInfoArea
+      +mTitle('typeProduct', '상품추가정보')
+      div.gInside
+        +productAddInfo('theme')
+
     //파트너정보
     section.partnerInfoArea
       +mTitle('typeProduct', '파트너정보')
@@ -91,12 +97,6 @@ block append contents
       div.gInside
           +faqList()
 
-    //상품추가정보
-    section.productAddInfoArea
-      +mTitle('typeProduct', '상품추가정보')
-      div.gInside
-        +productAddInfo()
-
     //연관검색어
     section.productKeywordArea
       +mTitle('typeProduct', '연관검색어')
@@ -115,8 +115,10 @@ block append contents
       +slider(relativeTheme2, relativeThemeData, 'typeTheme', 'theme', true, true)
 
 block append wrap
-  //- +mLayer('mLayerInstall', '쇼핑몰 아이디 입력', '입력한 쇼핑몰 아이디를 통해 구매 및 문의가 가능합니다.')
+  +mLayer('mLayerInstall', '쇼핑몰 아이디 입력', '입력한 쇼핑몰 아이디를 통해 구매 및 문의가 가능합니다.')
   +mLayer('mLayerReview', '리뷰 작성하기')
+  +mLayer('mLayerQuestion', '문의하기')
+  +mLayer('mLayerAlert')
   div.dimmed
 
 block append body
@@ -125,7 +127,7 @@ block append body
   script(src="/js/ui/productThemeSlide.js")
 
   script.
-    // 리뷰 작성하기 UI 테스트 임시 스크립트
+    // 리뷰 작성하기 레이어팝업 UI 테스트 임시 스크립트
     (function() {
       var $reviewIcon = $('.mLayer .reviewArea .grade');
 

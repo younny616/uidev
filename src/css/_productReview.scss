@@ -19,13 +19,14 @@
           }
         }
       }
-      .btnWrap {
+      .btnWrap { font-size:0; line-height:0;
         .btn {
           &Light { width:calc(50% - 5px); margin:0 5px 0 0; }
           &Dark { width:calc(50% - 5px); margin:0 0 0 5px; }
         }
       }
     }
+
     .content {
       .sortList { padding:25px 0 0;
         ul {
@@ -43,9 +44,8 @@
           }
         }
       }
-
-      .reviewList { overflow:hidden; text-align:center;
-        ul { text-align:left;
+      .reviewArea { text-align:center;
+        .reviewList { overflow:hidden; text-align:left;
           li { overflow:hidden; position:relative; border-bottom:1px solid #e8e8e8; }
         }
         .reviewInfo { flex:1 1 0; padding:34px 0 0;
@@ -118,6 +118,7 @@
         }
       }
     }
+
     .content {
       .sortList { padding:24px 0 21px;
         ul {

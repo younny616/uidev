@@ -1,0 +1,19 @@
+extends /layouts/layout
+include /components/common/mTitle
+include /components/common/mPagination
+include /components/searchHeadNoDelete
+include /components/stateBar
+include /components/list
+
+block append contents
+  section.searchHeadArea
+    div.gInner
+      +searchHeadNoDelete('typeTheme', false, '마케팅 입력검색어', '배너', '마케팅', '고객지원', '유료', '브론즈')
+
+  section.searchArea
+    div.gInner
+      - var searchThemeData = require('./src/js/data/searchTheme.js');
+      div.wFilterResult
+        +stateBar(false)
+        +list(searchThemeData, 'typeTheme')
+        +mPagination('typeMore', false)

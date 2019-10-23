@@ -1,5 +1,5 @@
-mixin searchHead(typeClass, title, searchWord, ...value)
-    div(class=`searchHead${!typeClass ? '' : ' ' + typeClass}`)
+mixin searchHeadNoDelete(typeClass, title, searchWord, ...value)
+    div(class=`searchHead discard${!typeClass ? '' : ' '+typeClass}`)
         div.head
             if title
                 h3.title #{title}
@@ -17,7 +17,4 @@ mixin searchHead(typeClass, title, searchWord, ...value)
                 each item in value
                     div.filter
                         span.value= item
-                        button.btnDelete(type='button') 삭제
-                            span.icoDelete
                 button.btnReset(type='button') 초기화
-                    span.icoDelete

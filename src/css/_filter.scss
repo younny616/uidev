@@ -109,7 +109,7 @@
             li { padding:6px; margin:5px; text-align:left;
               input {
                 &[type="checkbox"] { visibility:hidden; width:24px; height:24px; border-radius:50%; background:transparent;
-                  & + label { position:absolute; left:6px; top:6px; width:24px; height:24px; border:1px solid rgba(0, 0, 0, 0.1); border-radius:50%; margin:0; font-size:0; color:transparent;
+                  & + label { position:absolute; left:6px; top:6px; width:24px; height:24px; border:1px solid rgba(0, 0, 0, 0.1); border-radius:50%; margin:0; @include blind();
                     &:before { content:none; }
                     &:after { position:absolute; left:-5px; top:-5px; width:34px; height:34px; border:1px solid #0055fb; border-radius:50%; transform:none; }
                   }
@@ -239,7 +239,7 @@
             li { padding:6px; margin:0 0 6px; text-align:left;
               input {
                 &[type="checkbox"] { visibility:hidden; width:24px; height:24px; border-radius:50%; background:transparent;
-                  & + label { position:absolute; left:6px; top:6px; width:24px; height:24px; border:1px solid rgba(0, 0, 0, 0.1); border-radius:50%; margin:0; font-size:0; color:transparent;
+                  & + label { position:absolute; left:6px; top:6px; width:24px; height:24px; border:1px solid rgba(0, 0, 0, 0.1); border-radius:50%; margin:0; @include blind();
                     &:before { content:none; }
                     &:after { position:absolute; left:-5px; top:-5px; width:34px; height:34px; border:1px solid #0055fb; border-radius:50%; transform:none; }
                   }

@@ -8,14 +8,33 @@ mixin partnerInfo()
                     // platinum, gold, silver, bronze
                     span.tier.platinum 플래티넘
                 span.site www.partnerone.co.kr
-                div.detailView 상세정보 보기
-                    button(type='button').btnView 열기
-                    div.tooltip
-                        div.content
-                            dl
-                                dt 사업자유형
-                                dd 법인사업자
-                        button(type='button').btnClose
+                div.detailView
+                    span.view 상세정보 보기
+                    div.mTooltip
+                        button(type='button').btnTip.typeToggle.eTip 열기
+                        div.tooltip
+                            div.content
+                                dl.detailInfo
+                                    dt 사업자유형
+                                    dd 법인사업자
+                                    dt 대표자
+                                    dd 김대표
+                                    dt 홈페이지
+                                    dd
+                                        a(href="#none") hompage@onedes.com
+                                    dt 이메일
+                                    dd
+                                        a(href="#none") one01@onedes.com
+                                    dt 연락처
+                                    dd 070-123-1234
+                                    dt 주소
+                                    dd 서울특별시 동작구 보라매로 5길 주소가 길어져도 pc에서 한줄로 나옴
+                                    dt 사업자등록번호
+                                    dd 118-18-20000
+                                    dt 통신판매신고번호
+                                    dd 제 2016 동작 028282호
+                            button(type='button').btnClose.eClose
+                            div.arrow
         - var detailTitle1 = ['파트너등급', '전문분야']
         - var detailTitle2 = ['문의메일', '문의전화', '문의시간']
         - var detailDesc1 = ['플래티넘', '쇼핑몰구축/유지보수', '앱/채널개발']

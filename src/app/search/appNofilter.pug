@@ -1,0 +1,28 @@
+extends /layouts/layout
+include /components/common/mTitle
+include /components/common/mPagination
+include /components/searchHeadNoDelete
+include /components/stateBar
+include /components/applist
+include /components/list
+
+block append contents
+  section.searchHeadArea
+    div.gInner
+      +searchHeadNoDelete('typeApp', false, '마케팅 입력검색어', '배너', '마케팅', '고객지원', '유료', '브론즈')
+
+  section.searchArea
+    div.gInner
+      div.wFilterResult
+        +stateBar(false)
+        div.appGroup
+          +applist('typeSearch', '앱 제목이', '마케팅', '1,000円', '최소한의 서류 작업과 신용 확인없이 긴 신청 절차를 피하십시오.', '/images/@img_app_icon.png')
+          +applist('typeSearch', '앱 제목이 한줄일때', '마케팅', '1,000円', '최소한의 서류 작업과 신용 확인없이 긴 신청 절차를 피하십시오.', '/images/@img_app_icon.png')
+          +applist('typeSearch', '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', '최소한의 서류 작업과 신용 확인없이 긴 신청 절차를 피하십시오.', '/images/@img_app_icon.png')
+          +applist('typeSearch', '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', '최소한의 서류 작업과 신용 확인없이 긴 신청 절차를 피하십시오.', '/images/@img_app_icon.png')
+          +applist('typeSearch', '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', '최소한의 서류 작업과 신용 확인없이 긴 신청 절차를 피하십시오.', '/images/@img_app_icon.png')
+          +applist('typeSearch', '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', '최소한의 서류 작업과 신용 확인없이 긴 신청 절차를 피하십시오.', '/images/@img_app_icon.png')
+          +applist('typeSearch', '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', '최소한의 서류 작업과 신용 확인없이 긴 신청 절차를 피하십시오.', '/images/@img_app_icon.png')
+          +applist('typeSearch', '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', '최소한의 서류 작업과 신용 확인없이 긴 신청 절차를 피하십시오.', '/images/@img_app_icon.png')
+          +applist('typeSearch', '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', '최소한의 서류 작업과 신용 확인없이 긴 신청 절차를 피하십시오.', '/images/@img_app_icon.png')
+        +mPagination('typeMore', false)
