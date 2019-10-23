@@ -56,9 +56,9 @@
     .subMenu { display:inline-block; width:100%; padding:0 24px; box-sizing:border-box; background:#fafafa;
       .menuTitle { display:block; margin:29px 0 15px; font-size:11px; color:#797980; font-weight:400; }
       .menuInner { display:flex; }
-      .list.half { width:50%;
-        li { display:block; width:50%; white-space:nowrap; }
-      }
+      // .list.half { width:50%;
+      //   li { display:block; width:50%; white-space:nowrap; }
+      // }
       .list li { margin:0 0 25px; font-size:14px; color:#000; font-weight:400; }
     }
     .subMenu + .subMenu { border-top:1px solid #e8e8e8; }
@@ -188,24 +188,22 @@
       &:hover { color:#0055fb;
         .icoArrow:before { border-color:#0055fb; }
       }
-
      }
     .subMenu { display:inline-block; min-width:152px; padding:34px 24px 20px 36px; box-sizing:border-box;
       &.curation { position:relative; z-index:1; min-width:200px; padding-top:97px; background:#fafafa;
         &:before { display:block; width:100%; height:100%; position:absolute; top:-100%; bottom:0; left:0; right:0; z-index:-1; background:#fafafa; }
       }
       .menuTitle { display:block; margin:0 0 15px; font-size:13px; color:#959595; font-weight:400; }
-      .menuInner { display:flex; }
-      .list.half { flex:1;
-        li { min-width:144px; }
-      }
+      .menuInner { display:block; }
     }
-    .list li { display:block; margin:0 4px 12px 0;
+    .list { display:flex; flex-flow:column wrap; max-height:160px; }
+    .list li { display:block; min-width:144px; height:20px; margin:0 4px 12px 0; box-sizing:border-box;
       > a { display:block; padding:0 12px 0 0; box-sizing:border-box; text-decoration:none;
         &:hover { color:#0055fb; }
       }
      }
   }
+
   #header .nav .menu > li:hover .menuContent { opacity:1; height:auto; overflow:visible; border:1px solid #ddd;
     &:before { display:block; position:absolute; top:-22px; height:40px; width:100%; }
   }

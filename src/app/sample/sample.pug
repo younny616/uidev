@@ -1,0 +1,39 @@
+- var { project } = require('./config');
+- var title = project.title.charAt(0).toUpperCase() + project.title.slice(1);
+
+<!DOCTYPE html>
+html(lang="ko")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible" content="ie=edge")
+    title Sample
+    link(rel="stylesheet" href=`/css/${project.title}.min.css`)
+  body
+
+    block body
+      div.sampleArea
+        div.head
+          div.gInner
+            div.barAarea
+              select.fSelect.eSelect
+                option 언어선택
+                option 중국어(간체)
+                option 일본어
+                option 대만어(번체)
+                option 베트남어
+                option 스페인어
+                option 포르투칼어
+                option 한국어
+              div.mTooltip
+                div.content
+                  p.descTip 해당 상품은 글로벌 패키지 상품입니다.<br>제작 언어를 선택하면 샘플몰이 표시됩니다.
+                button(type='button').btnClose.eClose
+                div.arrow
+        div.content
+          iframe(src="http://ecudemo135025.cafe24.com/", frameborder="0")
+
+    script(src="/js/plugins/jquery-1.12.4.min.js")
+    script(src=`/js/${project.title}.bundle.min.js`)
+    script(src="/js/plugins/selectPack.js")
+    script(src="/js/ui/sample.js")

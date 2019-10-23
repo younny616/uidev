@@ -32,20 +32,17 @@ header#header(class=headerClass)
                   span.icoArrow
                 strong.menuTitle 카테고리
                 div.menuInner
-                  ul.list.half
-                    each menu in ["전체", "배너", "팝업/알림", "상품상세 편집", "분석/통계", "상품 디스플레이"]
-                      li
-                        a(href="#none")= menu
-                  ul.list.half
-                    each menu in ["마케팅", "고객지원", "판매/전환", "분석/통계", "기타"]
+                  ul.list
+                    each menu in ["전체", "배너", "팝업/알림", " 상품상세 편집", "분석/통계", "상품 디스플레이", "마케팅", "고객지원", "판매/전환", "분석/통계", "기타"]
                       li
                         a(href="#none")= menu
               div.subMenu.curation
                 strong.menuTitle 앱 기획전
-                ul.list
-                  each menu in ["상반기 Top 12", "나도 인플루언서", "주목할만한 신상 앱", "핫 썸머! 쿨~한 앱", "재능마켓"]
-                    li
-                      a(href="#none")= menu
+                div.menuInner
+                  ul.list
+                    each menu in ["상반기 Top 12", "나도 인플루언서", "주목할만한 신상 앱", "핫 썸머! 쿨~한 앱", "재능마켓"]
+                      li
+                        a(href="#none")= menu
           li.theme
             a(href='#none') 테마
               span.icoArrow
@@ -55,36 +52,35 @@ header#header(class=headerClass)
                   span.icoArrow
                 strong.menuTitle 카테고리
                 div.menuInner
-                  ul.list.half
-                    each menu in ["전체", "패션", "유아동/키즈", "잡화/화장품", "리빙/라이프"]
-                      li
-                        a(href="#none")= menu
-                  ul.list.half
-                    each menu in ["음료/음식", "가전", "기타"]
+                  ul.list
+                    each menu in ["전체", "패션", "유아동/키즈", "잡화/화장품", "리빙/라이프", "음료/음식", "가전", "기타"]
                       li
                         a(href="#none")= menu
               div.subMenu.curation
                 strong.menuTitle 테마 기획전
-                ul.list
-                  each menu in ["추천 테마", "인싸들이 선택한 테마", "무료 테마", "재미있고 활기찬", "신규테마 출시"]
-                    li
-                      a(href="#none")= menu
+                div.menuInner
+                  ul.list
+                    each menu in ["추천 테마", "인싸들이 선택한 테마", "무료 테마", "재미있고 활기찬", "신규테마 출시"]
+                      li
+                        a(href="#none")= menu
           li.curation
             a.curation(href='#none') 기획전
               span.icoArrow
             div.menuContent
               div.subMenu
                 strong.menuTitle 앱 기획전
-                ul.list
-                  each menu in ["상반기 Top 12", "주목할만한 신상 앱", "나도 인플루언서", "핫 썸머! 쿨~한 앱", "재능마켓"]
-                    li
-                      a(href="#none")= menu
+                div.menuInner
+                  ul.list
+                    each menu in ["상반기 Top 12", "주목할만한 신상 앱", "나도 인플루언서", "핫 썸머! 쿨~한 앱", "재능마켓"]
+                      li
+                        a(href="#none")= menu
               div.subMenu
                 strong.menuTitle 테마 기획전
-                ul.list
-                  each menu in ["추천 테마", "인싸들이 선택한 테마", "무료 테마", "재미있고 활기찬", "신규테마 출시"]
-                    li
-                      a(href="#none")= menu
+                div.menuInner
+                  ul.list
+                    each menu in ["추천 테마", "인싸들이 선택한 테마", "무료 테마", "재미있고 활기찬", "신규테마 출시"]
+                      li
+                        a(href="#none")= menu
         a.story(href='#none') 스토리
     div.search
       div.searchWrap

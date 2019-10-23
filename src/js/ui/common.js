@@ -137,6 +137,60 @@ function goTop(){
 
 
 (function(UI, Utils) {
+    var calcBoundary = function(ww) {
+        if (ww < 769) {
+            return 'mobile';
+        } else if (ww < 1080 && ww > 770) {
+            return 'tablet';
+        } else {
+            return 'pc';
+        }
+    };
+    var calcNavChildren = function (bools) {
+        $('nav .menuInner .list').each(function() {
+            var time = 0;
+            var longestWidth = 0;
+            var longestHeight = 0;
+            var maxLine = 6;
+            var children = $(this).children();
+
+            if (children.length % maxLine !== 0 && bools) {
+                time = Math.ceil(children.length / maxLine);
+                children.each(function() {
+                    longestWidth = (parseInt($(this).outerWidth(true), 10) > longestWidth) ? parseInt($(this).outerWidth(true), 10) : longestWidth;
+                    longestHeight = (parseInt($(this).outerHeight(true), 10) > longestHeight) ? parseInt($(this).outerHeight(true), 10) : longestHeight;
+                });
+
+                $(this).css({
+                    'min-width': (longestWidth * time) + 'px',
+                    'max-height': (longestHeight * maxLine) + 'px'
+                });
+            } else {
+                $(this).removeAttr('style');
+            }
+        });
+    };
+
+    if (calcBoundary(window.innerWidth) === 'pc') {
+        calcNavChildren(true);
+    }
+
+    $(window).on('resize', function() {
+        var ww = $(window).width();
+        var resizeBoundary = {
+            pc: 1081,
+            tablet: 1080,
+            mobile: 769
+        }
+
+        if (ww > resizeBoundary.pc) {
+            calcNavChildren(true);
+        } else {
+            calcNavChildren(false);
+        }
+    });
+
+
     UI.onToggleClass('#footer .familysite .eClick', '#footer .familysite', 'selected');
     UI.onSlideAccordion('.eAccordion', '.btnFold', 'selected');
 
