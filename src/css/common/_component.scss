@@ -102,7 +102,7 @@
         .descTip { font-size:11px; color:#5b5b5b; }
         .txtInfo { font-size:11px; }
       }
-      .arrow { display:block; position:absolute; top:-5px; width:6px; height:6px; border-top:1px solid #e8e8e8; border-right:1px solid #e8e8e8; background:#fff; transform:rotate(-45deg); }
+      .arrow { display:block; position:absolute; top:-5px; width:8px; height:8px; border-top:1px solid #e8e8e8; border-right:1px solid #e8e8e8; background:#fff; transform:rotate(-45deg); }
       .btnClose { position:absolute; top:3px; right:3px; width:40px; height:40px; text-align:center; @include blind(); @include icoX(10px, 1px, #333); }
     }
     .btnTip { display:inline-block; position:relative; width:12px; height:12px; margin:0 0 0 5px; border-radius:50%; @include blind();
@@ -355,8 +355,8 @@
     }
   }
 
-  .mTooltip { display:inline-block; position:relative; margin:0 0 0 8px; vertical-align:top;
-    .tooltip { display:none; position:absolute; top:36px; z-index:10; padding:20px 30px 20px 20px; border:1px solid #e8e8e8; border-radius:3px; box-sizing:border-box; background:#fff;
+  .mTooltip { display:inline-block; position:relative; vertical-align:top;
+    .tooltip { display:none; position:absolute; top:36px; z-index:10; padding:20px 30px 20px 20px; border:1px solid #e8e8e8; border-radius:4px; box-sizing:border-box; background:#fff;
       .content {
         .titleTip { display:block; margin:0 0 12px; font-size:13px; font-weight:800; color:#333; }
         .descTip { min-width:305px; margin:0 0 13px; font-size:13px; color:#5b5b5b; line-height:18px; letter-spacing:-.5px;
@@ -383,6 +383,11 @@
         &.typeToggle {
           &:before { top:calc(50% + 1px); transform:translate(-50%, -50%) rotate(45deg); }
         }
+      }
+    }
+    &.typeHover { position:absolute; left:0; bottom:0;
+      .tooltip { top:6px; min-width:320px; padding:24px;
+        .content { text-align:left; font-size:15px; line-height:22px; }
       }
     }
   }
@@ -482,7 +487,7 @@
   }
 
   .fSelect { display:inline-block; position:relative; min-width:100px; padding:0 32px 0 16px; border:1px solid #e8e8e8; box-sizing:border-box; border-radius:4px; line-height:1; text-align:left;
-    &:after { content:''; display:block; position:absolute; right:16px; top:calc(50% - 2px); width:9px; height:5px; background:url('#{$src}/ico_select.png') no-repeat center center; background-size:9px 5px; transition:transform .3s ease; transform:rotate(-180deg);}
+    &:after { content:''; display:block; position:absolute; right:16px; top:calc(50% - 2px); width:9px; height:5px; background:url('#{$src}/ico_select.png') no-repeat center center; background-size:9px 5px; transition:transform .3s ease; transform:rotate(-180deg); }
     select { visibility:hidden; position:absolute; z-index:-1; left:-100% }
     .fButton { position:absolute; top:0; right:0; overflow:hidden; width:100%; height:100%; font-size:1px; line-height:0; color:transparent; text-indent:-150%; letter-spacing:-1em; white-space:nowrap; background:none; }
     .fNow { overflow:hidden; height:40px; font-size:14px; color:#000; word-break:break-all; cursor:pointer; line-height:40px; }
@@ -499,7 +504,7 @@
     &.error { position:relative;
       &:before { content:''; display:block; position:absolute; left:-1px; top:-1px; width:calc(100% - 2px); height:calc(100% - 2px); border:2px solid #cf1401; border-radius:3px; }
     }
-    &.show {
+    &.show { background:#f6f7f9;
       &:after { transform:rotate(0); }
     }
     &.upShow {

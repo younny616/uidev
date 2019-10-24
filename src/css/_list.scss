@@ -76,6 +76,7 @@
 
     .typeTheme {
       .item { width:calc(25% - 34px); max-width:326px; margin:0 17px 17px;
+        &:nth-child(4n+4) ~ .item { margin:17px; }
         .inner { height:136px; text-align:left;
           a { padding:30px 20px; }
           .title { display:block; margin:0 0 3px; font-size:20px; font-weight:500; line-height:1; }

@@ -8,10 +8,6 @@ mixin searchHeadNoDelete(typeClass, title, searchWord, ...value)
                     span.label 앱 검색결과
                     div.searchForm
                         input(type='text', value=searchWord)
-            if value.length > 0
-                button.btnFilter.active(type='button') 필터
-            else
-                button.btnFilter(type='button') 필터
         if value.length > 0
             div.search
                 each item in value

@@ -151,7 +151,7 @@ function goTop(){
             var time = 0;
             var longestWidth = 0;
             var longestHeight = 0;
-            var maxLine = 6;
+            var maxLine = 5;
             var children = $(this).children();
 
             if (children.length % maxLine !== 0 && bools) {
@@ -227,7 +227,8 @@ function goTop(){
     }
 
     if (Utils._element_exist('.mTooltip')) {
-        UI.onToggleTooltip('.mTooltip .eTip', '.mTooltip', 'show', 20);
+        UI.onShowTooltip('.mTooltip .eTip', 'toggle', 'show', -20);
+        UI.onShowTooltip('.tooltipArea .eTip', 'hover', 'show');
     }
 
 })(Cafe24.UI, Cafe24.Utils);

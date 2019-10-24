@@ -15,23 +15,27 @@ html(lang="ko")
       div.sampleArea
         div.head
           div.gInner
-            div.barAarea
-              select.fSelect.eSelect
-                option 언어선택
-                option 중국어(간체)
-                option 일본어
-                option 대만어(번체)
-                option 베트남어
-                option 스페인어
-                option 포르투칼어
-                option 한국어
-              div.mTooltip
-                div.content
-                  p.descTip 해당 상품은 글로벌 패키지 상품입니다.<br>제작 언어를 선택하면 샘플몰이 표시됩니다.
-                button(type='button').btnClose.eClose
-                div.arrow
-        div.content
-          iframe(src="http://ecudemo135025.cafe24.com/", frameborder="0")
+            div.gridSet
+              div.selectArea
+                select.fSelect.eSelect
+                  option 언어선택
+                  option 영어
+                  option 중국어(간체)
+                  option 일본어
+                  option 대만어(번체)
+                  option 베트남어
+                  option 스페인어
+                  option 포르투칼어
+                  option 한국어
+                div.alert
+                  | 해당 상품은 글로벌 패키지 상품입니다.<br>제작 언어를 선택하면 샘플몰이 표시됩니다.
+              div.btnFrameArea
+                button(type="button").btnFrameDesktop.active 데스크탑
+                button(type="button").btnFrameMobile 모바일
+
+        div.content.viewDesktop
+          div.previewContent
+            iframe(src="http://m.ecudemo135025.cafe24.com/" frameborder="0")
 
     script(src="/js/plugins/jquery-1.12.4.min.js")
     script(src=`/js/${project.title}.bundle.min.js`)
