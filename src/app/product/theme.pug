@@ -26,14 +26,6 @@ block append contents
     section.productThumbsAndInfoArea
       //- div.gInside
       //-   div.infoWrap
-      //-     +productInfoHead('앱상품제목열다섯줄바꿈가이드')
-      //-     +productInfoThumbs('app', 'pc')
-      //-     +productInfoList('app')
-      //-     +productInfoPrice('app')
-      //-     +productInfoFixed('app', '앱상품제목열다섯자줄바꿈없이노출가이드')
-
-      //- div.gInside
-      //-   div.infoWrap
       //-     +productInfoHead('테마상품제목열다섯줄바꿈가이드')
       //-     +productInfoThumbs('theme', 'pc')
       //-     +productInfoList('theme')
@@ -108,10 +100,10 @@ block append contents
     - var relativeTheme2 = 'relativeTheme2';
     - var relativeThemeData = require('./src/js/data/relativeTheme.js');
     section.relativeThemeArea
-      +mTitle('typeLeft', '유사한 디자인 (<span class="count">7</span>)')
+      +mTitle('typeProduct', '유사한 디자인 (<span class="count">7</span>)')
       +slider(relativeTheme1, relativeThemeData, 'typeTheme', 'theme', true, true)
 
-      +mTitle('typeLeft', '<a href="#" class="txtEm">패션/의류</a> 인기디자인 (<span class="count">16</span>)')
+      +mTitle('typeProduct', '<a href="#" class="txtEm">패션/의류</a> 인기디자인 (<span class="count">16</span>)')
       +slider(relativeTheme2, relativeThemeData, 'typeTheme', 'theme', true, true)
 
 block append wrap
@@ -127,7 +119,7 @@ block append body
   script(src="/js/ui/productThemeSlide.js")
 
   script.
-    // 리뷰 작성하기 레이어팝업 UI 테스트 임시 스크립트
+    // UI 테스트
     (function() {
       var $reviewIcon = $('.mLayer .reviewArea .grade');
 

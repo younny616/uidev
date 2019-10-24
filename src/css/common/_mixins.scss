@@ -136,8 +136,8 @@
 }
 
 @mixin more($child, $count) {
-  &:nth-child(#{$count}n) ~ #{$child} { display:none; }
-  &:nth-child(#{$count}n) ~ #{$child}.displayed { display:block; }
+  &:nth-child(#{$count}) ~ #{$child} { display:none; }
+  &:nth-child(#{$count}) ~ #{$child}.displayed { display:block; }
 }
 
 @mixin section-bar(){

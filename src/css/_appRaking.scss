@@ -1,14 +1,13 @@
 @include respond(mobile) {
-
-}
-
-@include respond(mobile-tablet) {
-
-}
-
-@include respond(tablet) {
-
-
+  .appRanking {
+    .heading { padding:35px 0 25px;
+      .title { font-size:20px; }
+      .desc { margin:0 0 10px; font-size:13px; color:#797980; }
+    }
+    .ranking {
+      li { display:block; @include more('li', 5); }
+    }
+  }
 }
 
 @include respond(tablet-pc) {
@@ -22,10 +21,9 @@
     .ranking + .ranking { margin:0 0 0 50px; }
 
     ol { counter-reset:ordered; }
-
   }
 }
 
-@include respond(pc) {
+@include respond(tablet) {
 
 }

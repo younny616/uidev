@@ -120,6 +120,6 @@
         }
     });
 
-    UI.onPagination('.appListArea .btnMore', '.appGroup', 4);
+    UI.onPagination('.appListArea .btnMore', '.appListArea .appGroup', 4);
 
 })(Cafe24.UI);

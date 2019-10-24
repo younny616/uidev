@@ -11,17 +11,9 @@
   }
 }
 
-@include respond(mobile-tablet) {
-
-}
-
-@include respond(tablet) {
-
-
-}
-
 @include respond(tablet-pc) {
   .productPrice {
+    .infoDesc { margin:-16px 0 21px; font-size:14px; color:#959595;  }
     .priceList { display:flex; flex-wrap:wrap; margin:0 -10px; }
     .item { width:calc(100%/3 - 20px); margin:0 10px 20px; padding:38px 29px; border:1px solid #e8e8e8; border-radius:3px; box-sizing:border-box;
       .option { @include text-ellipsis(20, 1); font-size:14px; color:#0055fb; font-weight:800; }
@@ -31,6 +23,6 @@
   }
 }
 
-@include respond(pc) {
+@include respond(tablet) {
 
 }

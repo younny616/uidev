@@ -77,24 +77,29 @@ class UI {
     onSlideAccordion(self, trigger, className) {
         let waitForTransition = false;
         return $(document).on('click', `${self} ${trigger}`, (e) => {
-            const $target = $(e.currentTarget).parent();
+            const $self = $(e.currentTarget);
+            const $target = $self.parent();
 
             if (!waitForTransition) {
+                $self.toggleClass(className);
                 $target.siblings().slideToggle(() => {
                     $target.parent().toggleClass(className);
                 });
 
-                $target.parent().siblings().each((i, self) => {
-                    const $self = $(self);
+                $target.parent().siblings().each((i, sibling) => {
+                    const $sibling = $(sibling);
 
-                    if ($self.hasClass(className)) {
-                        const $trigger = $self.find(trigger).parent();
+                    if ($sibling.hasClass(className)) {
+                        const $tirgger = $sibling.find(trigger);
+                        const $target = $tirgger.parent();
 
                         waitForTransition = !waitForTransition;
 
-                        $trigger.siblings().slideToggle(() => {
+                        $tirgger.toggleClass(className);
+                        $target.siblings().slideToggle(() => {
                             waitForTransition = !waitForTransition;
-                            $trigger.parent().toggleClass(className);
+
+                            $target.parent().toggleClass(className);
                         });
                     }
                 });
@@ -116,12 +121,15 @@ class UI {
 
         checkDisplay($(target).children(), isDisplayed => isDisplayed.every((display) => display === true)) ? $(self).hide() : false;
 
-        return $(document).on('click', self, () => {
+        return $(document).on('click', self, (e) => {
             let children = $(target).children();
             let start = checkDisplay(children, isDisplayed => isDisplayed.indexOf(false));
             let end = start + moreCount;
 
+            console.log(start, end);
+
             while (start < end) {
+
                 $(children[start]).addClass('displayed');
                 start++;
             }

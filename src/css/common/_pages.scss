@@ -21,14 +21,20 @@
     }
 
     /* 상품상세 */
-    &.detailProductArea,
-    &.detailReviewArea,
+    &.productThumbsAndInfoArea,
     &.productScreenShotArea,
-    &.productPriceArea,
-    &.partnerInfoArea,
     &.productAddInfoArea,
-    &.productFaqArea { @include section-bar(); }
+    &.productPriceArea,
+    &.productReviewArea,
+    &.productFaqArea,
+    &.partnerInfoArea { @include section-bar(); }
     &.productThumbsAndInfoArea { padding:30px 0 0; }
+    &.productDetailArea {
+      .gInside { padding:0; }
+    }
+    &.productKeywordArea { padding:0 0 20px; }
+    &.relativeAppArea,
+    &.relativeThemeArea, { background:#f5f5f5; }
   }
 }
 
@@ -46,22 +52,20 @@
       & + .productScreenShotArea { padding:0 0 40px; }
     }
     &.productScreenShotArea { position:relative; padding:160px 0 40px;
-      &:after { content:''; display:block; position:absolute; left:0; bottom:0; right:0; width:1240px; margin:0 auto; border-bottom:1px solid #e8e8e8; }
+      &:after { content:''; display:block; position:absolute; left:0; bottom:0; right:0; width:100%; max-width:1280px; margin:0 auto; padding:0 20px; border-bottom:1px solid #e8e8e8; box-sizing:border-box; }
     }
     &.productAddInfoArea { position:relative; padding:80px 0 40px;
-      &:after { content:''; display:block; position:absolute; left:0; bottom:0; right:0; width:1240px; margin:0 auto; border-bottom:1px solid #e8e8e8; }
+      &:after { content:''; display:block; position:absolute; left:0; bottom:0; right:0; width:100%; max-width:1280px; margin:0 auto; padding:0 20px; border-bottom:1px solid #e8e8e8; box-sizing:border-box; }
     }
     &.productReviewArea {position:relative; padding:80px 0 0; }
     &.productFaqArea { padding:80px 0 0; }
     &.productKeywordArea { padding:80px 0 120px; }
-
     &.partnerInfoArea { position:relative; padding:80px 0 40px;
-      &:after { content:''; display:block; position:absolute; left:0; bottom:0; right:0; width:1240px; margin:0 auto; border-bottom:1px solid #e8e8e8; }
+      &:after { content:''; display:block; position:absolute; left:0; bottom:0; right:0; width:100%; max-width:1280px; margin:0 auto; padding:0 20px; border-bottom:1px solid #e8e8e8; box-sizing:border-box; }
     }
-
-    // &.productPriceArea { padding:90px 0; }
-    // &.appRankingArea { padding:118px 0; }
-
+    &.relativeAppArea,
+    &.relativeThemeArea, { background:#f5f5f5; }
+    &.appRankingArea { padding:118px 0; }
   }
   .searchHeadArea.gEmpty { background:#f8f8fb; }
 }

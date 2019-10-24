@@ -48,4 +48,6 @@
         scrollDirection = scrollTop;
     });
 
+    UI.onPagination('.appRankingArea .btnMore', '.appRankingArea .ranking', 5);
+
 })(Cafe24.UI);

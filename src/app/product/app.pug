@@ -2,6 +2,7 @@ extends /layouts/layout
 include /components/common/mTitle
 include /components/common/mLayer
 include /components/common/mEmpty
+include /components/common/mPagination
 include /components/slider
 include /components/list
 include /components/productInfoHead
@@ -60,6 +61,12 @@ block append contents
             +mTitle('typeProduct', 'FAQ')
             div.gInside
                 +faqList()
+        // 상품 리뷰
+        section.productReviewArea#productReviewArea
+            +mTitle('typeProduct', '리뷰')
+            div.gInside
+                +productReview()
+                +mEmpty('typeReview')
 
         //상품추가정보
         section.productAddInfoArea
@@ -83,16 +90,17 @@ block append contents
         - var relativeApp1 = 'relativeApp1';
         - var relativeApp2 = 'relativeApp2';
         - var relativeAppData = require('./src/js/data/relativeApp.js');
-        section.relativeThemeArea
-        +mTitle('typeLeft', '유사한 앱 (<span class="count">7</span>)')
-        +slider(relativeApp1, relativeAppData, 'typeApp', 'app', true, true)
+        section.relativeAppArea
+            +mTitle('typeProduct', '유사한 앱 (<span class="count">7</span>)')
+            +slider(relativeApp1, relativeAppData, 'typeApp', 'app', true, true)
 
-        +mTitle('typeLeft', '함께 설치한 앱 (<span class="count">16</span>)')
-        +slider(relativeApp2, relativeAppData, 'typeApp', 'app', true, true)
+            +mTitle('typeProduct', '함께 설치한 앱 (<span class="count">16</span>)')
+            +slider(relativeApp2, relativeAppData, 'typeApp', 'app', true, true)
 
         section.appRankingArea
             div.gInside
                 +appRanking()
+            +mPagination('typeMore', 'RMB')
 
 block append wrap
   +mLayer('mLayerInstall', '쇼핑몰 아이디 입력', '입력한 쇼핑몰 아이디를 통해 구매 및 문의가 가능합니다.')

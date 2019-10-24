@@ -1,5 +1,5 @@
 @include respond(mobile) {
-  .productAddInfo { position:relative;
+  .productAddInfo { position:relative; display:flex; flex-flow:column wrap;
     .information { margin:0 0 35px; box-sizing:border-box;
       .head { margin:0 0 8px;
         .title {  font-size:14px; color:#333; font-weight:500; }
@@ -8,10 +8,12 @@
         .desc { font-size:14px; color:#5b5b5b; line-height:20px; }
       }
 
-      &.notice { min-height:auto; }
+      &.notice { order:5; min-height:auto;
+        .btnNormal.small { width:100%; box-sizing:border-box; }
+      }
     }
     .flagGroup { display:flex; width:280px; flex-wrap:wrap; margin:0 -10px;
-      .flag { display:inline-block; width:40px; height:40px; margin:0 10px 20px; background:url('/images/sfix_product_flag.png'); background-size:200px auto;
+      .flag { display:inline-block; width:40px; height:40px; margin:0 10px; background:url('/images/sfix_product_flag.png'); background-size:200px auto;
         &.cn { background-position:-50px 0; }
         &.us { background-position:-100px 0; }
         &.jp { background-position:-150px 0; }
@@ -19,10 +21,13 @@
         &.es { background-position:-50px -50px; }
         &.pt { background-position:-100px -50px; }
         &.tw { background-position:-150px -50px; }
+        &:nth-of-type(4n+4) ~ .flag { margin:20px 10px 0; }
       }
     }
     .colorGroup { display:flex; width:280px; flex-wrap:wrap;
-      .colorChip { display:inline-block; width:40px; height:40px; margin:0 20px 0 0; border-radius:50%; }
+      .colorChip { display:inline-block; width:40px; height:40px; margin:0 20px 0 0; border-radius:50%;
+        &:nth-of-type(4n+4) ~ .colorChip { margin:20px 20px 0 0; }
+      }
     }
 
     .layout { display:inline-block; min-width:86px; height:86px; margin:3px 0 0; padding:0 10px; text-align:center; border:1px solid #e8e8e8; border-radius:3px; box-sizing:border-box;
@@ -62,7 +67,7 @@
     }
 
     .flagGroup { display:flex; width:280px; flex-wrap:wrap; margin:0 -10px;
-      .flag { display:inline-block; width:50px; height:50px; margin:0 10px 20px; background:url('/images/sfix_product_flag.png'); background-size:240px auto;
+      .flag { display:inline-block; width:50px; height:50px; margin:0 10px; background:url('/images/sfix_product_flag.png'); background-size:240px auto;
         &.cn { background-position:-60px 0; }
         &.us { background-position:-120px 0; }
         &.jp { background-position:-180px 0; }
@@ -70,10 +75,13 @@
         &.es { background-position:-60px -60px; }
         &.pt { background-position:-120px -60px; }
         &.tw { background-position:-180px -60px; }
+        &:nth-of-type(4n+4) ~ .flag { margin:20px 10px 0; }
       }
     }
     .colorGroup { display:flex; width:280px; flex-wrap:wrap;
-      .colorChip { display:inline-block; width:40px; height:40px; margin:0 20px 0 0; border-radius:50%; }
+      .colorChip { display:inline-block; width:40px; height:40px; margin:0 20px 0 0; border-radius:50%;
+        &:nth-of-type(4n+4) ~ .colorChip { margin:20px 20px 0 0; }
+      }
     }
 
     .layout { display:inline-block; min-width:72px; height:72px; margin:3px 0 0; padding:0 10px; text-align:center; border:1px solid #e8e8e8; border-radius:4px; box-sizing:border-box;

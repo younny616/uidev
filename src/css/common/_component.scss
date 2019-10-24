@@ -28,7 +28,7 @@
       }
       &Dark { display:inline-block; border:1px solid #000; padding:0 12px; border-radius:4px; background:#000; font-size:13px; color:#fff; line-height:38px; }
     }
-    &.full { display:block; width:100%; }
+    &.full { display:block; width:100%; box-sizing:border-box; }
     &.small { height:32px; font-size:12px; line-height:30px; }
     &.large { height:48px; line-height:46px; }
   }
@@ -47,7 +47,11 @@
   .RW { display:none; }
   .RMB { display:block; }
 
-  .gInner { padding:0 20px; }
+  .gInner { padding:0 20px;
+    .mTitle {
+      &.typeLeft { padding-left:0; padding-right:0; }
+    }
+  }
   .gInside { padding:0 20px; }
 
   /* Components */
@@ -64,7 +68,6 @@
         .icoArrow { display:none; }
       }
     }
-    .gInner &.typeLeft { padding-left:0; padding-right:0; }
 
     &.typeCenter { padding:55px 20px 52px; text-align:center;
       .title { margin:0 0 5px; font-size:22px; line-height:28px; font-weight:400; }
@@ -83,9 +86,8 @@
       }
     }
 
-    &.typeProduct { margin:35px 20px 25px;
+    &.typeProduct { padding:35px 20px 25px;
       .title { font-size:20px; }
-
     }
 
     .title { color:#000; }
@@ -138,7 +140,9 @@
 
     &.typeSearch { padding:45px 0 30px; border-bottom:1px solid #e8e8e8; }
     &.typeCategory { position:relative; left:-20px; width:calc(100% + 40px); padding:80px 0; background:#f5f5f5; }
-    &.typeReview { position:relative; left:-20px; width:calc(100% + 40px); padding:80px 0; background:#f5f5f5; }
+    &.typeReview { position:relative; width:100%; padding:0 0 20px;
+      .desc { padding:80px 0; background:#f5f5f5; color:#7b7b7b; }
+    }
   }
 
   .mLayer { display:none; flex-wrap:wrap; position:fixed; left:0; top:0; right:0; height:100%; z-index:102; margin:0 auto; align-items:center;
@@ -286,7 +290,7 @@
     }
 
     &.disabled { border-color:#bfbfc3; background:#bfbfc3; color:#fff; pointer-events:none; }
-    &.full { display:block; width:100%; }
+    &.full { display:block; width:100%; box-sizing:border-box; }
     &.small { height:32px; font-size:13px; line-height:30px; }
     &.large { height:48px; line-height:46px; }
   }
@@ -350,10 +354,10 @@
       .btnAll { position:relative; }
     }
 
-    &.typeProduct { max-width:1240px; margin:0 auto 20px; padding:0;
+    &.typeProduct { max-width:1280px; margin:0 auto 20px; box-sizing:border-box;
       .title { font-size:32px; font-weight:800; }
-
     }
+
     .title { color:#000; }
     .desc { font-size:16px; color:#959595; }
     .btnAll { font-size:16px; color:#0055fb;
@@ -411,7 +415,7 @@
     &.typeCategory { padding:24px 0 0; text-align:left; border-top:1px solid #e8e8e8; }
     &.typeReview { position:relative; padding:0 0 20px;
       .desc { padding:70px 0; background:#f5f5f5; color:#7b7b7b; }
-      &:after { content:''; display:block; position:absolute; left:0; bottom:0; right:0; width:1240px; margin:0 auto; border-bottom:1px solid #e8e8e8; }
+      &:after { content:''; display:block; position:absolute; left:0; bottom:0; right:0; width:100%; max-width:1280px; margin:0 auto; padding:0 20px; border-bottom:1px solid #e8e8e8; box-sizing:border-box; }
     }
   }
 
