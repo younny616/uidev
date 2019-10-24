@@ -10,13 +10,13 @@ include /components/productInfoList
 include /components/productInfoPrice
 include /components/productInfoFixed
 include /components/productReview
-include /components/screenShot
 include /components/productMerit
 include /components/productDetail
 include /components/productAddInfo
-include /components/faqList
-include /components/partnerInfo
+include /components/productFaqList
 include /components/productKeyword
+include /components/partnerInfo
+include /components/screenShot
 include /components/appRanking
 include /components/grade
 
@@ -67,7 +67,7 @@ block append contents
         +productDetail()
 
     // 스크린샷
-    section.screenShotArea
+    section.productScreenShotArea
       +mTitle('typeProduct', '스크린샷')
       div.gInside
         +screenShot('https://orangemsg.com/cafe24/app/images/cafe24_detail.png', 'https://orangemsg.com/cafe24/app/images/cafe24_detail_add.png', 'https://orangemsg.com/cafe24/app/images/cafe24_detail_add.png', 'https://orangemsg.com/cafe24/app/images/cafe24_detail_add.png', 'https://orangemsg.com/cafe24/app/images/cafe24_detail_add.png')
@@ -92,7 +92,7 @@ block append contents
         +mEmpty('typeReview')
 
     //FAQ
-    section.faqListArea
+    section.productFaqArea
       +mTitle('typeProduct', 'FAQ')
       div.gInside
           +faqList()

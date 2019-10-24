@@ -190,9 +190,8 @@ function goTop(){
         }
     });
 
-
-    UI.onToggleClass('#footer .familysite .eClick', '#footer .familysite', 'selected');
     UI.onSlideAccordion('.eAccordion', '.btnFold', 'selected');
+    UI.onToggleClass('#footer .familysite .eClick', '#footer .familysite', 'selected');
 
     if (Utils._element_exist('.fSelect')) {
         $('.fSelect.eSelect').each(function(i) {

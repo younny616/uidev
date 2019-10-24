@@ -1,4 +1,4 @@
-(function(UI){
+(function(){
     $('.fSelect.eSelect').each(function(i) {
         var propTagName = $(this).prop('tagName');
 
@@ -13,9 +13,14 @@
         }
     });
 
-    // UI 테스트
-    UI.onAddClass('.selectArea .fSelect', '.selectArea .alert', 'disabled');
 
+    // UI 테스트
+    $('.fSelect.eSelect').on('click', function(){
+        $('.selectArea .alert').addClass('disabled');
+        $(this).off('click');
+    });
+
+    // UI 테스트
     $('.btnFrameArea').on('click', function(e) {
         var $target = $(e.target);
         var $contentArea = $('.sampleArea .content');
@@ -40,5 +45,4 @@
                 return;
         }
     });
-
-})(Cafe24.UI);
+})();

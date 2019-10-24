@@ -10,14 +10,14 @@ include /components/productInfoList
 include /components/productInfoPrice
 include /components/productInfoFixed
 include /components/productReview
-include /components/screenShot
 include /components/productMerit
 include /components/productDetail
-include /components/productAddInfo
 include /components/productPrice
-include /components/faqList
-include /components/partnerInfo
+include /components/productAddInfo
+include /components/productFaqList
 include /components/productKeyword
+include /components/partnerInfo
+include /components/screenShot
 include /components/appRanking
 include /components/grade
 
@@ -34,7 +34,7 @@ block append contents
                     +productInfoFixed('app', '앱상품제목열다섯자줄바꿈없이노출가이드')
 
         // 스크린샷
-        section.screenShotArea
+        section.productScreenShotArea
             +mTitle('typeProduct', '스크린샷')
             div.gInside
                 +screenShot('https://orangemsg.com/cafe24/app/images/cafe24_detail.png', 'https://orangemsg.com/cafe24/app/images/cafe24_detail_add.png', 'https://orangemsg.com/cafe24/app/images/cafe24_detail_add.png', 'https://orangemsg.com/cafe24/app/images/cafe24_detail_add.png', 'https://orangemsg.com/cafe24/app/images/cafe24_detail_add.png')
@@ -56,7 +56,7 @@ block append contents
                 +productPrice()
 
         //FAQ
-        section.faqListArea
+        section.productFaqArea
             +mTitle('typeProduct', 'FAQ')
             div.gInside
                 +faqList()
