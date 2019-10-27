@@ -100,10 +100,10 @@ block append contents
     - var relativeTheme2 = 'relativeTheme2';
     - var relativeThemeData = require('./src/js/data/relativeTheme.js');
     section.relativeThemeArea
-      +mTitle('typeProduct', '유사한 디자인 (<span class="count">7</span>)')
+      +mTitle('typeLeft', '유사한 디자인 (<span class="count">7</span>)')
       +slider(relativeTheme1, relativeThemeData, 'typeTheme', 'theme', true, true)
 
-      +mTitle('typeProduct', '<a href="#" class="txtEm">패션/의류</a> 인기디자인 (<span class="count">16</span>)')
+      +mTitle('typeLeft', '<a href="#" class="txtEm">패션/의류</a> 인기디자인 (<span class="count">16</span>)')
       +slider(relativeTheme2, relativeThemeData, 'typeTheme', 'theme', true, true)
 
 block append wrap
@@ -111,6 +111,7 @@ block append wrap
   +mLayer('mLayerReview', '리뷰 작성하기')
   +mLayer('mLayerQuestion', '문의하기')
   +mLayer('mLayerAlert')
+  +mLayer('mLayerScreenShot', '스크린샷')
   div.dimmed
 
 block append body

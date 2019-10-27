@@ -27,7 +27,7 @@
     .nextWrap { right:0; }
     [class*=slide] { position:absolute; top:50%; z-index:1; width:50px; height:50px; @include blind();
       &:before,
-      &:after, { content:''; display:block; position:absolute; left:0; top:0; right:0; bottom:0; width:14px; height:14px; margin:auto; border-top:2px solid #999; border-right:2px solid #999; border-left:0 solid transparent; border-bottom:0 solid transparent; transform: translate(-2px, 2px); }
+      &:after { content:''; display:block; position:absolute; left:0; top:0; right:0; bottom:0; width:14px; height:14px; margin:auto; border-top:2px solid #999; border-right:2px solid #999; border-left:0 solid transparent; border-bottom:0 solid transparent; transform: translate(-2px, 2px); }
     }
     .slidePrev { left:15px; transform:translateY(-50%) rotate(-135deg); }
     .slideNext { right:15px; transform:translateY(-50%) rotate(45deg); }
@@ -258,7 +258,7 @@
       [class*=Wrap] { background:transparent; }
       [class*=slide] { width:75px; height:75px; top:50%;
         &:before,
-        &:after, { width:60px; height:60px; margin:auto; border-top:1px solid #454545; border-right:1px solid #454545; }
+        &:after { width:60px; height:60px; margin:auto; border-top:1px solid #454545; border-right:1px solid #454545; }
       }
     }
   }
@@ -457,7 +457,7 @@
       [class*=Wrap] { background:transparent; }
       [class*=slide] { width:75px; height:75px; top:calc(50% - 40px);
         &:before,
-        &:after, { width:49px; height:49px; margin:auto; border-top:1px solid #4b4b4b; border-right:1px solid #4b4b4b; }
+        &:after { width:49px; height:49px; margin:auto; border-top:1px solid #4b4b4b; border-right:1px solid #4b4b4b; }
       }
     }
   }
@@ -494,7 +494,7 @@
         [class*=Wrap] { background:transparent; }
         [class*=slide] { width:72px; height:72px; top:calc(50% + 40px);
           &:before,
-          &:after, { width:48px; height:48px; margin:auto; border-top:1px solid #454545; border-right:1px solid #454545; }
+          &:after { width:48px; height:48px; margin:auto; border-top:1px solid #454545; border-right:1px solid #454545; }
         }
       }
     }
