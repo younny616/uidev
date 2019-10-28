@@ -51,15 +51,15 @@ block append contents
     +mTitle('typeCenter', '혹시 모바일 테마를 찾고 계신가요?', '모바일에 최적화된 테마를 만나보세요.', '전체보기')
     +slider(mobileTheme, mobileThemeData, 'typeZigzag', 'image', false, true)
 
-  - var choseThemeData = require('./src/js/data/choseTheme.js');
-  section.choseThemeArea
+  - var listTheme1Data = require('./src/js/data/listTheme1.js');
+  section.listThemeArea
     +mTitle('typeLeft', '인싸들이 선택한 테마', '나의 쇼핑몰 고객에게 인싸가 되는 핫한 디자인을 모았습니다.', '전체보기')
-    +list(choseThemeData, 'typeTheme')
+    +list(listTheme1Data, 'typeTheme')
 
-  - var minimalThemeData = require('./src/js/data/minimalTheme.js');
-  section.minimalThemeArea
+  - var listTheme2Data = require('./src/js/data/listTheme2.js');
+  section.listThemeArea
     +mTitle('typeLeft', '미니멀리스트 테마모음', '미니멀리스트 디자인을 모았습니다.', '전체보기')
-    +list(minimalThemeData, 'typeTheme')
+    +list(listTheme2Data, 'typeTheme')
 
   section.cateArea
     +category('테마 카테고리', 'theme')(class="theme")
