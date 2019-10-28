@@ -2,12 +2,12 @@ include /components/grade
 include /components/slider
 
 mixin mLayer(id, title, desc)
-  - var types = id.replace('mLayer', '');
+  - var types = id.replace('layer', '');
   div(id=`${id}` class="mLayer")
-    div.inner
+    div.wrap
       div.head
         if title
-          strong.title= title
+          h3.title= title
         if desc
           p.desc= desc
         button(type="button" class="btnClose eCloseLayer") 닫기
@@ -22,7 +22,7 @@ mixin mLayer(id, title, desc)
               // 입력 미완료
               //- button(type="submit").btnSubmit.full.large.disabled 완료
               // 입력 완료
-              button(type="submit").btnSubmit.full.large.success 완료
+              button(type="submit").btnSubmit.full.large 완료
             div.txtArea
               p
                 | 아직 쇼핑몰이 없으신가요?
@@ -48,7 +48,7 @@ mixin mLayer(id, title, desc)
               // 입력 미완료
               //- button(type="submit").btnSubmit.full.large.disabled 완료
               // 입력 완료
-              button(type="submit").btnSubmit.full.large.success 완료
+              button(type="submit").btnSubmit.full.large 완료
           when 'Question'
             div.partnerArea
               div.image
@@ -69,13 +69,13 @@ mixin mLayer(id, title, desc)
               // 입력 미완료
               //- button(type="submit").btnSubmit.full.large.disabled 완료
               // 입력 완료
-              button(type="submit").btnSubmit.full.large.success 완료
+              button(type="submit").btnSubmit.full.large 완료
           when 'Alert'
             div.alertArea
               p.desc 상품 구매 후 작성할 수 있습니다.
             div.btnArea
               button(type="button").btnSecondary.large 취소
-              button(type="submit").btnSubmit.large.success 완료
+              button(type="submit").btnSubmit.large 완료
           when 'ScreenShot'
             - var screenShotTheme = 'screenShotTheme'
             - var screenShotThemeData = require('./src/js/data/screenShotTheme.js');

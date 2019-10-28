@@ -14,24 +14,23 @@ html(lang="ko")
     block body
       div.sampleArea
         div.head
-          div.gInner
-            div.gridSet
-              div.selectArea
-                select.fSelect.eSelect
-                  option 언어선택
-                  option 영어
-                  option 중국어(간체)
-                  option 일본어
-                  option 대만어(번체)
-                  option 베트남어
-                  option 스페인어
-                  option 포르투칼어
-                  option 한국어
-                div.alert
-                  | 해당 상품은 글로벌 패키지 상품입니다.<br>제작 언어를 선택하면 샘플몰이 표시됩니다.
-              div.btnFrameArea
-                button(type="button").btnFrameDesktop.active 데스크탑
-                button(type="button").btnFrameMobile 모바일
+          div.inner
+            div.globalSelect
+              select.fSelect.eSelect
+                option 언어선택
+                option 영어
+                option 중국어(간체)
+                option 일본어
+                option 대만어(번체)
+                option 베트남어
+                option 스페인어
+                option 포르투칼어
+                option 한국어
+              div.alert
+                | 해당 상품은 글로벌 패키지 상품입니다.<br>제작 언어를 선택하면 샘플몰이 표시됩니다.
+            div.deviceFrame
+              button(type="button").btnFrameDesktop.active 데스크탑
+              button(type="button").btnFrameMobile 모바일
 
         div.content.viewDesktop
           div.previewContent

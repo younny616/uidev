@@ -2,8 +2,8 @@
   .samplePage { height:100%; }
   .sampleArea { overflow:hidden; width:100%; height:100%;
     > .head { padding:8px 0; background:#32343e;
-      .gridSet { align-items:center;
-        .selectArea { position:relative;
+      .inner { display:flex; align-items:center; padding:0 10px;
+        .globalSelect { position:relative;
           .fSelect { color:#fff;
             &:after { right:8px; background:url('#{$src}/ico_select_white.png') no-repeat center center; }
             .fNow { color:#fff; }
@@ -18,7 +18,7 @@
           }
         }
       }
-      .btnFrameArea { display:none; }
+      .deviceFrame { display:none; }
     }
     > .content { position:relative; background:#f2f2f2; width:100%; height:calc(100% - 61px);
       .previewContent { position:absolute; left:0; top:0; max-width:100%; width:100%; max-height:100%; height:100%; transition:all .6s ease;
@@ -32,8 +32,8 @@
   .samplePage { height:100%; }
   .sampleArea { overflow:hidden; width:100%; height:100%;
     > .head { padding:8px 0; background:#32343e;
-      .gridSet { justify-content:center; align-items:center;
-        .selectArea { position:relative; margin:0 30px 0 0;
+      .inner { display:flex; justify-content:center; align-items:center;
+        .globalSelect { position:relative; margin:0 30px 0 0;
           .fSelect { min-width:160px;  border-color:#56565d; background:#56565d; color:#fff;
             &:after { background:url('#{$src}/ico_select_white.png') no-repeat center center; }
             .fNow { color:#fff; }
@@ -48,7 +48,7 @@
           }
         }
 
-        .btnFrameArea {
+        .deviceFrame {
           [class^="btnFrame"] { display:inline-block; position:relative; overflow:hidden; width:40px; height:40px; border-radius:4px; @include blind();
             &.btnFrame {
               &Desktop { margin:0 4px 0 0;

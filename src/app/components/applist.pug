@@ -10,6 +10,9 @@ mixin applist(typeClass, title, category, price, desc, img, grade)
                 if price
                     strong.price #{price}
                 if grade
-                    div.grade #{grade}
+                    div.grade
+                        svg(class="icoGrade")
+                            use(xlink:href="/images/svg_sprite.svg#grade")
+                        | #{grade}
             if desc
                 p.infoDesc #{desc}

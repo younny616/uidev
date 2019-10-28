@@ -35,7 +35,11 @@
 
     &.typeRank { position:relative; width:auto; padding:0;
       &:before { counter-increment:ordered; content:counters(ordered, ".") " "; position:absolute; top:9px; left:97px; }
-      .infomation { padding:9px 0 0 122px; }
+      .infomation { padding:9px 0 0 122px;
+        .grade { margin:6px 0 0;
+          .icoGrade { display:inline-block; width:18px; height:18px; margin:1px 3px 0 0; fill:#ffc300; vertical-align:top; }
+        }
+      }
     }
 
     .thumbnail { float:left; width:80px; height:80px;

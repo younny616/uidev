@@ -16,12 +16,12 @@
 
     // UI 테스트
     $('.fSelect.eSelect').on('click', function(){
-        $('.selectArea .alert').addClass('disabled');
+        $('.globalSelect .alert').addClass('disabled');
         $(this).off('click');
     });
 
     // UI 테스트
-    $('.btnFrameArea').on('click', function(e) {
+    $('.deviceFrame').on('click', function(e) {
         var $target = $(e.target);
         var $contentArea = $('.sampleArea .content');
         var types = '';
