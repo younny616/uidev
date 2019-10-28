@@ -12,6 +12,16 @@
     }
     .infoDesc { margin:13px 0 0; padding:0 0 0 76px; }
 
+    &.typeRank { position:relative; width:auto; padding:0 0 39px;
+      &:before { counter-increment:ordered; content:counters(ordered, ".") " "; position:absolute; top:2px; left:75px; }
+      .infomation { padding:0 0 0 100px;
+        .title { @include text-ellipsis(20, 1); }
+        .grade { margin:4px 0 0; font-size:12px;
+          .icoGrade { display:inline-block; width:12px; height:12px; margin:3px 3px 0 0; fill:#ffc300; vertical-align:top; }
+        }
+      }
+    }
+
     @include more('.appList', 4);
   }
 }
@@ -33,9 +43,10 @@
       .infoDesc { @include text-ellipsis(21, 3); width:auto; margin:16px 0 0; padding:0 0 0 96px; }
     }
 
-    &.typeRank { position:relative; width:auto; padding:0;
+    &.typeRank { position:relative; width:auto; padding:0 20px 0 0;
       &:before { counter-increment:ordered; content:counters(ordered, ".") " "; position:absolute; top:9px; left:97px; }
       .infomation { padding:9px 0 0 122px;
+        .title { @include text-ellipsis(20, 1); }
         .grade { margin:6px 0 0;
           .icoGrade { display:inline-block; width:18px; height:18px; margin:1px 3px 0 0; fill:#ffc300; vertical-align:top; }
         }
