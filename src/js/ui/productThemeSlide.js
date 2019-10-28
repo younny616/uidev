@@ -39,6 +39,7 @@
                 autoplay: false,
                 allowTouchMove: true,
                 pagination: false,
+                navigation: false,
                 observer: true,
                 observeParents: true,
             },

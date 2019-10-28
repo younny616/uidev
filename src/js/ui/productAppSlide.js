@@ -14,6 +14,36 @@
         mobile: false
     };
     var sliderOptions = {
+        simple: {
+            pc: {
+                loop: true,
+                speed: 1200,
+                autoplay: false,
+                allowTouchMove: true,
+                pagination: false,
+                observer: true,
+                observeParents: true,
+            },
+            tablet: {
+                loop: true,
+                speed: 1200,
+                autoplay: false,
+                allowTouchMove: true,
+                pagination: false,
+                observer: true,
+                observeParents: true,
+            },
+            mobile: {
+                loop: true,
+                speed: 1200,
+                autoplay: false,
+                allowTouchMove: true,
+                pagination: false,
+                navigation: false,
+                observer: true,
+                observeParents: true,
+            },
+        },
         app: {
             pc: {
                 loop: true,
@@ -44,19 +74,23 @@
             }
         },
     }
+    var screenShotThemeSlider = null;
     var relativeApp1Slider = null;
     var relativeApp2Slider = null;
 
     switch (calcBoundary(window.innerWidth)) {
         case 'mobile':
+            screenShotThemeSlider = new Cafe24.SwiperSlider('#screenShotTheme', sliderOptions.simple.mobile).init();
             relativeApp1Slider = new Cafe24.SwiperSlider('#relativeApp1', sliderOptions.app.mobile).init();
             relativeApp2Slider = new Cafe24.SwiperSlider('#relativeApp2', sliderOptions.app.mobile).init();
             break;
         case 'tablet':
+            screenShotThemeSlider = new Cafe24.SwiperSlider('#screenShotTheme', sliderOptions.simple.tablet).init();
             relativeApp1Slider = new Cafe24.SwiperSlider('#relativeApp1', sliderOptions.app.tablet).init();
             relativeApp2Slider = new Cafe24.SwiperSlider('#relativeApp2', sliderOptions.app.tablet).init();
             break;
         case 'pc':
+            screenShotThemeSlider = new Cafe24.SwiperSlider('#screenShotTheme', sliderOptions.simple.pc).init();
             relativeApp1Slider = new Cafe24.SwiperSlider('#relativeApp1', sliderOptions.app.pc).init();
             relativeApp2Slider = new Cafe24.SwiperSlider('#relativeApp2', sliderOptions.app.pc).init();
             break;
@@ -74,6 +108,8 @@
             isDestroy.mobile = true;
             isDestroy.tablet = false;
 
+            screenShotThemeSlider.destroy();
+            screenShotThemeSlider = new Cafe24.SwiperSlider('#screenShotTheme', sliderOptions.simple.mobile).init();
             relativeApp1Slider.destroy();
             relativeApp1Slider = new Cafe24.SwiperSlider('#relativeApp1', sliderOptions.app.mobile).init();
             relativeApp2Slider.destroy();
@@ -83,6 +119,8 @@
             isDestroy.tablet = true;
             isDestroy.pc = false;
 
+            screenShotThemeSlider.destroy();
+            screenShotThemeSlider = new Cafe24.SwiperSlider('#screenShotTheme', sliderOptions.simple.tablet).init();
             relativeApp1Slider.destroy();
             relativeApp1Slider = new Cafe24.SwiperSlider('#relativeApp1', sliderOptions.app.tablet).init();
             relativeApp2Slider.destroy();
@@ -91,6 +129,8 @@
             isDestroy.tablet = false;
             isDestroy.pc = true;
 
+            screenShotThemeSlider.destroy();
+            screenShotThemeSlider = new Cafe24.SwiperSlider('#screenShotTheme', sliderOptions.simple.pc).init();
             relativeApp1Slider.destroy();
             relativeApp1Slider = new Cafe24.SwiperSlider('#relativeApp1', sliderOptions.app.pc).init();
             relativeApp2Slider.destroy();
