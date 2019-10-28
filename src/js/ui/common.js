@@ -154,7 +154,7 @@ function goTop(){
             var maxLine = 5;
             var children = $(this).children();
 
-            if (children.length % maxLine !== 0 && bools) {
+            if (bools) {
                 time = Math.ceil(children.length / maxLine);
                 children.each(function() {
                     longestWidth = (parseInt($(this).outerWidth(true), 10) > longestWidth) ? parseInt($(this).outerWidth(true), 10) : longestWidth;
