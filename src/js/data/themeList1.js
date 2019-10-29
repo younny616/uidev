@@ -1,4 +1,4 @@
-const choseTheme = [
+const themeList1 = [
     {
         src: '/images/choseTheme1.jpg',
         title: 'Theme Title',
@@ -25,4 +25,4 @@ const choseTheme = [
     },
 ]
 
-module.exports = choseTheme;
+module.exports = themeList1;

@@ -1,4 +1,4 @@
-const minimalTheme = [
+const themeList2 = [
     {
         src: '/images/minimalTheme1.jpg',
         title: 'Theme Title',
@@ -25,4 +25,4 @@ const minimalTheme = [
     },
 ]
 
-module.exports = minimalTheme;
+module.exports = themeList2;

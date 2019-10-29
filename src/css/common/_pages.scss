@@ -8,10 +8,9 @@
     &.bestThemeArea,
     &.newThemeArea,
     &.choseThemeArea,
-    &.themeListArea,
     &.searchHeadArea,
     &.categoryArea,
-    &.listThemeArea { @include section-bar(); }
+    &.themeListArea { @include section-bar(); }
     &.makeAppArea { display:none; }
 
     &.combineThemeArea { background:#f2f2f2; }
