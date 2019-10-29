@@ -1,4 +1,4 @@
-@include respond(mobile) {
+@include respond(mobile-tablet) {
   .partnerInfo { position:relative; padding:0 0 80px;
     .company {  padding:0 20px 0 0; box-sizing:border-box;
       &:after { content:""; display:block; clear:both; }
@@ -36,16 +36,7 @@
 
 }
 
-@include respond(mobile-tablet) {
-
-}
-
-@include respond(tablet) {
-
-
-}
-
-@include respond(tablet-pc) {
+@include respond(pc) {
   .partnerInfo { position:relative; display:flex;
     .company { width:(100%/3); padding:0 20px 0 0; box-sizing:border-box;
       &:after { content:""; display:block; clear:both; }
@@ -79,8 +70,4 @@
       }
     }
   }
-}
-
-@include respond(pc) {
-
 }

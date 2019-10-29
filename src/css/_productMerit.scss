@@ -11,17 +11,7 @@
         .desc { flex:1; display:inline-block; font-size:14px; color:#333; vertical-align:middle; }
       }
     }
-
   }
-}
-
-@include respond(mobile-tablet) {
-
-}
-
-@include respond(tablet) {
-
-
 }
 
 @include respond(tablet-pc) {
@@ -39,8 +29,4 @@
     }
 
   }
-}
-
-@include respond(pc) {
-
 }

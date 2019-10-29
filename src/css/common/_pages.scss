@@ -80,6 +80,6 @@
 @include respond(pc) {
   /* 상품상세 */
   section {
-    &.appRankingArea { padding:118px 0; }
+    &.appRankingArea { padding:118px 20px; }
   }
 }
