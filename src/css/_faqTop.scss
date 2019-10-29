@@ -1,0 +1,24 @@
+@include respond(mobile) {
+  .faqTop {
+
+  }
+}
+
+@include respond(tablet-pc) {
+  .faqTop {
+    .heading { margin:0 0 17px;
+      .title { font-size:22px; color:#000; font-weight:800; }
+    }
+    .faqItem {
+      ul { display:flex; flex-wrap:wrap; border-right:1px solid #e6e9ef; border-top:1px solid #e6e9ef;
+        li { width:(100%/3); padding:29px; border-left:1px solid #e6e9ef; border-bottom:1px solid #e6e9ef; box-sizing:border-box;
+          .head {
+            .title { font-size:18px; color:#000; font-weight:400; }
+          }
+          .content { padding:18px 0 0 36px; font-size:14px; color:#959595; }
+        }
+      }
+    }
+  }
+  .faqTop + .faqTop { margin:58px 0 0; }
+}

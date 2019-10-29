@@ -1,0 +1,6 @@
+mixin mTab(typeClass, ...items)
+  div(class=`mTab${!typeClass ? '' : ' '+typeClass}`)
+    ul
+      each tab, i in items
+        li(class=`${i === 0 ? 'selected' : ''}`)
+          a(href="#none") #{tab}

@@ -1,63 +1,91 @@
 @include respond(mobile) {
   .faqArea { text-align:center;
-    .faqList { text-align:left;
-      .faq { border-bottom:1px solid #e8e8e8;
-        .head { position:relative; padding:20px 33px 20px 25px;
-          &:before { content:"Q."; position:absolute; top:20px; left:0; display:block; margin:0 10px 0 0; font-size:14px; color:#000; font-weight:400; }
-          .title { font-size:14px; color:#000; font-weight:400; }
-          .btnFold { @include blind(); position:absolute; top:0; bottom:0; left:0; right:0; display:block; width:100%;
-            .icoArrow { right:20px; top:calc(50% - 4.5px); @include icoArrow('top', 12px, 6px, 1px, #000, block, absolute); transform:rotate(180deg); transition:transform .3s ease; }
-            &.selected {
-              .icoArrow{ transform:rotate(0); }
-            }
-          }
-        }
-        .content { display:none; position:relative; padding:20px 20px 25px 40px; font-size:14px; color:#000; background:#f9f9f9;
-          &:before { content:"A."; position:absolute; top:20%; left:20px; display:block; margin:0 20px 0 0; font-size:14px; color:#000; font-weight:400; }
-        }
-        &.selected {
-          .head {
-            &:before,
-            .title { color:#0055fb; }
-          }
-          .content { display:block; }
-        }
-      }
-    }
     .btnMoreFaq { margin:10px auto; padding:10px; text-align:center; font-size:14px; color:#0055fb;
       &:before { content:'+'; display:inline-block; margin:0 4px 0 0; font-size:inherit; color:inherit; }
+    }
+  }
+  .faqList { text-align:left;
+    .faq { border-bottom:1px solid #e8e8e8;
+      .head { position:relative; padding:20px 33px 20px 25px;
+        &:before { content:"Q."; position:absolute; top:20px; left:0; display:block; margin:0 10px 0 0; font-size:14px; color:#000; font-weight:400; }
+        .title { font-size:14px; color:#000; font-weight:400; }
+        .btnFold { @include blind(); position:absolute; top:0; bottom:0; left:0; right:0; display:block; width:100%;
+          .icoArrow { right:20px; top:calc(50% - 4.5px); @include icoArrow('top', 12px, 6px, 1px, #000, block, absolute); transform:rotate(180deg); transition:transform .3s ease; }
+          &.selected {
+            .icoArrow{ transform:rotate(0); }
+          }
+        }
+      }
+      .content { display:none; position:relative; padding:20px 20px 25px 40px; font-size:14px; color:#000; background:#f9f9f9;
+        &:before { content:"A."; position:absolute; top:20%; left:20px; display:block; margin:0 20px 0 0; font-size:14px; color:#000; font-weight:400; }
+      }
+      &.selected {
+        .head {
+          &:before,
+          .title { color:#0055fb; }
+        }
+        .content { display:block; }
+      }
     }
   }
 }
 
 @include respond(tablet-pc) {
   .faqArea { text-align:center;
-    .faqList { text-align:left;
-      .faq { border-bottom:1px solid #e8e8e8;
-        .head { position:relative; padding:30px 0 30px 25px;
-          &:before { content:"Q."; position:absolute; top:29px; left:0; display:block; margin:0 10px 0 0; font-size:16px; color:#000; font-weight:400; }
-          .title { font-size:16px; color:#000; font-weight:400; }
-          .btnFold { @include blind(); position:absolute; top:0; bottom:0; left:0; right:0; display:block; width:100%;
-            .icoArrow { right:20px; top:calc(50% - 4.5px); @include icoArrow('top', 18px, 9px, 1px, #000, block, absolute); transform:rotate(180deg); transition:transform .3s ease; }
-            &.selected {
-              .icoArrow{ transform:rotate(0); }
-            }
+    .btnMoreFaq { min-width:160px; margin:10px auto; padding:20px; font-size:16px; color:#0055fb;
+      &:before { content:'+'; display:inline-block; margin:0 4px 0 0; font-size:inherit; color:inherit; }
+    }
+  }
+  .faqList { text-align:left;
+    .faq { border-bottom:1px solid #e8e8e8;
+      .head { position:relative;
+        .title { font-size:16px; color:#000; font-weight:400; }
+        .btnFold { @include blind(); position:absolute; top:0; bottom:0; left:0; right:0; display:block; width:100%;
+          .icoArrow { right:20px; top:calc(50% - 4.5px); @include icoArrow('top', 18px, 9px, 1px, #000, block, absolute); transform:rotate(180deg); transition:transform .3s ease; }
+          &.selected {
+            .icoArrow{ transform:rotate(0); }
           }
         }
-        .content { display:none; position:relative; padding:25px 0 40px 65px; font-size:16px; color:#000; background:#f9f9f9;
-          &:before { content:"A."; position:absolute; top:22%; left:34px; display:block; margin:0 20px 0 0; font-size:16px; color:#000; font-weight:400; }
+      }
+      .content { display:none; position:relative; padding:25px 0 40px 65px; font-size:16px; color:#000; background:#f9f9f9;
+        &:before { content:"A."; position:absolute; top:22%; left:34px; display:block; margin:0 20px 0 0; font-size:16px; color:#000; font-weight:400; }
+      }
+      &.selected {
+        .content { display:block; }
+      }
+    }
+
+    &.typeProduct {
+      .faq {
+        .head { padding:30px 0 30px 25px;
+          &:before { content:"Q."; position:absolute; top:29px; left:0; display:block; margin:0 10px 0 0; font-size:16px; color:#000; font-weight:400; }
         }
         &.selected {
           .head {
             &:before,
             .title { color:#0055fb; }
           }
-          .content { display:block; }
         }
       }
     }
-    .btnMoreFaq { min-width:160px; margin:10px auto; padding:20px; font-size:16px; color:#0055fb;
-      &:before { content:'+'; display:inline-block; margin:0 4px 0 0; font-size:inherit; color:inherit; }
+
+    &.typeAll { border-top:1px solid #000;
+      .faq {
+        .head { padding:30px 0;
+          .number { display:inline-block; width:102px; padding:0 0 0 12px; box-sizing:border-box; font-size:22px; color:#333; }
+          .category { display:inline-block; width:60px; font-size:16px; color:#959595; }
+        }
+        .content { padding:25px 0 40px 192px;
+          &:before { left:160px; }
+        }
+        &.selected {
+          .head {
+            &:before,
+            .title { font-weight:800; }
+          }
+          .content { border-top:1px solid #e8e8e8; }
+        }
+      }
     }
   }
 }
