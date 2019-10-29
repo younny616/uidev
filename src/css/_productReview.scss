@@ -10,7 +10,7 @@
       .review { display:block; margin:20px 0 30px; font-size:13px; color:#959595; line-height:1; text-align:center;
         a { display:inline-block; position:relative; padding:0 19px; color:inherit; transition:all .3s ease;
           &:before,
-          &:after { content:''; display:block; position:absolute; left:0; top:0; width:14px; height:14px; background:url('/#{$src}/ico_review.png'); background-size:14px auto; transition:all .3s ease; }
+          &:after { content:''; display:block; position:absolute; left:0; top:0; width:14px; height:14px; background:url('#{$src}/ico_review.png'); background-size:14px auto; transition:all .3s ease; }
           &:before { opacity:1; background-position:0 0; }
           &:after { opacity:0; background-position:0 -14px; }
           &:hover { color:#000;
@@ -57,14 +57,14 @@
         .txtEm { font-weight:400; }
         .btnMoreView { margin:0 4px; color:#0055fb; font-size:14px; }
         .btnThumbsUp { position:relative; padding:0 15px 0 30px; height:30px; border:1px solid #e8e8e8; border-radius:14px; font-size:13px; color:#333;
-          &:before { content:''; display:block; position:absolute; left:12px; top:7px; width:12px; height:12px; background:url('/#{$src}/ico_thumbs_up.png') no-repeat center center; background-size:12px auto; }
+          &:before { content:''; display:block; position:absolute; left:12px; top:7px; width:12px; height:12px; background:url('#{$src}/ico_thumbs_up.png') no-repeat center center; background-size:12px auto; }
           &:hover,
           &.active { border-color:#fff5f5; background:#fff5f5; color:#ff2828; }
         }
         .btnMoreReview { min-width:160px; margin:10px auto; padding:10px; font-size:14px; color:#0055fb;
           &:before { content:'+'; display:inline-block; margin:0 4px 0 0 ; font-size:inherit; color:inherit; }
         }
-        &.typeBest { position:relative; margin:30px 0 0; padding:40px 0 0; border-radius:4px; text-align:left; background:#eff7ff url('/#{$src}/img_best_review.png') no-repeat 20px 20px; background-size:126px auto;
+        &.typeBest { position:relative; margin:30px 0 0; padding:40px 0 0; border-radius:4px; text-align:left; background:#eff7ff url('#{$src}/img_best_review.png') no-repeat 20px 20px; background-size:126px auto;
           .reviewInfo { padding:20px; }
           .reviewText { padding:20px; }
           .recommend { right:20px; top:99px; }
@@ -86,7 +86,7 @@
       .review { display:inline-block; font-size:16px; color:#959595; line-height:1;
         a { display:block; position:relative; padding:0 30px 2px 28px; color:inherit; transition:all .3s ease;
           &:before,
-          &:after { content:''; display:block; position:absolute; left:0; top:0; width:18px; height:18px; background:url('/#{$src}/ico_review.png'); background-size:18px auto; transition:all .3s ease; }
+          &:after { content:''; display:block; position:absolute; left:0; top:0; width:18px; height:18px; background:url('#{$src}/ico_review.png'); background-size:18px auto; transition:all .3s ease; }
           &:before { opacity:1; background-position:0 0; }
           &:after { opacity:0; background-position:0 -18px; }
           &:hover { color:#000;
@@ -133,14 +133,14 @@
         .txtEm { font-weight:400; }
         .btnMoreView { margin:0 4px; color:#0055fb; font-size:16px; }
         .btnThumbsUp { position:relative; padding:0 14px 0 34px; height:32px; border:1px solid #e8e8e8; border-radius:14px; font-size:12px; color:#333;
-          &:before { content:''; display:block; position:absolute; left:12px; top:8px; width:14px; height:14px; background:url('/#{$src}/ico_thumbs_up.png') no-repeat center center; background-size:14px auto; }
+          &:before { content:''; display:block; position:absolute; left:12px; top:8px; width:14px; height:14px; background:url('#{$src}/ico_thumbs_up.png') no-repeat center center; background-size:14px auto; }
           &:hover,
           &.active { border-color:#fff5f5; background:#fff5f5; color:#ff2828; }
         }
         .btnMoreReview { min-width:160px; margin:10px auto; padding:20px; font-size:16px; color:#0055fb;
           &:before { content:'+'; display:inline-block; margin:0 4px 0 0 ; font-size:inherit; color:inherit; }
         }
-        &.typeBest { margin:24px 0 30px; padding:50px 0 0; border-radius:4px; text-align:left; background:#eff7ff url('/#{$src}/img_best_review.png') no-repeat 38px 38px; background-size:182px auto;
+        &.typeBest { margin:24px 0 30px; padding:50px 0 0; border-radius:4px; text-align:left; background:#eff7ff url('#{$src}/img_best_review.png') no-repeat 38px 38px; background-size:182px auto;
           .reviewInfo { padding:38px 38px 50px; }
         }
       }
