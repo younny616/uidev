@@ -219,11 +219,11 @@
             }
             .image { position:absolute; left:0; top:0; width:100%; height:100%;
               a { display:block; position:absolute; left:0; top:0; width:100%; height:100%;
-                .pc { display:block; overflow:hidden; position:absolute; right:20px; bottom:0; width:65.625%; padding-top:63.125%;
+                .pc { display:block; overflow:hidden; position:absolute; right:6.5%; bottom:0; width:67.625%; padding-top:63.125%;
                   &:before { content:''; display:block; overflow:hidden; position:absolute; left:0; top:0; right:0; width:100%; height:12px; border-radius:4px 4px 0 0; box-sizing:border-box; background:url('#{$src}/combine_theme_frame.jpg') no-repeat left center; background-size:cover; }
                   img { position:absolute; left:0; top:12px; width:100%; }
                 }
-                .mobile { display:block; overflow:hidden; position:absolute; left:30px; bottom:20px; max-width:140px; width:21.875%; min-width:70px; border:4px solid #000; border-radius:20px;
+                .mobile { display:block; overflow:hidden; position:absolute; left:9.5%; bottom:20px; width:21.875%; min-width:70px; border:4px solid #000; border-radius:20px;
                   img { width:100%; }
                 }
               }
@@ -484,9 +484,12 @@
             .combineTitle { display:none; }
             .image { position:relative; width:100%; height:100%;
               a { display:block; width:100%; height:100%;
-                .pc { display:block; }
-                .mobile { display:none; }
-                img { width:100%; }
+                .pc { display:block; overflow:hidden; position:relative; padding-top:60.18518518518518%;
+                  img { position:absolute; left:0; top:0; width:100%; }
+                }
+                .mobile { display:none;
+                  img { width:100%; }
+                }
               }
             }
           }
@@ -505,7 +508,7 @@
       }
     }
 
-    &Thumbs { overflow:hidden; position:absolute; right:7.264957264957266%; bottom:-0.8547008547008548%; z-index:11; width:19.37321937321937%; max-width:272px; height:auto; max-height:482px; border:6px solid #000; border-radius:23px; background:#f6f7fb;
+    &Thumbs { overflow:hidden; position:absolute; right:7.26%; bottom:-0.85%; z-index:11; width:19.40%; max-width:272px; height:auto; max-height:482px; border:6px solid #000; border-radius:23px; background:#f6f7fb;
       .sliderWrapper {
         .item {
           .image {
