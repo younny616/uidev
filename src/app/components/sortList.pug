@@ -1,0 +1,6 @@
+mixin sortList(...items)
+    div.sortList
+        ul
+            each sort, i in items
+                li(class=`${i === 0 ? 'active' : ''}`)
+                    a(href="#none") #{sort}

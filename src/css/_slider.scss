@@ -283,8 +283,8 @@
     }
     .sliderPagination { display:none; }
     .sliderCtrl {
-      .prevWrap { left:10px; }
-      .nextWrap { right:10px; }
+      .prevWrap { left:30px; }
+      .nextWrap { right:30px; }
 
       [class*=Wrap] { background:transparent; }
       [class*=slide] { width:64px; height:64px; top:50%; border-radius:50%; background:#000;
