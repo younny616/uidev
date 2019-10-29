@@ -1,9 +1,9 @@
 include /components/grade
 include /components/slider
 
-mixin mLayer(id, title, desc)
+mixin mLayer(id, title, desc, typeClass)
   - var types = id.replace('layer', '');
-  div(id=`${id}` class="mLayer")
+  div(id=`${id}` class=`mLayer${!typeClass ? '' : ' '+typeClass}`)
     div.wrap
       div.head
         if title

@@ -24,8 +24,24 @@ mixin item(item, index, types)
           span.subTitle= item[index].subTitle
           span.price= item[index].price
         button.btnSample Sample
-    when 'combineImage'
+    when 'combine'
       div.image
+        strong.combineTitle PC + MOBILE
+          span SET
         a(href="/" target="_blank")
-          img(src=item[index].src alt="" class="pc")
-          img(src=item[index].mobileSrc alt="" class="mobile")
+          span.pc
+            img(src=item[index].src alt="")
+          span.mobile
+           img(src=item[index].mobileSrc alt="")
+    when 'partner'
+      div.inner
+        a(href="/" target="_blank" class="logo")
+          img(src=item[index].logo alt="")
+        strong.title= item[index].title
+        p.outlink 웹사이트
+          a(href=item[index].outlink)= item[index].outlink
+        p.description 대표 테마
+          span= item[index].description
+      div.image
+        a(href=item[index].outlink target="_blank")
+          img(src=item[index].src alt="")
