@@ -114,7 +114,7 @@
       .btnClose { position:absolute; top:3px; right:3px; width:40px; height:40px; text-align:center; @include blind(); @include icoX(10px, 1px, #333); }
     }
     .btnTip { display:inline-block; position:relative; width:12px; height:12px; margin:0 0 0 5px; border-radius:50%; @include blind();
-      &:before { content:''; display:block; position:absolute; left:0; top:0; width:100%; height:100%; font-size:12px; color:#fff; background:url('/#{$src}/ico_excla.png') no-repeat center center; background-size:12px auto; text-indent:0; }
+      &:before { content:''; display:block; position:absolute; left:0; top:0; width:100%; height:100%; font-size:12px; color:#fff; background:url('#{$src}/ico_excla.png') no-repeat center center; background-size:12px auto; text-indent:0; }
       &.typeToggle { width:18px; height:18px; border:1px solid #e8e8e8; box-sizing:border-box; text-indent:0;
         &:before { left:50%; top:calc(50% - 1px); width:4px; height:4px; border-top:1px solid #797979; border-left:1px solid #797979; background:none; transition:transform .3s ease; transform:translate(-50%, -50%) rotate(-135deg); }
       }
@@ -409,7 +409,7 @@
       .arrow { display:block; position:absolute; top:-5px; z-index:10; width:8px; height:8px; border-top:1px solid #e8e8e8; border-right:1px solid #e8e8e8; background:#fff; transform:rotate(-45deg); }
     }
     .btnTip { display:inline-block; position:relative; width:16px; height:16px; border-radius:50%; @include blind();
-      &:before { content:''; display:block; position:absolute; left:0; top:0; width:100%; height:100%; font-size:12px; color:#fff; background:url('/#{$src}/ico_excla.png') no-repeat center center; background-size:16px auto; text-indent:0; }
+      &:before { content:''; display:block; position:absolute; left:0; top:0; width:100%; height:100%; font-size:12px; color:#fff; background:url('#{$src}/ico_excla.png') no-repeat center center; background-size:16px auto; text-indent:0; }
       &.typeToggle { width:24px; height:24px; border:1px solid #e8e8e8; box-sizing:border-box; text-indent:0;
         &:before { left:50%; top:calc(50% - 1px); width:6px; height:6px; border-top:1px solid #797979; border-left:1px solid #797979; background:none; transition:transform .3s ease; transform:translate(-50%, -50%) rotate(-135deg); }
       }
