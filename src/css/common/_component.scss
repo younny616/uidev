@@ -597,6 +597,8 @@
 }
 
 @include respond(tablet) {
+  .RTB { display:block; }
+
   /* grid */
   .gridSet { display:flex; flex-wrap:wrap;
     .grid {  }

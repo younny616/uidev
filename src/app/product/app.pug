@@ -91,15 +91,15 @@ block append contents
         - var relativeApp2 = 'relativeApp2';
         - var relativeAppData = require('./src/js/data/relativeApp.js');
         section.relativeAppArea
-            +mTitle('typeProduct', '유사한 앱 (<span class="count">7</span>)')
+            +mTitle('typeLeft', '유사한 앱 (<span class="count">7</span>)')
             +slider(relativeApp1, relativeAppData, 'typeApp', 'app', true, true)
 
-            +mTitle('typeProduct', '함께 설치한 앱 (<span class="count">16</span>)')
+            +mTitle('typeLeft', '함께 설치한 앱 (<span class="count">16</span>)')
             +slider(relativeApp2, relativeAppData, 'typeApp', 'app', true, true)
 
         section.appRankingArea
             +appRanking()
-            +mPagination('typeMore', 'RMB')
+            +mPagination('typeMore', 'RMB RTB')
 
 block append wrap
   +mLayer('layerInstall', '쇼핑몰 아이디 입력', '입력한 쇼핑몰 아이디를 통해 구매 및 문의가 가능합니다.')

@@ -43,6 +43,7 @@
     &.combineThemeArea { margin-bottom:92px; padding:0 20px; background:#f2f2f2; }
     &.mobileThemeArea { margin-bottom:92px; background:#f5f5f5; }
     &.relativeThemeArea { padding:100px 0 0; background:#f5f5f5; }
+    &.relativeAppArea { padding:100px 0 0; background:#f5f5f5; }
 
     /* 상품상세 */
     &.productThumbsAndInfoArea { overflow:hidden; padding:60px 0 0; }
@@ -64,7 +65,6 @@
     }
     &.relativeAppArea,
     &.relativeThemeArea, { background:#f5f5f5; }
-    &.appRankingArea { padding:118px 0; }
   }
   .searchHeadArea.gEmpty { background:#f8f8fb; }
 }
@@ -74,5 +74,12 @@
     &.makeAppArea { margin:45px 0 0; padding:105px 20px; background:#f2f2f2; }
     &.combineThemeArea { margin-bottom:69px; padding:0 20px; background:#f2f2f2; }
     &.mobileThemeArea { margin-bottom:69px; background:#f5f5f5; }
+  }
+}
+
+@include respond(pc) {
+  /* 상품상세 */
+  section {
+    &.appRankingArea { padding:118px 0; }
   }
 }

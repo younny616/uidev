@@ -31,7 +31,7 @@
       .desc { margin:25px 0 0; font-size:22px; color:#7b7b7b; }
     }
     .merit {
-      li { padding:40px 0 40px 78px;
+      li { display:flex; align-items:center; padding:40px 20px 40px 78px;
         &:nth-child(odd) { background:#f6f7f9; }
         .number { font-size:28px; color:#c5c6ca; font-weight:800; vertical-align:middle; }
         .desc { display:inline-block; margin:0 0 0 65px; font-size:18px; color:#333; vertical-align:middle; }
