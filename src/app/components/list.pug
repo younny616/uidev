@@ -1,6 +1,6 @@
 include /components/listItem
 
-mixin list(datas, typeClass)
+mixin list(datas, typeClass, types)
   div(class="listWrap")
     ul(class=`${typeClass}`)
       +listItem(datas, `${typeClass.slice(4).toLowerCase()}`)

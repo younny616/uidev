@@ -1,19 +1,19 @@
 const combinePC = [
     {
-        src: '/images/combine_pc1.jpg',
-        mobileSrc: '/images/combine_mobile1.jpg',
+        src: '/images/img_1280_1600.jpg',
+        mobileSrc: '/images/img_360_640.jpg',
     },
     {
-        src: '/images/combine_pc1.jpg',
-        mobileSrc: '/images/combine_mobile1.jpg',
+        src: '/images/img_1280_1600.jpg',
+        mobileSrc: '/images/img_360_640.jpg',
     },
     {
-        src: '/images/combine_pc1.jpg',
-        mobileSrc: '/images/combine_mobile1.jpg',
+        src: '/images/img_1280_1600.jpg',
+        mobileSrc: '/images/img_360_640.jpg',
     },
     {
-        src: '/images/combine_pc1.jpg',
-        mobileSrc: '/images/combine_mobile1.jpg',
+        src: '/images/img_1280_1600.jpg',
+        mobileSrc: '/images/img_360_640.jpg',
     },
 ]
 

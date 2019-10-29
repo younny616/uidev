@@ -1,15 +1,15 @@
 const combineThumbs = [
     {
-        src: '/images/combine_thumbs1.jpg',
+        src: '/images/img_360_640.jpg',
     },
     {
-        src: '/images/combine_thumbs1.jpg',
+        src: '/images/img_360_640.jpg',
     },
     {
-        src: '/images/combine_thumbs1.jpg',
+        src: '/images/img_360_640.jpg',
     },
     {
-        src: '/images/combine_thumbs1.jpg',
+        src: '/images/img_360_640.jpg',
     },
 ]
 
