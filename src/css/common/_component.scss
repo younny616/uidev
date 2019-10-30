@@ -1,7 +1,9 @@
 @include respond(mobile) {
   /* global */
   .txt {
-    &Em { font-weight:800; color:#0055fb; }
+    &Em { font-weight:800; color:#0055fb;
+      &:hover { text-decoration:underline; }
+    }
     &Warn { color:#ff3434; }
     &Info { color:#959595; }
   }
@@ -311,7 +313,9 @@
 @include respond(tablet-pc) {
   /* Global */
   .txt {
-    &Em { font-size:inherit; font-weight:800; color:#0055fb; text-decoration:underline; }
+    &Em { font-size:inherit; font-weight:800; color:#0055fb;
+      &:hover { text-decoration:underline; }
+    }
     &Warn { font-size:inherit; color:#ff3434; }
     &Info { font-size:inherit; color:#959595; }
   }

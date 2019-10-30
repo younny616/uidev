@@ -2,48 +2,73 @@ extends /layouts/layout
 include /components/common/mTitle
 include /components/common/mTab
 include /components/common/mPagination
+include /components/slider
 include /components/faqAll
 include /components/sortList
 
 block append contents
 
-    section.faqTopArea
-        +mTitle('typeSub', 'Top6 FAQ')
-        div.gInner
-            div.faqTop
-                div.heading
-                    strong.title 앱
-                div.faqItem
-                    ul
-                        - for (var i = 0; i < 6; i++)
-                            li
-                                div.item
-                                    div.head
-                                        strong.title 앱은 어떻게 설치하나요?
-                                    div.content
-                                        | 사용하지 않는 앱이라면 쇼핑몰 관리자 화면의 [앱스토어]
-                                        | 메뉴에서 앱을 선택한 후 [삭제] 버튼을 누르면, 해당 앱은
-                                        | 메뉴에서 앱을 선택한 후 [삭제] 버튼을 누르면, 해당
-                                    button(type="button").btnCover 열기
-            div.faqTop
-                div.heading
-                    strong.title 테마
-                div.faqItem
-                    ul
-                        - for (var i = 0; i < 6; i++)
-                            li
-                                div.item
-                                    div.head
-                                        strong.title 디자인은 어떻게 적용하나요?
-                                    div.content
-                                        | 사용하지 않는 앱이라면 쇼핑몰 관리자 화면의 [앱스토어]
-                                        | 메뉴에서 앱을 선택한 후 [삭제] 버튼을 누르면, 해당 앱은
-                                        | 메뉴에서 앱을 선택한 후 [삭제] 버튼을 누르면, 해당
-                                    button(type="button").btnCover 열기
+  section.faqTopArea
+    +mTitle('typeSub', 'Top6 FAQ')
 
-    section.faqAllArea
-        +mTitle('typeSub', '전체 FAQ')
-        div.gInner
-            +sortList('전체', '앱','테마')
-            +faqAll()
-            +mPagination('typeMore')
+    div.gInner
+      div.faqTop
+        div.heading
+          strong.title 앱
+
+    - var faqApp = 'faqApp';
+    - var faqAppData = require('./src/js/data/faqApp.js');
+    +slider(faqApp, faqAppData, 'typeColumn', 'faq', false, false)
+
+    div.gInner
+      div.faqTop
+        div.heading
+          strong.title 테마
+
+    - var faqTheme = 'faqTheme';
+    - var faqThemeData = require('./src/js/data/faqTheme.js');
+    +slider(faqTheme, faqThemeData, 'typeColumn', 'faq', false, false)
+
+    div.gInner
+      div.faqTop
+        div.heading
+          strong.title 앱
+        div.faqItem
+          ul
+            - for (var i = 0; i < 6; i++)
+              li
+                div.item
+                  div.head
+                    strong.title 앱은 어떻게 설치하나요?
+                  div.content
+                    | 사용하지 않는 앱이라면 쇼핑몰 관리자 화면의 [앱스토어]
+                    | 메뉴에서 앱을 선택한 후 [삭제] 버튼을 누르면, 해당 앱은
+                    | 메뉴에서 앱을 선택한 후 [삭제] 버튼을 누르면, 해당
+                  button(type="button").btnCover 열기
+
+      div.faqTop
+        div.heading
+          strong.title 테마
+        div.faqItem
+            ul
+              - for (var i = 0; i < 6; i++)
+                li
+                  div.item
+                    div.head
+                      strong.title 디자인은 어떻게 적용하나요?
+                    div.content
+                      | 사용하지 않는 앱이라면 쇼핑몰 관리자 화면의 [앱스토어]
+                      | 메뉴에서 앱을 선택한 후 [삭제] 버튼을 누르면, 해당 앱은
+                      | 메뉴에서 앱을 선택한 후 [삭제] 버튼을 누르면, 해당
+                    button(type="button").btnCover 열기
+
+  section.faqAllArea
+    +mTitle('typeSub', '전체 FAQ')
+    div.gInner
+      +sortList('전체', '앱','테마')
+      +faqAll()
+      +mPagination('typeMore')
+
+block append body
+  script(src="//cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js")
+  script(src="/js/ui/faq.js")
