@@ -28,10 +28,12 @@
         },
     };
     var faqAppSlider = null;
+    var faqThemeSlider = null;
 
     switch (calcBoundary(window.innerWidth)) {
         case 'mobile':
             faqAppSlider = new Cafe24.SwiperSlider('#faqApp', sliderOptions.faq.mobile).init();
+            faqThemeSlider = new Cafe24.SwiperSlider('#faqTheme', sliderOptions.faq.mobile).init();
             break;
         case 'tablet':
             break;
@@ -58,6 +60,13 @@
 
             faqAppSlider = new Cafe24.SwiperSlider('#faqApp', sliderOptions.faq.mobile).init();
 
+            if (faqThemeSlider !== null) {
+                faqThemeSlider.destroy();
+                faqThemeSlider = null;
+            }
+
+            faqThemeSlider = new Cafe24.SwiperSlider('#faqTheme', sliderOptions.faq.mobile).init();
+
         } else if (ww > resizeBoundary.mobile && ww < resizeBoundary.tablet && !isDestroy.tablet) {
             isDestroy.mobile = false;
             isDestroy.tablet = true;
@@ -66,6 +75,11 @@
             if (faqAppSlider !== null) {
                 faqAppSlider.destroy();
                 faqAppSlider = null;
+            }
+
+            if (faqThemeSlider !== null) {
+                faqThemeSlider.destroy();
+                faqThemeSlider = null;
             }
 
         } else if (ww > resizeBoundary.pc && !isDestroy.pc) {

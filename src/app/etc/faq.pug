@@ -23,6 +23,15 @@ block append contents
     div.gInner
       div.faqTop
         div.heading
+          strong.title 테마
+
+    - var faqTheme = 'faqTheme';
+    - var faqThemeData = require('./src/js/data/faqTheme.js');
+    +slider(faqTheme, faqThemeData, 'typeColumn', 'faq', false, false)
+
+    div.gInner
+      div.faqTop
+        div.heading
           strong.title 앱
         div.faqItem
           ul
