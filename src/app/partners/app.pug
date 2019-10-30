@@ -1,0 +1,15 @@
+extends /layouts/layout
+include /components/common/mTitle
+include /components/common/mPagination
+include /components/stateBar
+include /components/list
+
+block append contents
+
+  +mTitle('typeSub', '개발사 소개', '뛰어난 품질과 서비스를 제공하는 카페24가 검증한 개발사를 만나보세요.')
+  section.appPartnerArea
+    div.gInner
+      +stateBar(false)
+      - var appPartnerData = require('./src/js/data/appPartner.js');
+      +list(appPartnerData, 'typePartner')
+      +mPagination('typeMore', false)
