@@ -6,8 +6,7 @@
   }
   .faqList { text-align:left;
     .faq { border-bottom:1px solid #e8e8e8;
-      .head { position:relative; padding:20px 33px 20px 25px;
-        &:before { content:"Q."; position:absolute; top:20px; left:0; display:block; margin:0 10px 0 0; font-size:14px; color:#000; font-weight:400; }
+      .head { position:relative;
         .title { font-size:14px; color:#000; font-weight:400; }
         .btnFold { @include blind(); position:absolute; top:0; bottom:0; left:0; right:0; display:block; width:100%;
           .icoArrow { right:20px; top:calc(50% - 4.5px); @include icoArrow('top', 12px, 6px, 1px, #000, block, absolute); transform:rotate(180deg); transition:transform .3s ease; }
@@ -20,11 +19,45 @@
         &:before { content:"A."; position:absolute; top:20%; left:20px; display:block; margin:0 20px 0 0; font-size:14px; color:#000; font-weight:400; }
       }
       &.selected {
-        .head {
-          &:before,
-          .title { color:#0055fb; }
-        }
         .content { display:block; }
+      }
+    }
+
+    &.typeProduct {
+      .faq {
+        .head { padding:20px 33px 20px 25px;
+          &:before { content:"Q."; position:absolute; top:20px; left:0; display:block; margin:0 10px 0 0; font-size:14px; color:#000; font-weight:400; }
+        }
+        &.selected {
+          .head {
+            &:before,
+            .title { color:#0055fb; }
+          }
+        }
+      }
+    }
+
+    &.typeAll {
+      .faq {
+        .head { display:flex; padding:30px 0;
+          .number { display:inline-block; width:30px; font-size:14px; color:#333; }
+          .category { display:inline-block; width:34px; font-size:14px; color:#959595; }
+          .title { @include text-ellipsis(20, 2); padding:0 30px 0 0; box-sizing:border-box; font-size:14px; }
+          .btnFold {
+            .icoArrow { right:0; }
+          }
+        }
+        .content { padding:20px 38px 30px 40px;
+          &:before { top:15%; left:20px; }
+        }
+        &.selected {
+          .head {
+            &:before,
+            .title { font-weight:800; }
+          }
+          .content { border-top:1px solid #e8e8e8; }
+        }
+        &:last-child { border-bottom:0; }
       }
     }
   }

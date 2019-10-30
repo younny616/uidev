@@ -544,7 +544,7 @@
     }
   }
 
-  .mPagination { padding:0 0 20px; text-align:center;
+  .mPagination { margin:60px 0; text-align:center;
     &.typeMore {
       .btnMore { min-width:240px; height:40px; margin:0 auto; padding:0 20px; font-size:14px; color:#5b5b5b; border:1px solid #e8e8e8; border-radius:3px; box-sizing:border-box; transition:.3s;
         &:hover { background:#f5f5f5; }
