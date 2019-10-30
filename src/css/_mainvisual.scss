@@ -11,16 +11,7 @@
   }
 }
 
-@include respond(mobile-tablet) {
-
-}
-
-@include respond(tablet) {
-
-}
-
 @include respond(tablet-pc) {
-  .RMB { display:none; }
   .mainVisual {
     height:420px; margin:-68px 0 0; padding:134px 0 0; box-sizing:border-box; text-align:center; background:url('../images/bg_main_visual.png'); background-size:cover; background-position:center;
     h2.title { font-size:44px; line-height:60px; color:#000; font-weight:400; }
@@ -31,8 +22,4 @@
       .btnThemeDirect { margin:0 0 0 12px; background:#8c63dc; }
     }
   }
-}
-
-@include respond(pc) {
-
 }

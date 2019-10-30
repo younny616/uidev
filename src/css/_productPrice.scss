@@ -18,11 +18,7 @@
     .item { width:calc(100%/3 - 20px); margin:0 10px 20px; padding:38px 29px; border:1px solid #e8e8e8; border-radius:3px; box-sizing:border-box;
       .option { @include text-ellipsis(20, 1); font-size:14px; color:#0055fb; font-weight:800; }
       .price { display:inline-block; margin:10px 5px 0 0; font-size:28px; color:#333; font-weight:400; }
-      .desc { font-size:16px; color:#333; }
+      .desc { display:inline-block; font-size:16px; color:#333; }
     }
   }
-}
-
-@include respond(tablet) {
-
 }

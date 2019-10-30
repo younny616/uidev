@@ -1,4 +1,4 @@
-@include respond(mobile) {
+@include respond(mobile-tablet) {
   .partnerInfo { position:relative; padding:0 0 80px;
     .company {  padding:0 20px 0 0; box-sizing:border-box;
       &:after { content:""; display:block; clear:both; }
@@ -6,7 +6,7 @@
       .information { padding:0 0 0 62px;
         .name { display:block; font-size:22px; font-weight:400; line-height:1;
           .tier { @include blind(); display:inline-block; width:17px; height:18px; vertical-align:middle;
-            background:url('/images/sfix_partner_tier.png'); background-size:100px auto;
+            background:url('../images/sfix_partner_tier.png'); background-size:100px auto;
             &.gold { background-position:-25px 0; }
             &.silver { background-position:-50px 0; }
             &.bronze { background-position:-75px 0; }
@@ -36,16 +36,7 @@
 
 }
 
-@include respond(mobile-tablet) {
-
-}
-
-@include respond(tablet) {
-
-
-}
-
-@include respond(tablet-pc) {
+@include respond(pc) {
   .partnerInfo { position:relative; display:flex;
     .company { width:(100%/3); padding:0 20px 0 0; box-sizing:border-box;
       &:after { content:""; display:block; clear:both; }
@@ -53,7 +44,7 @@
       .information { padding:0 0 0 124px;
         .name { display:block; font-size:28px; font-weight:400; line-height:1;
           .tier { @include blind(); display:inline-block; width:22px; height:24px; vertical-align:middle;
-            background:url('/images/sfix_partner_tier.png'); background-size:128px auto;
+            background:url('../images/sfix_partner_tier.png'); background-size:128px auto;
             &.gold { background-position:-33px 0; }
             &.silver { background-position:-65px 0; }
             &.bronze { background-position:-96px 0; }
@@ -79,8 +70,4 @@
       }
     }
   }
-}
-
-@include respond(pc) {
-
 }

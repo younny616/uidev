@@ -5,7 +5,7 @@
   &.loading { opacity:0; visibility:hidden; }
   .sliderContainer { overflow:hidden; position:relative; z-index:1; width:100%; padding:0; list-style:none;
     .sliderWrapper { display:flex; position:relative; width:100%; height:100%; transition-property:all, transform;
-      .slide { flex-shrink:0; position:relative; width:100%; height:100%;  box-sizing:border-box; background:#fff; outline:0; transition-property:all, transform; }
+      .slide { flex-shrink:0; position:relative; width:100%; height:100%; box-sizing:border-box; outline:0; transition-property:all, transform; }
     }
     &-coverflow .slideWrapper { perspective:1200px; }
   }
@@ -269,6 +269,31 @@
     }
   }
 
+  .sliderWrap.typeScreenShot { width:100%; max-width:1920px; margin:0 auto;
+    .sliderContainer { max-width:1458px; height:100%;
+      .sliderWrapper {
+        .item {
+          .image { overflow:hidden; position:relative; width:100%; height:100%;
+            a { display:flex; align-items:center; justify-content:center; width:100%; height:100%;
+              img { width:auto; max-height:100%; }
+            }
+          }
+        }
+      }
+    }
+    .sliderPagination { display:none; }
+    .sliderCtrl {
+      .prevWrap { left:30px; }
+      .nextWrap { right:30px; }
+
+      [class*=Wrap] { background:transparent; }
+      [class*=slide] { width:64px; height:64px; top:50%; border-radius:50%; background:#000;
+        &:before,
+        &:after { width:9px; height:9px; margin:auto; border-top:3px solid #fff; border-right:3px solid #fff; }
+      }
+    }
+  }
+
   .sliderWrap.typeRandom { width:100%; max-width:1444px; margin:0 auto;
     .sliderContainer { padding:0 0 92px;
       .sliderWrapper { @include flex(space-between);
@@ -344,11 +369,10 @@
       .sliderWrapper {
         .item { overflow:hidden; width:calc(25% - 34px); max-width:326px; margin:0 17px; border:1px solid #eaeaea; border-radius:4px; transition:all .3s ease;
           &:hover { box-shadow:0 18px 18px 0 rgba(92, 95, 101, .2); }
-
           .image { position:relative;
             &:after { content:''; display:block; position:absolute; left:0; bottom:0; right:0; width:100%; height:1px; background:rgba(0, 0, 0, 0.03); }
           }
-          .inner { position:relative; height:226px; text-align:left;
+          .inner { position:relative; height:226px; text-align:left; background:#fff;
             a { display:block; position:absolute; left:0; top:0; width:100%; height:100%; padding:30px 20px; box-sizing:border-box; }
             .title { display:block; margin:0 0 3px; font-size:20px; font-weight:500; @include text-ellipsis(24, 2); }
             .subTitle { display:block; margin:0 0 7px; font-size:13px; color:#758ea6; }
@@ -376,11 +400,10 @@
       .sliderWrapper {
         .item { overflow:hidden; width:calc(25% - 34px); max-width:326px; margin:0 17px; border:1px solid #eaeaea; border-radius:4px; transition:all .3s ease;
           &:hover { box-shadow:0 18px 18px 0 rgba(92, 95, 101, .2); }
-
           .image { position:relative;
             &:after { content:''; display:block; position:absolute; left:0; bottom:0; right:0; width:100%; height:1px; background:rgba(0, 0, 0, 0.03); }
           }
-          .inner { position:relative; height:136px; text-align:left;
+          .inner { position:relative; height:136px; text-align:left; background:#fff;
             a { display:block; position:absolute; left:0; top:0; width:100%; height:100%; padding:30px 20px; box-sizing:border-box; }
             .title { display:block; margin:0 0 3px; font-size:20px; font-weight:500; line-height:1; }
             .subTitle { display:block; margin:0 0 21px; font-size:13px; color:#5398f5; }

@@ -16,7 +16,7 @@
         .review { display:inline-block; position:relative; top:-1px; font-size:13px; color:#959595; line-height:1;
           a { display:block; position:relative; padding:0 20px 1px 20px; color:inherit; transition:all .3s ease;
             &:before,
-            &:after { content:''; display:block; position:absolute; left:0; top:0; width:14px; height:14px; background:url('/#{$src}/ico_review.png'); background-size:14px auto; transition:all .3s ease; }
+            &:after { content:''; display:block; position:absolute; left:0; top:0; width:14px; height:14px; background:url('#{$src}/ico_review.png'); background-size:14px auto; transition:all .3s ease; }
             &:before { opacity:1; background-position:0 0; }
             &:after { opacity:0; background-position:0 -14px; }
             &:hover { color:#000;
@@ -27,7 +27,7 @@
         }
         .btnLike { position:relative; float:right; width:16px; height:14px; @include blind();
           &:before,
-          &:after { content:''; display:block; position:absolute; left:0; top:0; width:16px; height:14px; background:url('/#{$src}/ico_like.png'); background-size:16px auto; transition:all .3s ease; }
+          &:after { content:''; display:block; position:absolute; left:0; top:0; width:16px; height:14px; background:url('#{$src}/ico_like.png'); background-size:16px auto; transition:all .3s ease; }
           &:before { opacity:1; background-position:0 0; }
           &:after { opacity:0; background-position:0 -14px; }
           &:hover {
@@ -118,7 +118,7 @@
           &Submit { width:calc(50% - 5px); margin:0 0 0 5px; font-weight:800; }
           &Like { display:none; position:relative; width:48px; height:48px; margin:0 2px 0 0; border:1px solid #d8d8d9; border-radius:4px; transition:all .3s ease; vertical-align:top; @include blind();
             &:before,
-            &:after { content:''; display:block; position:absolute; left:50%; top:50%; width:20px; height:18px; background:url('/#{$src}/ico_like.png'); background-size:20px auto; transition:all .3s ease; transform:translate(-50%, -50%); }
+            &:after { content:''; display:block; position:absolute; left:50%; top:50%; width:20px; height:18px; background:url('#{$src}/ico_like.png'); background-size:20px auto; transition:all .3s ease; transform:translate(-50%, -50%); }
             &:before { opacity:1; background-position:0 0; }
             &:after { opacity:0; background-position:0 -18px; }
             &:hover { border-color:#f0e5e5; background:#fff5f5;
@@ -145,7 +145,7 @@
           .btn {
             &Like { position:relative;  width:27px; height:27px; margin:0 2px 0 0; transition:all .3s ease; vertical-align:top; @include blind();
               &:before,
-              &:after { content:''; display:block; position:absolute; left:50%; top:50%; width:20px; height:18px; background:url('/#{$src}/ico_like.png'); background-size:20px auto; transition:all .3s ease; transform:translate(-50%, -50%); }
+              &:after { content:''; display:block; position:absolute; left:50%; top:50%; width:20px; height:18px; background:url('#{$src}/ico_like.png'); background-size:20px auto; transition:all .3s ease; transform:translate(-50%, -50%); }
               &:before { opacity:1; background-position:0 0; }
               &:after { opacity:0; background-position:0 -18px; }
               &:hover {
@@ -183,7 +183,7 @@
         .review { display:inline-block; position:relative; top:-1px; font-size:16px; color:#959595; line-height:1;
           a { display:block; position:relative; padding:0 30px 2px 28px; color:inherit; transition:all .3s ease;
             &:before,
-            &:after { content:''; display:block; position:absolute; left:0; top:0; width:18px; height:18px; background:url('/#{$src}/ico_review.png'); background-size:18px auto; transition:all .3s ease; }
+            &:after { content:''; display:block; position:absolute; left:0; top:0; width:18px; height:18px; background:url('#{$src}/ico_review.png'); background-size:18px auto; transition:all .3s ease; }
             &:before { opacity:1; background-position:0 0; }
             &:after { opacity:0; background-position:0 -18px; }
             &:hover { color:#000;
@@ -194,7 +194,7 @@
         }
         .btnLike { position:relative; float:right; width:20px; height:18px; @include blind();
           &:before,
-          &:after { content:''; display:block; position:absolute; left:0; top:0; width:20px; height:18px; background:url('/#{$src}/ico_like.png'); background-size:20px auto; transition:all .3s ease; }
+          &:after { content:''; display:block; position:absolute; left:0; top:0; width:20px; height:18px; background:url('#{$src}/ico_like.png'); background-size:20px auto; transition:all .3s ease; }
           &:before { opacity:1; background-position:0 0; }
           &:after { opacity:0; background-position:0 -18px; }
           &:hover {
@@ -314,7 +314,7 @@
           .btn {
             &Like { position:relative; width:48px; height:48px; margin:0 2px 0 0; border:1px solid #d8d8d9; border-radius:4px; transition:all .3s ease; vertical-align:top; @include blind();
               &:before,
-              &:after { content:''; display:block; position:absolute; left:50%; top:50%; width:20px; height:18px; background:url('/#{$src}/ico_like.png'); background-size:20px auto; transition:all .3s ease; transform:translate(-50%, -50%); }
+              &:after { content:''; display:block; position:absolute; left:50%; top:50%; width:20px; height:18px; background:url('#{$src}/ico_like.png'); background-size:20px auto; transition:all .3s ease; transform:translate(-50%, -50%); }
               &:before { opacity:1; background-position:0 0; }
               &:after { opacity:0; background-position:0 -18px; }
               &:hover { border-color:#f0e5e5; background:#fff5f5;

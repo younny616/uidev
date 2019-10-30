@@ -1,3 +1,6 @@
+include /components/grade
+include /components/sortList
+
 mixin productReview()
   div.reviewWrap
     div.head
@@ -29,14 +32,7 @@ mixin productReview()
               button(type="button").btnMoreView 더보기
           div.recommend
             button(type="button").btnThumbsUp.active 9999+
-      div.sortList
-        ul
-          li
-            a(href="#none").active 최신순
-          li
-            a(href="#none") 높은 평가순
-          li
-            a(href="#none") 낮은 평가순
+      +sortList('최신순', '높은 평가순','낮은 평가순')
       div.reviewArea
         ul.reviewList
           li

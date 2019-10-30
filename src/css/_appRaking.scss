@@ -11,6 +11,19 @@
   }
 }
 
+@include respond(tablet) {
+  .appRanking { padding:0 20px;
+    .heading { padding:35px 0 25px;
+      .title { font-size:28px; }
+      .desc { margin:0 0 10px; font-size:13px; color:#797980; }
+    }
+    .ranking {
+      li { display:block; @include more('li', 5); }
+    }
+    ol { counter-reset:ordered; }
+  }
+}
+
 @include respond(pc) {
   .appRanking { max-width:1404px; margin:0 auto; display:flex;
     .heading { position:relative; width:360px;
