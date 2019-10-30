@@ -1,4 +1,4 @@
-const themePartner = [
+const appPartner = [
     {
         logo: '/images/app_partner_logo.jpg',
         src: '/images/img_640_360.jpg',
@@ -50,4 +50,4 @@ const themePartner = [
     },
 ]
 
-module.exports = themePartner;
+module.exports = appPartner;

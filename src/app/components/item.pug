@@ -49,3 +49,19 @@ mixin item(item, index, types)
       div.image
         a(href=item[index].outlink target="_blank")
           img(src=item[index].src alt="")
+    when 'faq'
+      div.innerItem
+        div.head
+          strong.title= item[index].title
+        div.content= item[index].content
+        button(type="button").btnCover 열기
+      div.innerItem
+        div.head
+          strong.title= item[index].title
+        div.content= item[index].content
+        button(type="button").btnCover 열기
+      div.innerItem
+        div.head
+          strong.title= item[index].title
+        div.content= item[index].content
+        button(type="button").btnCover 열기
