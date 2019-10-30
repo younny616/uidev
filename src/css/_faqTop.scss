@@ -1,7 +1,23 @@
 @include respond(mobile) {
   .faqTop {
-
+    .heading { margin:0 0 17px;
+      .title { font-size:16px; color:#000; font-weight:800; }
+    }
+    .faqItem {
+      ul { border-right:1px solid #e6e9ef; border-top:1px solid #e6e9ef;
+        li { position:relative; padding:20px 19px; border-left:1px solid #e6e9ef; border-bottom:1px solid #e6e9ef; box-sizing:border-box;
+          .head { margin:0 0 18px;
+            .title { flex:1; font-size:15px; color:#000; font-weight:400;
+              &:before { content:""; display:inline-block; width:18px; height:14px; margin:0 11px 0 0; background:#ddd; }
+            }
+          }
+          .content { @include text-ellipsis(19, 3); padding:0 0 0 29px; font-size:13px; color:#959595; box-sizing:border-box; }
+          .btnCover { @include blind(); position:absolute; top:0; bottom:0; left:0; right:0; z-index:1; display:block; width:100%; }
+        }
+      }
+    }
   }
+  .faqTop + .faqTop { margin:40px 0 60px; }
 }
 
 @include respond(tablet-pc) {
@@ -11,14 +27,34 @@
     }
     .faqItem {
       ul { display:flex; flex-wrap:wrap; border-right:1px solid #e6e9ef; border-top:1px solid #e6e9ef;
-        li { width:(100%/3); padding:29px; border-left:1px solid #e6e9ef; border-bottom:1px solid #e6e9ef; box-sizing:border-box;
-          .head {
-            .title { font-size:18px; color:#000; font-weight:400; }
+        li { position:relative; padding:29px; border-left:1px solid #e6e9ef; border-bottom:1px solid #e6e9ef; box-sizing:border-box;
+          .head { margin:0 0 18px;
+            .title { font-size:18px; color:#000; font-weight:400;
+              &:before { content:""; display:inline-block; width:25px; height:19px; margin:0 11px 0 0; background:#ddd; }
+            }
           }
-          .content { padding:18px 0 0 36px; font-size:14px; color:#959595; }
+          .content { @include text-ellipsis(21, 3); padding:0 0 0 36px; font-size:14px; color:#959595; box-sizing:border-box; }
+          .btnCover { @include blind(); position:absolute; top:0; bottom:0; left:0; right:0; z-index:1; display:block; width:100%; }
+          &:hover { background:#f9f9f9; transition:.5s; }
         }
       }
     }
   }
   .faqTop + .faqTop { margin:58px 0 0; }
+}
+
+@include respond(tablet) {
+  .faqItem {
+    ul {
+      li { width:(100%/2); }
+    }
+  }
+}
+
+@include respond(pc) {
+  .faqItem {
+    ul {
+      li { width:(100%/3); }
+    }
+  }
 }
