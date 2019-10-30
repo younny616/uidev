@@ -114,3 +114,28 @@ block append body
   script(src="//cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js")
   script(src="/js/ui/product.js")
   script(src="/js/ui/productAppSlide.js")
+
+  script.
+    // UI 테스트
+    (function() {
+      var $reviewIcon = $('.mLayer .reviewArea .grade');
+
+      $reviewIcon.children().on('mouseenter', function(e) {
+        for (var i = 0; i < $(this).index() + 1; i++) {
+          $reviewIcon.children().eq(i).addClass('enter');
+        };
+      })
+      .on('mouseleave', function() {
+        $reviewIcon.children().eq($(this).index()).removeClass('enter');
+      })
+      .on('click', function() {
+        $reviewIcon.children().removeClass('active');
+        for (var i = 0; i < $(this).index() + 1; i++) {
+          $(this).parent().children().eq(i).addClass('active');
+        };
+      });
+
+      $reviewIcon.on('mouseleave', function() {
+        $(this).children().removeClass('enter');
+      });
+    })();
