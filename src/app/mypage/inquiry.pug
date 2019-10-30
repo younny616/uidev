@@ -1,0 +1,52 @@
+extends /layouts/layout
+include /components/common/mTitle
+
+block append contents
+
+    section.inquiryHistoryArea
+        +mTitle('typeSub', '문의내역')
+        div.gInner
+            div.stateBar
+                div.left
+                    div.total
+                        strong.data 6개
+                        | 결과
+
+            div.inquiryList
+                div.sorting
+                    button(type="button").btnSort 답변완료 4
+                    button(type="button").btnSort 답변 대기중 2
+                ul.inquiry
+                    li.item.selected
+                        div.head
+                            span.number
+                            strong.title 문의유형 · 파트너 센터에서 설정된 자주묻는 질문을 표시합니다
+                            button(type='button').btnFold.selected 열기
+                                span.icoArrow
+                        div.content
+                            | 아코디언 열렸을 경우 표시되는 가이드 영역 입니다.
+                            br
+                            | 해당 앱 관련 자주묻는 질문을 표시합니다. 해당 앱 관련 자주묻는 질문을 표시합니다.
+                    li.item
+                        div.head
+                            strong.title 문의유형 · 파트너 센터에서 설정된 자주묻는 질문을 표시합니다
+                            button(type='button').btnFold 열기
+                                span.icoArrow
+                        div.content
+                            | 아코디언 열렸을 경우 표시되는 가이드 영역 입니다.
+                            br
+                            | 해당 앱 관련 자주묻는 질문을 표시합니다. 해당 앱 관련 자주묻는 질문을 표시합니다.
+                    li.item
+                        div.head
+                            strong.title 문의유형 · 파트너 센터에서 설정된 자주묻는 질문을 표시합니다
+                            button(type='button').btnFold 열기
+                                span.icoArrow
+                        div.content
+                            | 아코디언 열렸을 경우 표시되는 가이드 영역 입니다.
+                            br
+                            | 해당 앱 관련 자주묻는 질문을 표시합니다. 해당 앱 관련 자주묻는 질문을 표시합니다.
+
+
+
+
+

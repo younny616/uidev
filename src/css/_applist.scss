@@ -30,7 +30,10 @@
 }
 
 @include respond(tablet) {
-  .appList { width:(100% / 2); }
+  .appList { width:(100% / 2);
+    /* grid */
+    &.grid4 { width:(100%/2); }
+  }
 }
 
 @include respond(tablet-pc) {
@@ -68,5 +71,8 @@
 @include respond(pc) {
   .appList { width:(100%/4);
     &.typeSearch { width:(100%/3); }
+
+    /* grid */
+    &.grid4 { width:(100%/4); }
   }
 }
