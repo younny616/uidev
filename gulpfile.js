@@ -39,8 +39,12 @@ const buildPath = {
 const buildReplace = (onDeploy) => {
   return replace(/(src|href)="([^"]*)"/g, (match, param, string, offset) => {
     let protocol = /(?:((http(s?))\:)?\/\/)/g;
+    let css = /.*(css)$/g;
     let baseDir = `${project.build.baseDir}${string}`;
     let etcDir = `${project.build.etcDir}${string}`;
+
+    // 빌드 경로 및 파라미터 값 확인
+    // console.log('{\n match : ' + match +',\n', 'param : ' +  param +',\n', 'string : ' +  string +'\n}');
 
     if (!protocol.test(string) && string.length > 1 && string.charAt(0) !== '#' && string.charAt(0) !== '{' && string.charAt(0) !== '!') {
       if (onDeploy) {
@@ -49,7 +53,11 @@ const buildReplace = (onDeploy) => {
         if (image.test(string)) return `${param}="${project.deploy.echosting}/${etcDir}"`;
       }
 
-      return `${param}="/${etcDir}"`;
+      if (!css.test(string) && param === 'href') {
+        return `${param}="/${baseDir}"`;
+      } else {
+        return `${param}="/${etcDir}"`;
+      }
 
     } else {
       return `${param}="${string}"`;

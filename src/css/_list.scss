@@ -193,12 +193,20 @@
 
     .typePartner {
       .item {
-        .inner { height:102px;
-          a { padding:22.5px 15px; }
-          .title { margin:0 0 2px; font-size:15px; }
-          .subTitle { margin:0 0 15.75px; font-size:10px; }
-          .price { font-size:10px; }
-          .btnSample { right:12px; bottom:12px; width:75px; height:27px; padding:8px; font-size:10px; }
+        .inner { padding:24px;
+          .title { display:block; margin:21px 0 16px; font-size:15px; }
+          .info {
+            &:after { content:''; display:block; clear:both; }
+            dt { float:left; min-width:25%; font-size:14px; color:#7b7b7b; line-height:24px; }
+            dd { display:inline-block; position:relative; min-width:70%; margin:0 0 0 2px; font-size:14px; color:#7b7b7b; line-height:24px;
+              &.outLink:after { content:''; display:inline-block; position:absolute; right:-15px; top:7px; width:12px; height:12px; margin:0 0 0 12px; background:url('//img.echosting.cafe24.com/api/app/sfix_layout.png') no-repeat -75px 0; }
+              a,
+              span { display:block; overflow:hidden; width:100%; max-width:200px; font-size:inherit; color:inherit; line-height:inherit; text-overflow:ellipsis; white-space:nowrap; word-break:break-all; }
+            }
+          }
+        }
+        .image {
+          &:after { bottom:auto; top:0; }
         }
       }
     }
