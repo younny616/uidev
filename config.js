@@ -62,7 +62,7 @@ const paths = {
   },
   svg: {
     src: `${project.src}/svg/**/*.*`,
-    dest: project.dest,
+    dest: `${project.dest}/images`,
     wildcard: `${project.src}/svg/**/*.*`,
   },
   fonts: {
