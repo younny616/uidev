@@ -1,0 +1,82 @@
+@include respond(mobile) {
+  .inquiryList {
+    .sorting { margin:0 0 38px;
+      .btnSort { font-size:13px; color:#758ea6;
+        &.selected { color:#108af9; }
+      }
+      .btnSort + .btnSort { margin-left:15px; }
+    }
+    .inquiry {
+      .item {
+        .head { position:relative; padding:15px 0; border-bottom:1px solid #e8e8e8;
+          .number { display:none; }
+          .label { display:block; margin:0 0 7px; font-size:13px; color:#7b7b7b; }
+          .title { display:block; font-size:16px; line-height:22px; color:#333; font-weight:400; }
+          .reply { display:inline-block; height:24px; line-height:24px; margin:28px 0 0; padding:0 11px; font-size:12px; color:#aaa; border-radius:10px; background:#f1f2f4;
+            &.complete { color:#fff; background:#5398f5; }
+          }
+          .btnFold { @include blind(); position:absolute; top:0; bottom:0; left:0; right:0; width:100%; z-index:1; }
+        }
+        .content { display:none; margin:0 -20px; padding:30px 20px 30px 54px; font-size:13px; line-height:20px; color:#333; border-bottom:1px solid #e8e8e8; background:#f9f9f9;
+          .question { margin:0 0 28px; }
+          .answer {
+            .title { display:block; font-weight:400; }
+          }
+        }
+        &.selected {
+          .head {
+            .title { font-weight:800; }
+          }
+          .content { display:block; }
+        }
+        &:last-child {
+          .head { border-bottom:0; }
+          .content { border-bottom:0; }
+        }
+      }
+    }
+  }
+}
+
+@include respond(mobile-tablet) {
+
+}
+
+@include respond(tablet) {
+
+
+}
+
+@include respond(tablet-pc) {
+  .inquiryList {
+    .inquiry {
+      .item { border-bottom:1px solid #e8e8e8;
+        .head { position:relative; padding:26px 106px 26px 60px;
+          .number { position:absolute; left:13px; top:35px; display:block; font-size:22px; color:#000; font-weight:400; }
+          .label { display:block; margin:0 0 10px; font-size:14px; color:#7b7b7b; }
+          .title { @include ellipsis(100%, block); font-size:18px; line-height:1; color:#333; font-weight:400; }
+          .reply { position:absolute; right:0; top:38px; display:block; height:25px; line-height:25px; padding:0 11px; font-size:12px; color:#aaa; border-radius:10px; background:#f1f2f4;
+            &.complete { color:#fff; background:#5398f5; }
+          }
+          .btnFold { @include blind(); position:absolute; top:0; bottom:0; left:0; right:0; width:100%; z-index:1; }
+        }
+        .content { display:none; padding:45px 40px 45px 96px; font-size:15px; line-height:22px; color:#333; border-top:1px solid #e8e8e8; background:#f9f9f9;
+          .question { margin:0 0 40px; }
+          .answer {
+            .title { display:block; font-weight:400; }
+          }
+        }
+        &.selected {
+          .head {
+            .title { font-weight:800; }
+          }
+          .content { display:block; }
+        }
+      }
+    }
+  }
+}
+
+@include respond(pc) {
+
+}

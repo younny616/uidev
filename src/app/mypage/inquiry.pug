@@ -14,35 +14,46 @@ block append contents
 
             div.inquiryList
                 div.sorting
-                    button(type="button").btnSort 답변완료 4
+                    button(type="button").btnSort.selected 답변완료 4
                     button(type="button").btnSort 답변 대기중 2
                 ul.inquiry
                     li.item.selected
                         div.head
-                            span.number
-                            strong.title 문의유형 · 파트너 센터에서 설정된 자주묻는 질문을 표시합니다
-                            button(type='button').btnFold.selected 열기
-                                span.icoArrow
+                            span.number 3
+                            span.label 앱 · 바이앱스 서비스 연동
+                            strong.title 파트너 센터에서 설정된 자주묻는 질문을 표시합니다 길이가 길어지면 어찌되나 어어어어어어어어어어어어어어어어어어어어 길이가 길어지면 어찌되나
+                            span.reply.complete 답변 완료
+                            button(type='button').btnFold 열기
                         div.content
-                            | 아코디언 열렸을 경우 표시되는 가이드 영역 입니다.
+                            div.question
+                                | 파트너 문의시 등록한 제목을 노출합니다. 해당영역 클릭하면 아래로 열려서 모든 내용이 보입니다.
+                                br
+                                | 등록된 질문이 모두 나타납니다.
+                            div.answer
+                                strong.title 답변
+                                | 열렸을 경우 표시되는 가이드 영역 입니다.
+                                br
+                                | 해당 앱 관련 자주묻는 질문을 표시합니다. 해당 앱 관련 자주묻는 질문을 표시합니다.
+                    li.item
+                        div.head
+                            span.number 2
+                            span.label 앱 · 바이앱스 서비스 연동
+                            strong.title 파트너 센터에서 설정된 자주묻는 질문을 표시합니다
+                            span.reply 답변 대기중
+                            button(type='button').btnFold 열기
+                        div.content
+                            | 열렸을 경우 표시되는 가이드 영역 입니다.
                             br
                             | 해당 앱 관련 자주묻는 질문을 표시합니다. 해당 앱 관련 자주묻는 질문을 표시합니다.
                     li.item
                         div.head
-                            strong.title 문의유형 · 파트너 센터에서 설정된 자주묻는 질문을 표시합니다
+                            span.number 1
+                            span.label 앱 · 바이앱스 서비스 연동
+                            strong.title 파트너 센터에서 설정된 자주묻는 질문을 표시합니다
+                            span.reply 답변 대기중
                             button(type='button').btnFold 열기
-                                span.icoArrow
                         div.content
-                            | 아코디언 열렸을 경우 표시되는 가이드 영역 입니다.
-                            br
-                            | 해당 앱 관련 자주묻는 질문을 표시합니다. 해당 앱 관련 자주묻는 질문을 표시합니다.
-                    li.item
-                        div.head
-                            strong.title 문의유형 · 파트너 센터에서 설정된 자주묻는 질문을 표시합니다
-                            button(type='button').btnFold 열기
-                                span.icoArrow
-                        div.content
-                            | 아코디언 열렸을 경우 표시되는 가이드 영역 입니다.
+                            | 열렸을 경우 표시되는 가이드 영역 입니다.
                             br
                             | 해당 앱 관련 자주묻는 질문을 표시합니다. 해당 앱 관련 자주묻는 질문을 표시합니다.
 

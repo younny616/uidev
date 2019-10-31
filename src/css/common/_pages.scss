@@ -51,7 +51,7 @@
     &.relativeAppArea { padding:100px 0 0; background:#f5f5f5; }
 
     /* 검색 */
-    &.appListSearchArea {
+    &.combineSearchAppArea {
       .gInner { border-bottom:1px solid #e8e8e8; }
     }
 
@@ -75,6 +75,9 @@
     }
     &.relativeAppArea,
     &.relativeThemeArea, { background:#f5f5f5; }
+
+    /* 마이페이지 */
+    &.inquiryHistoryArea { padding:0 0 160px; }
   }
   .searchHeadArea.gEmpty { background:#f8f8fb; }
 }

@@ -1,6 +1,6 @@
 @include respond(mobile) {
   .faqTop {
-    .heading { margin:0 0 17px;
+    .heading { margin:0 20px 17px;
       .title { font-size:16px; color:#000; font-weight:800; }
     }
     .faqItem {
@@ -22,7 +22,7 @@
 
 @include respond(tablet-pc) {
   .faqTop {
-    .heading { margin:0 0 17px;
+    .heading { max-width:1404px; margin:0 auto 17px; padding:0 20px;
       .title { font-size:22px; color:#000; font-weight:800; }
     }
     .faqItem {
