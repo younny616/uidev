@@ -80,3 +80,11 @@ mixin mLayer(id, title, desc, typeClass)
             - var screenShotTheme = 'screenShotTheme'
             - var screenShotThemeData = require('./src/js/data/screenShotTheme.js');
             +slider(screenShotTheme, screenShotThemeData, 'typeScreenShot', 'image', false, true)
+          when 'FaqTop'
+            div.faqTopLayer
+              div.head
+                strong.title 앱은 어떻게 설치하나요?
+              div.content 사용하지 않는 앱이라면 쇼핑몰 관리자 화면의 [앱스토어] 메뉴에서 앱을 선택한 후 [삭제] 버튼을 누르면, 해당 앱은 메뉴에서 앱을 선택한 후 [삭제] 버튼을 누르면, 해당
+              div.footer
+                button(type="button").btnPrev
+                button(type="button").btnNext

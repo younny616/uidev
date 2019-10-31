@@ -1,5 +1,5 @@
 @include respond(mobile) {
-  .sortList { padding:25px 0 0;
+  .sortList {
     ul {
       li { display:inline-block; font-size:0; line-height:0;
         &:last-child a {
@@ -14,11 +14,14 @@
         }
       }
     }
+    /* reset */
+    .reviewWrap & { padding:25px 0 0; }
+    .faqAllWrap & { margin:-10px 0 30px; }
   }
 }
 
 @include respond(tablet-pc) {
-  .sortList { padding:24px 0 21px;
+  .sortList {
     ul {
       li { display:inline-block; font-size:0; line-height:0;
         &:last-child a {
@@ -33,5 +36,8 @@
         }
       }
     }
+    /* reset */
+    .reviewWrap & { padding:24px 0 21px; }
+    .faqAllWrap & { margin:-60px 0 40px; text-align:right; }
   }
 }

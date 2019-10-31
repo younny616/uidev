@@ -242,14 +242,14 @@
     &Thumbs { display:none; }
   }
 
-  .sliderWrap.typeColumn {
+  .sliderWrap.typeFaqTop {
     .sliderContainer { padding:0 0 0 20px; text-align:left;
       .sliderWrapper {
         .item { overflow:hidden; width:calc(89.44% + 2px);  margin:0 10px 0 0; border:1px solid #e6e9ef; border-top:0; box-sizing:border-box;
-          .innerItem { padding:20px 19px; border-top:1px solid #e6e9ef;
+          .innerItem { position:relative; padding:20px 19px; border-top:1px solid #e6e9ef;
             .head { margin:0 0 18px;
               .title { font-size:15px; color:#000; font-weight:400;
-                &:before { content:""; display:inline-block; width:25px; height:19px; margin:0 11px 0 0; background:#ddd; }
+                &:before { content:""; display:inline-block; width:18px; height:14px; margin:-2px 11px 0 0; vertical-align:middle; background:url('#{$src}/sfix_qna.png') no-repeat; background-size:50px auto; background-position:0 -25px; }
               }
             }
             .content { @include text-ellipsis(19, 3); padding:0 0 0 29px; font-size:13px; color:#959595; box-sizing:border-box; }
@@ -560,7 +560,7 @@
     }
   }
 
-  .sliderWrap.typeColumn { width:100%; max-width:1444px; margin:0 auto; padding:0 20px; box-sizing:border-box; text-align:left;
+  .sliderWrap.typeFaqTop { width:100%; max-width:1444px; margin:0 auto; padding:0 20px; box-sizing:border-box; text-align:left;
     .sliderContainer {
       .sliderWrapper { flex-wrap:wrap; box-sizing:border-box;
         .item { border-left:1px solid #e8e8e8; border-bottom:1px solid #e8e8e8;
@@ -568,7 +568,7 @@
           .innerItem { position:relative; float:left; width:33.33%; padding:29px; border-top:1px solid #e8e8e8; border-right:1px solid #e8e8e8; box-sizing:border-box;
             .head { margin:0 0 18px;
               .title { font-size:18px; color:#000; font-weight:400;
-                &:before { content:""; display:inline-block; width:25px; height:19px; margin:0 11px 0 0; background:#ddd; }
+                &:before { content:""; display:inline-block; width:25px; height:20px; margin:0 11px 0 0; vertical-align:middle; background:url('#{$src}/sfix_qna.png') no-repeat; background-size:70px auto; background-position:0 -35px; }
               }
             }
             .content { @include text-ellipsis(21, 3); padding:0 0 0 36px; font-size:14px; color:#959595; box-sizing:border-box; }
@@ -703,7 +703,7 @@
     .btnDetail { padding:9px 48.75px; }
   }
 
-  .sliderWrap.typeColumn {
+  .sliderWrap.typeFaqTop {
     .sliderContainer {
       .sliderWrapper {
         .item { width:50%; border-left:1px solid #e8e8e8; border-bottom:1px solid #e8e8e8;

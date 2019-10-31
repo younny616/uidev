@@ -61,7 +61,8 @@ block append contents
         section.productFaqArea
             +mTitle('typeProduct', 'FAQ')
             div.gInside
-                +faqList()
+                div.faqArea
+                    +faqList()
         // 상품 리뷰
         section.productReviewArea#productReviewArea
             +mTitle('typeProduct', '리뷰')

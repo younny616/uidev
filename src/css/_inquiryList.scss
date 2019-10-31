@@ -18,8 +18,11 @@
           .btnFold { @include blind(); position:absolute; top:0; bottom:0; left:0; right:0; width:100%; z-index:1; }
         }
         .content { display:none; margin:0 -20px; padding:30px 20px 30px 54px; font-size:13px; line-height:20px; color:#333; border-bottom:1px solid #e8e8e8; background:#f9f9f9;
-          .question { margin:0 0 28px; }
-          .answer {
+          .question { position:relative; margin:0 0 28px;
+            &:before { content:""; position:absolute; top:3px; left:-34px; display:block; width:23px; height:19px; background:url('#{$src}/sfix_qna.png') no-repeat; background-size:50px auto; }
+          }
+          .answer { position:relative;
+            &:before { content:""; position:absolute; top:3px; left:-34px; display:block; width:23px; height:19px; background:url('#{$src}/sfix_qna.png') no-repeat; background-size:50px auto; background-position:-25px 0; }
             .title { display:block; font-weight:400; }
           }
         }
@@ -27,7 +30,6 @@
           .head {
             .title { font-weight:800; }
           }
-          .content { display:block; }
         }
         &:last-child {
           .head { border-bottom:0; }
@@ -38,17 +40,14 @@
   }
 }
 
-@include respond(mobile-tablet) {
-
-}
-
-@include respond(tablet) {
-
-
-}
-
 @include respond(tablet-pc) {
   .inquiryList {
+    .sorting { margin:0 0 38px;
+      .btnSort { font-size:14px; color:#758ea6;
+        &.selected { color:#108af9; }
+      }
+      .btnSort + .btnSort { margin-left:16px; }
+    }
     .inquiry {
       .item { border-bottom:1px solid #e8e8e8;
         .head { position:relative; padding:26px 106px 26px 60px;
@@ -61,8 +60,11 @@
           .btnFold { @include blind(); position:absolute; top:0; bottom:0; left:0; right:0; width:100%; z-index:1; }
         }
         .content { display:none; padding:45px 40px 45px 96px; font-size:15px; line-height:22px; color:#333; border-top:1px solid #e8e8e8; background:#f9f9f9;
-          .question { margin:0 0 40px; }
-          .answer {
+          .question { position:relative; margin:0 0 40px;
+            &:before { content:""; position:absolute; top:3px; left:-38px; display:block; width:25px; height:19px; background:url('#{$src}/sfix_qna.png') no-repeat; background-size:50px auto; }
+          }
+          .answer { position:relative;
+            &:before { content:""; position:absolute; top:3px; left:-38px; display:block; width:25px; height:19px; background:url('#{$src}/sfix_qna.png') no-repeat; background-size:50px auto; background-position:-25px 0; }
             .title { display:block; font-weight:400; }
           }
         }
@@ -70,13 +72,8 @@
           .head {
             .title { font-weight:800; }
           }
-          .content { display:block; }
         }
       }
     }
   }
-}
-
-@include respond(pc) {
-
 }

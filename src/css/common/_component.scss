@@ -59,7 +59,7 @@
 
   /* Components */
   .mTitle { position:relative;
-    &.typeSub { padding:40px 20px 10px; background:#fff;
+    &.typeSub { padding:40px 20px 0; background:#fff;
       .title { @include text-ellipsis(26, 2); font-size:20px; font-weight:800; }
       .desc { @include text-ellipsis(18, 2); margin:10px 0 0; font-size:13px; color:#000; }
     }
@@ -153,11 +153,7 @@
       .head { margin:0 0 21px;
         .title { display:block; margin:0 0 8px; font-size:16px; line-height:1; }
         .desc { font-size:12px; }
-        .btnClose { position:absolute; right:3px; top:2px; width:50px; height:50px; text-align:center; @include blind();
-          @include icoX(16px, 1px, #241815);
-        }
       }
-
       .content {
         .partnerArea { margin:0 0 10px;
           .image { display:inline-block; overflow:hidden; position:relative; min-width:50px; max-width:50px; min-height:50px; max-height:50px; border-radius:4px; background:#fff;
@@ -207,6 +203,9 @@
         }
       }
     }
+    .btnClose { position:absolute; right:3px; top:2px; width:50px; height:50px; text-align:center; @include blind();
+      @include icoX(16px, 1px, #241815);
+    }
     &.active { display:flex; }
     &.typeScreenShot {
       .wrap { width:100%; max-width:100%; height:100%; max-height:100%; padding:125px 0; border:none; border-radius:0; box-sizing:border-box; background:rgba(0, 0, 0, 0.8); text-align:center;
@@ -235,6 +234,24 @@
         }
       }
     }
+    &.typeFaqTop { align-items:start;
+      .faqTopWrap { position:relative; width:calc(100% - 60px); margin:208px auto 0; border:1px solid #000; background:#fff; box-sizing:border-box;
+        .innerItem { padding:28px 20px 40px 50px;
+          .head { position:relative;
+            &:before { content:""; position:absolute; top:6px; left:-30px; display:block; width:18px; height:14px; background:url('#{$src}/sfix_qna.png') no-repeat; background-size:38px auto; }
+            .title { font-size:16px; color:#333; font-weight:800; }
+          }
+          .content { position:relative; margin:28px 0 0; font-size:13px; line-height:20px; color:#333;
+            &:before { content:""; position:absolute; top:3px; left:-30px; display:block; width:18px; height:14px; background:url('#{$src}/sfix_qna.png') no-repeat; background-size:38px auto; background-position:-19px 0; }
+          }
+        }
+      }
+      .footer { display:flex; justify-content:space-around; margin:0 15px; padding:21px 0; border-top:1px solid #ececec;
+        [class*="btn"] { flex:1; font-size:12px; color:#7b7b7b; }
+        .btnPrev { text-align:left; }
+        .btnNext { text-align:right; }
+      }
+    }
   }
 
   .mPagination { padding:0 20px 20px; background:#fff;
@@ -250,6 +267,7 @@
     &.typeList {
       li { display:inline-block; }
     }
+    .gInner & { padding-left:0; padding-right:0; }
   }
 
   .fSelect { display:inline-block; position:relative; padding:0 32px 0 16px; box-sizing:border-box; border-radius:4px; line-height:1;
@@ -476,14 +494,12 @@
     }
   }
 
+  /* mLayer */
   .mLayer { display:none; flex-wrap:wrap; position:fixed; left:0; top:0; right:0; height:100%; z-index:102; margin:0 auto; align-items:center;
     .wrap { overflow:hidden; position:relative; max-width:400px; margin:0 auto; padding:30px; border:1px solid #bababa; border-radius:4px; box-sizing:border-box; background:#fff; text-align:left;
       .head { margin:0 0 21px;
         .title { display:block; margin:0 0 8px; font-size:22px; line-height:1; }
         .desc { font-size:14px; }
-        .btnClose { position:absolute; right:3px; top:2px; width:50px; height:50px; text-align:center; @include blind();
-          @include icoX(20px, 1px, #241815);
-        }
       }
 
       .content {
@@ -536,6 +552,9 @@
         }
       }
     }
+    .btnClose { position:absolute; right:3px; top:2px; width:50px; height:50px; text-align:center; @include blind();
+      @include icoX(20px, 1px, #241815);
+    }
     &.active { display:flex; }
     &.typeScreenShot {
       .wrap { width:100%; max-width:100%; height:100%; max-height:100%; padding:0; border:none; border-radius:0; box-sizing:border-box; background:rgba(0, 0, 0, 0.8); text-align:center;
@@ -547,6 +566,24 @@
           }
         }
         .content { height:100%; }
+      }
+    }
+    &.typeFaqTop { align-items:start;
+      .faqTopWrap { position:relative; width:718px; margin:208px auto 0; border:1px solid #000; background:#fff; box-sizing:border-box;
+        .innerItem { padding:60px 60px 60px 101px;
+          .head { position:relative;
+            &:before { content:""; position:absolute; top:4px; left:-38px; display:block; width:25px; height:19px; background:url('#{$src}/sfix_qna.png') no-repeat; background-size:50px auto; }
+            .title { font-size:18px; color:#333; font-weight:800; }
+          }
+          .content { position:relative; margin:38px 0 0; font-size:15px; color:#333;
+            &:before { content:""; position:absolute; top:3px; left:-38px; display:block; width:25px; height:19px; background:url('#{$src}/sfix_qna.png') no-repeat; background-size:50px auto; background-position:-25px 0; }
+          }
+        }
+      }
+      .footer { display:flex; justify-content:space-around; padding:26px 27px; border-top:1px solid #ececec; background:#fafafa;
+        [class*="btn"] { flex:1; font-size:13px; color:#7b7b7b; }
+        .btnPrev { text-align:left; }
+        .btnNext { text-align:right; }
       }
     }
   }

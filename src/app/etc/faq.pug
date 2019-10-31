@@ -17,7 +17,7 @@ block append contents
 
       - var faqApp = 'faqApp';
       - var faqAppData = require('./src/js/data/faqApp.js');
-      +slider(faqApp, faqAppData, 'typeColumn', 'faq', false, false)
+      +slider(faqApp, faqAppData, 'typeFaqTop', 'faq', false, false)
 
     div.faqTop
       div.heading
@@ -25,14 +25,32 @@ block append contents
 
       - var faqTheme = 'faqTheme';
       - var faqThemeData = require('./src/js/data/faqTheme.js');
-      +slider(faqTheme, faqThemeData, 'typeColumn', 'faq', false, false)
+      +slider(faqTheme, faqThemeData, 'typeFaqTop', 'faq', false, false)
 
   section.faqAllArea
     +mTitle('typeSub', '전체 FAQ')
     div.gInner
-      +sortList('전체', '앱','테마')
-      +faqAll()
-      +mPagination('typeMore')
+      div.faqAllWrap
+        +sortList('전체', '앱','테마')
+        +faqAll()
+      +mPagination('typeMore', '')
+
+block append wrap
+  div.mLayer.typeFaqTop#layerFaqTop
+    div.faqTopWrap
+      div.innerItem
+        div.head
+          strong.title 앱은 어떻게 설치하나요?
+        div.content 사용하지 않는 앱이라면 쇼핑몰 관리자 화면의 [앱스토어] 메뉴에서 앱을 선택한 후 [삭제] 버튼을 누르면, 해당 앱은 메뉴에서 앱을 선택한 후 [삭제] 버튼을 누르면, 해당
+      div.footer
+        button(type="button").btnPrev
+          span.icoArrow
+          | 이전
+        button(type="button").btnNext
+          span.icoArrow
+          | 다음
+      button(type="button" class="btnClose eCloseLayer") 닫기
+  div.dimmed
 
 block append body
   script(src="//cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js")

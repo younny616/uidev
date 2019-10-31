@@ -8,7 +8,7 @@
         li { position:relative; padding:20px 19px; border-left:1px solid #e6e9ef; border-bottom:1px solid #e6e9ef; box-sizing:border-box;
           .head { margin:0 0 18px;
             .title { flex:1; font-size:15px; color:#000; font-weight:400;
-              &:before { content:""; display:inline-block; width:18px; height:14px; margin:0 11px 0 0; background:#ddd; }
+              &:before { content:""; display:inline-block; width:18px; height:14px; margin:0 11px 0 0; background:url('#{$src}/sfix_qna.png') no-repeat; background-size:50px auto; background-position:0 -25px; }
             }
           }
           .content { @include text-ellipsis(19, 3); padding:0 0 0 29px; font-size:13px; color:#959595; box-sizing:border-box; }
@@ -30,7 +30,7 @@
         li { position:relative; padding:29px; border-left:1px solid #e6e9ef; border-bottom:1px solid #e6e9ef; box-sizing:border-box;
           .head { margin:0 0 18px;
             .title { font-size:18px; color:#000; font-weight:400;
-              &:before { content:""; display:inline-block; width:25px; height:19px; margin:0 11px 0 0; background:#ddd; }
+              &:before { content:""; display:inline-block; width:25px; height:19px; margin:0 11px 0 0; background:url('#{$src}/sfix_qna.png') no-repeat; background-size:50px auto; background-position:0 -25px; }
             }
           }
           .content { @include text-ellipsis(21, 3); padding:0 0 0 36px; font-size:14px; color:#959595; box-sizing:border-box; }

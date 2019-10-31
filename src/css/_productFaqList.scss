@@ -1,6 +1,6 @@
 @include respond(mobile) {
-  .faqArea { text-align:center;
-    .btnMoreFaq { margin:10px auto; padding:10px; text-align:center; font-size:14px; color:#0055fb;
+  .faqArea {
+    .btnMoreFaq { display:block; margin:10px auto; padding:10px; text-align:center; font-size:14px; color:#0055fb;
       &:before { content:'+'; display:inline-block; margin:0 4px 0 0; font-size:inherit; color:inherit; }
     }
   }
@@ -39,7 +39,7 @@
 
     &.typeAll {
       .faq {
-        .head { display:flex; padding:30px 0;
+        .head { display:flex; padding:20px 0;
           .number { display:inline-block; width:30px; font-size:14px; color:#333; }
           .category { display:inline-block; width:34px; font-size:14px; color:#959595; }
           .title { flex:1; @include text-ellipsis(20, 2); padding:0 30px 0 0; box-sizing:border-box; font-size:14px; }
@@ -47,8 +47,8 @@
             .icoArrow { right:0; }
           }
         }
-        .content { padding:20px 38px 30px 40px;
-          &:before { top:15%; left:20px; }
+        .content { padding:18px 38px 28px 40px; font-size:13px; line-height:20px; color:#333;
+          &:before { top:17%; left:20px; }
         }
         &.selected {
           .head {
@@ -64,8 +64,8 @@
 }
 
 @include respond(tablet-pc) {
-  .faqArea { text-align:center;
-    .btnMoreFaq { min-width:160px; margin:10px auto; padding:20px; font-size:16px; color:#0055fb;
+  .faqArea {
+    .btnMoreFaq { min-width:160px; display:block; margin:10px auto; padding:20px; font-size:16px; color:#0055fb;
       &:before { content:'+'; display:inline-block; margin:0 4px 0 0; font-size:inherit; color:inherit; }
     }
   }
