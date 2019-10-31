@@ -49,13 +49,13 @@
   .RW { display:none; }
   .RMB { display:block; }
 
-  .gInner { padding:0 20px;
+  .gInner { margin:0 20px;
     .mTitle {
       &.typeLeft { padding-left:0; padding-right:0; }
     }
     &.gOutM { padding:0; }
   }
-  .gInside { padding:0 20px; }
+  .gInside { margin:0 20px; }
 
   /* Components */
   .mTitle { position:relative;

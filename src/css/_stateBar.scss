@@ -5,6 +5,12 @@
     }
     .right { margin:0 0 0 auto; }
   }
+  /* reset */
+  .mTitle {
+    .stateBar { padding:0;
+      .total { margin:0; }
+    }
+  }
 }
 
 @include respond(mobile-tablet) {

@@ -19,6 +19,12 @@
       .subCategory { border-top:0; }
     }
 
+    /* 검색 */
+    &.combineSearchAppArea {
+      .gInner { border-bottom:1px solid #e8e8e8; }
+    }
+    &.combineSearchThemeArea { @include section-bar(); }
+
     /* 상품상세 */
     &.productThumbsAndInfoArea,
     &.productScreenShotArea,
@@ -54,6 +60,7 @@
     &.combineSearchAppArea {
       .gInner { border-bottom:1px solid #e8e8e8; }
     }
+    &.combineSearchThemeArea { margin:0 0 60px; }
 
     /* 상품상세 */
     &.productThumbsAndInfoArea { overflow:hidden; padding:60px 0 0; }
