@@ -80,6 +80,47 @@ mixin mLayer(id, title, desc, typeClass)
             - var screenShotTheme = 'screenShotTheme'
             - var screenShotThemeData = require('./src/js/data/screenShotTheme.js');
             +slider(screenShotTheme, screenShotThemeData, 'typeScreenShot', 'image', false, true)
+          when 'InfoNotice'
+            div.productInfoNotice
+              dl
+                dt 제작사 또는 공급자
+                dd dreamycoungs0
+                dt 이용조건 및 이용기간
+                dd 상품 판매 조건에 따라 다름. (결제안내 페이지참고)
+
+            div.layerTitle
+              h4.title 상품정보제공고시 내용
+
+            div.mBoard.typeInfoNotice
+              table(border="1")
+                caption 상품정보제공고시 내용
+                colgroup
+                  col(style="width:32%;")
+                  col(style="width:auto;")
+                tbody
+                  tr
+                    th 상품제공방식
+                    td 설치자동 요청시 설치(유료 App은 과금 후 설치 진행)
+                  tr
+                    th 최소 시스템 사양 및 필수 소프트웨어
+                    td 카페24 EC쇼핑몰 솔루션에서 구동됩니다. 단, 본 상품은 웹에서 구동되는 상품으로 모바일 환경에서는 구현되지 않을 수 있으며, 이용자의 브라우저 환경, 컴퓨터 사양에 따라 일부 기능이 지원되지 않을 수 있습니다.
+                  tr
+                    th 청약철회 또는 계약의 해제/해지
+                    td 전자상거래법 17조에 의하여 청약철회가 불가능한 상품입니다.
+                  tr
+                    th 소비자상담 관련 전화번호
+                    td 010-1234-1253
+                  tr
+                    th 주문 후 공급 방법 및 공급 시기
+                    td 설치 요청 당일 제공 (유료 App은 과금 후 당일 제공) / 배송상품 아님
+                  tr
+                    th 제품하자가 아닌 소비자의 단순변심, 착오구매에 따른 청약철회가 불가능한 경우 그 구체적 사유
+                    td 전자상거래법 17조에 의하여 단순변심, 착오구매로 인한 청약철회가 불가능한 상품입니다.
+                  tr
+                    th 상품제공방식
+                    td 설치자동 요청시 설치(유료 App은 과금 후 설치 진행)
+
+
           when 'FaqTop'
             div.faqTopLayer
               div.head

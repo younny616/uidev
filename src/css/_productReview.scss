@@ -68,6 +68,7 @@
           .reviewInfo { padding:20px; }
           .reviewText { padding:20px; }
           .recommend { right:20px; top:99px; }
+          .comment { background:#e6f2fe; }
         }
       }
     }
@@ -141,7 +142,8 @@
           &:before { content:'+'; display:inline-block; margin:0 4px 0 0 ; font-size:inherit; color:inherit; }
         }
         &.typeBest { margin:24px 0 30px; padding:50px 0 0; border-radius:4px; text-align:left; background:#eff7ff url('#{$src}/img_best_review.png') no-repeat 38px 38px; background-size:182px auto;
-          .reviewInfo { padding:38px 38px 50px; }
+          .reviewInfo { padding:38px 38px 50px; box-sizing:border-box; }
+          .comment { margin-right:20px; background:#e6f2fe; }
         }
       }
     }
