@@ -53,7 +53,7 @@
     .mTitle {
       &.typeLeft { padding-left:0; padding-right:0; }
     }
-    &.gOutM { padding:0; }
+    &.gOutM { margin:0; }
   }
   .gInside { margin:0 20px; }
 
@@ -308,7 +308,7 @@
   /* mTab */
   .mTab.typeNav { padding:0 8px; border-bottom:1px solid #e8e8e8;
     ul { display:flex; justify-content:space-between;
-      li { margin:0 12px; text-align:center;
+      li { padding:0 12px; text-align:center;
         a { display:block; padding:0 0 15px; font-size:14px; color:#7b7b7b; white-space:nowrap; }
         &.selected {
           a { position:relative; color:#000; font-weight:800;
@@ -324,6 +324,7 @@
         }
       }
     }
+    &.gScroll { overflow-x:auto; }
   }
 
 }

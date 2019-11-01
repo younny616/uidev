@@ -4,6 +4,19 @@ include /components/common/mTitle
 
 block append contents
 
-    +mTitle('typeSub', '스토리', '내 쇼핑몰을 위한 다양한 이야기들을 만나보세요')
+    +mTitle('typeLeft gBlankTop', '스토리', '내 쇼핑몰을 위한 다양한 이야기들을 만나보세요')
     section.storyMainArea
         div.gInner
+            div.storyList
+                - for (var i = 0; i < 5; i++)
+                    div.item
+                        div.thumbnail
+                            a(href="#none")
+                                img(src="/images/@img_story_thumbnail.jpg", alt="")
+                        div.information
+                            strong.title
+                                a(href="#none") 내 쇼핑몰에 맞는디자인, 꼭 필요한 앱을 스토어에서 만나보세요
+                            div.description
+                                a(href="#none") 카페24 스토어에는 테마와 앱을 한번에 만나 보실 수 있습니다. 사용이 편리한 테마와 무료 체험기간을 제공하는 앱을 경험해보세요. 상세 설명은 최대 3줄 노출되며 이상 입력할 경우 말줄임 됩니다
+
+

@@ -1,14 +1,22 @@
 extends /layouts/layout
 include /components/common/mTitle
-include /components/common/mTab
+
 
 block append contents
 
     section.termsArea
         +mTitle('typeSub', '이용약관')
         div.gInner.gOutM
-            +mTab('typeNav eTab', '앱 이용약관', '테마 이용약관', '개인정보 수집이용 동의')
-            div.tabContent
+
+            div.mTab.typeNav.gScroll.eTab
+                ul
+                    li.selected
+                        a(href="#tab_1") 앱 이용약관
+                    li
+                        a(href="#tab_2") 테마 이용약관
+                    li
+                        a(href="#tab_3") 개인정보 수집이용 동의길어지면 스크롤이 나와야
+            div.tabContent#tab_1
                 div.terms
                     div.head
                         h3.title 앱 이용약관
@@ -25,7 +33,7 @@ block append contents
                                             li 1. "앱스토어"라 함은 개발자센터를 통해 개발된 앱을 등록하고 구매자가 이를 구매할 수 있는 가상의 판매공간을 말합니다.
                                             li 2. "개발자센터"라 함은 앱을 개발, 테스트하고 판매정보 등록 및 운영, 관리를 할 수 있는 개발자의 공간을 말합니다.
                                     li ② 전항에 정의되지 아니한 용어는 회사의 서비스 안내 또는 상관례에 따라 해석됩니다.
-            div.tabContent
+            div.tabContent#tab_2(style="display:none;")
                 div.terms
                     div.head
                         h3.title 테마 이용약관
@@ -42,7 +50,23 @@ block append contents
                                             li 1. "앱스토어"라 함은 개발자센터를 통해 개발된 앱을 등록하고 구매자가 이를 구매할 수 있는 가상의 판매공간을 말합니다.
                                             li 2. "개발자센터"라 함은 앱을 개발, 테스트하고 판매정보 등록 및 운영, 관리를 할 수 있는 개발자의 공간을 말합니다.
                                     li ② 전항에 정의되지 아니한 용어는 회사의 서비스 안내 또는 상관례에 따라 해석됩니다.
-
+            div.tabContent#tab_3(style="display:none;")
+                div.terms
+                    div.head
+                        h3.title 개인정보 수집이용 동의
+                    div.content
+                        ol
+                            li
+                                strong.title 제 1조 (목적)
+                                p 이 약관은 카페24 주식회사(이하 "회사"라 합니다)와 회사가 제공하는 앱스토어 개발자센터를 이용하는 개발자간에 서비스 이용에 관한 권리 ∙ 의무 및 기타 필요한 제반 사항을 규정하여, 상호 간의 권익을 보호하고 상호 번영에 기여함을 목적으로 합니다.
+                            li
+                                strong.title 제 2조 (목적)
+                                ol
+                                    li ① 이 약관에서 사용하는 용어의 정의는 다음 각호와 같습니다.
+                                        ol
+                                            li 1. "앱스토어"라 함은 개발자센터를 통해 개발된 앱을 등록하고 구매자가 이를 구매할 수 있는 가상의 판매공간을 말합니다.
+                                            li 2. "개발자센터"라 함은 앱을 개발, 테스트하고 판매정보 등록 및 운영, 관리를 할 수 있는 개발자의 공간을 말합니다.
+                                    li ② 전항에 정의되지 아니한 용어는 회사의 서비스 안내 또는 상관례에 따라 해석됩니다.
 
 
 

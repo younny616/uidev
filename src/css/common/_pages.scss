@@ -45,6 +45,9 @@
     &.faqTopArea,
     &.faqAllArea { @include section-bar(); }
 
+    /* contents */
+    &.storyMainArea { @include section-bar(); }
+
   }
 }
 

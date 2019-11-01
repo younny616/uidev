@@ -1,0 +1,29 @@
+@include respond(mobile) {
+  .storyList {
+    .item { margin:0 0 60px;
+      .thumbnail { margin:0 0 18px; border:1px solid #f2f2f2; }
+      .information {
+        .title { font-size:18px; line-height:24px; color:#000; font-weight:400; }
+        .description { @include text-ellipsis(19, 3); margin:10px 0 0; font-size:13px; color:#5b5b5b; }
+      }
+    }
+  }
+}
+
+@include respond(tablet-pc) {
+  .storyList { display:flex; flex-wrap:wrap; margin:0 0 0 -36px;
+    .item { width:calc(100%/3 - 36px); margin:0 0 106px 36px;
+      .thumbnail { margin:0 0 28px; border:1px solid #f2f2f2; }
+      .information { padding:0 56px 0 0; box-sizing:border-box;
+        .title { font-size:22px; line-height:30px; color:#000; font-weight:400; }
+        .description { @include text-ellipsis(20, 3); margin:13px 0 0; font-size:14px; color:#797980; }
+      }
+    }
+  }
+}
+
+@include respond(tablet) {
+  .storyList {
+    .item { width:calc(100%/2 - 36px); }
+  }
+}
