@@ -1,5 +1,6 @@
 extends /layouts/layout
 include /components/common/mTitle
+include /components/common/mEmpty
 
 block append contents
 
@@ -11,7 +12,6 @@ block append contents
                     div.total
                         strong.data 6개
                         | 결과
-
             div.inquiryList
                 div.sorting
                     button(type="button").btnSort.selected 답변완료 4
@@ -68,6 +68,7 @@ block append contents
                                 | 열렸을 경우 표시되는 가이드 영역 입니다.
                                 br
                                 | 해당 앱 관련 자주묻는 질문을 표시합니다. 해당 앱 관련 자주묻는 질문을 표시합니다.
+            +mEmpty('typeInquiry')
 
 block append body
     script(src="/js/ui/mypage.js")
