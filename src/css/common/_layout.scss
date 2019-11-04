@@ -1,7 +1,9 @@
 #footer {  }
 #footer .menu {
   .title { display:block; color:#111; text-transform:uppercase; }
-  .link { display:block; color:#959595; }
+  .link { display:inline-block; color:#959595;
+    &:hover { color:#000; }
+  }
 }
 
 @include respond(mobile) {
