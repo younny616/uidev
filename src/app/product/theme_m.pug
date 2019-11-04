@@ -1,0 +1,147 @@
+extends /layouts/layout
+include /components/common/mTitle
+include /components/common/mLayer
+include /components/common/mEmpty
+include /components/slider
+include /components/list
+include /components/productInfoHead
+include /components/productInfoThumbs
+include /components/productInfoList
+include /components/productInfoPrice
+include /components/productInfoFixed
+include /components/productReview
+include /components/productMerit
+include /components/productDetail
+include /components/productAddInfo
+include /components/productFaqList
+include /components/productKeyword
+include /components/partnerInfo
+include /components/screenShot
+include /components/appRanking
+include /components/grade
+
+block append contents
+    div.detail.typeTheme
+        // 상품 이미지 & 상품정보
+        section.productThumbsAndInfoArea
+            //- div.gInside
+            //-   div.infoWrap
+            //-     +productInfoHead('테마상품제목열다섯줄바꿈가이드')
+            //-     +productInfoThumbs('theme', 'pc')
+            //-     +productInfoList('theme')
+            //-     +productInfoPrice('theme')
+            //-     +productInfoFixed('theme', '테마상품제목열다섯자줄바꿈없이노출가이드')
+
+            //- div.gInside
+            //-   div.infoWrap
+            //-     +productInfoHead('테마상품제목열다섯줄바꿈가이드')
+            //-     +productInfoThumbs('theme', 'mobile')
+            //-     +productInfoList('theme')
+            //-     +productInfoPrice('theme')
+            //-     +productInfoFixed('theme', '테마상품제목열다섯자줄바꿈없이노출가이드')
+
+            div.gInside
+                div.infoWrap
+                    +productInfoHead('테마상품제목열다섯줄바꿈가이드')
+                    +productInfoThumbs('theme', 'mobile')
+                    +productInfoList('theme')
+                    +productInfoPrice('theme')
+                    +productInfoFixed('theme', '테마상품제목열다섯자줄바꿈없이노출가이드')
+
+        //상품상세정보 상단
+        section.productMeritArea
+            div.gInside
+                +productMerit()
+
+        //상품상세
+        section.productDetailArea
+            div.gInside
+                +productDetail()
+
+        // 스크린샷
+        section.productScreenShotArea
+            +mTitle('typeProduct', '스크린샷')
+            div.gInside
+                +screenShot('/images/@img_theme_screenshot.jpg', '/images/@img_app_screenshot.jpg', 'https://appservice-img.s3.amazonaws.com/apps/duf3QzSBO67dfGaWKwhfGB/KR/screenshot2/thumbnail/image?1557305474', 'https://orangemsg.com/cafe24/app/images/cafe24_detail_add.png', 'https://orangemsg.com/cafe24/app/images/cafe24_detail_add.png')
+
+        //상품추가정보
+        section.productAddInfoArea
+            +mTitle('typeProduct', '상품추가정보')
+            div.gInside
+                +productAddInfo('theme')
+
+        //파트너정보
+        section.partnerInfoArea
+            +mTitle('typeProduct', '파트너정보')
+            div.gInside
+                +partnerInfo()
+
+        // 상품 리뷰
+        section.productReviewArea#productReviewArea
+            +mTitle('typeProduct', '리뷰')
+            div.gInside
+                +productReview()
+                +mEmpty('typeReview')
+
+        //FAQ
+        section.productFaqArea
+            +mTitle('typeProduct', 'FAQ')
+            div.gInside
+                div.faqArea
+                    +faqList()
+
+        //연관검색어
+        section.productKeywordArea
+            +mTitle('typeProduct', '연관검색어')
+            div.gInside
+                +productKeyword()
+
+        // 관련 테마
+        - var relativeTheme1 = 'relativeTheme1';
+        - var relativeTheme2 = 'relativeTheme2';
+        - var relativeThemeData = require('./src/js/data/relativeTheme.js');
+        section.relativeThemeArea
+            +mTitle('typeLeft', '유사한 디자인 (<span class="count">7</span>)')
+            +slider(relativeTheme1, relativeThemeData, 'typeTheme', 'theme', true, true)
+
+            +mTitle('typeLeft', '<a href="#" class="txtEm">패션/의류</a> 인기디자인 (<span class="count">16</span>)')
+            +slider(relativeTheme2, relativeThemeData, 'typeTheme', 'theme', true, true)
+
+block append wrap
+    +mLayer('layerInstall', '쇼핑몰 아이디 입력', '입력한 쇼핑몰 아이디를 통해 구매 및 문의가 가능합니다.')
+    +mLayer('layerReview', '리뷰 작성하기')
+    +mLayer('layerQuestion', '문의하기')
+    +mLayer('layerInfoNotice', '상품정보고시', false, 'gScroll wInfoNotice')
+    +mLayer('layerAlert')
+    +mLayer('layerScreenShot', '스크린샷', false, 'typeScreenShot')
+    div.dimmed
+
+block append body
+    script(src="//cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js")
+    script(src="/js/ui/product.js")
+    script(src="/js/ui/productThemeSlide.js")
+
+    script.
+        // UI 테스트
+        (function() {
+            var $reviewIcon = $('.mLayer .reviewArea .grade');
+
+            $reviewIcon.children().on('mouseenter', function(e) {
+                for (var i = 0; i < $(this).index() + 1; i++) {
+                    $reviewIcon.children().eq(i).addClass('enter');
+                };
+            })
+                    .on('mouseleave', function() {
+                        $reviewIcon.children().eq($(this).index()).removeClass('enter');
+                    })
+                    .on('click', function() {
+                        $reviewIcon.children().removeClass('active');
+                        for (var i = 0; i < $(this).index() + 1; i++) {
+                            $(this).parent().children().eq(i).addClass('active');
+                        };
+                    });
+
+            $reviewIcon.on('mouseleave', function() {
+                $(this).children().removeClass('enter');
+            });
+        })();
