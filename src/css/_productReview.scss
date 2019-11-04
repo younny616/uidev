@@ -84,17 +84,11 @@
           &:before { content:'/'; display:inline-block; position:relative; top:-4px; margin:0 6px; font-size:47px; font-weight:inherit; color:inherit; line-height:inherit;  }
         }
       }
-      .review { display:inline-block; font-size:16px; color:#959595; line-height:1;
-        a { display:block; position:relative; padding:0 30px 2px 28px; color:inherit; transition:all .3s ease; cursor:auto;
-          &:before,
-          &:after { content:''; display:block; position:absolute; left:0; top:0; width:18px; height:18px; background:url('#{$src}/ico_review.png'); background-size:18px auto; transition:all .3s ease; }
-          &:before { opacity:1; background-position:0 0; }
-          &:after { opacity:0; background-position:0 -18px; }
-          &:hover { color:#000;
-            &:before { opacity:0; }
-            &:after { opacity:1; }
-          }
-        }
+      .review { position:relative; display:inline-block;  padding:0 30px 2px 28px; font-size:16px; color:#959595; line-height:1; transition:all .3s ease;
+        &:before,
+        &:after { content:''; display:block; position:absolute; left:0; top:0; width:18px; height:18px; background:url('#{$src}/ico_review.png'); background-size:18px auto; transition:all .3s ease; }
+        &:before { opacity:1; background-position:0 0; }
+        &:after { opacity:0; background-position:0 -18px; }
       }
       .btnWrap { position:absolute; right:0; bottom:5px;
         .btn {
