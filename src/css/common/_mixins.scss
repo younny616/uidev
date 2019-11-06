@@ -85,9 +85,9 @@
   overflow:hidden; width:100%; text-overflow:ellipsis; text-align:left;
 
   @if $line >= 2 {
-    display:-webkit-box; height:#{$lineHeight * $line + 'px'}; max-height:#{$lineHeight * $line + 'px'}; line-height:#{$lineHeight + 'px'}; -webkit-line-clamp:$line; -webkit-box-orient: vertical;
+    display:-webkit-box; max-height:#{$lineHeight * $line + 'px'}; line-height:#{$lineHeight + 'px'}; -webkit-line-clamp:$line; -webkit-box-orient: vertical;
   } @else {
-    display:block; white-space:nowrap; word-break:break-word; height:#{$lineHeight * $line + 'px'}; max-height:#{$lineHeight * $line + 'px'};
+    display:block; white-space:nowrap; word-break:break-word; max-height:#{$lineHeight * $line + 'px'};
   }
 }
 

@@ -41,6 +41,12 @@
     &.relativeAppArea,
     &.relativeThemeArea, { background:#f5f5f5; }
 
+    /* mypage */
+    &.wishAppArea {
+      .gInner { border-bottom:1px solid #e8e8e8; }
+    }
+    &.wishThemeArea { @include section-bar(); }
+
     /* etc */
     &.faqTopArea,
     &.faqAllArea { @include section-bar(); }
@@ -86,8 +92,12 @@
     &.relativeAppArea,
     &.relativeThemeArea, { background:#f5f5f5; }
 
-    /* 마이페이지 */
+    /* mypage */
     &.inquiryHistoryArea { padding:0 0 160px; }
+    &.wishAppArea {
+      .gInner { border-bottom:1px solid #e8e8e8; }
+    }
+    &.wishThemeArea { margin:0 0 60px; }
   }
   .searchHeadArea.gEmpty { background:#f8f8fb; }
 }

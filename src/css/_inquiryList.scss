@@ -1,6 +1,6 @@
 @include respond(mobile) {
   .inquiryList {
-    .sorting { margin:0 0 38px;
+    .sorting { margin:-20px 0 38px;
       .btnSort { font-size:13px; color:#758ea6;
         &.selected { color:#108af9; }
       }

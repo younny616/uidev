@@ -40,17 +40,19 @@
     .typePartner { position:relative; left:0; width:100%; padding:0 5px 10px; box-sizing:border-box;
       .item { width:100%; margin:0 0 20px; border:1px solid #eaeaea; border-radius:0;
         .inner { padding:24px; text-align:left; box-sizing:border-box;
-          .logo { display:inline; position:relative; left:auto; top:auto; }
+          .logo { position:relative; left:auto; top:auto; width:50px; height:50px;
+            img { max-width:100%; }
+          }
           .title { display:block; margin:22px 0 10px; font-size:20px; font-weight:500; line-height:1; }
           .info {
             &:after { content:''; display:block; clear:both; }
-            dt { display:inline-block; min-width:25%; font-size:14px; color:#7b7b7b; line-height:24px; vertical-align:middle; }
-            dd { display:inline-block; min-width:70%; position:relative; font-size:14px; color:#7b7b7b; line-height:24px; vertical-align:middle;
-              &.outLink {
-                a { display:inline-block; position:relative; width:auto; font-size:inherit; color:inherit; line-height:inherit; vertical-align:middle; }
-                a:after { content:''; display:inline-block; position:absolute; right:-15px; top:9px; width:12px; height:12px; margin:0 0 0 12px; background:url('//img.echosting.cafe24.com/api/app/sfix_layout.png') no-repeat -75px 0; }
+            dt { display:inline-block; float:left; min-width:25%; font-size:14px; color:#7b7b7b; line-height:24px; vertical-align:middle; }
+            dd { overflow:hidden; display:inline-block; width:75%; position:relative; font-size:14px; color:#7b7b7b; line-height:24px; vertical-align:middle; text-overflow:ellipsis; white-space:nowrap; word-break:break-all;
+              a { display:inline-block; position:relative; width:auto; font-size:inherit; color:inherit; line-height:inherit; vertical-align:middle;
+                .outLink & {
+                  &:after { content:''; display:inline-block; position:absolute; right:-15px; top:9px; width:12px; height:12px; margin:0 0 0 12px; background:url('//img.echosting.cafe24.com/api/app/sfix_layout.png') no-repeat -75px 0; }
+                }
               }
-              span { display:inline-block; overflow:hidden; max-width:200px; font-size:inherit; color:inherit; line-height:inherit; text-overflow:ellipsis; white-space:nowrap; word-break:break-all; vertical-align:middle; }
             }
           }
         }
@@ -64,8 +66,8 @@
   .gInner {
     .listWrap {
       .typeApp,
-      .typeTheme,
-      .typePartner { padding:0 0 10px; }
+      .typeTheme { padding:0 0 10px; }
+      .typePartner { margin:10px 0 0; padding:0 0 10px; }
     }
   }
 }
@@ -142,8 +144,8 @@
   .gInner {
     .listWrap {
       .typeApp,
-      .typeTheme,
-      .typePartner { padding:0 0 60px; }
+      .typeTheme { padding:0 0 60px; }
+      .typePartner { margin:0 0 -37px; padding:0; }
     }
   }
 

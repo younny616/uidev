@@ -37,7 +37,7 @@ block append contents
 
         // 스크린샷
         section.productScreenShotArea
-            +mTitle('typeProduct', '스크린샷')
+            +mTitle('typeProduct', 'h3', '스크린샷')
             div.gInside
                 +screenShot('/images/@img_theme_screenshot.jpg', '/images/@img_app_screenshot.jpg', 'https://appservice-img.s3.amazonaws.com/apps/duf3QzSBO67dfGaWKwhfGB/KR/screenshot2/thumbnail/image?1557305474', 'https://orangemsg.com/cafe24/app/images/cafe24_detail_add.png', 'https://orangemsg.com/cafe24/app/images/cafe24_detail_add.png')
 
@@ -53,38 +53,38 @@ block append contents
 
         //가격정보
         section.productPriceArea
-            +mTitle('typeProduct', '가격')
+            +mTitle('typeProduct', 'h3', '가격')
             div.gInside
                 +productPrice()
 
         //FAQ
         section.productFaqArea
-            +mTitle('typeProduct', 'FAQ')
+            +mTitle('typeProduct', 'h3', 'FAQ')
             div.gInside
                 div.faqArea
                     +faqList()
         // 상품 리뷰
         section.productReviewArea#productReviewArea
-            +mTitle('typeProduct', '리뷰')
+            +mTitle('typeProduct', 'h3', '리뷰')
             div.gInside
                 +productReview()
                 +mEmpty('typeReview')
 
         //상품추가정보
         section.productAddInfoArea
-            +mTitle('typeProduct', '상품추가정보')
+            +mTitle('typeProduct', 'h3', '상품추가정보')
             div.gInside
                 +productAddInfo('app')
 
         //파트너정보
         section.partnerInfoArea
-            +mTitle('typeProduct', '파트너정보')
+            +mTitle('typeProduct', 'h3', '파트너정보')
             div.gInside
                 +partnerInfo()
 
         //연관검색어
         section.productKeywordArea
-            +mTitle('typeProduct', '연관검색어')
+            +mTitle('typeProduct', 'h3', '연관검색어')
             div.gInside
                 +productKeyword()
 
@@ -93,10 +93,10 @@ block append contents
         - var relativeApp2 = 'relativeApp2';
         - var relativeAppData = require('./src/js/data/relativeApp.js');
         section.relativeAppArea
-            +mTitle('typeLeft', '유사한 앱 (<span class="count">7</span>)')
+            +mTitle('typeLeft', 'h3', '유사한 앱 (<span class="count">7</span>)')
             +slider(relativeApp1, relativeAppData, 'typeApp', 'app', true, true)
 
-            +mTitle('typeLeft', '함께 설치한 앱 (<span class="count">16</span>)')
+            +mTitle('typeLeft', 'h3', '함께 설치한 앱 (<span class="count">16</span>)')
             +slider(relativeApp2, relativeAppData, 'typeApp', 'app', true, true)
 
         section.appRankingArea

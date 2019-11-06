@@ -40,12 +40,10 @@ mixin item(item, index, types)
         strong.title= item[index].title
         dl.info
           dt 웹사이트
-          dd.outLink
-            a(href=item[index].outlink)
-              span= item[index].outlink
-          dt 대표테마
           dd
-            span= item[index].description
+            a(href=item[index].outlink, target="_blank").outLink= item[index].outlink
+          dt 대표테마
+          dd= item[index].description
       div.image
         a(href=item[index].outlink target="_blank")
           img(src=item[index].src alt="")

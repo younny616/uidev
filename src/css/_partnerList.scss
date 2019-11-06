@@ -1,0 +1,94 @@
+@include respond(mobile) {
+  .partnerList {
+    .item { width:100%; margin:0 0 20px; border:1px solid #eaeaea; border-radius:0;
+      .information { padding:20px;
+        .logo { display:block;
+          img { max-width:100%; }
+        }
+        .title { display:block; margin:22px 0 10px; font-size:20px; font-weight:500; line-height:1; }
+        .info {
+          &:after { content:''; display:block; clear:both; }
+          dt { display:inline-block; float:left; min-width:25%; font-size:14px; color:#7b7b7b; line-height:24px; vertical-align:middle; }
+          dd { overflow:hidden; display:inline-block; width:75%; position:relative; font-size:14px; color:#7b7b7b; line-height:24px; vertical-align:middle; text-overflow:ellipsis; white-space:nowrap; word-break:break-all;
+            a { display:inline-block; position:relative; width:auto; font-size:inherit; color:inherit; line-height:inherit; vertical-align:middle;
+              .outLink & {
+                &:after { content:''; display:inline-block; position:absolute; right:-15px; top:9px; width:12px; height:12px; margin:0 0 0 12px; background:url('//img.echosting.cafe24.com/api/app/sfix_layout.png') no-repeat -75px 0; }
+              }
+            }
+          }
+        }
+      }
+      .thumbnail {
+        img { width:100%; }
+      }
+    }
+    &.typeApp {
+      .item {
+        .information {
+          .logo { width:50px; height:50px; }
+        }
+      }
+    }
+    &.typeTheme {
+      .item {
+        .information {
+          .logo { width:60px; height:30px; }
+        }
+      }
+    }
+  }
+}
+
+@include respond(tablet) {
+  .partnerList { margin:0 -10px -50px;
+    .item { width:calc(50% - 20px); margin:0 10px 50px; }
+  }
+}
+
+@include respond(tablet-pc) {
+  .partnerList {
+    &:after { content:""; display:block; clear:both; }
+    .item { float:left; border:1px solid #eaeaea; transition:all .3s ease; box-sizing:border-box;
+      .information { padding:20px;
+        .logo { display:block;
+          img { max-width:100%; }
+        }
+        .title { display:block; margin:48px 0 10px; font-size:20px; font-weight:500; line-height:1; }
+        .info {
+          &:after { content:''; display:block; clear:both; }
+          dt { display:inline-block; float:left; min-width:25%; padding:0 3px 0 0; font-size:14px; color:#7b7b7b; line-height:24px; vertical-align:middle; box-sizing:border-box; }
+          dd { overflow:hidden; display:inline-block; width:75%; position:relative; font-size:14px; color:#7b7b7b; line-height:24px; vertical-align:middle; text-overflow:ellipsis; white-space:nowrap; word-break:break-all;
+            a { display:inline-block; position:relative; width:auto; font-size:inherit; color:inherit; line-height:inherit; vertical-align:middle;
+              .outLink & {
+                &:after { content:''; display:inline-block; position:absolute; right:-15px; top:9px; width:12px; height:12px; margin:0 0 0 12px; background:url('//img.echosting.cafe24.com/api/app/sfix_layout.png') no-repeat -75px 0; }
+              }
+            }
+          }
+        }
+      }
+      .thumbnail {
+        img { width:100%; }
+      }
+    }
+    &.typeApp {
+      .item {
+        .information {
+          .logo { width:60px; height:60px; }
+        }
+      }
+    }
+    &.typeTheme {
+      .item {
+        .information {
+          .logo { width:120px; height:60px; }
+        }
+      }
+    }
+  }
+}
+
+@include respond(pc) {
+  .partnerList { margin:0 -17px -70px;
+    .item { width:calc(25% - 34px); margin:0 17px 70px; }
+  }
+}

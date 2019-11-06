@@ -9,7 +9,7 @@ include /components/sortList
 block append contents
 
   section.faqTopArea
-    +mTitle('typeSub', 'Top6 FAQ')
+    +mTitle('typeSub', 'h2', 'Top6 FAQ')
 
     div.faqTop
       div.heading
@@ -28,7 +28,7 @@ block append contents
       +slider(faqTheme, faqThemeData, 'typeFaqTop', 'faq', false, false)
 
   section.faqAllArea
-    +mTitle('typeSub', '전체 FAQ')
+    +mTitle('typeSub', 'h2', '전체 FAQ')
     div.gInner
       div.faqAllWrap
         +sortList('전체', '앱','테마')

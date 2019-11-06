@@ -1,6 +1,9 @@
-mixin mTitle(typeClass, title, desc, btnTxt)
+mixin mTitle(typeClass, depth, title, desc, btnTxt)
   div(class=`mTitle${!typeClass ? '' : ' '+typeClass}`)
-    h3.title !{title}
+    if depth == 'h2'
+      h2.title !{title}
+    if depth == 'h3'
+      h3.title !{title}
     if desc
       p.desc !{desc}
     if btnTxt

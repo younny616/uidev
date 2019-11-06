@@ -5,7 +5,13 @@ include /components/common/mEmpty
 block append contents
 
     section.inquiryHistoryArea
-        +mTitle('typeSub', '문의내역')
+        +mTitle('typeSub', 'h2', '문의내역')
+        div.mTab.typeNav.gEqual
+            ul
+                li
+                    a(href="#none") 관심상품
+                li.selected
+                    a(href="#none") 문의내역
         div.gInner
             div.stateBar
                 div.left

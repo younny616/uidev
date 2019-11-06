@@ -60,39 +60,39 @@ block append contents
 
     // 스크린샷
     section.productScreenShotArea
-      +mTitle('typeProduct', '스크린샷')
+      +mTitle('typeProduct', 'h3', '스크린샷')
       div.gInside
         +screenShot('/images/@img_theme_screenshot.jpg', '/images/@img_app_screenshot.jpg', 'https://appservice-img.s3.amazonaws.com/apps/duf3QzSBO67dfGaWKwhfGB/KR/screenshot2/thumbnail/image?1557305474', 'https://orangemsg.com/cafe24/app/images/cafe24_detail_add.png', 'https://orangemsg.com/cafe24/app/images/cafe24_detail_add.png')
 
     //상품추가정보
     section.productAddInfoArea
-      +mTitle('typeProduct', '상품추가정보')
+      +mTitle('typeProduct', 'h3', '상품추가정보')
       div.gInside
         +productAddInfo('theme')
 
     //파트너정보
     section.partnerInfoArea
-      +mTitle('typeProduct', '파트너정보')
+      +mTitle('typeProduct', 'h3', '파트너정보')
       div.gInside
         +partnerInfo()
 
     // 상품 리뷰
     section.productReviewArea#productReviewArea
-      +mTitle('typeProduct', '리뷰')
+      +mTitle('typeProduct', 'h3', '리뷰')
       div.gInside
         +productReview()
         +mEmpty('typeReview')
 
     //FAQ
     section.productFaqArea
-      +mTitle('typeProduct', 'FAQ')
+      +mTitle('typeProduct', 'h3', 'FAQ')
       div.gInside
         div.faqArea
           +faqList()
 
     //연관검색어
     section.productKeywordArea
-      +mTitle('typeProduct', '연관검색어')
+      +mTitle('typeProduct', 'h3', '연관검색어')
       div.gInside
         +productKeyword()
 
@@ -101,10 +101,10 @@ block append contents
     - var relativeTheme2 = 'relativeTheme2';
     - var relativeThemeData = require('./src/js/data/relativeTheme.js');
     section.relativeThemeArea
-      +mTitle('typeLeft', '유사한 디자인 (<span class="count">7</span>)')
+      +mTitle('typeLeft', 'h3', '유사한 디자인 (<span class="count">7</span>)')
       +slider(relativeTheme1, relativeThemeData, 'typeTheme', 'theme', true, true)
 
-      +mTitle('typeLeft', '<a href="#" class="txtEm">패션/의류</a> 인기디자인 (<span class="count">16</span>)')
+      +mTitle('typeLeft', 'h3', '<a href="#" class="txtEm">패션/의류</a> 인기디자인 (<span class="count">16</span>)')
       +slider(relativeTheme2, relativeThemeData, 'typeTheme', 'theme', true, true)
 
 block append wrap

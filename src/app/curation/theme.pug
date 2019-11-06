@@ -7,8 +7,8 @@ include /components/stateBar
 
 block append contents
 
-    +mTitle('typeSub', '인싸들이 선택한 테마','나의 쇼핑몰 고객에게 인싸가 되는 핫한 디자인을 모았습니다.')
     section.curationArea
+        +mTitle('typeSub gEllipsis', 'h2', '인싸들이 선택한 테마','나의 쇼핑몰 고객에게 인싸가 되는 핫한 디자인을 모았습니다.')
         div.gInner
             +stateBar(false)
             - var curationThemeData = require('./src/js/data/curationTheme.js');

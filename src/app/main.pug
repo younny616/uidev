@@ -8,7 +8,7 @@ include /components/randomList
 block append contents
     include /components/mainvisual
     section.appListArea
-        +mTitle('typeLeft gBlankTop', '이번주를 뜨겁게 달군 인기 앱')
+        +mTitle('typeLeft gBlankTop', 'h3', '이번주를 뜨겁게 달군 인기 앱')
         div.gInner
             div.appGroup
                 +applist(false, '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', false, '/images/@img_app_icon.png')
@@ -24,7 +24,7 @@ block append contents
     - var bestTheme = 'bestTheme';
     - var bestThemeData = require('./src/js/data/bestTheme.js');
     section.bestThemeArea
-        +mTitle('typeLeft gBlankTop', '이번주 BEST 인기 테마')
+        +mTitle('typeLeft gBlankTop', 'h3', '이번주 BEST 인기 테마')
         +slider(bestTheme, bestThemeData, 'typeList', 'theme', true, true)
         +mPagination('typeMore', 'RMB')
 
@@ -38,12 +38,12 @@ block append contents
                 div.sliderWrapper
                     div.slide.item.randomApp
                         a(href="#") 자세히보기
-                        +mTitle('typeRandom', '<strong>APP</strong> <span>똑똑한 쇼핑몰 분석 앱 모음</span>', '잠재고객과 구매고객의 선호도를 분석하고 싶다면 분석 앱 어떤가요?', '자세히보기')
+                        +mTitle('typeRandom', 'h3', '<strong>APP</strong> <span>똑똑한 쇼핑몰 분석 앱 모음</span>', '잠재고객과 구매고객의 선호도를 분석하고 싶다면 분석 앱 어떤가요?', '자세히보기')
                         +randomList(randomListData, 'app')
                         +randomList(randomBackData, 'random')
                     div.slide.item.randomTheme
                         a(href="#") 자세히보기
-                        +mTitle('typeRandom', '<strong>THEME</strong> <span>똑똑한 쇼핑몰 분석 앱 모음</span>', '나의 쇼핑몰 고객에게 인싸가 될 수 있도록 핫한 디자인을 모았습니다', '자세히보기')
+                        +mTitle('typeRandom', 'h3', '<strong>THEME</strong> <span>똑똑한 쇼핑몰 분석 앱 모음</span>', '나의 쇼핑몰 고객에게 인싸가 될 수 있도록 핫한 디자인을 모았습니다', '자세히보기')
                         +randomList(randomThemeData, 'theme')
                         a(href="/" class="all")
             div.sliderPagination
@@ -51,13 +51,13 @@ block append contents
     - var newApp = 'newApp';
     - var newAppData = require('./src/js/data/newApp.js');
     section.newAppArea
-        +mTitle('typeLeft', '새로 출시된 앱')
+        +mTitle('typeLeft', 'h3', '새로 출시된 앱')
         +slider(newApp, newAppData, 'typeApp', 'app', true, true)
 
     - var newTheme = 'newTheme';
     - var newThemeData = require('./src/js/data/newTheme.js');
     section.newThemeArea
-        +mTitle('typeLeft', '따끈따끈 신규 테마')
+        +mTitle('typeLeft', 'h3', '따끈따끈 신규 테마')
         +slider(newTheme, newThemeData, 'typeTheme', 'theme', true, true)
 
     section.mainStoryArea

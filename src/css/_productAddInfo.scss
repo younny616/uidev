@@ -25,7 +25,7 @@
       }
     }
     .colorGroup { display:flex; width:280px; flex-wrap:wrap;
-      .colorChip { display:inline-block; width:40px; height:40px; margin:0 20px 0 0; border-radius:50%;
+      .colorChip { display:inline-block; width:40px; height:40px; margin:0 20px 0 0; border-radius:50%; border:1px solid rgba(0,0,0,.1); box-sizing:border-box;
         &:nth-of-type(4n+4) ~ .colorChip { margin:20px 20px 0 0; }
       }
     }

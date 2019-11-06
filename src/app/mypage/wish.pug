@@ -1,0 +1,46 @@
+extends /layouts/layout
+include /components/common/mTitle
+include /components/common/mEmpty
+include /components/stateBar
+include /components/list
+include /components/applist
+
+block append contents
+
+    section.wishAppArea
+        +mTitle('typeSub', 'h2', '마이페이지')
+        div.mTab.typeNav.gEqual
+            ul
+                li.selected
+                    a(href="#none") 관심상품
+                li
+                    a(href="#none") 문의내역
+        +mTitle('typeSub gSecond', 'h3', '앱')
+        div.gInner
+            div.stateBar
+                div.left
+                    div.total
+                        strong.data 6개
+                        | 결과
+            div.appGroup
+                +applist('typeSearch grid4', '앱 제목이', '마케팅', '1,000円', false, '/images/@img_app_icon.png')
+                +applist('typeSearch grid4', '앱 제목이 한줄일때', '마케팅', '1,000円', false, '/images/@img_app_icon.png')
+                +applist('typeSearch grid4', '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', false, '/images/@img_app_icon.png')
+                +applist('typeSearch grid4', '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', false, '/images/@img_app_icon.png')
+                +applist('typeSearch grid4', '앱 제목이 길어지면 이렇게 나옴 길다고 길다고', '마케팅', '1,000円', false, '/images/@img_app_icon.png')
+            +mEmpty('typeWish')
+
+    - var themeList2Data = require('./src/js/data/themeList2.js');
+    section.wishThemeArea
+        +mTitle('typeSub gSecond', 'h3', '테마')
+        div.gInner
+            div.stateBar
+                div.left
+                    div.total
+                        strong.data 1,222개
+                        | 결과
+            +list(themeList2Data, 'typeTheme')
+            +mEmpty('typeWish')
+
+block append body
+    script(src="/js/ui/mypage.js")

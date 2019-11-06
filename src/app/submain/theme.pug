@@ -17,14 +17,14 @@ block append contents
   - var bestTheme = 'bestTheme';
   - var bestThemeData = require('./src/js/data/bestTheme.js');
   section.bestThemeArea
-    +mTitle('typeLeft gBlankTop', '이번주 BEST 인기 테마')
+    +mTitle('typeLeft gBlankTop', 'h3', '이번주 BEST 인기 테마')
     +slider(bestTheme, bestThemeData, 'typeList', 'theme', true, true)
     +mPagination('typeMore', 'RMB')
 
   - var newTheme = 'newTheme';
   - var newThemeData = require('./src/js/data/newTheme.js');
   section.newThemeArea
-    +mTitle('typeLeft', '따끈따끈 신규 테마')
+    +mTitle('typeLeft', 'h3', '따끈따끈 신규 테마')
     +slider(newTheme, newThemeData, 'typeTheme', 'theme', true, true)
 
   - var combineTheme = 'combineTheme';
@@ -32,7 +32,7 @@ block append contents
   - var combineThumbs = 'combineThumbs';
   - var combineThumbsData = require('./src/js/data/combineThumbs.js');
   section.combineThemeArea
-    +mTitle('typeCenter', 'PC와 Mobile 세트 상품으로 완벽한 쇼핑몰 만들기', '디바이스 사이즈별 최적화된 디자인을 제공합니다.', '세트상품 전체보기')
+    +mTitle('typeCenter', 'h3', 'PC와 Mobile 세트 상품으로 완벽한 쇼핑몰 만들기', '디바이스 사이즈별 최적화된 디자인을 제공합니다.', '세트상품 전체보기')
     div.combineWrap
       div.combineThemeFrame
       +slider(combineTheme, combineThemeData, 'typeCombineTheme', 'combine', true, true)
@@ -42,23 +42,23 @@ block append contents
 
   - var freeThemeData = require('./src/js/data/freeTheme.js');
   section.freeThemeArea
-    +mTitle('typeLeft', '무료 테마', false, '전체보기')
+    +mTitle('typeLeft', 'h3', '무료 테마', false, '전체보기')
     +list(freeThemeData, 'typeTheme')
 
   - var mobileTheme = 'mobileTheme';
   - var mobileThemeData = require('./src/js/data/mobileTheme.js');
   section.mobileThemeArea
-    +mTitle('typeCenter', '혹시 모바일 테마를 찾고 계신가요?', '모바일에 최적화된 테마를 만나보세요.', '전체보기')
+    +mTitle('typeCenter', 'h3', '혹시 모바일 테마를 찾고 계신가요?', '모바일에 최적화된 테마를 만나보세요.', '전체보기')
     +slider(mobileTheme, mobileThemeData, 'typeZigzag', 'image', false, true)
 
   - var themeList1Data = require('./src/js/data/themeList1.js');
   section.themeListArea
-    +mTitle('typeLeft', '인싸들이 선택한 테마', '나의 쇼핑몰 고객에게 인싸가 되는 핫한 디자인을 모았습니다.', '전체보기')
+    +mTitle('typeLeft', 'h3', '인싸들이 선택한 테마', '나의 쇼핑몰 고객에게 인싸가 되는 핫한 디자인을 모았습니다.', '전체보기')
     +list(themeList1Data, 'typeTheme')
 
   - var themeList2Data = require('./src/js/data/themeList2.js');
   section.themeListArea
-    +mTitle('typeLeft', '미니멀리스트 테마모음', '미니멀리스트 디자인을 모았습니다.', '전체보기')
+    +mTitle('typeLeft', 'h3', '미니멀리스트 테마모음', '미니멀리스트 디자인을 모았습니다.', '전체보기')
     +list(themeList2Data, 'typeTheme')
 
   section.cateArea

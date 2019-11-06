@@ -1,15 +1,13 @@
 @include respond(mobile) {
-  .stateBar { display:flex; padding:20px 0; background:#fff;
+  .stateBar { display:flex; margin:18px 0 30px; background:#fff;
     .left {
-      .total { margin:12px 0 0; font-size:15px; }
+      .total { font-size:15px; line-height:18px; }
     }
     .right { margin:0 0 0 auto; }
   }
   /* reset */
-  .mTitle {
-    .stateBar { padding:0;
-      .total { margin:0; }
-    }
+  .mTitle + .gInner > .stateBar {
+    margin-top:15px;
   }
 }
 
@@ -27,6 +25,11 @@
       .total { margin:16px 0 0; font-size:16px; }
     }
     .right { margin:0 0 0 auto; }
+
+    /* reset */
+    .mTitle & { margin:0;
+      .total { margin:0; }
+    }
   }
 
 }

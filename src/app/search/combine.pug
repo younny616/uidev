@@ -1,4 +1,5 @@
 extends /layouts/layout
+include /components/common/mTitle
 include /components/searchHead
 include /components/stateBar
 include /components/list
@@ -10,17 +11,13 @@ block append contents
             +searchHead('typeTheme', false, '가나다라마')
 
     section.combineSearchAppArea
-        div.mTitle.typeLeft.gBlankTop
-            h3.title 앱
+        +mTitle('typeSub gSecond', 'h3', '앱', false, '전체보기')
+        div.gInner
             div.stateBar
                 div.left
                     div.total
                         strong.data 1,222개
                         | 결과
-                div.right
-                    a(href="#none" class="btnAll") 전체보기
-                        i.icoArrow
-        div.gInner
             div.appGroup
                 +applist('typeSearch grid4', '앱 제목이', '마케팅', '1,000円', '최소한의 서류 작업과 신용 확인없이 긴 신청 절차를 피하십시오.', '/images/@img_app_icon.png')
                 +applist('typeSearch grid4', '앱 제목이 한줄일때', '마케팅', '1,000円', '최소한의 서류 작업과 신용 확인없이 긴 신청 절차를 피하십시오.', '/images/@img_app_icon.png')
@@ -29,16 +26,11 @@ block append contents
 
     - var themeList2Data = require('./src/js/data/themeList2.js');
     section.combineSearchThemeArea
-        div.mTitle.typeLeft.gBlankTop
-            h3.title 테마
+        +mTitle('typeSub gSecond', 'h3', '테마', false, '전체보기')
+        div.gInner
             div.stateBar
                 div.left
                     div.total
                         strong.data 1,222개
                         | 결과
-                div.right
-                    a(href="#none" class="btnAll") 전체보기
-                        i.icoArrow
-
-        div.gInner
             +list(themeList2Data, 'typeTheme')
