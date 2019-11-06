@@ -112,10 +112,10 @@
           .txtWarn { font-size:inherit; margin:0 2px; }
         }
       }
-      .btnWrap { margin:30px 0 0;
+      .btnWrap { display:flex; justify-content:space-between; margin:30px 0 0;
         .btn {
-          &Em { width:calc(50% - 5px); margin:0 5px 0 0; font-weight:800; }
-          &Submit { width:calc(50% - 5px); margin:0 0 0 5px; font-weight:800; }
+          &Em { width:calc(50% - 5px); font-weight:800; }
+          &Submit { width:calc(50% - 5px); font-weight:800; }
           &Like { display:none; position:relative; width:48px; height:48px; margin:0 2px 0 0; border:1px solid #d8d8d9; border-radius:4px; transition:all .3s ease; vertical-align:top; @include blind();
             &:before,
             &:after { content:''; display:block; position:absolute; left:50%; top:50%; width:20px; height:18px; background:url('#{$src}/ico_like.png'); background-size:20px auto; transition:all .3s ease; transform:translate(-50%, -50%); }
@@ -283,10 +283,10 @@
         }
       }
 
-      .btnWrap { margin:30px 0 0;
+      .btnWrap { display:flex; justify-content:space-between; margin:30px 0 0;
         .btn {
-          &Em { min-width:204px; margin:0 6px 0 0; }
-          &Submit { min-width:204px; margin:0 0 0 6px; }
+          &Em { min-width:204px; }
+          &Submit { min-width:204px; }
         }
       }
     }

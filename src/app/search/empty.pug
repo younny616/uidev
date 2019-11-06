@@ -16,12 +16,12 @@ block append contents
 
   - var newAppData = require('./src/js/data/newApp.js');
   section.appListArea
-    +mTitle('typeSub', 'h3', '새로 출시된 앱')
+    +mTitle('typeSub gSecond', 'h3', '새로 출시된 앱')
     div.gInner
       +list(newAppData, 'typeApp')
 
   - var themeList2Data = require('./src/js/data/themeList2.js');
   section.themeListArea
-    +mTitle('typeSub', 'h3', '미니멀리스트 테마모음', '미니멀리스트 디자인을 모았습니다.', '전체보기')
+    +mTitle('typeSub gSecond', 'h3', '미니멀리스트 테마모음', '미니멀리스트 디자인을 모았습니다.', '전체보기')
     div.gInner
       +list(themeList2Data, 'typeTheme')
