@@ -737,8 +737,8 @@
   }
 
   /* mTab */
-  .mTab.typeNav { border-bottom:1px solid #000;
-    ul { display:flex;
+  .mTab.typeNav { max-width:1404px; margin:0 auto; padding:0 20px;
+    ul { display:flex; border-bottom:1px solid #000;
       li { padding:0 0 22px;
         a { font-size:18px; color:#7b7b7b; }
         &.selected a { color:#000; }
