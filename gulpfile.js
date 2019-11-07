@@ -40,6 +40,7 @@ const buildReplace = (onDeploy) => {
   return replace(/(src|href)="([^"]*)"/g, (match, param, string, offset) => {
     let protocol = /(?:((http(s?))\:)?\/\/)/g;
     let css = /.*(css)$/g;
+    let svg = /.*(svg)/g;
     let baseDir = `${project.build.baseDir}${string}`;
     let etcDir = `${project.build.etcDir}${string}`;
 
@@ -53,7 +54,7 @@ const buildReplace = (onDeploy) => {
         if (image.test(string)) return `${param}="${project.deploy.echosting}/${etcDir}"`;
       }
 
-      if (!css.test(string) && param === 'href') {
+      if (!css.test(string) && !svg.test(string) && param === 'href') {
         return `${param}="/${baseDir}"`;
       } else {
         return `${param}="/${etcDir}"`;
@@ -94,8 +95,8 @@ const live = (done) => {
 const html = () => {
   return src(paths.html.src)
     .on('error', function (err) {
-        console.log(err.toString());
-        this.emit('end');
+      console.log(err.toString());
+      this.emit('end');
     })
     .pipe(!isProduction ? dest(paths.html.dest) : dest(buildPath.base));
 };
@@ -120,8 +121,8 @@ const pugs = () => {
       },
     }))
     .on('error', function (err) {
-        console.log(err.message.toString());
-        this.emit('end');
+      console.log(err.message.toString());
+      this.emit('end');
     })
     .pipe(mode.production(buildReplace(isDeploy)))
     .pipe(prettify(prettifyOptions))
@@ -141,10 +142,10 @@ const styles = () => {
       this.emit('end');
     })
     .pipe(autoprefixer())
-    .pipe(cleanCSS({compatibility: 'ie8'}))
+    .pipe(cleanCSS({ compatibility: 'ie8' }))
     .pipe(rename({
-        basename: project.title,
-        suffix: '.min'
+      basename: project.title,
+      suffix: '.min'
     }))
     .pipe(sourcemaps.write('.'))
     .pipe(!isProduction ? dest(paths.styles.dest) : dest(`${buildPath.etc}/${project.build.styles}`));
@@ -165,22 +166,22 @@ const scripts = () => {
 
   return bundler.bundle()
     .on('error', function (err) {
-        console.log(err.toString());
-        this.emit('end');
+      console.log(err.toString());
+      this.emit('end');
     })
     .pipe(source(`${project.title}.bundle.js`))
     .pipe(buffer())
     .pipe(sourcemaps.init({
-        loadMaps: true
+      loadMaps: true
     }))
     .pipe(minify({
-        ext: {
-              min: '.min.js'
-        },
-        mangle: true,
-        preserveComments: 'some',
-        ignoreFiles: ['-min.js'],
-        noSource: true
+      ext: {
+        min: '.min.js'
+      },
+      mangle: true,
+      preserveComments: 'some',
+      ignoreFiles: ['-min.js'],
+      noSource: true
     }))
     .pipe(sourcemaps.write('./'))
     .pipe(!isProduction ? dest(paths.scripts.dest) : dest(`${buildPath.etc}/${project.build.scripts}`));
@@ -224,7 +225,7 @@ const images = () => {
             }
           ]
         })
-    ])))
+      ])))
     .pipe(!isProduction ? dest(paths.images.dest) : dest(`${buildPath.etc}/${project.build.images}`));
 }
 
