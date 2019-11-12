@@ -700,6 +700,8 @@
       }
     }
   }
+  /* reset */
+  .listWrap + .mPagination { margin-top:0; }
 
   .fSelect { display:inline-block; position:relative; min-width:100px; padding:0 32px 0 16px; border:1px solid #e8e8e8; box-sizing:border-box; border-radius:4px; line-height:1; text-align:left;
     &:after { content:''; display:block; position:absolute; right:16px; top:calc(50% - 2px); width:9px; height:5px; background:url('#{$src}/ico_select.png') no-repeat center center; background-size:9px 5px; transition:transform .3s ease; transform:rotate(-180deg); }
