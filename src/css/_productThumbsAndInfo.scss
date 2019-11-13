@@ -1,6 +1,6 @@
 @include respond(mobile) {
   .fixed { transition-duration:.3s; transition-timing-function:ease; transition-property:transform, opacity;
-    &.scrollUp { transform:translateY(0); }
+    &.scrollUp { }
     &.scrollDown { transform:translateY(-100%); }
   }
 
@@ -168,7 +168,7 @@
 
 @include respond(tablet-pc) {
   .fixed { transition-duration:.3s; transition-timing-function:ease; transition-property:transform, opacity;
-    &.scrollUp { transform:translateY(0); }
+    &.scrollUp {}
     &.scrollDown { transform:translateY(-100%); }
   }
 
@@ -337,7 +337,7 @@
 
 @include respond(tablet) {
   .fixed {
-    &.scrollUp { transform:translateY(0); }
+    &.scrollUp {}
     &.scrollDown { transform:translateY(-50px); }
   }
 

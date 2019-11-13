@@ -13,11 +13,12 @@
 
 @import 'fonts/notosans';
 
-//nyyoon
 //common
 @import 'applist';
 @import 'stateBar';
 @import 'sortList';
+@import 'slider';
+@import 'list';
 //main, submain
 @import 'mainvisual';
 @import 'subvisual';
@@ -27,6 +28,7 @@
 @import 'partnermeet';
 //search
 @import 'searchHead';
+@import 'filter';
 //product
 @import 'screenshot';
 @import 'productMerit';
@@ -37,6 +39,9 @@
 @import 'partnerInfo';
 @import 'productKeyword';
 @import 'appRaking';
+@import 'productThumbsAndInfo';
+@import 'productReview';
+@import 'sample';
 //etc
 @import 'terms';
 @import 'faqTop';
@@ -46,16 +51,3 @@
 @import 'storyList';
 //partners
 @import 'partnerList';
-
-
-
-
-
-
-// jwhyun
-@import 'slider';
-@import 'list';
-@import 'filter';
-@import 'productThumbsAndInfo';
-@import 'productReview';
-@import 'sample';
